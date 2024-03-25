@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User5.Goal4_VRequest.AcceptLIstSceneFxmlController">
+   <children>
+      <Label layoutX="382.0" layoutY="100.0" text="Accepted Request">
+         <font>
+            <Font name="Cooper Black" size="48.0" />
+         </font>
+      </Label>
+      <TableView fx:id="acceptListTableView" layoutY="200.0" prefHeight="601.0" prefWidth="1200.0" />
+   </children>
+</AnchorPane>

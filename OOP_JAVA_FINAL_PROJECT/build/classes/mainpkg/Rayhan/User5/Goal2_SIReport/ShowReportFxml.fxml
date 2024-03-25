@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User5.Goal2_SIReport.ShowReportFxmlController">
+   <children>
+      <Label layoutX="514.0" layoutY="76.0" text="Report">
+         <font>
+            <Font name="Cooper Black" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="100.0" layoutY="183.0" text="From">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="100.0" layoutY="219.0" text="To">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="100.0" layoutY="257.0" text="Date">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="100.0" layoutY="304.0" text="Subject">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="fromLabel" layoutX="218.0" layoutY="183.0">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="subjectLabel" layoutX="218.0" layoutY="304.0">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateLabel" layoutX="218.0" layoutY="257.0">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="toLabel" layoutX="218.0" layoutY="219.0">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="reportBodyTextArea" editable="false" layoutX="100.0" layoutY="354.0" prefHeight="400.0" prefWidth="1000.0">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>

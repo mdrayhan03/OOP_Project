@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User5.Goal2_SIReport.SecurityInchargeReportSceneFxmlController">
+   <children>
+      <Button layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClick" prefHeight="50.0" prefWidth="100.0" text="Back">
+         <font>
+            <Font name="Cooper Black" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="264.0" layoutY="101.0" text="Report to Security Incharge">
+         <font>
+            <Font name="Cooper Black" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="84.0" layoutY="242.0" text="Date">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="84.0" layoutY="294.0" text="Subject">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ddTextField" alignment="CENTER_RIGHT" layoutX="217.0" layoutY="231.0" prefHeight="51.0" prefWidth="150.0" promptText="dd">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="subjectTextField" layoutX="217.0" layoutY="282.0" prefWidth="900.0" promptText="Report on.........">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="mmTextField" alignment="CENTER_RIGHT" layoutX="391.0" layoutY="231.0" prefHeight="51.0" prefWidth="150.0" promptText="mm">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="yyyyTextField" alignment="CENTER_RIGHT" layoutX="567.0" layoutY="231.0" prefHeight="51.0" prefWidth="150.0" promptText="yyyy">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="reportBodyTextArea" layoutX="217.0" layoutY="345.0" prefHeight="375.0" prefWidth="900.0" promptText="Write report here..." wrapText="true">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </TextArea>
+      <Button layoutX="969.0" layoutY="736.0" mnemonicParsing="false" onMouseClicked="#submitOnMouseClick" prefHeight="50.0" prefWidth="150.0" text="Submit">
+         <font>
+            <Font name="Cooper Black" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="84.0" layoutY="192.0" text="To">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="siIdTextField" layoutX="217.0" layoutY="180.0" prefHeight="51.0" prefWidth="325.0" promptText="Security Incharge ID">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

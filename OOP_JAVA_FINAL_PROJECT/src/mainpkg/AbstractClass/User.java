@@ -7,9 +7,9 @@ import java.util.ArrayList;
  *
  * @author RayhaN
  */
-public class User {
+public abstract class User {
     int id ;
-    String name , password , phoneNo , email , userType;
+    String name , password , phoneNo , email , userType , status = "Deactive" ;
     String dob ;
     ArrayList<String> holidayList ;
 
@@ -50,6 +50,14 @@ public class User {
     public String getDob() {
         return dob;
     }
+    
+    public String getStatus() {
+        return status;
+    }
+
+    public ArrayList<String> getHolidayList() {
+        return holidayList;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -75,21 +83,33 @@ public class User {
         this.userType = userType;
     }
 
-//    public void setDob(String dob) {
-//        this.dob = dob;
-//    }
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setHolidayList(ArrayList<String> holidayList) {
+        this.holidayList = holidayList;
+    }
+    
+    public void setHoliday(String holi) {
+        this.holidayList.add(holi) ;
+    }
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", name=" + name + ", password=" + password + ", phoneNo=" + phoneNo + ", email=" + email + ", userType=" + userType + '}';
+        return "User{" + "id=" + id + ", name=" + name + ", password=" + password + ", phoneNo=" + phoneNo + ", email=" + email + ", userType=" + userType + ", status=" + status + ", dob=" + dob + ", holidayList=" + holidayList + '}';
     }
-    
-    
+
     
     public User verifyLogin(int id , String pw) {
         int userId = this.getId() ;
         String userPw = this.getPassword() ;
         if (userId == id && userPw.equals(pw)) {
+            this.setStatus("Active") ;
             return this ;
         }
         return null ;

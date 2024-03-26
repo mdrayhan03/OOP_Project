@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User6.Goal1_Schedule.ScheduleSceneFxmlController">
+   <children>
+      <Button layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClick" prefHeight="50.0" prefWidth="100.0" text="Back">
+         <font>
+            <Font name="Cooper Black" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="490.0" layoutY="100.0" text="Schedule">
+         <font>
+            <Font name="Cooper Black" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="101.0" layoutY="172.0" text="Teacher ID">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font></Label>
+      <Label layoutX="646.0" layoutY="174.0" text="Course ID">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="99.0" layoutY="230.0" text="Time">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="417.0" layoutY="230.0" text="Place">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="757.0" layoutY="230.0" text="Date">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="teacherIdComboBox" layoutX="247.0" layoutY="172.0" prefWidth="300.0" />
+      <ComboBox fx:id="courseidComboBox" layoutX="801.0" layoutY="172.0" prefWidth="300.0" />
+      <ComboBox fx:id="timeComboBox" layoutX="179.0" layoutY="229.0" prefWidth="200.0" />
+      <ComboBox fx:id="placeComboBox" layoutX="502.0" layoutY="229.0" prefWidth="200.0" />
+      <TextField fx:id="ddTextField" alignment="CENTER_RIGHT" layoutX="828.0" layoutY="222.0" prefHeight="44.0" prefWidth="58.0" promptText="dd">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="mmTextField" alignment="CENTER_RIGHT" layoutX="897.0" layoutY="222.0" prefHeight="44.0" prefWidth="73.0" promptText="mm">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="yyyyTextField" alignment="CENTER_RIGHT" layoutX="984.0" layoutY="222.0" prefHeight="44.0" prefWidth="117.0" promptText="yyyy">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <Button layoutX="101.0" layoutY="266.0" mnemonicParsing="false" onMouseClicked="#scheduleOnMouseClick" prefWidth="1000.0" text="Add Schedule">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="24.0" />
+         </font>
+      </Button>
+      <TableView fx:id="scheduleTableView" layoutY="325.0" prefHeight="475.0" prefWidth="1200.0">
+         <columns>
+            <TableColumn fx:id="idTableColumn" prefWidth="250.0" text="ID" />
+            <TableColumn fx:id="teacherIdTableColumn" prefWidth="250.0" text="Teacher ID" />
+            <TableColumn fx:id="courseIdTableColumn" prefWidth="250.0" text="Course ID" />
+            <TableColumn fx:id="timeTableColumn" prefWidth="150.0" text="Time" />
+            <TableColumn fx:id="placeTableColumn" minWidth="0.0" prefWidth="150.0" text="Place" />
+            <TableColumn fx:id="dateTableColumn" prefWidth="150.0" text="Date" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

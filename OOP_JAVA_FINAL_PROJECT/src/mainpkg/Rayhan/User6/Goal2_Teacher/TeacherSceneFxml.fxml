@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User6.Goal2_Teacher.TeacherSceneFxmlController">
+   <children>
+      <Button layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClick" prefHeight="50.0" prefWidth="100.0" text="Back">
+         <font>
+            <Font name="Cooper Black" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="502.0" layoutY="100.0" text="Teacher">
+         <font>
+            <Font name="Cooper Black" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="100.0" layoutY="222.0" text="Name">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="100.0" layoutY="261.0" text="Phone No">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="591.0" layoutY="261.0" text="Date of Joining">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="showLabel" alignment="TOP_LEFT" layoutX="100.0" layoutY="310.0" prefHeight="200.0" prefWidth="400.0" text="Label">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameTextField" layoutX="239.0" layoutY="203.0" prefHeight="44.0" prefWidth="850.0" promptText="Abul Kalam">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="pNTextField" layoutX="239.0" layoutY="253.0" promptText="Abul Kalam">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ddTextField" alignment="CENTER_RIGHT" layoutX="784.0" layoutY="253.0" prefHeight="44.0" prefWidth="63.0" promptText="dd">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="mmTextField" alignment="CENTER_RIGHT" layoutX="856.0" layoutY="253.0" prefHeight="44.0" prefWidth="71.0" promptText="mm">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="yyyyTextField" alignment="CENTER_RIGHT" layoutX="935.0" layoutY="253.0" prefHeight="44.0" prefWidth="154.0" promptText="yyyy">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <Button layoutX="674.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#addTeacherOnMouseClick" text="Add New Teacher">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="36.0" />
+         </font>
+      </Button>
+      <TableView fx:id="teacherTableView" layoutY="510.0" prefHeight="291.0" prefWidth="1200.0">
+         <columns>
+            <TableColumn fx:id="idTableColumn" prefWidth="258.0" text="ID" />
+            <TableColumn fx:id="nameTableColumn" prefWidth="415.0" text="Name" />
+            <TableColumn fx:id="pNTableColumn" prefWidth="313.0" text="Phone No" />
+            <TableColumn fx:id="dojTableColumn" prefWidth="213.0" text="Date of Joining" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="CampManager.SupplySceneController">
+   <children>
+      <Button layoutX="230.0" layoutY="215.0" mnemonicParsing="false" onAction="#supplyInstrumentsOnButtonClick" prefHeight="84.0" prefWidth="139.0" style="-fx-border-color: black;" text="Supply Educational Instruments" textAlignment="CENTER" textFill="#f80000" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="344.0" layoutY="88.0" mnemonicParsing="false" onAction="#supplyMedicineOnButtonClick" prefHeight="75.0" prefWidth="125.0" style="-fx-border-color: black;" text="Supply Medicine" textAlignment="CENTER" textFill="#f80000" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="139.0" layoutY="88.0" mnemonicParsing="false" onAction="#supplyFoodOnButtonClick" prefHeight="75.0" prefWidth="125.0" style="-fx-border-color: black;" text="Supply Food" textAlignment="CENTER" textFill="#f80000" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="278.0" layoutY="22.0" text="Supply" textFill="#e40505">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Line endX="100.0" layoutX="305.0" layoutY="55.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="305.0" layoutY="14.0" startX="-100.0" />
+      <Button layoutX="30.0" layoutY="20.0" mnemonicParsing="false" onAction="#supplyBackButton" prefHeight="37.0" prefWidth="71.0" text="Back" />
+   </children>
+</AnchorPane>

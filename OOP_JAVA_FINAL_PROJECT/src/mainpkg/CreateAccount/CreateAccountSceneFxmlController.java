@@ -1,5 +1,8 @@
 package mainpkg.CreateAccount;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -129,7 +132,7 @@ public class CreateAccountSceneFxmlController implements Initializable {
             alert.showAndWait() ;
         }
         
-        if (cpw.equals(pw)) {
+        if (!cpw.equals(pw)) {
             alert = new Alert(Alert.AlertType.WARNING) ;
             alert.setHeaderText("Password Error.") ;
             alert.setContentText("Password and Confirm Password is not same.") ;
@@ -186,26 +189,47 @@ public class CreateAccountSceneFxmlController implements Initializable {
                 break;
         }
         User u = null ;
+        String str1 = null , str2 = null ;
         if (rtn == true) {  
-            if (userType == "VolunteerCoordinator") {
+            if (userType == "Volunteer Coordinator") {
                    u = new VolunteerCoordinator(id , name , cpw , phoneNo , email , userType , dob.toString()) ;           
             }
-            else if (userType == "EducationCoordinator") {
+            else if (userType == "Education Coordinator") {
                    u = new EducationCoordinator(id , name , cpw , phoneNo , email , userType , dob.toString()) ;
             }
             
+            try {
+                FileOutputStream fos = new FileOutputStream("src/File/UserObjFile.bin" , true) ;
+                ObjectOutputStream oos = new ObjectOutputStream(fos) ;
+                
+                oos.writeObject(u) ;
+                
+                oos.close() ;
+            }
+            catch (Exception e) {
+                alert = new Alert(Alert.AlertType.ERROR) ;
+                alert.setHeaderText("File Error") ;
+                alert.setContentText("Unable to open file for Exception : " + e.getClass().getName()) ;
+                alert.showAndWait() ;
+            }
         
-            String str1 = "ID : " + u.getId() +"\n"+
+            str1 = "ID : " + u.getId() +"\n"+
                      "Name : " + u.getName() +"\n"+
                      "Phone No : " + u.getPhoneNo()+"\n" ;
         
-            String str2 = "Email : " + u.getEmail() +"\n"+
+            str2 = "Email : " + u.getEmail() +"\n"+
                      "Date of Birth : " + u.getDob() +"\n"+
                      "User Type : " + u.getUserType() ;
         
             showOutput1Label.setText(str1) ;
             showOutput2Label.setText(str2) ;
             }
+        else {
+            alert = new Alert(Alert.AlertType.ERROR) ;
+            alert.setHeaderText("User Error") ;
+            alert.setContentText("Unable to Construct.") ;
+            alert.showAndWait() ;
+        }
         
         nameTextField.clear() ;
         phoneNoTextField.clear() ;

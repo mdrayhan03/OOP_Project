@@ -1,12 +1,13 @@
 package mainpkg.Rayhan.User5;
 
+import java.io.Serializable;
 import mainpkg.AbstractClass.User;
 
 /**
  *
  * @author RayhaN
  */
-public class VolunteerCoordinator extends User{
+public class VolunteerCoordinator extends User implements Serializable{
     int volunteerAmount = 0 ;
     int volunteerOnWork = 0 ;
     int volunteerFree = 0 ;

@@ -12,42 +12,42 @@
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="80.0" mnemonicParsing="false" onMouseClicked="#volunteerOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Volunteer">
+      <Button layoutY="80.0" mnemonicParsing="false" onMouseClicked="#scheduleOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Schedule">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="160.0" mnemonicParsing="false" onMouseClicked="#getRequestOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Get Request">
+      <Button layoutY="160.0" mnemonicParsing="false" onMouseClicked="#teacherOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Teacher">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="240.0" mnemonicParsing="false" onMouseClicked="#reportAidExecutiveOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Report to Aid Executive">
+      <Button layoutY="240.0" mnemonicParsing="false" onMouseClicked="#requestForVolunteerOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Request for Volunteer">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="320.0" mnemonicParsing="false" onMouseClicked="#reportSecurityInchargeOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Report to Security Incharge">
+      <Button layoutY="320.0" mnemonicParsing="false" onMouseClicked="#studentOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Student">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="400.0" mnemonicParsing="false" onMouseClicked="#scheduleOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Schedule">
+      <Button layoutY="400.0" mnemonicParsing="false" onMouseClicked="#needsOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Needs">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="480.0" mnemonicParsing="false" onMouseClicked="#requestCampaignOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Request Campaign">
+      <Button layoutY="480.0" mnemonicParsing="false" onMouseClicked="#progressOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Progress Report">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="560.0" mnemonicParsing="false" onMouseClicked="#emergencyRequestOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Emergency Request">
+      <Button layoutY="560.0" mnemonicParsing="false" onMouseClicked="#storageOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Storage">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="640.0" mnemonicParsing="false" onMouseClicked="#reportOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Report">
+      <Button layoutY="640.0" mnemonicParsing="false" onMouseClicked="#CampaignOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Campaign">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>

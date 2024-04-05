@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.User;
 
 /**
  * FXML Controller class
@@ -26,23 +27,33 @@ public class DashBoardSceneFxmlController implements Initializable {
     @FXML    private Label idLabel;
     
     Alert alert ;
+    User user ;
 
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
+    public void get() {
+        
+    }
+    
+    public void set(User u) {
+        user = u ;
+        nameLabel.setText(user.getName());
+        userTypeLabel.setText(user.getUserType());
+        idLabel.setText(Integer.toString(user.getId()));
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-//        alert = new Alert(Alert.AlertType.CONFIRMATION) ;
-//        alert.setHeaderText("Verification Confirmed.");
     }    
-
+    
     @FXML
     private void profileOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Profile/ProfileSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Profile/ProfileSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
 
@@ -120,7 +131,7 @@ public class DashBoardSceneFxmlController implements Initializable {
     @FXML
     private void requestCampaignOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal6_Campaign/CampaignSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Campaign/CampaignSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
 

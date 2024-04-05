@@ -5,49 +5,49 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User6.DashBoardSceneFxmlController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User8.DashBoardSceneFxmlController">
    <children>
       <Button mnemonicParsing="false" onMouseClicked="#profileOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Profile">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="80.0" mnemonicParsing="false" onMouseClicked="#scheduleOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Schedule">
+      <Button layoutY="80.0" mnemonicParsing="false" onMouseClicked="#campInfoOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Camp Info">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="160.0" mnemonicParsing="false" onMouseClicked="#teacherOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Teacher">
+      <Button layoutY="160.0" mnemonicParsing="false" onMouseClicked="#managementInfoOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Management Info">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="240.0" mnemonicParsing="false" onMouseClicked="#requestForVolunteerOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Request for Volunteer">
+      <Button layoutY="240.0" mnemonicParsing="false" onMouseClicked="#stockInfoOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Stock Info">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="320.0" mnemonicParsing="false" onMouseClicked="#studentOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Student">
+      <Button layoutY="320.0" mnemonicParsing="false" onMouseClicked="#donationOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Donation">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="400.0" mnemonicParsing="false" onMouseClicked="#needsOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Needs">
+      <Button layoutY="400.0" mnemonicParsing="false" onMouseClicked="#educationOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Education Facilities">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="480.0" mnemonicParsing="false" onMouseClicked="#progressOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Progress Report">
+      <Button layoutY="480.0" mnemonicParsing="false" onMouseClicked="#medicalOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Medical Facilities">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="560.0" mnemonicParsing="false" onMouseClicked="#storageOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Storage">
+      <Button layoutY="560.0" mnemonicParsing="false" onMouseClicked="#campaignOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Campaign">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="640.0" mnemonicParsing="false" onMouseClicked="#CampaignOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Campaign">
+      <Button layoutY="640.0" mnemonicParsing="false" onMouseClicked="#reportOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Report">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>

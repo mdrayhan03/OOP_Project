@@ -20,7 +20,7 @@
             <Font name="Cooper Black" size="48.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="222.0" text="Name">
+      <Label layoutX="100.0" layoutY="211.0" text="Name">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
@@ -45,7 +45,7 @@
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="pNTextField" layoutX="239.0" layoutY="253.0" promptText="Abul Kalam">
+      <TextField fx:id="pNTextField" layoutX="239.0" layoutY="253.0" promptText="01XXXXXXXXX">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
@@ -65,7 +65,7 @@
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </TextField>
-      <Button layoutX="674.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#addTeacherOnMouseClick" text="Add New Teacher">
+      <Button layoutX="725.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#addTeacherOnMouseClick" text="Add New Teacher">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="36.0" />
          </font>

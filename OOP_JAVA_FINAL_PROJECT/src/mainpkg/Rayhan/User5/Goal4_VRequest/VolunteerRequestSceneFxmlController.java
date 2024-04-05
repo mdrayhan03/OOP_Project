@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -24,6 +25,13 @@ public class VolunteerRequestSceneFxmlController implements Initializable {
 
     @FXML    private ComboBox<?> requestIdComboBox;
     @FXML    private TableView<?> requestTableView;
+    @FXML    private TableColumn<?, ?> idTableColumn;
+    @FXML    private TableColumn<?, ?> reasonTableColumn;
+    @FXML    private TableColumn<?, ?> timeTableColumn;
+    @FXML    private TableColumn<?, ?> placeTableColumn;
+    @FXML    private TableColumn<?, ?> dateTableColumn;
+    @FXML    private TableColumn<?, ?> amountTableColumn;
+    @FXML    private TableColumn<?, ?> statusTableColumn;
 
     /**
      * Initializes the controller class.

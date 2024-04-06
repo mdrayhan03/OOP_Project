@@ -28,8 +28,10 @@ public class ProfileSceneFxmlController implements Initializable {
     @FXML    private Label userTypeLabel;
     @FXML    private Label pNLabel;
     @FXML    private Label emailLabel;
+    @FXML    private Label genderLabel;
     
     User user ;
+   
 
     /**
      * Initializes the controller class.
@@ -49,6 +51,7 @@ public class ProfileSceneFxmlController implements Initializable {
         userTypeLabel.setText(user.getUserType()) ;
         pNLabel.setText(user.getPhoneNo()) ;
         emailLabel.setText(user.getEmail()) ;
+        genderLabel.setText(user.getGender()) ;
     }
     
     @Override

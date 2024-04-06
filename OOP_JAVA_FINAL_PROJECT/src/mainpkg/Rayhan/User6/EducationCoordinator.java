@@ -11,9 +11,11 @@ public class EducationCoordinator extends User implements Serializable {
     int teacherAmount = 0 ;
     int studentAmount = 0 ;
 
-    public EducationCoordinator(int id, String name, String password, String phoneNo, String email, String userType, String dob) {
-        super(id, name, password, phoneNo, email, userType, dob);
+    public EducationCoordinator(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob) {
+        super(id, name, password, phoneNo, email, userType, gender, dob);
     }
+
+
 
     public int getTeacherAmount() {
         return teacherAmount;

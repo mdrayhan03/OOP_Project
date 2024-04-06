@@ -29,7 +29,7 @@ public class DashBoard5SceneFxmlController implements Initializable {
     @FXML    private Label idLabel;
     
     Alert alert ;
-    User user ;
+    VolunteerCoordinator user ;
 
     /**
      * Initializes the controller class.
@@ -40,7 +40,7 @@ public class DashBoard5SceneFxmlController implements Initializable {
         return user ;
     }
     
-    public void set(User u) {
+    public void set(VolunteerCoordinator u) {
         user = u ;
         nameLabel.setText(user.getName());
         userTypeLabel.setText(user.getUserType());

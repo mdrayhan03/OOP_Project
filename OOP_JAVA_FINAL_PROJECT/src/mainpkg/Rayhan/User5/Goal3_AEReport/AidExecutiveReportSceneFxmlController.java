@@ -17,8 +17,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
-import mainpkg.Rayhan.User5.Goal2_SIReport.SIReport;
-import mainpkg.Rayhan.User5.Goal2_SIReport.SIReportList;
 import mainpkg.Rayhan.User5.Goal3_AEReport.ShowReportFxmlController;
 
 /**
@@ -80,7 +78,7 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
         receiverId = Integer.parseInt(aeIdTextField.getText()) ;
         if (receiverId == null) {
             alert = new Alert(Alert.AlertType.ERROR) ;
-            alert.setHeaderText("Security Incharge ID Error") ;
+            alert.setHeaderText("Aid Executive ID Error") ;
             alert.setContentText("ID must.") ;
         }
         
@@ -145,7 +143,7 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
             Stage stage = new Stage() ;
             stage.setScene(myScene) ;
             stage.getIcons().add(new Image("/image/campIcon.jpg")) ;
-            stage.setTitle("Volunteer Coordinator DashBoard") ;
+            stage.setTitle("Volunteer Coordinator Show Report") ;
             stage.show() ;
         }
     }

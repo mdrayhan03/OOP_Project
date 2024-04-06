@@ -1,14 +1,14 @@
-package mainpkg.Rayhan.User5.Goal2_SIReport;
+package mainpkg.Rayhan.User5.Goal8_Report;
 
 /**
  *
  * @author RayhaN
  */
-public class SIReportList {
+public class ReportList {
     Integer senderId , receiverId ;
     String siId , id ;
 
-    public SIReportList(Integer senderId, Integer receiverId, String siId) {
+    public ReportList(Integer senderId, Integer receiverId, String siId) {
         this.senderId = senderId;
         this.receiverId = receiverId;
         this.siId = siId;
@@ -52,7 +52,7 @@ public class SIReportList {
 
     @Override
     public String toString() {
-        return "SIReportList{" + "senderId=" + senderId + ", receiverId=" + receiverId + ", siId=" + siId + ", id=" + id + '}';
+        return "ReportList{" + "senderId=" + senderId + ", receiverId=" + receiverId + ", siId=" + siId + ", id=" + id + '}';
     }
     
     

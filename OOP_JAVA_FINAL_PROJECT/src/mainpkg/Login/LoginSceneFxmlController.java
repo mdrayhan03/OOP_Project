@@ -103,16 +103,16 @@ public class LoginSceneFxmlController implements Initializable {
             User u = user.verifyLogin(id, pw) ;
             if (u != null) {
                 done = true ;
-                if ("Volunteer Coordinator".equals(u.getUserType())) {
-                    FXMLLoader fx = fxmlload("/mainpkg/Rayhan/User5/DashBoard5SceneFxml.fxml" , "Volunteer Coordinator" , event) ;
-                    System.out.println("Volunteer Coordinator") ;
-                    DashBoard5SceneFxmlController ds = fx.getController() ;
-                    ds.set(u) ;
+                if (userType == "Volunteer Coordinator"){
+                FXMLLoader fx = fxmlload("/mainpkg/Rayhan/User5/DashBoard5SceneFxml.fxml" , "Volunteer Coordinator" , event) ;
+                System.out.println("Volunteer Coordinator") ;
+                DashBoard5SceneFxmlController ds = fx.getController() ;
+//                ds.set(u) ;
                 }
                 else if ("Education Coordinator".equals(u.getUserType())) {
                     FXMLLoader fx = fxmlload("/mainpkg/Rayhan/User6/DashBoard6SceneFxml.fxml" , "Education Coordinator" , event) ;
                     System.out.println("Volunteer Coordinator") ;
-                    DashBoard5SceneFxmlController ds = fx.getController() ;
+                    DashBoard6SceneFxmlController ds = fx.getController() ;
                     ds.set(u) ;
                 }
             }

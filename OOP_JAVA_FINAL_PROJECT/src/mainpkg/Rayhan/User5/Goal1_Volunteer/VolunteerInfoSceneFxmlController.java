@@ -19,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -26,6 +27,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rayhan.User5.VolunteerCoordinator;
 
 /**
  * FXML Controller class
@@ -41,10 +43,14 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
     @FXML    private TableColumn<Volunteer, String> addedByTableColumn;
     @FXML    private TextField nameTextField;
     @FXML    private TextField pNTextField;
+    @FXML    private Label totalLabel;
+    @FXML    private Label freeLabel;
+    @FXML    private Label workLabel;
     
     Alert alert ;
-    User user ;
+    VolunteerCoordinator user ;
     ObservableList<Volunteer> list = FXCollections.observableArrayList() ;
+
     
     
     /**
@@ -53,15 +59,18 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
      * @param rb
      */
     
-    public User get() {
+    public VolunteerCoordinator get() {
         return user ;
     }
-    public void set(User u) {
+    public void set(VolunteerCoordinator u) {
         user = u ;
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        totalLabel.setText(Integer.toString(user.getVolunteerAmount())) ;
+        freeLabel.setText(Integer.toString(user.getVolunteerFree())) ;
+        workLabel.setText(Integer.toString(user.getVolunteerOnWork())) ;
         idTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("id")) ;
         nameTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("name")) ;
         pNTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("phoneN")) ;
@@ -126,6 +135,8 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         
         if (rtn == true) {
             Volunteer vc = new Volunteer (name , pN , user.getName()) ;
+            user.setVolunteerAmount(1) ;
+            user.setVolunteerFree(1) ;
             list.add(vc) ;
             
                 
@@ -133,6 +144,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
                 File f = new File("src/File/VolunteerInfo.bin") ;
                 if (f.exists()) {f.delete() ;}
                 FileOutputStream fos = new FileOutputStream("src/File/VolunteerInfo.bin" , true) ;
+//                ObjectOutputStream oos = new AppendableObjectOutputStream(fos) ;
                 ObjectOutputStream oos = new ObjectOutputStream(fos) ;
                 for (Volunteer v: list){
                     oos.writeObject(v) ;

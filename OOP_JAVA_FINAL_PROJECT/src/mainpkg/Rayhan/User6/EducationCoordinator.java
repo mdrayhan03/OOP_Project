@@ -15,6 +15,10 @@ public class EducationCoordinator extends User implements Serializable {
         super(id, name, password, phoneNo, email, userType, gender, dob);
     }
 
+    public EducationCoordinator(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 
 
     public int getTeacherAmount() {

@@ -8,7 +8,6 @@ import mainpkg.AbstractClass.User;
  * @author RayhaN
  */
 public class VolunteerCoordinator extends User implements Serializable{
-    private static final long serialVersionUID = 1L ;
     int volunteerAmount = 0 ;
     int volunteerOnWork = 0 ;
     int volunteerFree = 0 ;
@@ -32,15 +31,15 @@ public class VolunteerCoordinator extends User implements Serializable{
     }
 
     public void setVolunteerAmount(int volunteerAmount) {
-        this.volunteerAmount = volunteerAmount;
+        this.volunteerAmount += volunteerAmount;
     }
 
     public void setVolunteerOnWork(int volunteerOnWork) {
-        this.volunteerOnWork = volunteerOnWork;
+        this.volunteerOnWork += volunteerOnWork;
     }
 
     public void setVolunteerFree(int volunteerFree) {
-        this.volunteerFree = volunteerFree;
+        this.volunteerFree += volunteerFree;
     }
 
     @Override

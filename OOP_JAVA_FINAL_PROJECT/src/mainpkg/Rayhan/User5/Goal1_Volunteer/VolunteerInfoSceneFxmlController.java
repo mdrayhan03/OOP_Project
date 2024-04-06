@@ -144,6 +144,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
                 File f = new File("src/File/VolunteerInfo.bin") ;
                 if (f.exists()) {f.delete() ;}
                 FileOutputStream fos = new FileOutputStream("src/File/VolunteerInfo.bin" , true) ;
+//                ObjectOutputStream oos = new AppendableObjectOutputStream(fos) ;
                 ObjectOutputStream oos = new ObjectOutputStream(fos) ;
                 for (Volunteer v: list){
                     oos.writeObject(v) ;

@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rayhan.User5.Goal1_Volunteer.VolunteerInfoSceneFxmlController;
 import mainpkg.Rayhan.User5.Profile.ProfileSceneFxmlController;
 
 /**
@@ -74,6 +75,9 @@ public class DashBoard5SceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal1_Volunteer/VolunteerInfoSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        VolunteerInfoSceneFxmlController psc = myLoader.getController() ;
+        psc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

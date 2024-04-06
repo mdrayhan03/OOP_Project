@@ -7,13 +7,16 @@ import java.io.Serializable;
  * @author RayhaN
  */
 public class Volunteer implements Serializable {
-    String id , name , pN , addedBy ;
+    String id , name , phoneN , addedBy ;
 
-    public Volunteer(String id, String name, String addedBy) {
-        this.id = id;
+    public Volunteer(String name, String pN, String addedBy) {
         this.name = name;
+        this.phoneN = pN;
         this.addedBy = addedBy;
+        this.generateId() ;
     }
+
+
 
     public String getId() {
         return id;
@@ -24,7 +27,7 @@ public class Volunteer implements Serializable {
     }
 
     public String getpN() {
-        return pN;
+        return phoneN;
     }
 
     public String getAddedBy() {
@@ -34,7 +37,7 @@ public class Volunteer implements Serializable {
     public void generateId() {
         String id = "Vol" ;
         id += name.substring(0, 3) ;
-        id += pN.length() ;
+        id += phoneN.length() ;
         
         this.id = id;
     }
@@ -44,7 +47,7 @@ public class Volunteer implements Serializable {
     }
 
     public void setpN(String pN) {
-        this.pN = pN;
+        this.phoneN = pN;
     }
 
     public void setAddedBy(String addedBy) {
@@ -53,7 +56,7 @@ public class Volunteer implements Serializable {
 
     @Override
     public String toString() {
-        return "Volunteer{" + "id=" + id + ", name=" + name + ", pN=" + pN + ", addedBy=" + addedBy + '}';
+        return "Volunteer{" + "id=" + id + ", name=" + name + ", pN=" + phoneN + ", addedBy=" + addedBy + '}';
     }
     
     

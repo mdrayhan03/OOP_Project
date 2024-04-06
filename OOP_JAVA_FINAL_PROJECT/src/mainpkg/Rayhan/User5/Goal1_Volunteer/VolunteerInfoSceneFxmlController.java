@@ -43,7 +43,9 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
     
     Alert alert ;
     User user ;
-    Volunteer vc ;
+    ObservableList<Volunteer> listobj = FXCollections.observableArrayList() ;
+    
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -61,10 +63,11 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         // TODO
         idTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("id")) ;
         nameTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("name")) ;
-        pNTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("pN")) ;
+        pNTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("phoneN")) ;
         addedByTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("addedBy")) ;
         
-//        ObservableList<Volunteer> listobj = FXCollections.observableArrayList() ;
+        try {
+            //        ObservableList<Volunteer> listobj = FXCollections.observableArrayList() ;
 //        FileInputStream fis = null ;
 //        ObjectInputStream ois = null ;
 //        try {
@@ -76,7 +79,12 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
 //        }
 //        catch (Exception e) {
 //        }
-//        volunteerInfoTableView.setItems(listobj) ;
+
+            volunteerInfoTableView.setItems(this.fileRead()) ;
+        } 
+        catch (IOException ex) {
+            Logger.getLogger(VolunteerInfoSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
     @FXML
@@ -93,7 +101,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
     }
 
     @FXML
-    private void addVolunteerOnMouseClick(MouseEvent event) {
+    private void addVolunteerOnMouseClick(MouseEvent event) throws IOException {
         String name = "" ;
         String pN = "" ;
         Boolean rtn = true ;
@@ -117,8 +125,19 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         }
         
         if (rtn == true) {
-            vc = new Volunteer (name , pN , user.getName()) ;
+            Volunteer vc = new Volunteer (name , pN , user.getName()) ;
+            fileWrite(vc) ;
+            alert = new Alert(Alert.AlertType.INFORMATION) ;
+            alert.setHeaderText("Done");
+            alert.setContentText("Exception : " ) ;
+            alert.showAndWait() ;
         }
+        
+        nameTextField.clear() ;
+        pNTextField.clear() ;
+    }
+    
+    private void fileWrite(Volunteer vc) {
         try {
             FileOutputStream fos = new FileOutputStream("src/File/VolunteerInfo.bin" , true) ;
             ObjectOutputStream oos = new ObjectOutputStream(fos) ;
@@ -130,9 +149,10 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
             alert.setHeaderText("Exception Error");
             alert.setContentText("Exception : " + e.getClass().getName()) ;
             alert.showAndWait() ;
-        }  
-        
-        ObservableList<Volunteer> listobj = FXCollections.observableArrayList() ;
+        } 
+    }
+    
+    private ObservableList<Volunteer> fileRead() throws IOException {
         FileInputStream fis = null ;
         ObjectInputStream ois = null ;
         try {
@@ -144,10 +164,12 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         }
         catch (Exception e) {
             ois.close() ;
+//            alert = new Alert(Alert.AlertType.WARNING) ;
+//            alert.setHeaderText("File Warning.");
+//            alert.setContentText("File not found.") ;
+//            alert.showAndWait() ;
         }
-        volunteerInfoTableView.setItems(listobj) ;
+        return listobj ;
     }
-    
-    
     
 }

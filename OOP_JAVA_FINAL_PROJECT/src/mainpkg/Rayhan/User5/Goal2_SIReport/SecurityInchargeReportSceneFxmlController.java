@@ -9,11 +9,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.Date;
+import mainpkg.AbstractClass.User;
 
 /**
  * FXML Controller class
@@ -28,12 +31,25 @@ public class SecurityInchargeReportSceneFxmlController implements Initializable 
     @FXML    private TextField yyyyTextField;
     @FXML    private TextArea reportBodyTextArea;
     @FXML    private TextField siIdTextField;
+    
+    User user ;
+    Alert alert ;
+    SIReportList sir ;
 
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
+    
+    public User get() {
+        return user ;
+    }
+    
+    public void set(User u) {
+        user = u ;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -54,16 +70,81 @@ public class SecurityInchargeReportSceneFxmlController implements Initializable 
 
     @FXML
     private void submitOnMouseClick(MouseEvent event) throws IOException {
-        Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal2_SIReport/ShowReportFxml.fxml")) ;
-        root = (Parent) myLoader.load() ;
-        Scene myScene = new Scene(root) ;
+        Boolean rtn = true ;
+        Integer receiverId = null , dd = null , mm = null , yyyy = null ;
+        String subject = "" , des = "" , sdd = "" , smm = "" , syyyy = "" ;
+        
+        receiverId = Integer.parseInt(siIdTextField.getText()) ;
+        if (receiverId == null) {
+            alert = new Alert(Alert.AlertType.ERROR) ;
+            alert.setHeaderText("Security Incharge ID Error") ;
+            alert.setContentText("ID must.") ;
+        }
+        
+        sdd = ddTextField.getText() ;
+        smm = mmTextField.getText() ;
+        syyyy = yyyyTextField.getText() ;
+        
+        if (sdd.length() != 0 || smm.length() != 0 || syyyy.length() != 0){
+        
+            dd = Integer.parseInt(sdd) ;
+            mm = Integer.parseInt(smm) ;
+            yyyy = Integer.parseInt(syyyy) ;
+        }
+        
+        if (dd == null || mm == null || yyyy == null) {
+            alert = new Alert(Alert.AlertType.WARNING) ;
+            alert.setHeaderText("Date Error.") ;           
+            alert.setContentText("DD/MM/YYYY Required.") ;
+            rtn = false ;
+            alert.showAndWait() ;
+        }
+        Date doa = new Date(dd , mm , yyyy) ;
+        if (doa.isValid() == false) {
+            alert = new Alert(Alert.AlertType.WARNING) ;
+            alert.setHeaderText("Date Error.") ;
+            alert.setContentText("Date is not Valid.") ;
+            rtn = false ;
+            alert.showAndWait() ;
+        }
+        
+        subject = subjectTextField.getText() ;
+        if (subject.length() == 0) {
+            alert = new Alert(Alert.AlertType.ERROR) ;
+            alert.setHeaderText("Error.") ;
+            alert.setContentText("Subject must.") ;
+            rtn = false ;
+            alert.showAndWait() ;
+        }
+        
+        des = reportBodyTextArea.getText() ;
+        if (subject.length() == 0) {
+            alert = new Alert(Alert.AlertType.ERROR) ;
+            alert.setHeaderText("Error.") ;
+            alert.setContentText("Subject must.") ;
+            rtn = false ;
+            alert.showAndWait() ;
+        }
+        
+        if (rtn == true) {
+            SIReport si = new SIReport(subject , des , doa) ;
+            System.out.println(user.getId() + receiverId + si.getId());
+            sir = new SIReportList(user.getId() , receiverId , si.getId()) ;    
+        
+            Parent root = null ;
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal2_SIReport/ShowReportFxml.fxml")) ;
+            root = (Parent) myLoader.load() ;
+            Scene myScene = new Scene(root) ;
+        
+            ShowReportFxmlController src = myLoader.getController() ;
+            src.set(si, sir) ;
 
-        Stage stage = new Stage() ;
-        stage.setScene(myScene) ;
-        stage.getIcons().add(new Image("/image/campIcon.jpg")) ;
-        stage.setTitle("Volunteer Coordinator DashBoard") ;
-        stage.show() ;
+            Stage stage = new Stage() ;
+            stage.setScene(myScene) ;
+            stage.getIcons().add(new Image("/image/campIcon.jpg")) ;
+            stage.setTitle("Volunteer Coordinator DashBoard") ;
+            stage.show() ;
+        }
     }
     
 }

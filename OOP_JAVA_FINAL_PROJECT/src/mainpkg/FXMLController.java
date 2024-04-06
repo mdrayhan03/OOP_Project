@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 
 import javafx.scene.control.Label;
 import mainpkg.Rayhan.User5.Goal1_Volunteer.Volunteer;
+import mainpkg.Rayhan.User5.VolunteerCoordinator;
 /**
  * FXML Controller class
  *
@@ -37,14 +38,15 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void button(ActionEvent event) throws IOException {
-        ObservableList<Volunteer> listobj = FXCollections.observableArrayList() ;
+        ObservableList<VolunteerCoordinator> listobj = FXCollections.observableArrayList() ;
         FileInputStream fis = null ;
         ObjectInputStream ois = null ;
         try {
-            fis = new FileInputStream("src/File/VolunteerInfo.bin") ;
+            fis = new FileInputStream("src/File/VolunteerCoordinatorObjFile.bin") ;
             ois = new ObjectInputStream(fis) ;
             while (true) {
-               listobj.add((Volunteer) ois.readObject()) ;
+               listobj.add((VolunteerCoordinator) ois.readObject()) ;
+               System.out.println("HI" +(VolunteerCoordinator) ois.readObject());
             } 
         }
         catch (Exception e) {
@@ -55,7 +57,7 @@ public class FXMLController implements Initializable {
 //            alert.showAndWait() ;
         }
         String str = null ;
-        for (Volunteer vc: listobj) {
+        for (VolunteerCoordinator vc: listobj) {
             str += vc.toString() + "\n" ;
         }
         show.setText(str) ;

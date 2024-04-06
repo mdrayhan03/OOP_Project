@@ -22,7 +22,22 @@ public class ShowReportFxmlController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param si
+     * @param sir
+     * @param rb
      */
+    public void set (SIReport si , SIReportList sir) {
+        SIReport msi = si ;
+        SIReportList msir = sir ;
+        
+        fromLabel.setText(Integer.toString(msir.getSenderId())) ;
+        toLabel.setText(Integer.toString(msir.getReceiverId())) ;
+        subjectLabel.setText(msi.getSubject()) ;
+        dateLabel.setText(msi.getApplyDate().toString()) ;
+        reportBodyTextArea.setText(msi.description) ;
+        
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

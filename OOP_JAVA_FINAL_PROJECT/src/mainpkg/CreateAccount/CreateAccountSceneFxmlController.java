@@ -60,6 +60,7 @@ public class CreateAccountSceneFxmlController implements Initializable {
         // TODO
         maleRadioButton.setToggleGroup(tg) ;
         femaleRadioButton.setToggleGroup(tg) ;
+        maleRadioButton.setSelected(true) ;
         rand = new Random() ;
         userTypeComboBox.getItems().addAll("Refugee Camp Manager" , "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGO") ;
         
@@ -101,13 +102,13 @@ public class CreateAccountSceneFxmlController implements Initializable {
             alert.showAndWait() ;
         }
         
-        if (!maleRadioButton.isSelected() || !femaleRadioButton.isSelected()) {
-            alert = new Alert(Alert.AlertType.WARNING) ;
-            alert.setHeaderText("Gender Error.") ;
-            alert.setContentText("Gender Required.") ;
-            rtn = false ;
-            alert.showAndWait() ;
-        }
+//        if (!maleRadioButton.isSelected() || !femaleRadioButton.isSelected()) {
+//            alert = new Alert(Alert.AlertType.WARNING) ;
+//            alert.setHeaderText("Gender Error.") ;
+//            alert.setContentText("Gender Required.") ;
+//            rtn = false ;
+//            alert.showAndWait() ;
+//        }
         if  (maleRadioButton.isSelected()) {
             gender = "Male" ;
         }

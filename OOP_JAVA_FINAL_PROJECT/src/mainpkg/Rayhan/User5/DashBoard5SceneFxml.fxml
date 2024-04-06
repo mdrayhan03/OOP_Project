@@ -5,7 +5,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User7.DashBoardSceneFxmlController">
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.Rayhan.User5.DashBoard5SceneFxmlController">
    <children>
       <Button mnemonicParsing="false" onMouseClicked="#profileOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Profile">
          <font>
@@ -17,32 +18,32 @@
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="160.0" mnemonicParsing="false" onMouseClicked="#refugeeOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Refugee">
+      <Button layoutY="160.0" mnemonicParsing="false" onMouseClicked="#getRequestOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Get Request">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="240.0" mnemonicParsing="false" onMouseClicked="#crimeFactsOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Crime Facts">
+      <Button layoutY="240.0" mnemonicParsing="false" onMouseClicked="#reportAidExecutiveOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Report to Aid Executive">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="320.0" mnemonicParsing="false" onMouseClicked="#noticeOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Notice">
+      <Button layoutY="320.0" mnemonicParsing="false" onMouseClicked="#reportSecurityInchargeOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Report to Security Incharge">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="400.0" mnemonicParsing="false" onMouseClicked="#holidayOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Holiday">
+      <Button layoutY="400.0" mnemonicParsing="false" onMouseClicked="#scheduleOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Schedule">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="480.0" mnemonicParsing="false" onMouseClicked="#dutyOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Duty Time &amp; Place">
+      <Button layoutY="480.0" mnemonicParsing="false" onMouseClicked="#requestCampaignOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Request Campaign">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="560.0" mnemonicParsing="false" onMouseClicked="#requestOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Request">
+      <Button layoutY="560.0" mnemonicParsing="false" onMouseClicked="#emergencyRequestOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Emergency Request">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
@@ -77,7 +78,7 @@
             <Font name="Eras Bold ITC" size="36.0" />
          </font>
       </Label>
-      <Label alignment="TOP_LEFT" layoutX="450.0" layoutY="400.0" prefHeight="350.0" prefWidth="700.0" text="The Cox’s Bazar Education Sector in Bangladesh is jointly managed by the United Nations Children’s Fund (UNICEF) and Save the Children International (SCI). The Sector addresses the educational needs of Rohingya refugees and affected host communities in the Ukhiya and Teknaf sub-districts while preparing for and responding to disasters. It collaborates with the Inter-Sector Coordination Group (ISCG) and is currently partnering with INGOs, NGOs and UN agencies to support the education of Rohingya and affected host community children." textAlignment="JUSTIFY" wrapText="true">
+      <Label alignment="TOP_LEFT" layoutX="450.0" layoutY="400.0" prefHeight="350.0" prefWidth="700.0" text="The Rohingya people have faced decades of persecution and attack from the military in Myanmar, hundreds of thousands have fled the country, taking refuge across the border in Bangladesh. ​Children on the Edge has been working in Kutupalong in Bangladesh, now the world's largest refugee camp, since 2010 and now supports education for 5,000 refugee children who are otherwise cut off from learning. 50 colourful learning centres encourage creativity and self expression with digital lessons, plenty of play and basic health support. " textAlignment="JUSTIFY" wrapText="true">
          <font>
             <Font name="Comic Sans MS Italic" size="24.0" />
          </font>

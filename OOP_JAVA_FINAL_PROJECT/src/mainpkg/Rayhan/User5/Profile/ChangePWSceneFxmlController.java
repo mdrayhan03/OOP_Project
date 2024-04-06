@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.input.MouseEvent;
+import mainpkg.AbstractClass.User;
 
 /**
  * FXML Controller class
@@ -20,12 +21,22 @@ public class ChangePWSceneFxmlController implements Initializable {
     @FXML    private PasswordField confirmPasswordField;
     
     Alert alert ;
+    User user ;
 
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
+    
+    public User get() {
+        return user ;
+    }
+    
+    public void set(User u) {
+        user = u ;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -72,11 +83,27 @@ public class ChangePWSceneFxmlController implements Initializable {
             rtn = false ;
             alert.showAndWait() ;
         }
-        
-        if(!npw.equals(cpw)) {
-            alert = new Alert(Alert.AlertType.WARNING) ;
-            alert.setHeaderText("Password Error.") ;
-            alert.setContentText("New password and Confirm password is not same.");
+        if (opw.equals(user.getPassword())) {
+            if(!npw.equals(cpw)) {
+                alert = new Alert(Alert.AlertType.WARNING) ;
+                alert.setHeaderText("Password Error.") ;
+                alert.setContentText("New password and Confirm password is not same.");
+                alert.showAndWait() ;
+            }
+            else if (npw.equals(cpw)) {
+                alert = new Alert(Alert.AlertType.CONFIRMATION) ;
+                alert.setHeaderText("Password change Sucessfull.") ;
+                alert.setContentText("Your password has changed.");
+                alert.showAndWait() ;
+            
+                user.setPassword(cpw) ;
+            }
+        }
+        else {
+            alert = new Alert(Alert.AlertType.ERROR) ;
+            alert.setHeaderText("Wrong Password.") ;
+            alert.setContentText("Your old password is wrong.");
+            alert.showAndWait() ;
         }
     }
     

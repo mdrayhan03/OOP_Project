@@ -1,7 +1,9 @@
 package mainpkg.CreateAccount;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.Random;
@@ -192,26 +194,61 @@ public class CreateAccountSceneFxmlController implements Initializable {
         String str1 = null , str2 = null ;
         if (rtn == true) {  
             if (userType == "Volunteer Coordinator") {
-                   u = new VolunteerCoordinator(id , name , cpw , phoneNo , email , userType , dob.toString()) ;           
+                  VolunteerCoordinator vc = new VolunteerCoordinator(id , name , cpw , phoneNo , email , userType , dob.toString()) ;   
+                  u = new VolunteerCoordinator(id , name , cpw , phoneNo , email , userType , dob.toString()) ;   
+                   try {
+                        FileOutputStream fos = new FileOutputStream("src/File/VolunteerCoordinatorObjFile.bin" , true) ;
+                        ObjectOutputStream oos = new ObjectOutputStream(fos) ;
+                
+                        oos.writeObject(vc) ;
+                
+                        fos.close() ;
+                        oos.close() ;
+                    }
+                    catch (Exception e) {
+                        alert = new Alert(Alert.AlertType.ERROR) ;
+                        alert.setHeaderText("File Error") ;
+                        alert.setContentText("Unable to open file for Exception : " + e.getClass().getName()) ;
+                        alert.showAndWait() ;
+                    }
             }
             else if (userType == "Education Coordinator") {
+                   EducationCoordinator ec = new EducationCoordinator(id , name , cpw , phoneNo , email , userType , dob.toString()) ;
                    u = new EducationCoordinator(id , name , cpw , phoneNo , email , userType , dob.toString()) ;
+                   try {
+                        FileOutputStream fos = new FileOutputStream("src/File/EducationCoordinatorObjFile.bin" , true) ;
+                        ObjectOutputStream oos = new ObjectOutputStream(fos) ;
+                
+                        oos.writeObject(ec) ;
+                
+                        fos.close() ;
+                        oos.close() ;
+                    }
+                    catch (Exception e) {
+                        alert = new Alert(Alert.AlertType.ERROR) ;
+                        alert.setHeaderText("File Error") ;
+                        alert.setContentText("Unable to open file for Exception : " + e.getClass().getName()) ;
+                        alert.showAndWait() ;
+                    }
             }
-            
+                        
+            FileWriter fw = null ;
             try {
-                FileOutputStream fos = new FileOutputStream("src/File/UserObjFile.bin" , true) ;
-                ObjectOutputStream oos = new ObjectOutputStream(fos) ;
-                
-                oos.writeObject(u) ;
-                
-                oos.close() ;
+                File f = new File("src/File/PersonTextFile.txt") ;
+            
+                if (f.exists()) {
+                    fw = new FileWriter(f , true) ;
+                }
+                else {
+                    fw = new FileWriter("src/File/PersonTextFile.txt") ;
+                }
+                String str = "" ;
+                str += u.toString() ;
+                fw.write(str) ;
+                fw.close() ;
             }
-            catch (Exception e) {
-                alert = new Alert(Alert.AlertType.ERROR) ;
-                alert.setHeaderText("File Error") ;
-                alert.setContentText("Unable to open file for Exception : " + e.getClass().getName()) ;
-                alert.showAndWait() ;
-            }
+            catch(Exception e) {
+        }
         
             str1 = "ID : " + u.getId() +"\n"+
                      "Name : " + u.getName() +"\n"+

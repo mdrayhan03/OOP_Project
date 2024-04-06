@@ -8,6 +8,7 @@ import mainpkg.AbstractClass.User;
  * @author RayhaN
  */
 public class VolunteerCoordinator extends User implements Serializable{
+    private static final long serialVersionUID = 1L ;
     int volunteerAmount = 0 ;
     int volunteerOnWork = 0 ;
     int volunteerFree = 0 ;
@@ -42,7 +43,7 @@ public class VolunteerCoordinator extends User implements Serializable{
 
     @Override
     public String toString() {
-        return "VolunteerCoordinator{" + "volunteerAmount=" + volunteerAmount + ", volunteerOnWork=" + volunteerOnWork + ", volunteerFree=" + volunteerFree + '}';
+        return super.toString() + "volunteerAmount=" + volunteerAmount + ", volunteerOnWork=" + volunteerOnWork + ", volunteerFree=" + volunteerFree + '}';
     }
     
     

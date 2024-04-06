@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.User;
 
 /**
  * FXML Controller class
@@ -27,12 +28,29 @@ public class ProfileSceneFxmlController implements Initializable {
     @FXML    private Label userTypeLabel;
     @FXML    private Label pNLabel;
     @FXML    private Label emailLabel;
+    
+    User user ;
 
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
+    
+    public User get() {
+        return user ;
+    }
+    
+    public void set(User u) {
+        user = u ;
+        statusLabel.setText(user.getStatus()) ;
+        nameLabel.setText(user.getName()) ;
+        idLabel.setText(Integer.toString(user.getId())) ;
+        userTypeLabel.setText(user.getUserType()) ;
+        pNLabel.setText(user.getPhoneNo()) ;
+        emailLabel.setText(user.getEmail()) ;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -41,7 +59,7 @@ public class ProfileSceneFxmlController implements Initializable {
     @FXML
     private void backOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/DashBoardSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/DashBoard5SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
 
@@ -54,9 +72,12 @@ public class ProfileSceneFxmlController implements Initializable {
     @FXML
     private void changePWOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Profile/ChangePWSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Profile/ChangePWSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        ChangePWSceneFxmlController cpc = myLoader.getController() ;
+        cpc.set(user) ;
 
         Stage stage = new Stage() ;
         stage.setScene(myScene) ;

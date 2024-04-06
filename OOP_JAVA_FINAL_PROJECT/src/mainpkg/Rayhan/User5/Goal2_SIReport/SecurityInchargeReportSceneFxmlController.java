@@ -58,7 +58,7 @@ public class SecurityInchargeReportSceneFxmlController implements Initializable 
     @FXML
     private void backOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/DashBoardSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/DashBoard5SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
 
@@ -121,7 +121,7 @@ public class SecurityInchargeReportSceneFxmlController implements Initializable 
         if (subject.length() == 0) {
             alert = new Alert(Alert.AlertType.ERROR) ;
             alert.setHeaderText("Error.") ;
-            alert.setContentText("Subject must.") ;
+            alert.setContentText("Description must.") ;
             rtn = false ;
             alert.showAndWait() ;
         }
@@ -142,7 +142,7 @@ public class SecurityInchargeReportSceneFxmlController implements Initializable 
             Stage stage = new Stage() ;
             stage.setScene(myScene) ;
             stage.getIcons().add(new Image("/image/campIcon.jpg")) ;
-            stage.setTitle("Volunteer Coordinator DashBoard") ;
+            stage.setTitle("Volunteer Coordinator ShowReport") ;
             stage.show() ;
         }
     }

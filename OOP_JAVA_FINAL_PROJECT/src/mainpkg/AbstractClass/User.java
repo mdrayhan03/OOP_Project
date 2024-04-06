@@ -9,54 +9,24 @@ import java.util.ArrayList;
  */
 public abstract class User {
     int id ;
-    String name , password , phoneNo , email , userType , status = "Deactive" ;
+    String name , password , phoneNo , email , userType , gender , status = "Deactive" ;
     String dob ;
     ArrayList<String> holidayList ;
 
-    public User(int id, String name, String password, String phoneNo, String email, String userType , String dob) {
+    public User(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.phoneNo = phoneNo;
         this.email = email;
         this.userType = userType;
+        this.gender = gender;
         this.dob = dob;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getPhoneNo() {
-        return phoneNo;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getUserType() {
-        return userType;
-    }
-
-    public String getDob() {
-        return dob;
-    }
-    
-    public String getStatus() {
-        return status;
-    }
-
-    public ArrayList<String> getHolidayList() {
-        return holidayList;
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", name=" + name + ", password=" + password + ", phoneNo=" + phoneNo + ", email=" + email + ", userType=" + userType + ", gender=" + gender + ", status=" + status + ", dob=" + dob + ", holidayList=" + holidayList + '}';
     }
 
     public void setId(int id) {
@@ -83,25 +53,60 @@ public abstract class User {
         this.userType = userType;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public void setStatus(String status) {
         this.status = status;
     }
 
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
     public void setHolidayList(ArrayList<String> holidayList) {
         this.holidayList = holidayList;
     }
-    
-    public void setHoliday(String holi) {
-        this.holidayList.add(holi) ;
+
+    public int getId() {
+        return id;
     }
 
-    @Override
-    public String toString() {
-        return "User{" + "id=" + id + ", name=" + name + ", password=" + password + ", phoneNo=" + phoneNo + ", email=" + email + ", userType=" + userType + ", status=" + status + ", dob=" + dob + ", holidayList=" + holidayList + '}';
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public ArrayList<String> getHolidayList() {
+        return holidayList;
     }
 
     

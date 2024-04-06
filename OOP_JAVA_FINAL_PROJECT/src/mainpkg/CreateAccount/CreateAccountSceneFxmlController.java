@@ -1,7 +1,6 @@
 package mainpkg.CreateAccount;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.ObjectOutputStream;
@@ -15,7 +14,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
@@ -40,9 +41,15 @@ public class CreateAccountSceneFxmlController implements Initializable {
     @FXML    private TextField ddTextField;
     @FXML    private TextField mmTextField;
     @FXML    private TextField yyyyTextField;
+    @FXML    private RadioButton maleRadioButton;
+    @FXML    private RadioButton femaleRadioButton;
     
     Random rand ;
     Alert alert ;
+    
+    ToggleGroup tg = new ToggleGroup() ;
+    
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -51,6 +58,8 @@ public class CreateAccountSceneFxmlController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        maleRadioButton.setToggleGroup(tg) ;
+        femaleRadioButton.setToggleGroup(tg) ;
         rand = new Random() ;
         userTypeComboBox.getItems().addAll("Refugee Camp Manager" , "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGO") ;
         
@@ -62,7 +71,7 @@ public class CreateAccountSceneFxmlController implements Initializable {
         int id = 0 ;
         String strd ,strm , stry = "" ;
         int dd = 0 , mm = 0, yyyy = 0 ;
-        String name = "" , phoneNo = "" , email = "" , pw = "" , cpw = "" , userType = "" ;
+        String name = "" , phoneNo = "" , email = "" , pw = "" , cpw = "" , userType = "" , gender = "";
         
         name = nameTextField.getText() ;
         if (name.length() == 0) {
@@ -90,6 +99,20 @@ public class CreateAccountSceneFxmlController implements Initializable {
             alert.setContentText("Email Required.") ;
             rtn = false ;
             alert.showAndWait() ;
+        }
+        
+        if (!maleRadioButton.isSelected() || !femaleRadioButton.isSelected()) {
+            alert = new Alert(Alert.AlertType.WARNING) ;
+            alert.setHeaderText("Gender Error.") ;
+            alert.setContentText("Gender Required.") ;
+            rtn = false ;
+            alert.showAndWait() ;
+        }
+        if  (maleRadioButton.isSelected()) {
+            gender = "Male" ;
+        }
+        else if  (femaleRadioButton.isSelected()) {
+            gender = "Female" ;
         }
         
         strd = ddTextField.getText() ;
@@ -194,8 +217,8 @@ public class CreateAccountSceneFxmlController implements Initializable {
         String str1 = null , str2 = null ;
         if (rtn == true) {  
             if (userType == "Volunteer Coordinator") {
-                  VolunteerCoordinator vc = new VolunteerCoordinator(id , name , cpw , phoneNo , email , userType , dob.toString()) ;   
-                  u = new VolunteerCoordinator(id , name , cpw , phoneNo , email , userType , dob.toString()) ;   
+                  VolunteerCoordinator vc = new VolunteerCoordinator(id , name , cpw , phoneNo , email , userType , gender , dob.toString()) ;   
+                  u = new VolunteerCoordinator(id , name , cpw , phoneNo , email , userType , gender , dob.toString()) ;   
                    try {
                         FileOutputStream fos = new FileOutputStream("src/File/VolunteerCoordinatorObjFile.bin" , true) ;
                         ObjectOutputStream oos = new ObjectOutputStream(fos) ;
@@ -213,8 +236,8 @@ public class CreateAccountSceneFxmlController implements Initializable {
                     }
             }
             else if (userType == "Education Coordinator") {
-                   EducationCoordinator ec = new EducationCoordinator(id , name , cpw , phoneNo , email , userType , dob.toString()) ;
-                   u = new EducationCoordinator(id , name , cpw , phoneNo , email , userType , dob.toString()) ;
+                   EducationCoordinator ec = new EducationCoordinator(id , name , cpw , phoneNo , email , userType , gender , dob.toString()) ;
+                   u = new EducationCoordinator(id , name , cpw , phoneNo , email , userType , gender , dob.toString()) ;
                    try {
                         FileOutputStream fos = new FileOutputStream("src/File/EducationCoordinatorObjFile.bin" , true) ;
                         ObjectOutputStream oos = new ObjectOutputStream(fos) ;

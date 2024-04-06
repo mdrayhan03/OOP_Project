@@ -13,9 +13,11 @@ public class VolunteerCoordinator extends User implements Serializable{
     int volunteerOnWork = 0 ;
     int volunteerFree = 0 ;
 
-    public VolunteerCoordinator(int id, String name, String password, String phoneNo, String email, String userType, String dob) {
-        super(id, name, password, phoneNo, email, userType, dob);
+    public VolunteerCoordinator(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob) {
+        super(id, name, password, phoneNo, email, userType, gender, dob);
     }
+
+
 
     public int getVolunteerAmount() {
         return volunteerAmount;

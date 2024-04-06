@@ -36,8 +36,9 @@ public class Volunteer implements Serializable {
 
     public void generateId() {
         String id = "Vol" ;
-        id += name.substring(0, 3) ;
-        id += phoneN.length() ;
+        id += name.substring(0) ;
+        id += phoneN.substring(9) ;
+        id += name.length() ;
         
         this.id = id;
     }

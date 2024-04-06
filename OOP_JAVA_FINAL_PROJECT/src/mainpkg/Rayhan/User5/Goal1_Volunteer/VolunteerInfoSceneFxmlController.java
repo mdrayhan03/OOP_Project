@@ -1,5 +1,6 @@
 package mainpkg.Rayhan.User5.Goal1_Volunteer;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
     
     Alert alert ;
     User user ;
-    ObservableList<Volunteer> listobj = FXCollections.observableArrayList() ;
+    ObservableList<Volunteer> list = FXCollections.observableArrayList() ;
     
     
     /**
@@ -79,12 +80,11 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
 //        }
 //        catch (Exception e) {
 //        }
-
-            volunteerInfoTableView.setItems(this.fileRead()) ;
-        } 
-        catch (IOException ex) {
+        list = fileRead() ;
+        } catch (IOException ex) {
             Logger.getLogger(VolunteerInfoSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        volunteerInfoTableView.setItems(list) ;
     }    
 
     @FXML
@@ -126,48 +126,55 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         
         if (rtn == true) {
             Volunteer vc = new Volunteer (name , pN , user.getName()) ;
-            fileWrite(vc) ;
-            alert = new Alert(Alert.AlertType.INFORMATION) ;
-            alert.setHeaderText("Done");
-            alert.setContentText("Exception : " ) ;
-            alert.showAndWait() ;
+            list.add(vc) ;
+            
+                
+            try {
+                File f = new File("src/File/VolunteerInfo.bin") ;
+                if (f.exists()) {f.delete() ;}
+                FileOutputStream fos = new FileOutputStream("src/File/VolunteerInfo.bin" , true) ;
+                ObjectOutputStream oos = new ObjectOutputStream(fos) ;
+                for (Volunteer v: list){
+                    oos.writeObject(v) ;
+                }
+                oos.close() ;
+            }
+            catch (Exception e) {
+                alert = new Alert(Alert.AlertType.ERROR) ;
+                alert.setHeaderText("Exception Error");
+                alert.setContentText("Exception : " + e.getClass().getName()) ;
+                alert.showAndWait() ;
+            } 
         }
         
         nameTextField.clear() ;
         pNTextField.clear() ;
     }
-    
-    private void fileWrite(Volunteer vc) {
-        try {
-            FileOutputStream fos = new FileOutputStream("src/File/VolunteerInfo.bin" , true) ;
-            ObjectOutputStream oos = new ObjectOutputStream(fos) ;
-            oos.writeObject(vc) ;
-            oos.close() ;
-        }
-        catch (Exception e) {
-            alert = new Alert(Alert.AlertType.ERROR) ;
-            alert.setHeaderText("Exception Error");
-            alert.setContentText("Exception : " + e.getClass().getName()) ;
-            alert.showAndWait() ;
-        } 
-    }
-    
+        
     private ObservableList<Volunteer> fileRead() throws IOException {
-        FileInputStream fis = null ;
-        ObjectInputStream ois = null ;
-        try {
-            fis = new FileInputStream("src/File/VolunteerInfo.bin") ;
-            ois = new ObjectInputStream(fis) ;
-            while (true) {
-               listobj.add((Volunteer) ois.readObject()) ;
-            } 
-        }
-        catch (Exception e) {
-            ois.close() ;
+        ObservableList<Volunteer> listobj = FXCollections.observableArrayList() ;
+        File f = new File("src/File/VolunteerInfo.bin") ;
+        if(f.exists()){
+            FileInputStream fis = null ;
+            ObjectInputStream ois = null ;
+            try {
+                fis = new FileInputStream("src/File/VolunteerInfo.bin") ;
+                ois = new ObjectInputStream(fis) ;
+                while (true) {
+                listobj.add((Volunteer) ois.readObject()) ;
+                } 
+            }
+            catch (Exception e) {
+                ois.close() ;
 //            alert = new Alert(Alert.AlertType.WARNING) ;
 //            alert.setHeaderText("File Warning.");
 //            alert.setContentText("File not found.") ;
 //            alert.showAndWait() ;
+            }
+        }
+        
+        for (Volunteer p: list){
+            listobj.add(p) ;
         }
         return listobj ;
     }

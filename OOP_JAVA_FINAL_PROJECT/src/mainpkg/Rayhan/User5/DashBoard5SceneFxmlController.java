@@ -76,11 +76,7 @@ public class DashBoard5SceneFxmlController implements Initializable {
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
         
-<<<<<<< HEAD
-        ProfileSceneFxmlController psc = myLoader.getController() ;
-=======
         VolunteerInfoSceneFxmlController psc = myLoader.getController() ;
->>>>>>> Rayhan
         psc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;

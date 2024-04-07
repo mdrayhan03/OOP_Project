@@ -2,6 +2,8 @@ package mainpkg.Rayhan.User5;
 
 import java.io.Serializable;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rayhan.User5.Goal2_SIReport.SIReport;
+import mainpkg.Rayhan.User5.Goal3_AEReport.AEReport;
 
 /**
  *
@@ -47,6 +49,24 @@ public class VolunteerCoordinator extends User implements Serializable{
         return super.toString() + "volunteerAmount=" + volunteerAmount + ", volunteerOnWork=" + volunteerOnWork + ", volunteerFree=" + volunteerFree + '}';
     }
     
+    public SIReport reportToSecurityIncharge(){
+        SIReport sir = null ;
+        return sir ;
+    }
+    
+    public AEReport reportToAidExecutive(){
+        AEReport aer = null ;
+        return aer ;
+    }
+    
+//#getRequestForVolunteer(RequestedVolunteer):Integer   
+    public int addVolunteer(int volunteer){
+        this.volunteerAmount += volunteer ;
+        return this.volunteerAmount ;                
+    }
+//#campaignSchedule(ArrayList<Campaign>):Boolean
+//#requestForCampaign(Campaign):Boolean
+//#report():Report
     
     
     

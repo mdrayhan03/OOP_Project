@@ -35,7 +35,7 @@
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="showLabel" alignment="TOP_LEFT" layoutX="100.0" layoutY="310.0" prefHeight="200.0" prefWidth="400.0" text="Label">
+      <Label fx:id="showLabel" alignment="TOP_LEFT" layoutX="100.0" layoutY="310.0" prefHeight="200.0" prefWidth="400.0">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
@@ -75,7 +75,7 @@
             <TableColumn fx:id="idTableColumn" prefWidth="258.0" text="ID" />
             <TableColumn fx:id="nameTableColumn" prefWidth="415.0" text="Name" />
             <TableColumn fx:id="pNTableColumn" prefWidth="313.0" text="Phone No" />
-            <TableColumn fx:id="dojTableColumn" prefWidth="213.0" text="Date of Joining" />
+            <TableColumn fx:id="dojTableColumn" prefWidth="205.0" text="Date of Joining" />
          </columns>
       </TableView>
    </children>

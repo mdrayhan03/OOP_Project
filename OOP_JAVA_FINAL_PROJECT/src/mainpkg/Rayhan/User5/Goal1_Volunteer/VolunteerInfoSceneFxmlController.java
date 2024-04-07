@@ -136,8 +136,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         
         if (rtn == true) {
             Volunteer vc = new Volunteer (name , pN , user.getName()) ;
-            user.setVolunteerAmount(1) ;
-            user.setVolunteerFree(1) ;
+            user.addVolunteer(1) ;
             list.add(vc) ;
             
                 

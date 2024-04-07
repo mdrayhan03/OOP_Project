@@ -14,10 +14,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.Rayhan.User5.Goal4_VRequest.RequestedVolunteer;
+import mainpkg.Rayhan.User5.VolunteerCoordinator;
 
 /**
  * FXML Controller class
@@ -33,10 +35,11 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
     @FXML    private TableColumn<RequestedVolunteer, String> timeTableColumn;
     @FXML    private TableColumn<RequestedVolunteer, String> placeTableColumn;
     @FXML    private TableColumn<RequestedVolunteer, Date> dateTableColumn;
-    @FXML    private TableColumn<RequestedVolunteer, String> amountTableColumn;
+    @FXML    private TableColumn<RequestedVolunteer, Integer> amountTableColumn;
     @FXML    private TableColumn<RequestedVolunteer, String> statusTableColumn;
     
     ObservableList<RequestedVolunteer> list = FXCollections.observableArrayList() ;
+    VolunteerCoordinator user ;
 
     /**
      * Initializes the controller class.
@@ -60,6 +63,13 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<>("reason"));
+        timeTableColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+        placeTableColumn.setCellValueFactory(new PropertyValueFactory<>("place"));
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        amountTableColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
     }    
 
     @FXML
@@ -78,8 +88,10 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
     @FXML
     private void acceptOnMouseClick(MouseEvent event) {
         for (RequestedVolunteer rv: list) {
-            if (rv.getId() == idComboBox.getValue()) {
-                rv.setStatus("Accepted");
+            if (rv.getId().equals(idComboBox.getValue())) {
+                if(user.getEmergencyRequestForVolunteer(rv.getAmount())){
+                    rv.setStatus("Accepted");
+                }
 //                user.setVolunteer(rv.getAmount()) ;
                 break ;
             }

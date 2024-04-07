@@ -22,6 +22,7 @@ public class RequestedVolunteer {
         this.place = place;
         this.date = date;
         this.status = "Pending" ;
+        this.id = this.generateId() ;
     }
 
     public void setRequesterName(String requesterName) {
@@ -88,12 +89,12 @@ public class RequestedVolunteer {
         this.amount = amount;
     }
 
-    public void generateId() {
+    public String generateId() {
         String id = "RFV" ;
         id += this.getReason().substring(this.getReason().length() - 3) ;
         id += this.getDate().toString().substring(0,2) ;
         
-        this.id = id;
+        return id ;
     }
 
     public void setReason(String reason) {

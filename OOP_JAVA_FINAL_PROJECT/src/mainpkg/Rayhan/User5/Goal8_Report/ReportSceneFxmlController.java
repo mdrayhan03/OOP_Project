@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rayhan.User5.Goal8_Report.ShowReportFxmlController;
+import mainpkg.Rayhan.User5.VolunteerCoordinator;
 
 /**
  * FXML Controller class
@@ -33,7 +34,7 @@ public class ReportSceneFxmlController implements Initializable {
     @FXML    private TextArea reportBodyTextArea;
     @FXML    private TextField siIdTextField;
     
-    User user ;
+    VolunteerCoordinator user ;
     Alert alert ;
     ReportList sir ;
 
@@ -47,7 +48,7 @@ public class ReportSceneFxmlController implements Initializable {
         return user ;
     }
     
-    public void set(User u) {
+    public void set(VolunteerCoordinator u) {
         user = u ;
     }
     
@@ -128,9 +129,9 @@ public class ReportSceneFxmlController implements Initializable {
         }
         
         if (rtn == true) {
-            Report si = new Report(subject , des , doa) ;
-            System.out.println(user.getId() + receiverId + si.getId());
-            sir = new ReportList(user.getId() , receiverId , si.getId()) ;    
+            Report re = user.report(subject , des , doa) ;
+            System.out.println(user.getId() + receiverId + re.getId());
+            sir = new ReportList(user.getId() , receiverId , re.getId()) ;    
         
             Parent root = null ;
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal2_SIReport/ShowReportFxml.fxml")) ;
@@ -138,7 +139,7 @@ public class ReportSceneFxmlController implements Initializable {
             Scene myScene = new Scene(root) ;
         
             ShowReportFxmlController src = myLoader.getController() ;
-            src.set(si, sir) ;
+            src.set(re, sir) ;
 
             Stage stage = new Stage() ;
             stage.setScene(myScene) ;

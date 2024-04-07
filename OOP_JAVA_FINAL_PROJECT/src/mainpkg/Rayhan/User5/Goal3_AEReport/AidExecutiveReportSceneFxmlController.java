@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rayhan.User5.Goal3_AEReport.ShowReportFxmlController;
+import mainpkg.Rayhan.User5.VolunteerCoordinator;
 
 /**
  * FXML Controller class
@@ -33,7 +34,7 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
     @FXML    private TextArea reportBodyTextArea;
     @FXML    private TextField aeIdTextField;
     
-    User user ;
+    VolunteerCoordinator user ;
     Alert alert ;
     AEReportList sir ;
 
@@ -47,7 +48,7 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
         return user ;
     }
     
-    public void set(User u) {
+    public void set(VolunteerCoordinator u) {
         user = u ;
     }
     
@@ -128,7 +129,7 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
         }
         
         if (rtn == true) {
-            AEReport si = new AEReport(subject , des , doa) ;
+            AEReport si = user.reportToAidExecutive(subject , des , doa) ;
             System.out.println(user.getId() + receiverId + si.getId());
             sir = new AEReportList(user.getId() , receiverId , si.getId()) ;    
         

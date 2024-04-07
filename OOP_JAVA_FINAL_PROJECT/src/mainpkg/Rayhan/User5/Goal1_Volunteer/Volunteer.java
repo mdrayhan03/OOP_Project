@@ -13,7 +13,7 @@ public class Volunteer implements Serializable {
         this.name = name;
         this.phoneN = pN;
         this.addedBy = addedBy;
-        this.generateId() ;
+        this.id = this.generateId() ;
     }
 
 
@@ -35,13 +35,13 @@ public class Volunteer implements Serializable {
 
     }
 
-    public void generateId() {
+    public String generateId() {
         String id = "Vol" ;
         id += name.substring(0) ;
         id += phoneN.substring(9) ;
         id += name.length() ;
         
-        this.id = id;
+        return id ;
     }
 
     public void setName(String name) {

@@ -87,14 +87,14 @@
       </Button>
       <TableView fx:id="requestTableView" layoutY="524.0" prefHeight="277.0" prefWidth="1200.0">
         <columns>
-          <TableColumn prefWidth="200.0" text="ID" />
-          <TableColumn prefWidth="200.0" text="Reason" />
-            <TableColumn prefWidth="200.0" text="Description" />
-            <TableColumn prefWidth="200.0" text="Place" />
-            <TableColumn prefWidth="100.0" text="Time" />
-            <TableColumn prefWidth="100.0" text="Date" />
-            <TableColumn prefWidth="100.0" text="Amount" />
-            <TableColumn prefWidth="100.0" text="Status" />
+          <TableColumn fx:id="idTableColumn" prefWidth="200.0" text="ID" />
+          <TableColumn fx:id="reasonTableColumn" prefWidth="200.0" text="Reason" />
+            <TableColumn fx:id="desTableColumn" prefWidth="200.0" text="Description" />
+            <TableColumn fx:id="placeTableColumn" prefWidth="200.0" text="Place" />
+            <TableColumn fx:id="timeTableColumn" prefWidth="100.0" text="Time" />
+            <TableColumn fx:id="dateTableColumn" prefWidth="100.0" text="Date" />
+            <TableColumn fx:id="amountTableColumn" prefWidth="100.0" text="Amount" />
+            <TableColumn fx:id="statusTableColumn" prefWidth="90.0" text="Status" />
         </columns>
       </TableView>
    </children>

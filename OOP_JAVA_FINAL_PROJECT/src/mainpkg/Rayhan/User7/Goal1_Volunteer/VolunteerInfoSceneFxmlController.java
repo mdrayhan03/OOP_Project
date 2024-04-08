@@ -29,6 +29,7 @@ import javafx.stage.Stage;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rayhan.User5.Goal1_Volunteer.Volunteer;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
+import mainpkg.Rayhan.User7.SecurityIncharge;
 
 /**
  * FXML Controller class
@@ -60,10 +61,10 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
      * @param rb
      */
     
-    public VolunteerCoordinator get() {
+    public SecurityIncharge get() {
         return user ;
     }
-    public void set(VolunteerCoordinator u) {
+    public void set(SecurityIncharge u) {
         user = u ;
     }
     @Override
@@ -136,8 +137,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         }
         
         if (rtn == true) {
-            Volunteer vc = new Volunteer (name , pN , user.getName()) ;
-            user.addVolunteer(1) ;
+            Volunteer vc = user.addVolunteer(name , pN , user.getName() , user.getId()) ;
             list.add(vc) ;
             
                 

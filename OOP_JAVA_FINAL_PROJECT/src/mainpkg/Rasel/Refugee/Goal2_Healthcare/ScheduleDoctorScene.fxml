@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Refugee.ScheduleDoctorSceneController">
+   <children>
+      <Label layoutX="186.0" layoutY="26.0" text="Schedule an appointment with a doctor" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Line endX="161.0" layoutX="323.0" layoutY="20.0" startX="-144.0" />
+      <Line endX="163.0" layoutX="323.0" layoutY="54.0" startX="-143.0" />
+      <Button layoutX="25.0" layoutY="19.0" mnemonicParsing="false" onAction="#scheduleDoctorBackButton" prefHeight="36.0" prefWidth="69.0" text="Back" />
+      <TextField layoutX="150.0" layoutY="93.0" onAction="#scheduleDoctorRefugeeIdTF" prefHeight="36.0" prefWidth="178.0" />
+      <TextArea fx:id="scheduleDoctorDescriptionTA" layoutX="151.0" layoutY="200.0" prefHeight="121.0" prefWidth="306.0" />
+      <Label layoutX="48.0" layoutY="140.0" prefHeight="23.0" prefWidth="69.0" text="Name:" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="98.0" prefHeight="23.0" prefWidth="92.0" text="RefugeeID:" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="150.0" layoutY="139.0" onAction="#scheduleDoctorRefugeeNameTF" prefHeight="36.0" prefWidth="178.0" />
+      <Label layoutX="48.0" layoutY="239.0" prefHeight="23.0" prefWidth="92.0" text="Description:" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="260.0" layoutY="330.0" mnemonicParsing="false" onAction="#scheduleDoctorSubmitButton" prefHeight="43.0" prefWidth="81.0" style="-fx-border-color: black;" text="Submit" textAlignment="CENTER" textFill="RED" />
+   </children>
+</AnchorPane>

@@ -62,6 +62,11 @@ public class EducationCoordinator extends User implements Serializable {
         RequestedVolunteer rq = new RequestedVolunteer(requesterId, requesterName , amount, reason, description, userType, time, place, date) ;
         return rq ;
     }
+    
+    public Course addCourse(String name, int tC, int tHW) {
+        Course co = new Course(name, tC, tHW) ;
+        return co ;
+    }
 //#addStudent():Boolean
 //#studentInfo():Boolean
 //#request():String

@@ -73,12 +73,7 @@ public class EducationCoordinator extends User implements Serializable {
 //#progressReport():String
 //#storage():Boolean
 //#requestForCampaign():String
-
-    public Course addCourse(String name, int tc, int thw) {
-        Course co = new Course(name , tc , thw) ;
-        return co ;
-    }
-    
+  
     
     
 }

@@ -23,7 +23,7 @@ import javafx.stage.Stage;
  */
 public class NeedsSceneFxmlController implements Initializable {
 
-    @FXML    private ComboBox<?> itemComboBox;
+    @FXML    private ComboBox<String> itemComboBox;
     @FXML    private TextField amountTextField;
     @FXML    private TextField ddTextField;
     @FXML    private TextField mmTextField;

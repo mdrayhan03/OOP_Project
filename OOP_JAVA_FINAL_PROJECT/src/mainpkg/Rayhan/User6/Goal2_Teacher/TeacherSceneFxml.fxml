@@ -20,7 +20,7 @@
             <Font name="Cooper Black" size="48.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="222.0" text="Name">
+      <Label layoutX="100.0" layoutY="211.0" text="Name">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
@@ -35,7 +35,7 @@
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="showLabel" alignment="TOP_LEFT" layoutX="100.0" layoutY="310.0" prefHeight="200.0" prefWidth="400.0" text="Label">
+      <Label fx:id="showLabel" alignment="TOP_LEFT" layoutX="100.0" layoutY="310.0" prefHeight="200.0" prefWidth="400.0">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
@@ -45,7 +45,7 @@
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="pNTextField" layoutX="239.0" layoutY="253.0" promptText="Abul Kalam">
+      <TextField fx:id="pNTextField" layoutX="239.0" layoutY="253.0" promptText="01XXXXXXXXX">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
@@ -65,7 +65,7 @@
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </TextField>
-      <Button layoutX="674.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#addTeacherOnMouseClick" text="Add New Teacher">
+      <Button layoutX="725.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#addTeacherOnMouseClick" text="Add New Teacher">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="36.0" />
          </font>
@@ -75,8 +75,18 @@
             <TableColumn fx:id="idTableColumn" prefWidth="258.0" text="ID" />
             <TableColumn fx:id="nameTableColumn" prefWidth="415.0" text="Name" />
             <TableColumn fx:id="pNTableColumn" prefWidth="313.0" text="Phone No" />
-            <TableColumn fx:id="dojTableColumn" prefWidth="213.0" text="Date of Joining" />
+            <TableColumn fx:id="dojTableColumn" prefWidth="205.0" text="Date of Joining" />
          </columns>
       </TableView>
+      <Label layoutX="725.0" layoutY="425.0" text="Total Teacher">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="teacherLabel" alignment="CENTER_RIGHT" layoutX="958.0" layoutY="425.0" prefHeight="28.0" prefWidth="131.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

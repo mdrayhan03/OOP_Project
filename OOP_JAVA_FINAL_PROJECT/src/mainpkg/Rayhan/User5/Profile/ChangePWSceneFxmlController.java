@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.input.MouseEvent;
+import mainpkg.AbstractClass.User;
 
 /**
  * FXML Controller class
@@ -20,12 +21,22 @@ public class ChangePWSceneFxmlController implements Initializable {
     @FXML    private PasswordField confirmPasswordField;
     
     Alert alert ;
+    User user ;
 
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
+    
+    public User get() {
+        return user ;
+    }
+    
+    public void set(User u) {
+        user = u ;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -73,11 +84,28 @@ public class ChangePWSceneFxmlController implements Initializable {
             alert.showAndWait() ;
         }
         
-        if(!npw.equals(cpw)) {
-            alert = new Alert(Alert.AlertType.WARNING) ;
-            alert.setHeaderText("Password Error.") ;
-            alert.setContentText("New password and Confirm password is not same.");
+        if (npw == cpw) {
+            if(user.changePassword(opw, npw)) {
+                alert = new Alert(Alert.AlertType.CONFIRMATION) ;
+                alert.setHeaderText("Password Sucessfull.") ;
+                alert.setContentText("Password change sucessfully.") ;
+                alert.showAndWait() ;
+            }
+            else {
+                alert = new Alert(Alert.AlertType.ERROR) ;
+                alert.setHeaderText("Wrong Password.") ;
+                alert.setContentText("Password change unsucessfully.") ;
+                alert.showAndWait() ;
+            }
         }
+        else {
+                alert = new Alert(Alert.AlertType.ERROR) ;
+                alert.setHeaderText("Wrong Password.") ;
+                alert.setContentText("New Password and Confirm Password not match.") ;
+                alert.showAndWait() ;
+        }
+        
+        
     }
     
 }

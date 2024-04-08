@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -19,17 +20,17 @@
             <Insets bottom="20.0" />
          </padding>
       </Label>
-      <Label layoutX="179.0" layoutY="219.0" text="Name">
+      <Label layoutX="180.0" layoutY="182.0" text="Name">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="179.0" layoutY="250.0" text="Phone No">
+      <Label layoutX="180.0" layoutY="213.0" text="Phone No">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="179.0" layoutY="289.0" text="Email">
+      <Label layoutX="180.0" layoutY="252.0" text="Email">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
@@ -58,15 +59,15 @@
          <font>
             <Font name="Eras Medium ITC" size="24.0" />
          </font></Label>
-      <TextField fx:id="phoneNoTextField" layoutX="428.0" layoutY="252.0" prefWidth="500.0" promptText="01XXXXXXXX">
+      <TextField fx:id="phoneNoTextField" layoutX="429.0" layoutY="215.0" prefWidth="500.0" promptText="01XXXXXXXX">
          <font>
             <Font name="Eras Demi ITC" size="15.0" />
          </font></TextField>
-      <TextField fx:id="nameTextField" layoutX="428.0" layoutY="221.0" prefWidth="500.0" promptText="Abdul Kalam">
+      <TextField fx:id="nameTextField" layoutX="429.0" layoutY="184.0" prefWidth="500.0" promptText="Abdul Kalam">
          <font>
             <Font name="Eras Demi ITC" size="15.0" />
          </font></TextField>
-      <TextField fx:id="emailTextField" layoutX="428.0" layoutY="283.0" prefWidth="500.0" promptText="someone@gmail.com">
+      <TextField fx:id="emailTextField" layoutX="429.0" layoutY="246.0" prefWidth="500.0" promptText="someone@gmail.com">
          <font>
             <Font name="Eras Demi ITC" size="15.0" />
          </font></TextField>
@@ -101,5 +102,20 @@
             <Font name="Eras Medium ITC" size="24.0" />
          </font>
       </Label>
+      <Label layoutX="179.0" layoutY="286.0" text="Gender">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="maleRadioButton" layoutX="428.0" layoutY="290.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Male">
+         <font>
+            <Font name="Eras Demi ITC" size="15.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="femaleRadioButton" layoutX="598.0" layoutY="290.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Female">
+         <font>
+            <Font name="Eras Demi ITC" size="15.0" />
+         </font>
+      </RadioButton>
    </children>
 </AnchorPane>

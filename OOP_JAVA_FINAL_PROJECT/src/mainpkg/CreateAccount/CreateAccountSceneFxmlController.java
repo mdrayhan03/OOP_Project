@@ -1,5 +1,9 @@
 package mainpkg.CreateAccount;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -10,7 +14,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
@@ -35,9 +41,15 @@ public class CreateAccountSceneFxmlController implements Initializable {
     @FXML    private TextField ddTextField;
     @FXML    private TextField mmTextField;
     @FXML    private TextField yyyyTextField;
+    @FXML    private RadioButton maleRadioButton;
+    @FXML    private RadioButton femaleRadioButton;
     
     Random rand ;
     Alert alert ;
+    
+    ToggleGroup tg = new ToggleGroup() ;
+    
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -46,6 +58,9 @@ public class CreateAccountSceneFxmlController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        maleRadioButton.setToggleGroup(tg) ;
+        femaleRadioButton.setToggleGroup(tg) ;
+        maleRadioButton.setSelected(true) ;
         rand = new Random() ;
         userTypeComboBox.getItems().addAll("Refugee Camp Manager" , "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGO") ;
         
@@ -57,7 +72,7 @@ public class CreateAccountSceneFxmlController implements Initializable {
         int id = 0 ;
         String strd ,strm , stry = "" ;
         int dd = 0 , mm = 0, yyyy = 0 ;
-        String name = "" , phoneNo = "" , email = "" , pw = "" , cpw = "" , userType = "" ;
+        String name = "" , phoneNo = "" , email = "" , pw = "" , cpw = "" , userType = "" , gender = "";
         
         name = nameTextField.getText() ;
         if (name.length() == 0) {
@@ -85,6 +100,20 @@ public class CreateAccountSceneFxmlController implements Initializable {
             alert.setContentText("Email Required.") ;
             rtn = false ;
             alert.showAndWait() ;
+        }
+        
+//        if (!maleRadioButton.isSelected() || !femaleRadioButton.isSelected()) {
+//            alert = new Alert(Alert.AlertType.WARNING) ;
+//            alert.setHeaderText("Gender Error.") ;
+//            alert.setContentText("Gender Required.") ;
+//            rtn = false ;
+//            alert.showAndWait() ;
+//        }
+        if  (maleRadioButton.isSelected()) {
+            gender = "Male" ;
+        }
+        else if  (femaleRadioButton.isSelected()) {
+            gender = "Female" ;
         }
         
         strd = ddTextField.getText() ;
@@ -129,7 +158,7 @@ public class CreateAccountSceneFxmlController implements Initializable {
             alert.showAndWait() ;
         }
         
-        if (cpw.equals(pw)) {
+        if (!cpw.equals(pw)) {
             alert = new Alert(Alert.AlertType.WARNING) ;
             alert.setHeaderText("Password Error.") ;
             alert.setContentText("Password and Confirm Password is not same.") ;
@@ -186,26 +215,82 @@ public class CreateAccountSceneFxmlController implements Initializable {
                 break;
         }
         User u = null ;
+        String str1 = null , str2 = null ;
         if (rtn == true) {  
-            if (userType == "VolunteerCoordinator") {
-                   u = new VolunteerCoordinator(id , name , cpw , phoneNo , email , userType , dob.toString()) ;           
+            if (userType == "Volunteer Coordinator") {
+                  VolunteerCoordinator vc = new VolunteerCoordinator(id , name , cpw , phoneNo , email , userType , gender , dob.toString()) ;   
+                  u = new VolunteerCoordinator(id , name , cpw , phoneNo , email , userType , gender , dob.toString()) ;   
+                   try {
+                        FileOutputStream fos = new FileOutputStream("src/File/VolunteerCoordinatorObjFile.bin" , true) ;
+                        ObjectOutputStream oos = new ObjectOutputStream(fos) ;
+                
+                        oos.writeObject(vc) ;
+                
+                        fos.close() ;
+                        oos.close() ;
+                    }
+                    catch (Exception e) {
+                        alert = new Alert(Alert.AlertType.ERROR) ;
+                        alert.setHeaderText("File Error") ;
+                        alert.setContentText("Unable to open file for Exception : " + e.getClass().getName()) ;
+                        alert.showAndWait() ;
+                    }
             }
-            else if (userType == "EducationCoordinator") {
-                   u = new EducationCoordinator(id , name , cpw , phoneNo , email , userType , dob.toString()) ;
+            else if (userType == "Education Coordinator") {
+                   EducationCoordinator ec = new EducationCoordinator(id , name , cpw , phoneNo , email , userType , gender , dob.toString()) ;
+                   u = new EducationCoordinator(id , name , cpw , phoneNo , email , userType , gender , dob.toString()) ;
+                   try {
+                        FileOutputStream fos = new FileOutputStream("src/File/EducationCoordinatorObjFile.bin" , true) ;
+                        ObjectOutputStream oos = new ObjectOutputStream(fos) ;
+                
+                        oos.writeObject(ec) ;
+                
+                        fos.close() ;
+                        oos.close() ;
+                    }
+                    catch (Exception e) {
+                        alert = new Alert(Alert.AlertType.ERROR) ;
+                        alert.setHeaderText("File Error") ;
+                        alert.setContentText("Unable to open file for Exception : " + e.getClass().getName()) ;
+                        alert.showAndWait() ;
+                    }
             }
+                        
+            FileWriter fw = null ;
+            try {
+                File f = new File("src/File/PersonTextFile.txt") ;
             
+                if (f.exists()) {
+                    fw = new FileWriter(f , true) ;
+                }
+                else {
+                    fw = new FileWriter("src/File/PersonTextFile.txt") ;
+                }
+                String str = "" ;
+                str += u.toString() ;
+                fw.write(str) ;
+                fw.close() ;
+            }
+            catch(Exception e) {
+        }
         
-            String str1 = "ID : " + u.getId() +"\n"+
+            str1 = "ID : " + u.getId() +"\n"+
                      "Name : " + u.getName() +"\n"+
                      "Phone No : " + u.getPhoneNo()+"\n" ;
         
-            String str2 = "Email : " + u.getEmail() +"\n"+
+            str2 = "Email : " + u.getEmail() +"\n"+
                      "Date of Birth : " + u.getDob() +"\n"+
                      "User Type : " + u.getUserType() ;
         
             showOutput1Label.setText(str1) ;
             showOutput2Label.setText(str2) ;
             }
+        else {
+            alert = new Alert(Alert.AlertType.ERROR) ;
+            alert.setHeaderText("User Error") ;
+            alert.setContentText("Unable to Construct.") ;
+            alert.showAndWait() ;
+        }
         
         nameTextField.clear() ;
         phoneNoTextField.clear() ;

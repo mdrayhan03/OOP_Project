@@ -77,11 +77,12 @@
       <TableView fx:id="campaignTableView" layoutX="1.0" layoutY="487.0" prefHeight="313.0" prefWidth="1200.0">
         <columns>
           <TableColumn fx:id="idTableColumn" prefWidth="187.00003051757812" text="ID" />
-          <TableColumn fx:id="reasonTableColumn" prefWidth="265.0" text="Reason" />
+          <TableColumn fx:id="reasonTableColumn" prefWidth="265.0" text="Subject" />
             <TableColumn fx:id="dateTableColumn" prefWidth="149.0" text="Date" />
-            <TableColumn fx:id="timeTableColumn" prefWidth="132.0" text="Time" />
-            <TableColumn fx:id="descriptionTableColumn" prefWidth="367.0" text="Description" />
-            <TableColumn fx:id="statusTableColumn" prefWidth="98.0" text="Status" />
+            <TableColumn fx:id="timeTableColumn" prefWidth="115.0" text="Time" />
+            <TableColumn fx:id="placeTableColumn" prefWidth="113.0" text="Place" />
+            <TableColumn fx:id="descriptionTableColumn" prefWidth="230.0" text="Description" />
+            <TableColumn fx:id="statusTableColumn" prefWidth="125.0" text="Status" />
         </columns>
       </TableView>
       <Button layoutX="781.0" layoutY="422.0" mnemonicParsing="false" onMouseClicked="#applyOnMouseClick" prefHeight="44.0" prefWidth="374.0" text="Apply">

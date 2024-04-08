@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.Rayhan.User8.Goal1_CampInfo.CampInfoSceneFxmlController">
+   <children>
+      <Button layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClick" prefHeight="50.0" prefWidth="100.0" text="Back">
+         <font>
+            <Font name="Cooper Black" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="473.0" layoutY="100.0" text="Camp Info">
+         <font>
+            <Font name="Cooper Black" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="196.0" text="Camp Name">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="236.0" text="Location">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="339.0" text="Area">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="387.0" text="Total Refugee">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="434.0" text="Male Refugee">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="482.0" text="Female Refugee">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="doctorLabel" layoutX="150.0" layoutY="534.0" text="Total Doctor">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="594.0" text="Total Teacher">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="646.0" text="Total Volunteer">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="400.0" layoutY="196.0" text="Kutupalong refugee camp ">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="400.0" layoutY="236.0" text="Ukhia, Cox's Bazar, Bangladesh">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="400.0" layoutY="339.0" text="13 sq km (5 sq mi)">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalRefugeeLabel" layoutX="400.0" layoutY="387.0" text="Label">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="maleRefugeeLabel" layoutX="400.0" layoutY="434.0" text="Label">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="femaleRefugeeLabel" layoutX="400.0" layoutY="482.0" text="Label">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="doctorLabel" layoutX="400.0" layoutY="534.0" text="Label">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="teacherLabel" layoutX="400.0" layoutY="594.0" text="Label">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="volunteerLabel" layoutX="400.0" layoutY="646.0" text="Label">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitWidth="320.0" layoutX="880.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../image/hill2.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="150.0" layoutY="703.0" text="Total Student">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="studentLabel" layoutX="400.0" layoutY="703.0" text="Label">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="289.0" text="Coordinates">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="400.0" layoutY="289.0" text="21.2126°N 92.1634°E">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

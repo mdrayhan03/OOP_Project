@@ -53,5 +53,35 @@
             <Font name="Eras Bold ITC" size="36.0" />
          </font>
       </Button>
+      <Label layoutX="50.0" layoutY="163.0" text="Total">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="485.0" layoutY="163.0" text="Free">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="846.0" layoutY="163.0" text="On Work">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalLabel" layoutX="177.0" layoutY="163.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="freeLabel" layoutX="571.0" layoutY="163.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="workLabel" layoutX="988.0" layoutY="163.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

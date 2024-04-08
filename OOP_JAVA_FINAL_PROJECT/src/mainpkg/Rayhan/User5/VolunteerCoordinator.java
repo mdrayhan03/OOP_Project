@@ -3,6 +3,7 @@ package mainpkg.Rayhan.User5;
 import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
 import mainpkg.Rayhan.User5.Goal2_SIReport.SIReport;
 import mainpkg.Rayhan.User5.Goal3_AEReport.AEReport;
 import mainpkg.Rayhan.User5.Goal8_Report.Report;
@@ -71,11 +72,11 @@ public class VolunteerCoordinator extends User implements Serializable{
         this.setVolunteerAmount(this.getVolunteerAmount() + volunteer) ;
         this.setVolunteerFree(this.getVolunteerFree() + volunteer) ;                
     }
-//#campaignSchedule(ArrayList<Campaign>):Boolean
-//    public Campaign requestForCampaign() {
-//        Campaign cam = null ;
-//        return cam ;
-//    }
+    
+    public Campaign requestForCampaign(String time, String place, String subject, String userType, String des, String senderName, Date date, int senderId) {
+        Campaign cam = new Campaign(time,  place,  subject,  userType, des, senderName, date, senderId) ;
+        return cam ;
+    }
     
     public boolean getEmergencyRequestForVolunteer(int amount) {
         this.setVolunteerOnWork(this.getVolunteerOnWork() + amount) ;

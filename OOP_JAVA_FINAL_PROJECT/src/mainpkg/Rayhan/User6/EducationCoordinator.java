@@ -1,7 +1,12 @@
 package mainpkg.Rayhan.User6;
 
 import java.io.Serializable;
+import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rayhan.User5.Goal4_VRequest.RequestedVolunteer;
+import mainpkg.Rayhan.User6.Goal1_Schedule.Schedule;
+import mainpkg.Rayhan.User6.Goal2_Teacher.Teacher;
+import mainpkg.Rayhan.User6.Goal4_Student.Course;
 
 /**
  *
@@ -14,12 +19,6 @@ public class EducationCoordinator extends User implements Serializable {
     public EducationCoordinator(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob) {
         super(id, name, password, phoneNo, email, userType, gender, dob);
     }
-
-    public EducationCoordinator(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-
 
     public int getTeacherAmount() {
         return teacherAmount;
@@ -41,6 +40,40 @@ public class EducationCoordinator extends User implements Serializable {
     public String toString() {
         return "EducationCoordinator{" + "teacherAmount=" + teacherAmount + ", studentAmount=" + studentAmount + '}';
     }
+    
+    public Schedule maintainSchedule(String teacherId, String teacherName, String courseId, String courseName, String time, String place, Date date) {
+        Schedule sc = null ;
+        return sc ;       
+    }
+    public boolean checkSchedule(Schedule one , Schedule two) {
+        Boolean rtn = true ;
+        if(one.getDate() == two.getDate() && one.getTime().equals(two.getTime()) && one.getPlace().equals(two.getPlace())) {
+            rtn = false ;
+        }
+        return rtn ;
+    }
+    public Teacher addTeacher(String name, String pN, Date doj) {
+        Teacher tc = new Teacher(name, pN, doj) ;
+        this.setTeacherAmount(this.getTeacherAmount() + 1) ;
+        return tc ;
+    }
+
+    public RequestedVolunteer requestForVolunteer(int requesterId, String requesterName , int amount, String reason, String description, String userType, String time, String place, Date date) {
+        RequestedVolunteer rq = new RequestedVolunteer(requesterId, requesterName , amount, reason, description, userType, time, place, date) ;
+        return rq ;
+    }
+    
+    public Course addCourse(String name, int tC, int tHW) {
+        Course co = new Course(name, tC, tHW) ;
+        return co ;
+    }
+//#addStudent():Boolean
+//#studentInfo():Boolean
+//#request():String
+//#progressReport():String
+//#storage():Boolean
+//#requestForCampaign():String
+    
     
     
 }

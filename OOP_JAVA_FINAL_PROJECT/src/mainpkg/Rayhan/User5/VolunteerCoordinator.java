@@ -1,7 +1,11 @@
 package mainpkg.Rayhan.User5;
 
 import java.io.Serializable;
+import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rayhan.User5.Goal2_SIReport.SIReport;
+import mainpkg.Rayhan.User5.Goal3_AEReport.AEReport;
+import mainpkg.Rayhan.User5.Goal8_Report.Report;
 
 /**
  *
@@ -31,15 +35,15 @@ public class VolunteerCoordinator extends User implements Serializable{
     }
 
     public void setVolunteerAmount(int volunteerAmount) {
-        this.volunteerAmount += volunteerAmount;
+        this.volunteerAmount = volunteerAmount;
     }
 
     public void setVolunteerOnWork(int volunteerOnWork) {
-        this.volunteerOnWork += volunteerOnWork;
+        this.volunteerOnWork = volunteerOnWork;
     }
 
     public void setVolunteerFree(int volunteerFree) {
-        this.volunteerFree += volunteerFree;
+        this.volunteerFree = volunteerFree;
     }
 
     @Override
@@ -47,7 +51,42 @@ public class VolunteerCoordinator extends User implements Serializable{
         return super.toString() + "volunteerAmount=" + volunteerAmount + ", volunteerOnWork=" + volunteerOnWork + ", volunteerFree=" + volunteerFree + '}';
     }
     
+    public SIReport reportToSecurityIncharge(String subject , String des , Date doa){
+        SIReport sir = new SIReport(subject , des , doa) ;
+        return sir ;
+    }
     
+    public AEReport reportToAidExecutive(String subject , String des , Date doa){
+        AEReport aer = new AEReport(subject , des , doa) ;
+        return aer ;
+    }
     
+    public boolean getRequestForVolunteer(int amount) {
+        this.setVolunteerOnWork(this.getVolunteerOnWork() + amount) ;
+        this.setVolunteerFree(this.getVolunteerFree() - amount) ;
+        return true ;
+    }
+    
+    public void addVolunteer(int volunteer){
+        this.setVolunteerAmount(this.getVolunteerAmount() + volunteer) ;
+        this.setVolunteerFree(this.getVolunteerFree() + volunteer) ;                
+    }
+//#campaignSchedule(ArrayList<Campaign>):Boolean
+//    public Campaign requestForCampaign() {
+//        Campaign cam = null ;
+//        return cam ;
+//    }
+    
+    public boolean getEmergencyRequestForVolunteer(int amount) {
+        this.setVolunteerOnWork(this.getVolunteerOnWork() + amount) ;
+        this.setVolunteerFree(this.getVolunteerFree() - amount) ;
+        return true ;
+    }
+    
+    public Report report(String subject , String des , Date doa) {
+    Report rep = new Report(subject , des , doa) ;
+    return rep ;
+    }
+       
     
 }

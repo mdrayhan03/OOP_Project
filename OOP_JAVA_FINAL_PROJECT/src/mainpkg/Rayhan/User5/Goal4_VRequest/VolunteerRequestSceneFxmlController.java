@@ -19,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
+import mainpkg.Rayhan.User5.VolunteerCoordinator;
 
 /**
  * FXML Controller class
@@ -39,6 +40,7 @@ public class VolunteerRequestSceneFxmlController implements Initializable {
     @FXML    private TableColumn<RequestedVolunteer, String> uTypeTableColumn;
     
     ObservableList<RequestedVolunteer> list = FXCollections.observableArrayList() ;
+    VolunteerCoordinator user ;
 
     /**
      * Initializes the controller class.
@@ -66,14 +68,14 @@ public class VolunteerRequestSceneFxmlController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        idTableColumn.setCellValueFactory(new PropertyValueFactory<RequestedVolunteer,String>("id"));
-        timeTableColumn.setCellValueFactory(new PropertyValueFactory<RequestedVolunteer,String>("time"));
-        placeTableColumn.setCellValueFactory(new PropertyValueFactory<RequestedVolunteer,String>("place"));
-        dateTableColumn.setCellValueFactory(new PropertyValueFactory<RequestedVolunteer,Date>("date"));
-        amountTableColumn.setCellValueFactory(new PropertyValueFactory<RequestedVolunteer,Integer>("amount"));
-        statusTableColumn.setCellValueFactory(new PropertyValueFactory<RequestedVolunteer,String>("status"));
-        nameTableColumn.setCellValueFactory(new PropertyValueFactory<RequestedVolunteer,String>("requesterId"));
-        uTypeTableColumn.setCellValueFactory(new PropertyValueFactory<RequestedVolunteer,String>("userType"));
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        timeTableColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+        placeTableColumn.setCellValueFactory(new PropertyValueFactory<>("place"));
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        amountTableColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("requesterId"));
+        uTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("userType"));
     }    
 
     @FXML
@@ -92,8 +94,10 @@ public class VolunteerRequestSceneFxmlController implements Initializable {
     @FXML
     private void acceptOnMouseClick(MouseEvent event) {
         for (RequestedVolunteer rv: list) {
-            if (rv.getId() == requestIdComboBox.getValue()) {
-                rv.setStatus("Accepted");
+            if (rv.getId().equals(requestIdComboBox.getValue())) {
+                if(user.getRequestForVolunteer(rv.getAmount())) {
+                    rv.setStatus("Accepted") ;
+                }
 //                user.setVolunteer(rv.getAmount()) ;
                 break ;
             }

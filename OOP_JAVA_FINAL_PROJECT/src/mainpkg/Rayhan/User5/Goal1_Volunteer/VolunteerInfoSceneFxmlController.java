@@ -71,6 +71,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         totalLabel.setText(Integer.toString(user.getVolunteerAmount())) ;
         freeLabel.setText(Integer.toString(user.getVolunteerFree())) ;
         workLabel.setText(Integer.toString(user.getVolunteerOnWork())) ;
+        
         idTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("id")) ;
         nameTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("name")) ;
         pNTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("phoneN")) ;
@@ -135,8 +136,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         
         if (rtn == true) {
             Volunteer vc = new Volunteer (name , pN , user.getName()) ;
-            user.setVolunteerAmount(1) ;
-            user.setVolunteerFree(1) ;
+            user.addVolunteer(1) ;
             list.add(vc) ;
             
                 

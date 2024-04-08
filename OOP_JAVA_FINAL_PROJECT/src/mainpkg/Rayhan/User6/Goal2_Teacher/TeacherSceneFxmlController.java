@@ -40,10 +40,12 @@ public class TeacherSceneFxmlController implements Initializable {
     @FXML    private TableColumn<Teacher , String> nameTableColumn;
     @FXML    private TableColumn<Teacher , String> pNTableColumn;
     @FXML    private TableColumn<Teacher , Date> dojTableColumn;
+    @FXML    private Label teacherLabel;
     
     ObservableList<Teacher> list = FXCollections.observableArrayList() ;
     EducationCoordinator user ;
     Alert alert ;
+
     /**
      * Initializes the controller class.
      * @param url
@@ -58,17 +60,19 @@ public class TeacherSceneFxmlController implements Initializable {
     
     public void tableShow() {
         teacherTableView.setItems(list) ;
+        teacherLabel.setText(Integer.toString(user.getTeacherAmount()));
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        user.setTeacherAmount(list.size());
     }    
     
     @FXML
     private void backOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoardSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoard5SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
 

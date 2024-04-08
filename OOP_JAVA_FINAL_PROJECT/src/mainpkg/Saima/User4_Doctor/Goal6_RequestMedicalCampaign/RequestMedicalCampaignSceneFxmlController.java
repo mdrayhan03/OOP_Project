@@ -2,14 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package mainpkg.Saima.User3_AidExcutive.Goal7_RequestExtraShelter;
+package mainpkg.Saima.User4.Doctor.Goal6_RequestMedicalCampaign;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -18,10 +20,8 @@ import javafx.scene.input.MouseEvent;
  *
  * @author HP
  */
-public class RequestExtraShelterSceneFxmlController implements Initializable {
+public class RequestMedicalCampaignSceneFxmlController implements Initializable {
 
-    @FXML
-    private TextField shelterAmountTextField;
     @FXML
     private TextField ddTextField;
     @FXML
@@ -29,21 +29,25 @@ public class RequestExtraShelterSceneFxmlController implements Initializable {
     @FXML
     private TextField yyyyTextField;
     @FXML
-    private TextField ddDeadlineTextField;
+    private ComboBox<?> timeComboBox;
     @FXML
-    private TextField mmDeadlineTextField;
+    private ComboBox<?> placeComboBox;
     @FXML
-    private TextField yyyyDeadlineTextField;
+    private TextField reasonTextField;
     @FXML
-    private TableView<?> requestExtraShelterTableView;
+    private TextArea descriptionTextArea;
     @FXML
-    private TableColumn<?, ?> requestIdTableColumn;
+    private TableView<?> medicalCampaignTableView;
     @FXML
-    private TableColumn<?, ?> shelterAmountTableColumn;
+    private TableColumn<?, ?> reasonIdTableColumn;
     @FXML
-    private TableColumn<?, ?> requestDateTableColumn;
+    private TableColumn<?, ?> reasonTableColumn;
     @FXML
-    private TableColumn<?, ?> deadlineTableColumn;
+    private TableColumn<?, ?> dateTableColumn;
+    @FXML
+    private TableColumn<?, ?> timeTableColumn;
+    @FXML
+    private TableColumn<?, ?> descriptionTableColumn;
     @FXML
     private TableColumn<?, ?> statusTableColumn;
 
@@ -60,7 +64,7 @@ public class RequestExtraShelterSceneFxmlController implements Initializable {
     }
 
     @FXML
-    private void submitRequestOnMouseClicked(MouseEvent event) {
+    private void applyOnMouseClicked(MouseEvent event) {
     }
     
 }

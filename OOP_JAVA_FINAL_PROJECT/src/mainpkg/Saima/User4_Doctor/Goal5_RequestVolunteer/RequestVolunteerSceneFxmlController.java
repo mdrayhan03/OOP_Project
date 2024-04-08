@@ -2,14 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package mainpkg.Saima.User3_AidExcutive.Goal7_RequestExtraShelter;
+package mainpkg.Saima.User4.Doctor.Goal5_RequestVolunteer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -18,10 +20,12 @@ import javafx.scene.input.MouseEvent;
  *
  * @author HP
  */
-public class RequestExtraShelterSceneFxmlController implements Initializable {
+public class RequestVolunteerSceneFxmlController implements Initializable {
 
     @FXML
-    private TextField shelterAmountTextField;
+    private TextField reasonTextField;
+    @FXML
+    private TextArea descriptionTextArea;
     @FXML
     private TextField ddTextField;
     @FXML
@@ -29,21 +33,27 @@ public class RequestExtraShelterSceneFxmlController implements Initializable {
     @FXML
     private TextField yyyyTextField;
     @FXML
-    private TextField ddDeadlineTextField;
+    private TextField amountTextField;
     @FXML
-    private TextField mmDeadlineTextField;
+    private ComboBox<?> timeComboBox;
     @FXML
-    private TextField yyyyDeadlineTextField;
+    private ComboBox<?> placeComboBox;
     @FXML
-    private TableView<?> requestExtraShelterTableView;
+    private TableView<?> requesVolunteertTableView;
     @FXML
     private TableColumn<?, ?> requestIdTableColumn;
     @FXML
-    private TableColumn<?, ?> shelterAmountTableColumn;
+    private TableColumn<?, ?> reasonTableColumn;
     @FXML
-    private TableColumn<?, ?> requestDateTableColumn;
+    private TableColumn<?, ?> descriptionTableColumn;
     @FXML
-    private TableColumn<?, ?> deadlineTableColumn;
+    private TableColumn<?, ?> placeTableColumn;
+    @FXML
+    private TableColumn<?, ?> timeTableColumn;
+    @FXML
+    private TableColumn<?, ?> dateTableColumn;
+    @FXML
+    private TableColumn<?, ?> amountTableColumn;
     @FXML
     private TableColumn<?, ?> statusTableColumn;
 
@@ -60,7 +70,7 @@ public class RequestExtraShelterSceneFxmlController implements Initializable {
     }
 
     @FXML
-    private void submitRequestOnMouseClicked(MouseEvent event) {
+    private void requestOnMouseClicked(MouseEvent event) {
     }
     
 }

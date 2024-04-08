@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package mainpkg.Saima.User3_AidExcutive.Goal7_RequestExtraShelter;
+package mainpkg.Saima.User4.Doctor.Goal4_RequestExtraMedicine;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -18,10 +19,12 @@ import javafx.scene.input.MouseEvent;
  *
  * @author HP
  */
-public class RequestExtraShelterSceneFxmlController implements Initializable {
+public class RequestExtraMedicineSceneFxmlController implements Initializable {
 
     @FXML
-    private TextField shelterAmountTextField;
+    private ComboBox<?> requestMedicineNameComboBox;
+    @FXML
+    private TextField requestMedicineQuantityTextField;
     @FXML
     private TextField ddTextField;
     @FXML
@@ -35,11 +38,13 @@ public class RequestExtraShelterSceneFxmlController implements Initializable {
     @FXML
     private TextField yyyyDeadlineTextField;
     @FXML
-    private TableView<?> requestExtraShelterTableView;
+    private TableView<?> requestExtraMedicineTableView;
     @FXML
     private TableColumn<?, ?> requestIdTableColumn;
     @FXML
-    private TableColumn<?, ?> shelterAmountTableColumn;
+    private TableColumn<?, ?> medicineNameTableColumn;
+    @FXML
+    private TableColumn<?, ?> medicineQuantityTableColumn;
     @FXML
     private TableColumn<?, ?> requestDateTableColumn;
     @FXML

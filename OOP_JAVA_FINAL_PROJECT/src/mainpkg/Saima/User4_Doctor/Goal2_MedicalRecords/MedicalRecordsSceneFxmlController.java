@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package mainpkg.Saima.User3_AidExcutive.Goal6_AllocateShelter;
+package mainpkg.Saima.User4_Doctor.Goal2_MedicalRecords;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -18,26 +17,30 @@ import javafx.scene.input.MouseEvent;
  *
  * @author HP
  */
-public class AllocateShelterSceneFxmlController implements Initializable {
+public class MedicalRecordsSceneFxmlController implements Initializable {
 
     @FXML
-    private ComboBox<?> emptyShelterIdComboBox;
+    private ComboBox<?> refugeeIdComboBox;
     @FXML
-    private Label familyMemberId1Label;
+    private Label medicineNameLabel;
     @FXML
-    private Label familyMemberId2Label;
+    private Label genderLabel;
     @FXML
-    private Label familyMemberId3Label;
+    private Label ddLabel;
     @FXML
-    private Label familyMemberId4Label;
+    private Label mmLabel;
     @FXML
-    private Label familyMemberId5Label;
+    private Label yyyyLabel;
     @FXML
-    private TextField ddTextField;
+    private Label nameLabel;
     @FXML
-    private TextField mmTextField;
+    private Label ageLabel;
     @FXML
-    private TextField yyyyTextField;
+    private Label diseaseLabel;
+    @FXML
+    private Label treatmentLabel;
+    @FXML
+    private Label checkupNoLabel;
 
     /**
      * Initializes the controller class.
@@ -49,10 +52,6 @@ public class AllocateShelterSceneFxmlController implements Initializable {
 
     @FXML
     private void backButtonOnMouseClicked(MouseEvent event) {
-    }
-
-    @FXML
-    private void allocateButtonOnMouseClicked(MouseEvent event) {
     }
     
 }

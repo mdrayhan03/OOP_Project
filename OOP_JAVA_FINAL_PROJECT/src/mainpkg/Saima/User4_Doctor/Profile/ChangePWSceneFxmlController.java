@@ -2,14 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package mainpkg.Saima.User3_AidExcutive.Goal8_Report;
+package mainpkg.Saima.User4.Doctor.Profile;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -17,20 +16,14 @@ import javafx.scene.input.MouseEvent;
  *
  * @author HP
  */
-public class ReportSceneFxmlController implements Initializable {
+public class ChangePWSceneFxmlController implements Initializable {
 
     @FXML
-    private TextField ddTextField;
+    private PasswordField oldPasswordField;
     @FXML
-    private TextField mmTextField;
+    private PasswordField newPasswordField;
     @FXML
-    private TextField yyyyTextField;
-    @FXML
-    private TextField campManagerIdTextField;
-    @FXML
-    private TextField subjectTextField;
-    @FXML
-    private TextArea reportBodyTextArea;
+    private PasswordField confirmPasswordField;
 
     /**
      * Initializes the controller class.
@@ -41,7 +34,7 @@ public class ReportSceneFxmlController implements Initializable {
     }    
 
     @FXML
-    private void backOnMouseClicked(MouseEvent event) {
+    private void changePasswordOnMouseClick(MouseEvent event) {
     }
     
 }

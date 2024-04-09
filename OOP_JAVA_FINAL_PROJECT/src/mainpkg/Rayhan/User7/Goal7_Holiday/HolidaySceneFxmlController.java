@@ -3,6 +3,8 @@ package mainpkg.Rayhan.User7.Goal7_Holiday;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +16,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.Date;
+import mainpkg.AbstractClass.Holiday;
+import mainpkg.Rayhan.User7.SecurityIncharge;
 
 /**
  * FXML Controller class
@@ -31,19 +36,29 @@ public class HolidaySceneFxmlController implements Initializable {
     @FXML    private TextField endddTextField;
     @FXML    private TextField endmmTextField;
     @FXML    private TextField endyyyyTextField;
-    @FXML    private TableView<?> holidayTableView;
-    @FXML    private TableColumn<?, ?> idTableColumn;
-    @FXML    private TableColumn<?, ?> reasonTableColumn;
-    @FXML    private TableColumn<?, ?> sDTableColumn;
-    @FXML    private TableColumn<?, ?> eDTableColumn;
-    @FXML    private TableColumn<?, ?> dateTableColumn;
-    @FXML    private TableColumn<?, ?> statusTableColumn;
+    @FXML    private TableView<Holiday> holidayTableView;
+    @FXML    private TableColumn<Holiday , String> idTableColumn;
+    @FXML    private TableColumn<Holiday , String> reasonTableColumn;
+    @FXML    private TableColumn<Holiday , Date> sDTableColumn;
+    @FXML    private TableColumn<Holiday , Date> eDTableColumn;
+    @FXML    private TableColumn<Holiday , Date> dateTableColumn;
+    @FXML    private TableColumn<Holiday , String> statusTableColumn;
+    @FXML    private TextField reasonTextField;
+    
+    ObservableList<Holiday> list = FXCollections.observableArrayList() ;
+    SecurityIncharge user ;
+    
 
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
+    
+    public void tableShow() {
+        holidayTableView.setItems(user.getHolidayList()) ;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -60,6 +75,43 @@ public class HolidaySceneFxmlController implements Initializable {
         stage.setScene(myScene) ;
         stage.setTitle("Security Incharge") ;
         stage.show() ;
+    }
+
+    @FXML
+    private void applyOnMouseClick(MouseEvent event) {
+        Boolean rtn = true ;
+        String reason , ssdd , ssmm , ssyyyy , sedd , semm , seyyyy , sadd , samm , sayyyy ;
+        Integer sdd , smm , syyyy , edd , emm , eyyyy , add , amm , ayyyy ;
+        
+        reason = reasonTextField.getText() ;
+        
+        ssdd = startddTextField.getText() ;
+        ssmm = startmmTextField.getText() ;
+        ssyyyy = startyyyyTextField.getText() ;
+        sdd = Integer.parseInt(ssdd) ;
+        smm = Integer.parseInt(ssmm) ;
+        syyyy = Integer.parseInt(ssyyyy) ;
+        Date start = new Date(sdd , smm , syyyy) ;
+        
+        sedd = endddTextField.getText() ;
+        semm = endmmTextField.getText() ;
+        seyyyy = endyyyyTextField.getText() ;
+        edd = Integer.parseInt(sedd) ;
+        emm = Integer.parseInt(semm) ;
+        eyyyy = Integer.parseInt(seyyyy) ;
+        Date end = new Date(edd , emm , eyyyy) ;
+        
+        sadd = ddTextField.getText() ;
+        samm = mmTextField.getText() ;
+        sayyyy = yyyyTextField.getText() ;
+        add = Integer.parseInt(sadd) ;
+        amm = Integer.parseInt(samm) ;
+        ayyyy = Integer.parseInt(sayyyy) ;
+        Date apply = new Date(add , amm , ayyyy) ;
+        
+        if(start.isValid() && end.isValid() && apply.isValid()) {
+            rtn = user.requestToLeave(reason, start , end) ;
+        }
     }
     
 }

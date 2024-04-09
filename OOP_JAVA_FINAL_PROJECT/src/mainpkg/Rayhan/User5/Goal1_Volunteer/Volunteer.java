@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 
 public class Volunteer implements Serializable {
-    String id , name , phoneN , addedBy ;
+    String id , name , phoneN , addedBy , status ;
     int addedById ;
 
     public Volunteer(String name, String pN, String addedBy , int addedById) {
@@ -17,6 +17,7 @@ public class Volunteer implements Serializable {
         this.addedBy = addedBy;
         this.addedById = addedById ;
         this.id = this.generateId() ;
+        this.status = "Free" ;
     }
 
 
@@ -27,6 +28,10 @@ public class Volunteer implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    public String getPhoneN() {
+        return phoneN;
     }
 
     public String getphoneN() {
@@ -40,6 +45,10 @@ public class Volunteer implements Serializable {
 
     public int getAddedById() {
         return addedById;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     private String generateId() {
@@ -69,6 +78,14 @@ public class Volunteer implements Serializable {
 
     public void setAddedById(int addedById) {
         this.addedById = addedById;
+    }
+
+    public void setPhoneN(String phoneN) {
+        this.phoneN = phoneN;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override

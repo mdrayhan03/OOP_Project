@@ -2,9 +2,16 @@ package mainpkg.Rayhan.User7;
 
 import java.io.Serializable;
 import javafx.collections.ObservableList;
+import mainpkg.AbstractClass.Date;
+import mainpkg.AbstractClass.Holiday;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
+import mainpkg.Rasel.CampManager.Goal7_AllRequests.RequestedItems;
 import mainpkg.Rasel.Refugee.Refugee;
 import mainpkg.Rayhan.User5.Goal1_Volunteer.Volunteer;
+import mainpkg.Rayhan.User5.Goal8_Report.Report;
+import mainpkg.Rayhan.User7.Goal3_Notice.Notice;
+import mainpkg.Rayhan.User7.Goal6_Duty.Duty;
 
 /**
  *
@@ -64,10 +71,33 @@ public class SecurityIncharge extends User implements Serializable {
         }
         return null ;
     }
-//+crimeFacts():void
-//+notice():void
-//+timeAndPlace():void
-//+request():void
-//+report():void
+//+crimeFacts():void    
+    public Notice notice(String id , ObservableList<Notice> l) {
+        for (Notice nc: l) {
+            if (nc.getId() == id) {
+                return nc ;
+            }
+        }
+        return null ;
+    }
+    public Duty setDuty(String time, String place, int amount, Date date) {
+        Duty duty = new Duty(time , place , amount , date) ;
+        
+        return duty ;        
+    }
+    public RequestedItems request(int id , String userType , String name, int amount, Date apply, Date deadline) {
+        RequestedItems req = new RequestedItems(id , userType , name, amount, apply, deadline) ;
+        return req ;
+    }
+    
+    public Campaign requestForCampaign(String time, String place, String subject, String userType, String des, String senderName, Date date, int senderId) {
+        Campaign cam = new Campaign(time,  place,  subject,  userType, des, senderName, date, senderId) ;
+        return cam ;
+    }
+    
+    public Report report(String subject , String des , Date doa) {
+        Report rep = new Report(subject , des , doa) ;
+        return rep ;
+    }
     
 }

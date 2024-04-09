@@ -25,6 +25,7 @@ import mainpkg.AbstractClass.Time_Place;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
 import mainpkg.Rayhan.User5.Goal1_Volunteer.Volunteer;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
+import mainpkg.Rayhan.User6.EducationCoordinator;
 
 /**
  * FXML Controller class
@@ -49,7 +50,7 @@ public class CampaignSceneFxmlController implements Initializable {
     @FXML    private TableColumn<Campaign, String> descriptionTableColumn;
     @FXML    private TableColumn<Campaign, String> statusTableColumn;
     
-    VolunteerCoordinator user ;
+    EducationCoordinator user ;
     Alert alert ;
     Time_Place tp = new Time_Place() ;
     ObservableList<Campaign> table = FXCollections.observableArrayList() ;

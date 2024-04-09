@@ -3,6 +3,7 @@ package mainpkg.Rayhan.User6;
 import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.RequestedItems;
 import mainpkg.Rayhan.User5.Goal4_VRequest.RequestedVolunteer;
 import mainpkg.Rayhan.User6.Goal1_Schedule.Schedule;
@@ -79,7 +80,10 @@ public class EducationCoordinator extends User implements Serializable {
     public void maintainStorage(EducationCoordinatorStorage s){
 //        EducationCoordinatorStorage st = s ;
     }
-//#requestForCampaign():String
+    public Campaign requestForCampaign(String time, String place, String subject, String userType, String des, String senderName, Date date, int senderId) {
+        Campaign cam = new Campaign(time,  place,  subject,  userType, des, senderName, date, senderId) ;
+        return cam ;
+    }
   
     
     

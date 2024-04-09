@@ -4,8 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import javafx.collections.ObservableList;
 import javax.sound.midi.MidiDevice.Info;
+import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
 import mainpkg.Rasel.Refugee.Refugee;
+import mainpkg.Rayhan.User5.Goal8_Report.Report;
+import mainpkg.Rayhan.User8.Goal4_Donation.Donation;
 
 /**
  *
@@ -35,10 +39,23 @@ public class NGOs extends User implements Serializable{
 //    
 //}
 //#capacityInfo():void
-//#donationToCamp():Boolean
-//#requestForCampaign():Boolean
+    public Donation donationToCamp(Integer donerid, Integer amount, String name, Date date) {
+        Donation don = new Donation(donerid, amount, name, date) ;
+        
+        return don ;
+    }
+    
+    public Campaign requestForCampaign(String time, String place, String subject, String userType, String des, String senderName, Date date, int senderId) {
+        Campaign cam = new Campaign(time,  place,  subject,  userType, des, senderName, date, senderId) ;
+        return cam ;
+    }
+    
 //#educationFacilities():Boolean
 //#medicalFacilities():Boolean
-//#report():Boolean
+    
+    public Report report(String subject , String des , Date doa) {
+        Report rep = new Report(subject , des , doa) ;
+        return rep ;
+    }
     
 }

@@ -3,6 +3,8 @@ package mainpkg.Rayhan.User8.Goal2_ManagementInfo;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,6 +15,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.Date;
+import mainpkg.Rayhan.User5.VolunteerCoordinator;
+import mainpkg.Rayhan.User6.EducationCoordinator;
+import mainpkg.Rayhan.User7.SecurityIncharge;
+import mainpkg.Rayhan.User8.NGOs;
 
 /**
  * FXML Controller class
@@ -39,30 +46,44 @@ public class ManagementInfoSceneFxmlController implements Initializable {
     @FXML    private TableColumn<?, ?> doctorPNTableColumn;
     @FXML    private TableColumn<?, ?> doctorEmailTableColumn;
     @FXML    private TableColumn<?, ?> doctorDoBTableColumn;
-    @FXML    private TableView<?> volunteerTableView;
-    @FXML    private TableColumn<?, ?> volunteerIdTableColumn;
-    @FXML    private TableColumn<?, ?> volunteerNameTableColumn;
-    @FXML    private TableColumn<?, ?> volunteerPNTableColumn;
-    @FXML    private TableColumn<?, ?> volunteerEmailTableColumn;
-    @FXML    private TableColumn<?, ?> volunteerDoBTableColumn;
-    @FXML    private TableView<?> educationTableView;
-    @FXML    private TableColumn<?, ?> educationIdTableColumn;
-    @FXML    private TableColumn<?, ?> educationNameTableColumn;
-    @FXML    private TableColumn<?, ?> educationPNTableColumn;
-    @FXML    private TableColumn<?, ?> educationEmailTableColumn;
-    @FXML    private TableColumn<?, ?> educationDoBTableColumn;
-    @FXML    private TableView<?> securityTableView;
-    @FXML    private TableColumn<?, ?> securityIdTableColumn;
-    @FXML    private TableColumn<?, ?> securityNameTableColumn;
-    @FXML    private TableColumn<?, ?> securityPNTableColumn;
-    @FXML    private TableColumn<?, ?> securityEmailTableColumn;
-    @FXML    private TableColumn<?, ?> securityDoBTableColumn;
+    @FXML    private TableView<VolunteerCoordinator> volunteerTableView;
+    @FXML    private TableColumn<VolunteerCoordinator, Integer> volunteerIdTableColumn;
+    @FXML    private TableColumn<VolunteerCoordinator, String> volunteerNameTableColumn;
+    @FXML    private TableColumn<VolunteerCoordinator, String> volunteerPNTableColumn;
+    @FXML    private TableColumn<VolunteerCoordinator, String> volunteerEmailTableColumn;
+    @FXML    private TableColumn<VolunteerCoordinator, Date> volunteerDoBTableColumn;
+    @FXML    private TableView<EducationCoordinator> educationTableView;
+    @FXML    private TableColumn<EducationCoordinator, Integer> educationIdTableColumn;
+    @FXML    private TableColumn<EducationCoordinator, String> educationNameTableColumn;
+    @FXML    private TableColumn<EducationCoordinator, String> educationPNTableColumn;
+    @FXML    private TableColumn<EducationCoordinator, String> educationEmailTableColumn;
+    @FXML    private TableColumn<EducationCoordinator, Date> educationDoBTableColumn;
+    @FXML    private TableView<SecurityIncharge> securityTableView;
+    @FXML    private TableColumn<SecurityIncharge, Integer> securityIdTableColumn;
+    @FXML    private TableColumn<SecurityIncharge, String> securityNameTableColumn;
+    @FXML    private TableColumn<SecurityIncharge, String> securityPNTableColumn;
+    @FXML    private TableColumn<SecurityIncharge, String> securityEmailTableColumn;
+    @FXML    private TableColumn<SecurityIncharge, Date> securityDoBTableColumn;
+    
+    NGOs user ; 
+    ObservableList<VolunteerCoordinator> vcList = FXCollections.observableArrayList() ;
+    ObservableList<EducationCoordinator> ecList = FXCollections.observableArrayList() ;
+    ObservableList<SecurityIncharge> siList = FXCollections.observableArrayList() ;
     
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
+    public NGOs get() {
+        return user ;
+    }
+    
+    public void tableShow() {
+        volunteerTableView.setItems(vcList) ;
+        educationTableView.setItems(ecList) ;
+        securityTableView.setItems(siList) ;
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

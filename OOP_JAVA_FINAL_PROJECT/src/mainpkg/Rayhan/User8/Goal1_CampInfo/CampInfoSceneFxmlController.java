@@ -2,7 +2,10 @@ package mainpkg.Rayhan.User8.Goal1_CampInfo;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.Rasel.Refugee.Refugee;
+import mainpkg.Rayhan.User8.NGOs;
 
 /**
  * FXML Controller class
@@ -27,12 +32,31 @@ public class CampInfoSceneFxmlController implements Initializable {
     @FXML    private Label teacherLabel;
     @FXML    private Label volunteerLabel;
     @FXML    private Label studentLabel;
+    
+    NGOs user ;
+    ObservableList<Refugee> refList = FXCollections.observableArrayList() ;
 
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
+    public NGOs get() {
+        return user ;
+    }
+    
+    public void set(NGOs u) {
+        user = u ;
+    }
+    
+    public void setter() {
+        ArrayList<Integer> list = user.campInfo(refList) ;
+        
+        totalRefugeeLabel.setText(Integer.toString(list.get(0))) ;
+        maleRefugeeLabel.setText(Integer.toString(list.get(1))) ;
+        femaleRefugeeLabel.setText(Integer.toString(list.get(2))) ;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -42,7 +66,7 @@ public class CampInfoSceneFxmlController implements Initializable {
     private void backOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
 //                    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoardSceneFxml.fxml")) ;
-                    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User8/DashBoardSceneFxml.fxml")) ;
+                    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User8/DashBoard8SceneFxml.fxml")) ;
                     root = (Parent) myLoader.load() ;
                     Scene myScene = new Scene(root) ;
 

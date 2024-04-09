@@ -13,11 +13,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.User;
+import mainpkg.Saima.User3_AidExcutive.AidExcutive;
 
 /**
  * FXML Controller class
  *
- * @author RayhaN
+ * @author HP
  */
 public class ProfileSceneFxmlController implements Initializable {
 
@@ -27,12 +29,24 @@ public class ProfileSceneFxmlController implements Initializable {
     @FXML    private Label userTypeLabel;
     @FXML    private Label pNLabel;
     @FXML    private Label emailLabel;
-
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
+    @FXML    private Label genderLabel;
+    
+     User user ;
+     
+     public User get() {
+        return user ;
+    }
+     public void set(User u) {
+        user = u ;
+        statusLabel.setText(user.getStatus()) ;
+        nameLabel.setText(user.getName()) ;
+        idLabel.setText(Integer.toString(user.getId())) ;
+        userTypeLabel.setText(user.getUserType()) ;
+        pNLabel.setText(user.getPhoneNo()) ;
+        emailLabel.setText(user.getEmail()) ;
+        genderLabel.setText(user.getGender()) ;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -41,28 +55,31 @@ public class ProfileSceneFxmlController implements Initializable {
     @FXML
     private void backOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/DashBoardSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/DashBoardSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
-        stage.setTitle("Volunteer Coordinator DashBoard") ;
+        stage.setTitle("Aid Excutive DashBoard") ;
         stage.show() ;
     }
 
     @FXML
     private void changePWOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Profile/ChangePWSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/Profile/ChangePWSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
 
         Stage stage = new Stage() ;
         stage.setScene(myScene) ;
-        stage.getIcons().add(new Image("/image/campIcon.jpg")) ;
-        stage.setTitle("Volunteer Coordinator Change Password") ;
+        stage.getIcons().add(new Image("/image/Aid_Excutive.jpg")) ;
+        stage.setTitle("Aid Excutive Change Password") ;
         stage.show() ;
     }
-    
+
+   
+
+   
 }

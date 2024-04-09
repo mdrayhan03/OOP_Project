@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package mainpkg.Saima.User4.Doctor.Profile;
+package mainpkg.Saima.User4_Doctor.Profile;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,18 +18,13 @@ import javafx.scene.input.MouseEvent;
  */
 public class ProfileSceneFxmlController implements Initializable {
 
-    @FXML
-    private Label statusLabel;
-    @FXML
-    private Label nameLabel;
-    @FXML
-    private Label idLabel;
-    @FXML
-    private Label userTypeLabel;
-    @FXML
-    private Label pNLabel;
-    @FXML
-    private Label emailLabel;
+    @FXML    private Label statusLabel;
+    @FXML    private Label nameLabel;
+    @FXML    private Label idLabel;
+    @FXML    private Label userTypeLabel;
+    @FXML    private Label pNLabel;
+    @FXML    private Label emailLabel;
+    @FXML    private Label genderLabel;
 
     /**
      * Initializes the controller class.

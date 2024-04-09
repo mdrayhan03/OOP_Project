@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package mainpkg.Saima.User4.Doctor.Goal6_RequestMedicalCampaign;
+package mainpkg.Saima.User4_Doctor.Goal6_RequestMedicalCampaign;
 
 import java.net.URL;
 import java.util.ResourceBundle;

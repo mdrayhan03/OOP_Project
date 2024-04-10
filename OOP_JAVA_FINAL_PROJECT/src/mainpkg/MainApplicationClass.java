@@ -15,7 +15,7 @@ public class MainApplicationClass extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Opening/OpeningSceneFxml.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Rasel/CampManager/CampManagerDashboardScene.fxml"));
 //        Parent root = FXMLLoader.load(getClass().getResource("Login/LoginSceneFxml.fxml"));
 //        Parent root = FXMLLoader.load(getClass().getResource("ForgetPW/ForgetPWFxml.fxml"));
 //        Parent root = FXMLLoader.load(getClass().getResource("Rayhan/User5/DashBoardSceneFxml.fxml")) ;
@@ -24,8 +24,8 @@ public class MainApplicationClass extends Application {
         Scene scene = new Scene(root) ;
         
         stage.setScene(scene) ;
-        stage.setTitle("Rohinga Refugee Camp") ;
-        stage.getIcons().add(new Image("/image/campIcon.jpg")) ;
+        //stage.setTitle("Rohinga Refugee Camp") ;
+        //stage.getIcons().add(new Image("/image/campIcon.jpg")) ;
         stage.show() ;
     }
 

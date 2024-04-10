@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Saima.User3_AidExcutive.Goal8_Report.ReportSceneFxmlController">
+   <children>
+      <Button layoutX="60.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClicked" prefHeight="50.0" prefWidth="100.0" text="Back">
+         <font>
+            <Font name="Cooper Black" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="246.0" layoutY="110.0" text="Report to Refugee Camp Manager">
+         <font>
+            <Font name="Cooper Black" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="94.0" layoutY="263.0" prefHeight="28.0" prefWidth="69.0" text="Date:">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ddTextField" alignment="CENTER_RIGHT" layoutX="227.0" layoutY="252.0" prefHeight="51.0" prefWidth="150.0" promptText="dd">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="mmTextField" alignment="CENTER_RIGHT" layoutX="401.0" layoutY="252.0" prefHeight="51.0" prefWidth="150.0" promptText="mm">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="yyyyTextField" alignment="CENTER_RIGHT" layoutX="577.0" layoutY="252.0" prefHeight="51.0" prefWidth="150.0" promptText="yyyy">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </TextField>
+      <Label layoutX="94.0" layoutY="202.0" prefHeight="28.0" prefWidth="37.0" text="To:">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="campManagerIdTextField" layoutX="227.0" layoutY="190.0" prefHeight="51.0" prefWidth="325.0" promptText="Refugee Camp Manager ID">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </TextField>
+      <Label layoutX="94.0" layoutY="326.0" prefHeight="28.0" prefWidth="92.0" text="Subject:">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="subjectTextField" layoutX="227.0" layoutY="314.0" prefWidth="900.0" promptText="Report on.........">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="reportBodyTextArea" layoutX="227.0" layoutY="377.0" prefHeight="358.0" prefWidth="900.0" promptText="Write report here..." wrapText="true">
+         <font>
+            <Font name="Eras Medium ITC" size="24.0" />
+         </font>
+      </TextArea>
+      <Button layoutX="979.0" layoutY="746.0" mnemonicParsing="false" onMouseClicked="#submitOnMouseClick" prefHeight="50.0" prefWidth="150.0" text="Submit">
+         <font>
+            <Font name="Cooper Black" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

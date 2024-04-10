@@ -103,7 +103,7 @@
             <Insets top="20.0" />
          </padding>
       </Label>
-      <Label fx:id="genderLabel" layoutX="461.0" layoutY="507.0">
+      <Label fx:id="genderLabel" layoutX="461.0" layoutY="507.0" prefHeight="28.0" prefWidth="0.0">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>

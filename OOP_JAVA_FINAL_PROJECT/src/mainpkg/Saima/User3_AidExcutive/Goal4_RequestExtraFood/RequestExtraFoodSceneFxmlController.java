@@ -16,8 +16,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import mainpkg.Rasel.CampManager.Goal5_Supply.Food;
 import mainpkg.Saima.User3_AidExcutive.AidExcutive;
-import mainpkg.Saima.User3_AidExcutive.Goal1_AddFood.AddFood;
+
 
 /**
  * FXML Controller class
@@ -62,7 +63,7 @@ public class RequestExtraFoodSceneFxmlController implements Initializable {
      */
     Alert alert ;
     AidExcutive user ;
-    ObservableList<AddFood> list = FXCollections.observableArrayList() ;
+    ObservableList<Food> list = FXCollections.observableArrayList() ;
     
     
     public AidExcutive get() {

@@ -15,8 +15,9 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import mainpkg.Rasel.CampManager.Goal5_Supply.Food;
 import mainpkg.Saima.User3_AidExcutive.AidExcutive;
-import mainpkg.Saima.User3_AidExcutive.Goal1_AddFood.AddFood;
+
 
 /**
  * FXML Controller class
@@ -37,7 +38,7 @@ public class MacroFoodDistributionInfoSceneFxmlController implements Initializab
      */
     Alert alert ;
     AidExcutive user ;
-    ObservableList<AddFood> list = FXCollections.observableArrayList() ;
+    ObservableList<Food> list = FXCollections.observableArrayList() ;
     
     
     public AidExcutive get() {

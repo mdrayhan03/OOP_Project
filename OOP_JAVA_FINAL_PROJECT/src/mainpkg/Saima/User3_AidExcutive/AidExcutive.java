@@ -5,8 +5,10 @@
 package mainpkg.Saima.User3_AidExcutive;
 
 import java.io.Serializable;
+import javafx.collections.ObservableList;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rasel.CampManager.Goal5_Supply.Food;
 import mainpkg.Saima.User3_AidExcutive.Goal8_Report.Report;
 
 /**
@@ -46,5 +48,14 @@ public class AidExcutive extends User implements Serializable{
     public Report report(String subject , String des , Date doa) {
     Report rep = new Report(subject , des , doa) ;
     return rep ;
-    }  
+    } 
+    
+    public Food foodInfo(String id , ObservableList<Food> list) {
+        for (Food f: list) {
+            if (f.getId() == id) {
+                return f ;
+            }
+        }
+        return null ;
+    }
 }

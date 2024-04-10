@@ -4,18 +4,24 @@
  */
 package mainpkg.Saima.User3_AidExcutive.Goal1_AddFood;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rasel.CampManager.Goal5_Supply.Food;
@@ -37,7 +43,7 @@ public class AddFoodSceneFxmlController implements Initializable {
     @FXML
     private TableColumn<Food, String> foodNameTableColumn;
     @FXML
-    private TableColumn<Food, Integer> foodQuantityTableColumn;
+    private TableColumn<Food, String> foodQuantityTableColumn;
     @FXML
     private TableColumn<Food, Date> addedFoodDateTableColumn;
    
@@ -53,10 +59,6 @@ public class AddFoodSceneFxmlController implements Initializable {
     Alert alert ;
     AidExcutive user ;
     ObservableList<Food> list = FXCollections.observableArrayList() ;
-    @FXML
-    private TableColumn<?, ?> foodNameTableColumn1;
-    @FXML
-    private TableColumn<?, ?> foodNameTableColumn2;
     
     
     public AidExcutive get() {
@@ -77,11 +79,29 @@ public class AddFoodSceneFxmlController implements Initializable {
     }    
 
     @FXML
-    private void backButtonOnMouseClicked(MouseEvent event) {
+    private void backButtonOnMouseClicked(MouseEvent event) throws IOException {
+        Parent root = null ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/DashBoardSceneFxml.fxml")) ;
+        root = (Parent) myLoader.load() ;
+        Scene myScene = new Scene(root) ;
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
+        stage.setScene(myScene) ;
+        stage.setTitle("Aid Excutive") ;
+        stage.show() ;
     }
 
     @FXML
     private void foodIdOnMouseClicked(MouseEvent event) {
+        Food f = user.foodInfo(foodIdComboBox.getValue(), list) ;
+        if (f != null) {
+            foodNameLabel.setText(f.getName()) ;
+            foodQuantityLabel.setText(f.getQuantity()) ;
+            ddLabel.setText(f.getDate().toString()) ;
+            mmLabel.setText(f.getDate().toString()) ;
+            yyyyLabel.setText(f.getDate().toString()) ;
+            
+        }
     }
 
     

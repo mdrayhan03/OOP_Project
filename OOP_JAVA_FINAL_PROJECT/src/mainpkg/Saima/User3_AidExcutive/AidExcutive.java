@@ -5,7 +5,9 @@
 package mainpkg.Saima.User3_AidExcutive;
 
 import java.io.Serializable;
+import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Saima.User3_AidExcutive.Goal8_Report.Report;
 
 /**
  *
@@ -41,5 +43,8 @@ public class AidExcutive extends User implements Serializable{
         return "AidExcutive{" + "foodAmount=" + foodAmount + ", shelterAmount=" + shelterAmount + '}';
     }
       
-      
+    public Report report(String subject , String des , Date doa) {
+    Report rep = new Report(subject , des , doa) ;
+    return rep ;
+    }  
 }

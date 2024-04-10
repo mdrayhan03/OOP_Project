@@ -6,14 +6,20 @@ package mainpkg.Saima.User4_Doctor.Goal6_RequestMedicalCampaign;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
+import mainpkg.Rayhan.User5.Goal6_Campaign.CampaignTableView;
+import mainpkg.Saima.User4_Doctor.Doctor;
 
 /**
  * FXML Controller class
@@ -54,6 +60,17 @@ public class RequestMedicalCampaignSceneFxmlController implements Initializable 
     /**
      * Initializes the controller class.
      */
+    Alert alert ;
+    Doctor user ;
+    ObservableList<Campaign> list = FXCollections.observableArrayList() ;
+    
+    
+    public Doctor get() {
+        return user ;
+    }
+    public void set(Doctor u) {
+        user = u ;
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

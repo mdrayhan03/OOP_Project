@@ -34,7 +34,7 @@
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="405.0" mnemonicParsing="false" onMouseClicked="#OnMouseClicked" prefHeight="84.0" prefWidth="400.0" text="Request Volunteer">
+      <Button layoutY="405.0" mnemonicParsing="false" onMouseClicked="#RequestVolunteerOnMouseClicked" prefHeight="84.0" prefWidth="400.0" text="Request Volunteer">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>

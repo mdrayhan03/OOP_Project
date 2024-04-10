@@ -8,9 +8,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import mainpkg.Saima.User4_Doctor.Doctor;
 
 /**
  * FXML Controller class
@@ -45,6 +47,17 @@ public class MedicalRecordsSceneFxmlController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    Alert alert ;
+    Doctor user ;
+    
+    
+    
+    public Doctor get() {
+        return user ;
+    }
+    public void set(Doctor u) {
+        user = u ;
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

@@ -6,13 +6,17 @@ package mainpkg.Saima.User4_Doctor.Goal3_CheckupSchedule;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
+import mainpkg.Saima.User4_Doctor.Doctor;
 
 /**
  * FXML Controller class
@@ -57,6 +61,17 @@ public class CheckupScheduleSceneFxmlController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    Alert alert ;
+    Doctor user ;
+    ObservableList<CheckupSchedule> list = FXCollections.observableArrayList() ;
+    
+    
+    public Doctor get() {
+        return user ;
+    }
+    public void set(Doctor u) {
+        user = u ;
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

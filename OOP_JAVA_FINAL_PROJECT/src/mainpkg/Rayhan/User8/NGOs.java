@@ -10,6 +10,8 @@ import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
 import mainpkg.Rasel.Refugee.Refugee;
 import mainpkg.Rayhan.User5.Goal8_Report.Report;
 import mainpkg.Rayhan.User8.Goal4_Donation.Donation;
+import mainpkg.Rayhan.User8.Goal5_Education.EducationFacilities;
+import mainpkg.Rayhan.User8.Goal6_Medical.MedicalFacilities;
 
 /**
  *
@@ -50,8 +52,18 @@ public class NGOs extends User implements Serializable{
         return cam ;
     }
     
-//#educationFacilities():Boolean
+    public EducationFacilities educationFacilities(Integer id , String donerName , String name, Integer amount, Date date) {
+        EducationFacilities efc = new EducationFacilities(id , donerName , name, amount, date) ;
+        
+        return efc ;
+    }
 //#medicalFacilities():Boolean
+    public MedicalFacilities medicalFacilities(Integer id , String donerName , String name, Integer amount, Date date) {
+        MedicalFacilities efc = new MedicalFacilities(id , donerName , name, amount, date) ;
+        
+        return efc ;
+    }
+    
     
     public Report report(String subject , String des , Date doa) {
         Report rep = new Report(subject , des , doa) ;

@@ -40,7 +40,7 @@
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="336.0" layoutY="244.0" promptText="Reason...">
+      <TextField fx:id="reasonTextField" layoutX="336.0" layoutY="244.0" promptText="Reason...">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
@@ -100,5 +100,10 @@
             <TableColumn fx:id="statusTableColumn" prefWidth="150.0" text="Status" />
         </columns>
       </TableView>
+      <Button layoutX="818.0" layoutY="383.0" mnemonicParsing="false" onMouseClicked="#applyOnMouseClick" prefHeight="50.0" prefWidth="332.0" text="Apply">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

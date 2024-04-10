@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="OOP_JAVA_FINAL_PROJECT.jar" size="975295" download="eager" />
+    <jar href="OOP_JAVA_FINAL_PROJECT.jar" size="1287339" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="mainpkg.MainApplicationClass"  name="OOP_JAVA_FINAL_PROJECT" />
   <update check="always"/>

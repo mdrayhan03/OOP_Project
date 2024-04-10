@@ -7,8 +7,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.Rasel.CampManager.ManagerChangePass.CampManagerChangePassSceneController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rasel.CampManager.ManagerChangePass.CampManagerChangePassSceneController">
    <children>
       <Label layoutX="71.0" layoutY="95.0" text="Enter Old Password:" textAlignment="CENTER" textFill="RED">
          <font>
@@ -25,7 +24,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="managerChangePassButton" layoutX="315.0" layoutY="258.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="110.0" style="-fx-border-color: black;" text="Change Password" textAlignment="CENTER" textFill="RED" wrapText="true">
+      <Button layoutX="315.0" layoutY="258.0" mnemonicParsing="false" onAction="#managerChangePassButton" prefHeight="57.0" prefWidth="110.0" style="-fx-border-color: black;" text="Change Password" textAlignment="CENTER" textFill="RED" wrapText="true">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -33,7 +32,7 @@
       <PasswordField fx:id="oldPassManagerTextField" layoutX="274.0" layoutY="87.0" prefHeight="39.0" prefWidth="191.0" />
       <PasswordField fx:id="newPassManagerTextField" layoutX="274.0" layoutY="139.0" prefHeight="39.0" prefWidth="191.0" />
       <PasswordField fx:id="retypePassManagerTextField" layoutX="274.0" layoutY="192.0" prefHeight="39.0" prefWidth="191.0" />
-      <Button fx:id="managerChangePassBackButton" layoutX="39.0" layoutY="24.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="67.0" text="Back" />
+      <Button layoutX="39.0" layoutY="24.0" mnemonicParsing="false" onAction="#managerChangePassBackButton" prefHeight="39.0" prefWidth="67.0" text="Back" />
       <Label layoutX="287.0" layoutY="27.0" text="Change Password" textAlignment="CENTER" textFill="RED" wrapText="true">
          <font>
             <Font size="18.0" />

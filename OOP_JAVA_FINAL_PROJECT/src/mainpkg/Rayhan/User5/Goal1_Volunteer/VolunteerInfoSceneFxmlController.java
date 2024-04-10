@@ -41,6 +41,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
     @FXML    private TableColumn<Volunteer, String> nameTableColumn;
     @FXML    private TableColumn<Volunteer, String> pNTableColumn;
     @FXML    private TableColumn<Volunteer, String> addedByTableColumn;
+    @FXML    private TableColumn<?, ?> statusTableColumn;
     @FXML    private TextField nameTextField;
     @FXML    private TextField pNTextField;
     @FXML    private Label totalLabel;
@@ -50,6 +51,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
     Alert alert ;
     VolunteerCoordinator user ;
     ObservableList<Volunteer> list = FXCollections.observableArrayList() ;
+    
 
     
     
@@ -135,7 +137,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         }
         
         if (rtn == true) {
-            Volunteer vc = new Volunteer (name , pN , user.getName()) ;
+            Volunteer vc = new Volunteer (name , pN , user.getName() , user.getId()) ;
             user.addVolunteer(1) ;
             list.add(vc) ;
             

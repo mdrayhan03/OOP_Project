@@ -23,9 +23,10 @@
       <TableView fx:id="volunteerInfoTableView" layoutX="2.0" layoutY="202.0" prefHeight="450.0" prefWidth="1200.0">
          <columns>
             <TableColumn fx:id="idTableColumn" prefWidth="196.99999237060547" text="ID" />
-            <TableColumn fx:id="nameTableColumn" prefWidth="325.00000762939453" text="Name" />
-            <TableColumn fx:id="pNTableColumn" prefWidth="389.0" text="Phone No" />
-            <TableColumn fx:id="addedByTableColumn" prefWidth="287.0" text="Added By" />
+            <TableColumn fx:id="nameTableColumn" prefWidth="302.0" text="Name" />
+            <TableColumn fx:id="pNTableColumn" prefWidth="347.0" text="Phone No" />
+            <TableColumn fx:id="addedByTableColumn" prefWidth="194.0" text="Added By" />
+            <TableColumn fx:id="statusTableColumn" prefWidth="141.0" text="Status" />
          </columns>
       </TableView>
       <Label layoutX="50.0" layoutY="670.0" text="Name">

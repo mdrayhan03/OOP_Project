@@ -1,6 +1,7 @@
 package mainpkg.AbstractClass;
 
 import java.util.ArrayList;
+import javafx.collections.ObservableList;
 
 
 /**
@@ -11,7 +12,7 @@ public abstract class User {
     int id ;
     String name , password , phoneNo , email , userType , gender , status = "Deactive" ;
     String dob ;
-    ArrayList<String> holidayList ;
+    ObservableList<Holiday> holidayList ;
 
     public User(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob) {
         this.id = id;
@@ -65,7 +66,7 @@ public abstract class User {
         this.dob = dob;
     }
 
-    public void setHolidayList(ArrayList<String> holidayList) {
+    public void setHolidayList(ObservableList<Holiday> holidayList) {
         this.holidayList = holidayList;
     }
 
@@ -105,7 +106,7 @@ public abstract class User {
         return dob;
     }
 
-    public ArrayList<String> getHolidayList() {
+    public ObservableList<Holiday> getHolidayList() {
         return holidayList;
     }
 
@@ -140,10 +141,11 @@ public abstract class User {
         return false ;
     }
     
-    public boolean requestToLeave(String reason , String start , String end) {
-        int userId = this.getId() ;
-        Holiday holi = new Holiday(userId , reason , start , end) ;
-        this.holidayList.add(holi.holidayid) ;
+    public boolean requestToLeave(String reason , Date start , Date end) {
+        Integer userId = this.getId() ;
+        String userType = this.getUserType() ;
+        Holiday holi = new Holiday(userId , userType , reason , start , end) ;
+        this.holidayList.add(holi) ;
         return true ;
     }
 }

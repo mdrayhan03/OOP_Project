@@ -22,7 +22,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.Time_Place;
+import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
 import mainpkg.Rayhan.User5.Goal1_Volunteer.Volunteer;
+import mainpkg.Rayhan.User5.VolunteerCoordinator;
 
 /**
  * FXML Controller class
@@ -38,18 +40,19 @@ public class CampaignSceneFxmlController implements Initializable {
     @FXML    private ComboBox<String> placeComboBox;
     @FXML    private TextField reasonTextField;
     @FXML    private TextArea descriptionTextArea;
-    @FXML    private TableView<CampaignTableView> campaignTableView;
-    @FXML    private TableColumn<CampaignTableView, String> idTableColumn;
-    @FXML    private TableColumn<CampaignTableView, String> reasonTableColumn;
-    @FXML    private TableColumn<CampaignTableView, Date> dateTableColumn;
-    @FXML    private TableColumn<CampaignTableView, String> timeTableColumn;
-    @FXML    private TableColumn<CampaignTableView, String> placeTableColumn;
-    @FXML    private TableColumn<CampaignTableView, String> descriptionTableColumn;
-    @FXML    private TableColumn<CampaignTableView, String> statusTableColumn;
+    @FXML    private TableView<Campaign> campaignTableView;
+    @FXML    private TableColumn<Campaign, String> idTableColumn;
+    @FXML    private TableColumn<Campaign, String> reasonTableColumn;
+    @FXML    private TableColumn<Campaign, Date> dateTableColumn;
+    @FXML    private TableColumn<Campaign, String> timeTableColumn;
+    @FXML    private TableColumn<Campaign, String> placeTableColumn;
+    @FXML    private TableColumn<Campaign, String> descriptionTableColumn;
+    @FXML    private TableColumn<Campaign, String> statusTableColumn;
     
+    VolunteerCoordinator user ;
     Alert alert ;
     Time_Place tp = new Time_Place() ;
-    ObservableList<CampaignTableView> table = FXCollections.observableArrayList() ;
+    ObservableList<Campaign> table = FXCollections.observableArrayList() ;
     
 
     /**
@@ -65,13 +68,13 @@ public class CampaignSceneFxmlController implements Initializable {
         // TODO
         timeComboBox.setItems(tp.getCampaignTime()) ;
         placeComboBox.setItems(tp.getCampaignPlace()) ;
-        idTableColumn.setCellValueFactory(new PropertyValueFactory<CampaignTableView,String>("id")) ;
-        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<CampaignTableView,String>("reason")) ;
-        dateTableColumn.setCellValueFactory(new PropertyValueFactory<CampaignTableView,Date>("date")) ;
-        timeTableColumn.setCellValueFactory(new PropertyValueFactory<CampaignTableView,String>("time")) ;
-        placeTableColumn.setCellValueFactory(new PropertyValueFactory<CampaignTableView,String>("place")) ;
-        descriptionTableColumn.setCellValueFactory(new PropertyValueFactory<CampaignTableView,String>("des")) ;
-        statusTableColumn.setCellValueFactory(new PropertyValueFactory<CampaignTableView,String>("status")) ;
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("id")) ;
+        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("reason")) ;
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,Date>("date")) ;
+        timeTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("time")) ;
+        placeTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("place")) ;
+        descriptionTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("des")) ;
+        statusTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("status")) ;
     }    
 
     @FXML
@@ -90,8 +93,8 @@ public class CampaignSceneFxmlController implements Initializable {
     @FXML
     private void applyOnMouseClick(MouseEvent event) {
         Boolean rtn = true ;
-        String reason , des , time , place , sdd , smm , syyyy ;
-        int dd , mm , yyyy ;
+        String reason = "" , des = "" , time = "" , place = "" , sdd = "" , smm = "" , syyyy = "" ;
+        int dd = 0 , mm = 0 , yyyy = 0 ;
         
         reason = reasonTextField.getText() ;
         if (reason.length() == 0){
@@ -139,20 +142,20 @@ public class CampaignSceneFxmlController implements Initializable {
             dd = Integer.parseInt(sdd) ;
             mm = Integer.parseInt(smm) ;
             yyyy = Integer.parseInt(syyyy) ;
-            Date date = new Date(dd , mm , yyyy) ;
+        }
+        Date date = new Date(dd , mm , yyyy) ;
             if (date.isValid() == false){
                 alert = new Alert(Alert.AlertType.ERROR) ;
                 alert.setHeaderText("Error") ;
                 alert.setContentText("Invalid Date.") ;
                 rtn = false ;
                 alert.showAndWait() ;
-            }            
-        }
+        }            
         
         //File read to check is slot empty or not
         
         if (rtn == true) {
-//            Campaign() ;
+            Campaign cam = user.requestForCampaign(time,  place,  reason,  user.getUserType(), des, user.getName(), date, user.getId()) ;
         
             System.out.println("Pressed");
             alert = new Alert(Alert.AlertType.INFORMATION) ;

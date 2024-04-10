@@ -1,4 +1,4 @@
-package mainpkg.Rayhan.User8.Goal6_Medical;
+package mainpkg.Rayhan.User8.Goal4_Donation;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -7,7 +7,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -20,23 +19,24 @@ import mainpkg.Rayhan.User8.NGOs;
  *
  * @author RayhaN
  */
-public class MedicalFacilitiesSceneFxmlController implements Initializable {
+public class DonationSceneFxmlController implements Initializable {
 
-    @FXML    private ComboBox<String> supportComboBox;
+    @FXML    private TextField nameTextField;
     @FXML    private TextField amountTextField;
     @FXML    private TextField ddTextField;
     @FXML    private TextField mmTextField;
     @FXML    private TextField yyyyTextField;
-    @FXML    private TableView<MedicalFacilities> educationTableView;
-    @FXML    private TableColumn<MedicalFacilities , String> idTableColumn;
-    @FXML    private TableColumn<MedicalFacilities , String> nameTableColumn;
-    @FXML    private TableColumn<MedicalFacilities , Integer> amountTableColumn;
-    @FXML    private TableColumn<MedicalFacilities , Date> dateTableColumn;
-    @FXML    private TableColumn<MedicalFacilities , String> givenByTableColumn;
+    @FXML    private TableView<Donation> donationTableView;
+    @FXML    private TableColumn<Donation , String> idTableColumn;
+    @FXML    private TableColumn<Donation , String> nameTableColumn;
+    @FXML    private TableColumn<Donation , String> amountTableColumn;
+    @FXML    private TableColumn<Donation , String> dateTableColumn;
+    @FXML    private TableColumn<Donation , Integer> donatedByTableColumn;
     
-    ObservableList<MedicalFacilities> list = FXCollections.observableArrayList() ;
     NGOs user ;
     Alert alert ;
+    ObservableList<Donation> list = FXCollections.observableArrayList() ;
+    
 
     /**
      * Initializes the controller class.
@@ -53,14 +53,7 @@ public class MedicalFacilitiesSceneFxmlController implements Initializable {
     }
     
     public void tableShow() {
-        educationTableView.setItems(list) ;
-    }
-    
-    public void setComboBox() {
-        for(MedicalFacilities efc: list) {
-            supportComboBox.getItems().add(efc.getId()) ;
-        }
-        supportComboBox.setValue(list.get(0).getId());
+        donationTableView.setItems(list) ;
     }
     
     @Override
@@ -73,31 +66,38 @@ public class MedicalFacilitiesSceneFxmlController implements Initializable {
     }
 
     @FXML
-    private void supplyOnMouseClick(MouseEvent event) {
+    private void donationOnMouseClick(MouseEvent event) {
         Boolean rtn = true ;
         String name = "" , samount = "" , sdd = "" , smm = "" , syyyy = "" ;
-        Integer amount = 0 , dd = 0 , mm = 0 , yyyy = 0 ;
+        Integer dd = 0 , mm = 0 , yyyy = 0 , amount = 0 ;
         
-        name = supportComboBox.getValue() ;
+        name = nameTextField.getText() ;
+        if(name.length() == 0) {
+            alert = new Alert(Alert.AlertType.ERROR) ;
+            alert.setHeaderText("Name Error") ;
+            alert.setContentText("Doner name must.");
+            rtn = false ;
+            alert.showAndWait() ;
+        }
         
         samount = amountTextField.getText() ;
         if (samount.length() == 0) {
             alert = new Alert(Alert.AlertType.ERROR) ;
             alert.setHeaderText("Amount Error") ;
-            alert.setContentText("Amount must.") ;
+            alert.setContentText("Amount must.");
             rtn = false ;
-            alert.showAndWait() ;      
+            alert.showAndWait() ;
         }
         
         sdd = ddTextField.getText() ;
         smm = mmTextField.getText() ;
         syyyy = yyyyTextField.getText() ;
-        if(sdd.length() == 0 || smm.length() == 0 || syyyy.length() == 0) {
+        if (sdd.length() == 0 || smm.length() == 0 || syyyy.length() == 0) {
             alert = new Alert(Alert.AlertType.ERROR) ;
             alert.setHeaderText("Date Error") ;
-            alert.setContentText("Date must.") ;
+            alert.setContentText("Date must.");
             rtn = false ;
-            alert.showAndWait() ;      
+            alert.showAndWait() ;
         }
         else {
             dd = Integer.parseInt(sdd) ;
@@ -105,30 +105,18 @@ public class MedicalFacilitiesSceneFxmlController implements Initializable {
             yyyy = Integer.parseInt(syyyy) ;
         }
         Date date = new Date(dd , mm , yyyy) ;
-        if(date.isValid() == false) {
+        if (date.isValid() == false) {
             alert = new Alert(Alert.AlertType.ERROR) ;
             alert.setHeaderText("Date Error") ;
-            alert.setContentText("Date is not Valid.") ;
+            alert.setContentText("Date is not Valid.");
             rtn = false ;
-            alert.showAndWait() ;      
+            alert.showAndWait() ;
         }
         
         if (rtn == true) {
-            MedicalFacilities efc = user.medicalFacilities(user.getId() , user.getName() , name, amount, date) ;
-            list.add(efc) ;
-            
-            amountTextField.clear() ;
-            ddTextField.clear() ;
-            mmTextField.clear() ;
-            yyyyTextField.clear() ;
+            Donation don = user.donationToCamp(user.getId(), amount , name, date) ;
+            list.add(don) ;
         }
-        else {
-            alert = new Alert(Alert.AlertType.ERROR) ;
-            alert.setHeaderText("ERROR") ;
-            alert.setContentText("Unable to SUBMIT.") ;
-            alert.showAndWait() ;      
-        }
-        
     }
     
 }

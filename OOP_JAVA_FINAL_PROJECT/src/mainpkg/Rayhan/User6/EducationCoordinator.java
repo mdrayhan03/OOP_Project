@@ -3,10 +3,13 @@ package mainpkg.Rayhan.User6;
 import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
+import mainpkg.Rasel.CampManager.Goal7_AllRequests.RequestedItems;
 import mainpkg.Rayhan.User5.Goal4_VRequest.RequestedVolunteer;
 import mainpkg.Rayhan.User6.Goal1_Schedule.Schedule;
 import mainpkg.Rayhan.User6.Goal2_Teacher.Teacher;
 import mainpkg.Rayhan.User6.Goal4_Student.Course;
+import mainpkg.Rayhan.User6.Goal7_Storage.EducationCoordinatorStorage;
 
 /**
  *
@@ -69,11 +72,19 @@ public class EducationCoordinator extends User implements Serializable {
     }
 //#addStudent():Boolean
 //#studentInfo():Boolean
-//#request():String
+    public RequestedItems request(int id , String userType , String name, int amount, Date apply, Date deadline) {
+        RequestedItems req = new RequestedItems(id , userType , name, amount, apply, deadline) ;
+        return req ;
+    }
 //#progressReport():String
-//#storage():Boolean
-//#requestForCampaign():String
-    
+    public void maintainStorage(EducationCoordinatorStorage s){
+//        EducationCoordinatorStorage st = s ;
+    }
+    public Campaign requestForCampaign(String time, String place, String subject, String userType, String des, String senderName, Date date, int senderId) {
+        Campaign cam = new Campaign(time,  place,  subject,  userType, des, senderName, date, senderId) ;
+        return cam ;
+    }
+  
     
     
 }

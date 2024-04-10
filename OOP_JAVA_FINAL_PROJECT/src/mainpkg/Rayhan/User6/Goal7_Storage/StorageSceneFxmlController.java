@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package mainpkg.Rayhan.User6.Goal7_Storage;
 
 import java.io.IOException;
@@ -18,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.Time_Place;
 
 /**
  * FXML Controller class
@@ -40,22 +37,44 @@ public class StorageSceneFxmlController implements Initializable {
     @FXML    private Label pBoxDLabel;
     @FXML    private Label rubberDLabel;
     @FXML    private Label pencilDLabel;
-    @FXML    private ComboBox<?> itemComboBox;
+    @FXML    private ComboBox<String> itemComboBox;
     @FXML    private TextField amountTextField;
+    
+    Time_Place tp = new Time_Place() ;
+    EducationCoordinatorStorage st ;
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
+    public void show() {
+        gBoxDLabel.setText(Integer.toString(st.getdGeometryBox())) ;
+        bookStockLabel.setText(Integer.toString(st.getsBook())) ;
+        noteStockLabel.setText(Integer.toString(st.getsNote())) ;
+        penStockLabel.setText(Integer.toString(st.getsPen())) ;
+        pBoxStockLabel.setText(Integer.toString(st.getsPencilBox())) ;
+        rubberStockLabel.setText(Integer.toString(st.getsRubber())) ;
+        pencilStockLabel.setText(Integer.toString(st.getsPencil())) ;
+        gBoxStockLabel.setText(Integer.toString(st.getsGeometryBox())) ;
+        bookDLabel.setText(Integer.toString(st.getdBook())) ;
+        noteDLabel.setText(Integer.toString(st.getdNote())) ;
+        penDLabel.setText(Integer.toString(st.getdPen())) ;
+        pBoxDLabel.setText(Integer.toString(st.getdPencilBox())) ;
+        rubberDLabel.setText(Integer.toString(st.getdRubber())) ;
+        pencilDLabel.setText(Integer.toString(st.getdPencil())) ;
+        
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        itemComboBox.setItems(tp.getEducationCoordinatorItem()) ;
+        itemComboBox.setValue(tp.getEducationCoordinatorItem().get(0)) ;
     }    
 
     @FXML
     private void backOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoardSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoard6SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
 
@@ -67,6 +86,19 @@ public class StorageSceneFxmlController implements Initializable {
 
     @FXML
     private void distributionOnMouseClick(MouseEvent event) {
+        Boolean rtn = true ;
+        String name , samount = "" ;
+        int amount = 0 ;
+        
+        name = itemComboBox.getValue() ;
+        
+        samount = amountTextField.getText() ;
+        if (samount.length() == 0) {
+            
+        }
+        if (rtn = true) {
+            st.update(name, amount) ;
+        }
     }
     
 }

@@ -18,17 +18,24 @@ import javafx.stage.Stage;
  *
  * @author RayhaN
  */
+
 public class DashBoard7SceneFxmlController implements Initializable {
 
     @FXML    private Label nameLabel;
     @FXML    private Label userTypeLabel;
     @FXML    private Label idLabel;
+    
+    SecurityIncharge user ;
 
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
+    public void set(SecurityIncharge u) {
+        user = u ;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

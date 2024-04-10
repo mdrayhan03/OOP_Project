@@ -8,13 +8,16 @@ import java.io.Serializable;
  */
 
 public class Volunteer implements Serializable {
-    String id , name , phoneN , addedBy ;
+    String id , name , phoneN , addedBy , status ;
+    int addedById ;
 
-    public Volunteer(String name, String pN, String addedBy) {
+    public Volunteer(String name, String pN, String addedBy , int addedById) {
         this.name = name;
         this.phoneN = pN;
         this.addedBy = addedBy;
+        this.addedById = addedById ;
         this.id = this.generateId() ;
+        this.status = "Free" ;
     }
 
 
@@ -27,7 +30,11 @@ public class Volunteer implements Serializable {
         return name;
     }
 
-    public String getpN() {
+    public String getPhoneN() {
+        return phoneN;
+    }
+
+    public String getphoneN() {
         return phoneN;
     }
 
@@ -36,7 +43,15 @@ public class Volunteer implements Serializable {
 
     }
 
-    public String generateId() {
+    public int getAddedById() {
+        return addedById;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    private String generateId() {
         String id = "Vol" ;
         id += name.substring(0) ;
         id += phoneN.substring(9) ;
@@ -49,7 +64,7 @@ public class Volunteer implements Serializable {
         this.name = name;
     }
 
-    public void setpN(String pN) {
+    public void setphoneN(String pN) {
         this.phoneN = pN;
     }
 
@@ -57,10 +72,28 @@ public class Volunteer implements Serializable {
         this.addedBy = addedBy;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setAddedById(int addedById) {
+        this.addedById = addedById;
+    }
+
+    public void setPhoneN(String phoneN) {
+        this.phoneN = phoneN;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return "Volunteer{" + "id=" + id + ", name=" + name + ", pN=" + phoneN + ", addedBy=" + addedBy + '}';
+        return "Volunteer{" + "id=" + id + ", name=" + name + ", phoneN=" + phoneN + ", addedBy=" + addedBy + ", addedById=" + addedById + '}';
     }
+
+
     
     
 }

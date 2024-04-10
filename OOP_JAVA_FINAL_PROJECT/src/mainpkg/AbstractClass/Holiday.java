@@ -6,25 +6,36 @@ package mainpkg.AbstractClass;
  */
 public class Holiday {
     int userId ;
-    String reason , holidayid ;
-    String startDate , endDate ;
+    String reason , holidayid , usertType , status , id ;
+    Date startDate , endDate ;
 
-    public Holiday(int userId, String reason, String startDate, String endDate) {
+    public Holiday(int userId, String userType , String reason, Date startDate, Date endDate) {
         this.userId = userId;
+        this.usertType = userType ;
         this.reason = reason;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.id = this.generateId() ;
+        this.status = "Pending" ;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public String getUsertType() {
+        return usertType;
     }
 
     public String getReason() {
         return reason;
     }
 
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public String getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
@@ -32,15 +43,23 @@ public class Holiday {
         return holidayid;
     }
 
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public void setUsertType(String usertType) {
+        this.usertType = usertType;
+    }
+
     public void setReason(String reason) {
         this.reason = reason;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
@@ -49,12 +68,11 @@ public class Holiday {
     }
     
     protected String generateId() {
-        String holidayId = "" ;
-        int id = this.userId % 1000 ;
-        String start = this.startDate ;
-        holidayid = "H" + id + start ;
+        String id = "Hd" ;
+        id += Integer.toString(this.getUserId()).substring(4) ;
+        id += this.getUsertType().substring(0 , 3) ;       
         
-        return holidayId ;
+        return id ;
     }
     
 }

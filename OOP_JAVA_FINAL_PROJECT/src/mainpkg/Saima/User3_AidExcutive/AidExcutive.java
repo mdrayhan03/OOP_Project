@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rasel.CampManager.Goal5_Supply.Food;
+import mainpkg.Rasel.CampManager.Goal5_Supply.Shelter;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.RequestedItems;
 import mainpkg.Saima.User3_AidExcutive.Goal8_Report.Report;
 
@@ -60,19 +61,34 @@ public class AidExcutive extends User implements Serializable{
         return null ;
     }
     
-    public Food addFood(String id,String name, String Quantity, Date Date) {
-        Food f = new Food(id,name, Quantity, Date) ;
+    public Food addFood(String id,String name, String quantity, Date date) {
+        Food f = new Food(id,name, quantity, date) ;
         this.setFoodAmount(this.getFoodAmount() + 1) ;
         return f ;
     }
-    public Food distributeFood(String id,String name, String Quantity, Date Date) {
-        Food f = new Food(id,name, Quantity, Date) ;
+    public Food distributeFood(String id,String name, String quantity, Date date) {
+        Food f = new Food(id,name, quantity, date) ;
         this.setFoodAmount(this.getFoodAmount() - 1) ;
         return f ;
     }
     
     public RequestedItems requestExtraFood(int id , String userType , String name, int amount, Date apply, Date deadline) {
         RequestedItems req = new RequestedItems(id , userType , name, amount, apply, deadline) ;
+        return req ;
+    }
+
+    public Shelter addshelter(String id, Integer amount, Date date) {
+        Shelter sh = new Shelter(id, amount, date) ;
+        this.setShelterAmount(this.getShelterAmount() + 1) ;
+        return sh;
+    }
+    public Shelter allocateshelter(String id, Integer amount, Date date) {
+        Shelter sh = new Shelter(id, amount, date) ;
+        this.setShelterAmount(this.getShelterAmount() - 1) ;
+        return sh;
+    }
+    public RequestedItems requestExtraShelter(int id , String userType , int amount, Date apply, Date deadline) {
+        RequestedItems req = new RequestedItems(id , userType ,  amount, apply, deadline) ;
         return req ;
     }
 

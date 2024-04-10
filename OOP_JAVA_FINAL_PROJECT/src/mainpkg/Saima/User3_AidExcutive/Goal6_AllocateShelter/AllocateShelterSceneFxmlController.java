@@ -15,6 +15,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import mainpkg.Rasel.CampManager.Goal5_Supply.Shelter;
 import mainpkg.Saima.User3_AidExcutive.AidExcutive;
 import mainpkg.Saima.User3_AidExcutive.Goal5_AddShelter.AddShelter;
 
@@ -49,7 +50,7 @@ public class AllocateShelterSceneFxmlController implements Initializable {
      */
     Alert alert ;
     AidExcutive user ;
-    ObservableList<AddShelter> list = FXCollections.observableArrayList() ;
+    ObservableList<Shelter> list = FXCollections.observableArrayList() ;
     
     
     public AidExcutive get() {

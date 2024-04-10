@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
+import mainpkg.Rasel.CampManager.Goal5_Supply.Shelter;
 import mainpkg.Saima.User3_AidExcutive.AidExcutive;
 
 
@@ -62,7 +63,7 @@ public class AddShelterSceneFxmlController implements Initializable {
      */
     Alert alert ;
     AidExcutive user ;
-    ObservableList<AddShelter> list = FXCollections.observableArrayList() ;
+    ObservableList<Shelter> list = FXCollections.observableArrayList() ;
     
     
     public AidExcutive get() {

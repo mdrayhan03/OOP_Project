@@ -16,7 +16,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
+import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rasel.CampManager.Goal5_Supply.Food;
 import mainpkg.Saima.User3_AidExcutive.AidExcutive;
 
 /**
@@ -27,38 +29,34 @@ import mainpkg.Saima.User3_AidExcutive.AidExcutive;
 public class AddFoodSceneFxmlController implements Initializable {
 
     @FXML
-    private ComboBox<?> foodIdComboBox;
+    private ComboBox<String> foodIdComboBox;
     @FXML
-    private TableView<?> addFoodTableView;
+    private TableView<Food> addFoodTableView;
     @FXML
-    private TableColumn<?, ?> foodIdTableColumn;
+    private TableColumn<Food, String> foodIdTableColumn;
     @FXML
-    private TableColumn<?, ?> foodNameTableColumn;
+    private TableColumn<Food, String> foodNameTableColumn;
     @FXML
-    private TableColumn<?, ?> foodQuantityTableColumn;
+    private TableColumn<Food, Integer> foodQuantityTableColumn;
     @FXML
-    private TableColumn<?, ?> addedFoodDateTableColumn;
-    @FXML
-    private TableColumn<?, ?> foodNameTableColumn1;
-    @FXML
-    private TableColumn<?, ?> foodNameTableColumn2;
-    @FXML
-    private Label foodNameLabel;
-    @FXML
-    private Label foodQuantityLabel;
-    @FXML
-    private Label ddLabel;
-    @FXML
-    private Label mmLabel;
-    @FXML
-    private Label yyyyLabel;
+    private TableColumn<Food, Date> addedFoodDateTableColumn;
+   
+    @FXML    private Label foodNameLabel;
+    @FXML    private Label foodQuantityLabel;
+    @FXML    private Label ddLabel;
+    @FXML    private Label mmLabel;
+    @FXML    private Label yyyyLabel;
 
     /**
      * Initializes the controller class.
      */
     Alert alert ;
     AidExcutive user ;
-    ObservableList<AddFood> list = FXCollections.observableArrayList() ;
+    ObservableList<Food> list = FXCollections.observableArrayList() ;
+    @FXML
+    private TableColumn<?, ?> foodNameTableColumn1;
+    @FXML
+    private TableColumn<?, ?> foodNameTableColumn2;
     
     
     public AidExcutive get() {
@@ -67,6 +65,12 @@ public class AddFoodSceneFxmlController implements Initializable {
     public void set(AidExcutive u) {
         user = u ;
     }
+    public void setComboBox() {
+        for(Food f: list) {
+            foodIdComboBox.getItems().add(f.getId()) ;
+        }
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -74,6 +78,10 @@ public class AddFoodSceneFxmlController implements Initializable {
 
     @FXML
     private void backButtonOnMouseClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void foodIdOnMouseClicked(MouseEvent event) {
     }
 
     

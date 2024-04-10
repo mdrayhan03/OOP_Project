@@ -1,6 +1,9 @@
 package mainpkg.Saima.User3_AidExcutive.Goal8_Report;
 
-
+/**
+ *
+ * @author RayhaN
+ */
 public class ReportList {
     Integer senderId , receiverId ;
     String siId , id ;

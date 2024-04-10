@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -37,9 +38,12 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
     @FXML    private TableColumn<RequestedVolunteer, Date> dateTableColumn;
     @FXML    private TableColumn<RequestedVolunteer, Integer> amountTableColumn;
     @FXML    private TableColumn<RequestedVolunteer, String> statusTableColumn;
+    @FXML    private CheckBox pendingCheckBox;
+    @FXML    private CheckBox acceptedCheckBox;
     
     ObservableList<RequestedVolunteer> list = FXCollections.observableArrayList() ;
     VolunteerCoordinator user ;
+  
 
     /**
      * Initializes the controller class.
@@ -50,6 +54,29 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
     }
     
     public void tableShow() {
+        ObservableList<RequestedVolunteer> reqList = FXCollections.observableArrayList() ;
+        if (acceptedCheckBox.isSelected()) {
+            for (RequestedVolunteer rv : list) {
+                if (rv.getStatus() == "Accepted") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        else if (pendingCheckBox.isSelected()) {
+            for (RequestedVolunteer rv : list) {
+                if (rv.getStatus() == "Pending") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        else {
+            for (RequestedVolunteer rv : list) {
+                if (rv.getStatus() == "Accepted") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        requestTableView.setItems(reqList) ;
         requestTableView.setItems(list) ;
         for(RequestedVolunteer rv: list) {
             idComboBox.getItems().add(rv.getId()) ;
@@ -91,9 +118,7 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
             if (rv.getId().equals(idComboBox.getValue())) {
                 if(user.getEmergencyRequestForVolunteer(rv.getAmount())){
                     rv.setStatus("Accepted");
-                }
-//                user.setVolunteer(rv.getAmount()) ;
-                break ;
+                }                
             }
         }
     }

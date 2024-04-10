@@ -15,6 +15,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rayhan.User5.Goal1_Volunteer.VolunteerInfoSceneFxmlController;
+import mainpkg.Rayhan.User5.Goal2_SIReport.SecurityInchargeReportSceneFxmlController;
+import mainpkg.Rayhan.User5.Goal3_AEReport.AidExecutiveReportSceneFxmlController;
+import mainpkg.Rayhan.User5.Goal4_VRequest.VolunteerRequestSceneFxmlController;
 import mainpkg.Rayhan.User5.Profile.ProfileSceneFxmlController;
 
 /**
@@ -92,6 +95,9 @@ public class DashBoard5SceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal4_VRequest/VolunteerRequestSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        VolunteerRequestSceneFxmlController vrc = myLoader.getController() ;
+        vrc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -105,6 +111,9 @@ public class DashBoard5SceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal3_AEReport/AidExecutiveReportSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        AidExecutiveReportSceneFxmlController asc = myLoader.getController() ;
+        asc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -118,6 +127,9 @@ public class DashBoard5SceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal2_SIReport/SecurityInchargeReportSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        SecurityInchargeReportSceneFxmlController ssc = myLoader.getController() ;
+        ssc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

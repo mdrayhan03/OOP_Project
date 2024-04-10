@@ -19,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -26,7 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import mainpkg.AbstractClass.User;
+import mainpkg.Rayhan.User5.DashBoard5SceneFxmlController;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
 
 /**
@@ -41,16 +42,19 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
     @FXML    private TableColumn<Volunteer, String> nameTableColumn;
     @FXML    private TableColumn<Volunteer, String> pNTableColumn;
     @FXML    private TableColumn<Volunteer, String> addedByTableColumn;
-    @FXML    private TableColumn<?, ?> statusTableColumn;
+    @FXML    private TableColumn<Volunteer, String> statusTableColumn;
     @FXML    private TextField nameTextField;
     @FXML    private TextField pNTextField;
     @FXML    private Label totalLabel;
     @FXML    private Label freeLabel;
     @FXML    private Label workLabel;
+    @FXML    private CheckBox workingCheckBox;
+    @FXML    private CheckBox freeCheckBox;
     
     Alert alert ;
     VolunteerCoordinator user ;
     ObservableList<Volunteer> list = FXCollections.observableArrayList() ;
+
     
 
     
@@ -66,19 +70,39 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
     }
     public void set(VolunteerCoordinator u) {
         user = u ;
-    }
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         totalLabel.setText(Integer.toString(user.getVolunteerAmount())) ;
         freeLabel.setText(Integer.toString(user.getVolunteerFree())) ;
         workLabel.setText(Integer.toString(user.getVolunteerOnWork())) ;
-        
-        idTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("id")) ;
-        nameTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("name")) ;
-        pNTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("phoneN")) ;
-        addedByTableColumn.setCellValueFactory(new PropertyValueFactory<Volunteer,String>("addedBy")) ;
-        
+    }
+    
+    public void tableShow() {
+        if(workingCheckBox.isSelected()) {
+            for(Volunteer vc: list) {
+                if (vc.getStatus() == "Work") {
+                    volunteerInfoTableView.getItems().add(vc) ;
+                }
+            }
+        }
+        else if(freeCheckBox.isSelected()) {
+            for(Volunteer vc: list) {
+                if (vc.getStatus() == "Free") {
+                    volunteerInfoTableView.getItems().add(vc) ;
+                }
+            }
+        }
+       else {
+            volunteerInfoTableView.setItems(list) ;
+        }    
+    }
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id")) ;
+        nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("name")) ;
+        pNTableColumn.setCellValueFactory(new PropertyValueFactory<>("phoneN")) ;
+        addedByTableColumn.setCellValueFactory(new PropertyValueFactory<>("addedBy")) ;
+        statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status")) ;
         try {
             //        ObservableList<Volunteer> listobj = FXCollections.observableArrayList() ;
 //        FileInputStream fis = null ;
@@ -105,6 +129,9 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/DashBoard5SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard5SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -137,8 +164,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         }
         
         if (rtn == true) {
-            Volunteer vc = new Volunteer (name , pN , user.getName() , user.getId()) ;
-            user.addVolunteer(1) ;
+            Volunteer vc = user.addVolunteer(name, pN, user.getName(), user.getId()) ;
             list.add(vc) ;
             
                 
@@ -191,6 +217,10 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
             listobj.add(p) ;
         }
         return listobj ;
+    }
+    
+    private void fileWrite() {
+        
     }
     
 }

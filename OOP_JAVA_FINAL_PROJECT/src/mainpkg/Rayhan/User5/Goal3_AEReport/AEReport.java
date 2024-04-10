@@ -8,13 +8,26 @@ import mainpkg.AbstractClass.Date;
  */
 public class AEReport {
     String subject , description , id ;
+    Integer senderId , receiverId ;
     Date applyDate ;
 
-    public AEReport(String subject, String description, Date applyDate) {
+    public AEReport(String subject, Integer senderId, Integer receiverId, String des ,Date applyDate) {
         this.subject = subject;
-        this.description = description;
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.description = des;
         this.applyDate = applyDate;
     }
+
+    public Integer getSenderId() {
+        return senderId;
+    }
+
+    public Integer getReceiverId() {
+        return receiverId;
+    }
+
+
 
     public String getSubject() {
         return subject;
@@ -32,6 +45,18 @@ public class AEReport {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setSenderId(Integer senderId) {
+        this.senderId = senderId;
+    }
+
+    public void setReceiverId(Integer receiverId) {
+        this.receiverId = receiverId;
+    }
+
     public void setSubject(String subject) {
         this.subject = subject;
     }
@@ -45,7 +70,7 @@ public class AEReport {
     }
     
     public void generateId() {
-        String id = "SI" ;
+        String id = "AE" ;
         id += this.subject.substring(this.subject.length()-3) ;
         id += this.description.substring(5, 9) ;
         
@@ -54,7 +79,7 @@ public class AEReport {
 
     @Override
     public String toString() {
-        return "AEReport{" + "subject=" + subject + "\ndescription=" + description + "\napplyDate=" + applyDate + '}';
+        return "SIReport{" + "subject=" + subject + "\ndescription=" + description + "\napplyDate=" + applyDate + '}';
     }
     
     

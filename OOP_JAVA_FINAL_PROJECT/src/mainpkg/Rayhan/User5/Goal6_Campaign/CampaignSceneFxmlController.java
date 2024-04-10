@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,6 +25,7 @@ import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.Time_Place;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
 import mainpkg.Rayhan.User5.Goal1_Volunteer.Volunteer;
+import mainpkg.Rayhan.User5.Goal4_VRequest.RequestedVolunteer;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
 
 /**
@@ -48,11 +50,15 @@ public class CampaignSceneFxmlController implements Initializable {
     @FXML    private TableColumn<Campaign, String> placeTableColumn;
     @FXML    private TableColumn<Campaign, String> descriptionTableColumn;
     @FXML    private TableColumn<Campaign, String> statusTableColumn;
+    @FXML    private CheckBox acceptedCheckBox;
+    @FXML    private CheckBox rejectedCheckBox;
+    @FXML    private CheckBox pendingCheckBox;
     
     VolunteerCoordinator user ;
     Alert alert ;
     Time_Place tp = new Time_Place() ;
     ObservableList<Campaign> table = FXCollections.observableArrayList() ;
+
     
 
     /**
@@ -61,20 +67,49 @@ public class CampaignSceneFxmlController implements Initializable {
      * @param rb
      */
     public void setTable() {
-        campaignTableView.setItems(table) ;
+        ObservableList<Campaign> reqList = FXCollections.observableArrayList() ;
+        if (acceptedCheckBox.isSelected()) {
+            for (Campaign rv : table) {
+                if (rv.getStatus() == "Accepted") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        else if (rejectedCheckBox.isSelected()) {
+            for (Campaign rv : table) {
+                if (rv.getStatus() == "Rejected") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        else if (pendingCheckBox.isSelected()) {
+            for (Campaign rv : table) {
+                if (rv.getStatus() == "Pending") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        else {
+            for (Campaign rv : table) {
+                if (rv.getStatus() == "Accepted") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        campaignTableView.setItems(reqList) ;
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         timeComboBox.setItems(tp.getCampaignTime()) ;
         placeComboBox.setItems(tp.getCampaignPlace()) ;
-        idTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("id")) ;
-        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("reason")) ;
-        dateTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,Date>("date")) ;
-        timeTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("time")) ;
-        placeTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("place")) ;
-        descriptionTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("des")) ;
-        statusTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("status")) ;
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id")) ;
+        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<>("reason")) ;
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("date")) ;
+        timeTableColumn.setCellValueFactory(new PropertyValueFactory<>("time")) ;
+        placeTableColumn.setCellValueFactory(new PropertyValueFactory<>("place")) ;
+        descriptionTableColumn.setCellValueFactory(new PropertyValueFactory<>("des")) ;
+        statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status")) ;
     }    
 
     @FXML

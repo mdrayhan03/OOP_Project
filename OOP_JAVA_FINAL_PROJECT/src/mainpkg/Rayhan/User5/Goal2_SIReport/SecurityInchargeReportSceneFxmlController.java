@@ -3,6 +3,8 @@ package mainpkg.Rayhan.User5.Goal2_SIReport;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -18,6 +21,7 @@ import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
+import mainpkg.Rayhan.User7.SecurityIncharge;
 
 /**
  * FXML Controller class
@@ -32,10 +36,12 @@ public class SecurityInchargeReportSceneFxmlController implements Initializable 
     @FXML    private TextField yyyyTextField;
     @FXML    private TextArea reportBodyTextArea;
     @FXML    private TextField siIdTextField;
+    @FXML    private ComboBox<Integer> idComboBox;
     
+    ObservableList<SecurityIncharge> scList = FXCollections.observableArrayList() ;
     VolunteerCoordinator user ;
     Alert alert ;
-    SIReportList sir ;
+    
 
     /**
      * Initializes the controller class.
@@ -49,6 +55,12 @@ public class SecurityInchargeReportSceneFxmlController implements Initializable 
     
     public void set(VolunteerCoordinator u) {
         user = u ;
+    }
+    
+    public void setComboBox() {
+        for (SecurityIncharge sc: scList) {
+            idComboBox.getItems().add(sc.getId()) ;
+        }
     }
     
     @Override
@@ -72,10 +84,10 @@ public class SecurityInchargeReportSceneFxmlController implements Initializable 
     @FXML
     private void submitOnMouseClick(MouseEvent event) throws IOException {
         Boolean rtn = true ;
-        Integer receiverId = null , dd = null , mm = null , yyyy = null ;
+        Integer receiverId , dd = null , mm = null , yyyy = null ;
         String subject = "" , des = "" , sdd = "" , smm = "" , syyyy = "" ;
         
-        receiverId = Integer.parseInt(siIdTextField.getText()) ;
+        receiverId = idComboBox.getValue() ;
         if (receiverId == null) {
             alert = new Alert(Alert.AlertType.ERROR) ;
             alert.setHeaderText("Security Incharge ID Error") ;
@@ -128,23 +140,32 @@ public class SecurityInchargeReportSceneFxmlController implements Initializable 
         }
         
         if (rtn == true) {
-            SIReport si = user.reportToSecurityIncharge(subject , des , doa) ;
-            System.out.println(user.getId() + receiverId + si.getId());
-            sir = new SIReportList(user.getId() , receiverId , si.getId()) ;    
+            if (receiverId == null) {
+                for (SecurityIncharge sc: scList) {
+                    SIReport si = user.reportToSecurityIncharge(subject , user.getId() , sc.getId() , des , doa) ;
+                }
+            }
+            else {
+                SIReport si = user.reportToSecurityIncharge(subject , user.getId() , receiverId , des , doa) ;
         
-            Parent root = null ;
-            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal2_SIReport/ShowReportFxml.fxml")) ;
-            root = (Parent) myLoader.load() ;
-            Scene myScene = new Scene(root) ;
+                Parent root = null ;
+                FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal2_SIReport/ShowReportFxml.fxml")) ;
+                root = (Parent) myLoader.load() ;
+                Scene myScene = new Scene(root) ;
         
-            ShowReportFxmlController src = myLoader.getController() ;
-            src.set(si, sir) ;
+                ShowReportFxmlController src = myLoader.getController() ;
+                src.set(si) ;
 
-            Stage stage = new Stage() ;
-            stage.setScene(myScene) ;
-            stage.getIcons().add(new Image("/image/campIcon.jpg")) ;
-            stage.setTitle("Volunteer Coordinator ShowReport") ;
-            stage.show() ;
+                Stage stage = new Stage() ;
+                stage.setScene(myScene) ;
+                stage.getIcons().add(new Image("/image/campIcon.jpg")) ;
+                stage.setTitle("Volunteer Coordinator ShowReport") ;
+                stage.show() ;
+            }
+            alert = new Alert(Alert.AlertType.CONFIRMATION) ;
+            alert.setHeaderText("Confirmation") ;
+            alert.setContentText("Report submitted sucessfully.") ;
+            alert.showAndWait() ;
         }
     }
     

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mainpkg.Rayhan.User5.Goal8_Report;
 
 import mainpkg.AbstractClass.Date;
@@ -11,13 +7,22 @@ import mainpkg.AbstractClass.Date;
  * @author RayhaN
  */
 public class Report {
+    Integer senderId , receiverId ;
     String subject , description , id ;
     Date applyDate ;
 
-    public Report(String subject, String description, Date applyDate) {
+    public Report(Integer senderId, Integer receiverId, String subject, String description, Date applyDate) {
         this.subject = subject;
         this.description = description;
         this.applyDate = applyDate;
+    }
+
+    public Integer getSenderId() {
+        return senderId;
+    }
+
+    public Integer getReceiverId() {
+        return receiverId;
     }
 
     public String getSubject() {
@@ -34,6 +39,18 @@ public class Report {
     
     public String getId() {
         return id;
+    }
+
+    public void setSenderId(Integer senderId) {
+        this.senderId = senderId;
+    }
+
+    public void setReceiverId(Integer receiverId) {
+        this.receiverId = receiverId;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setSubject(String subject) {

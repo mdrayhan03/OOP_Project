@@ -36,7 +36,6 @@ public class ReportSceneFxmlController implements Initializable {
     
     VolunteerCoordinator user ;
     Alert alert ;
-    ReportList sir ;
 
     /**
      * Initializes the controller class.
@@ -131,7 +130,6 @@ public class ReportSceneFxmlController implements Initializable {
         if (rtn == true) {
             Report re = user.report(subject , des , doa) ;
             System.out.println(user.getId() + receiverId + re.getId());
-            sir = new ReportList(user.getId() , receiverId , re.getId()) ;    
         
             Parent root = null ;
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal2_SIReport/ShowReportFxml.fxml")) ;
@@ -139,7 +137,7 @@ public class ReportSceneFxmlController implements Initializable {
             Scene myScene = new Scene(root) ;
         
             ShowReportFxmlController src = myLoader.getController() ;
-            src.set(re, sir) ;
+            src.set(re) ;
 
             Stage stage = new Stage() ;
             stage.setScene(myScene) ;

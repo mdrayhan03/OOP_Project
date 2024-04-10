@@ -20,6 +20,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
@@ -40,7 +41,6 @@ public class DistributeFoodSceneFxmlController implements Initializable {
     @FXML    private TextField ddTextField;
     @FXML    private TextField mmTextField;
     @FXML    private TextField yyyyTextField;
-    @FXML    private TableView<Food> removeFoodTableView;
     @FXML    private TableColumn<Food, String> distributeIdTableColumn;
     @FXML    private TableColumn<Food, String> foodNameTableColumn;
     @FXML    private TableColumn<Food, String> foodQuantityTableColumn;
@@ -53,6 +53,8 @@ public class DistributeFoodSceneFxmlController implements Initializable {
     Alert alert ;
     AidExcutive user ;
     ObservableList<Food> list = FXCollections.observableArrayList() ;
+    @FXML
+    private TableView<Food> distributeFoodTableView;
     
     
     public AidExcutive get() {
@@ -63,6 +65,13 @@ public class DistributeFoodSceneFxmlController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        foodNameComboBox.getItems().addAll("Rice","Potato","Onion","Fish","Oil","Pulse","Milk","Egg","Chicken");
+        
+        distributeIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("distributeFoodId")) ;
+        foodNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("foodName")) ;
+        foodQuantityTableColumn.setCellValueFactory(new PropertyValueFactory<>("foodQuantity")) ;
+        distributeDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("distributeDate")) ;
+        distributeByTableColumn.setCellValueFactory(new PropertyValueFactory<>("distributeBy")) ;
         // TODO
     }    
 
@@ -78,10 +87,19 @@ public class DistributeFoodSceneFxmlController implements Initializable {
         stage.setTitle("Aid Excutive DashBoard") ;
         stage.show() ;
     }
-    }
 
     @FXML
     private void distributeOnMouseClicked(MouseEvent event) {
+        String foodName = foodNameComboBox.getValue();
+        String quantity = foodQuantityTextField.getText();
+        int dd = Integer.parseInt(ddTextField.getText());
+        int mm = Integer.parseInt(mmTextField.getText());
+        int yyyy = Integer.parseInt(yyyyTextField.getText());
+        String distributeBy = user.getUserType();
+        
+        
     }
+    }
+
     
-}
+

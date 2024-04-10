@@ -20,6 +20,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
@@ -75,6 +76,10 @@ public class AddFoodSceneFxmlController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        foodIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("foodId")) ;
+        foodNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("foodName")) ;
+        foodQuantityTableColumn.setCellValueFactory(new PropertyValueFactory<>("foodQuantity")) ;
+        addedFoodDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("foodDate")) ;
         // TODO
     }    
 

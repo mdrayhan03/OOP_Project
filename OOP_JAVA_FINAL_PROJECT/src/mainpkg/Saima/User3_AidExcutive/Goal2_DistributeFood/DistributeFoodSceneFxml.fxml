@@ -57,7 +57,7 @@
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </TextField>
-      <TableView fx:id="removeFoodTableView" layoutX="2.0" layoutY="414.0" prefHeight="456.0" prefWidth="1236.0">
+      <TableView fx:id="distributeFoodTableView" layoutX="2.0" layoutY="414.0" prefHeight="456.0" prefWidth="1236.0">
          <columns>
             <TableColumn fx:id="distributeIdTableColumn" prefWidth="226.0" text="Distribute ID" />
             <TableColumn fx:id="foodNameTableColumn" prefWidth="239.0" text=" Food Name" />

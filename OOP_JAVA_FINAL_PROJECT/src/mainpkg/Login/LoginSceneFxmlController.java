@@ -20,7 +20,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rasel.CampManager.CampManager;
 import mainpkg.Rayhan.User5.DashBoard5SceneFxmlController;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
 import mainpkg.Rayhan.User6.DashBoard6SceneFxmlController;
@@ -54,6 +56,7 @@ public class LoginSceneFxmlController implements Initializable {
         list.add(v) ;
         EducationCoordinator e = new EducationCoordinator(6600000 , "Abul Kalam" , "asdfghjk" , "01312961737" , "rayhan@gmail.com" , "Education Coordinator" , "Male" , "04/04/2003") ;
         list.add(e);
+        CampManager c = new CampManager(7700000 , "Brigadier Gen Niaz" , "admin1234" , "01312961737" , "rayhan@gmail.com" , "Education Coordinator" , "Male" , "04/04/2003", new Date(20,01,2020));
         
         userTypeComboBox.getItems().addAll("Refugee Camp Manager" , "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGO") ;
         userTypeComboBox.setValue("Refugee Camp Manager") ;

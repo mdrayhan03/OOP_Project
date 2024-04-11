@@ -1,3 +1,6 @@
 # ignore DS files
 
 .DS_Store
+
+# Inside .gitignore
+build/

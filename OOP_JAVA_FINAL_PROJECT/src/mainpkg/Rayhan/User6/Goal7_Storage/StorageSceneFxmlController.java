@@ -15,6 +15,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Time_Place;
+import mainpkg.Rayhan.User6.DashBoard6SceneFxmlController;
+import mainpkg.Rayhan.User6.EducationCoordinator;
 
 /**
  * FXML Controller class
@@ -42,11 +44,22 @@ public class StorageSceneFxmlController implements Initializable {
     
     Time_Place tp = new Time_Place() ;
     EducationCoordinatorStorage st ;
+    EducationCoordinator user ;
+
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
+    
+    public EducationCoordinator get() {
+        return user ;
+    }
+    
+    public void set(EducationCoordinator u) {
+        user = u ;
+    }
+    
     public void show() {
         gBoxDLabel.setText(Integer.toString(st.getdGeometryBox())) ;
         bookStockLabel.setText(Integer.toString(st.getsBook())) ;
@@ -77,6 +90,9 @@ public class StorageSceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoard6SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard6SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rayhan.User5.Goal8_Report.Report;
-import mainpkg.Rayhan.User5.Goal8_Report.ReportList;
 import mainpkg.Rayhan.User5.Goal8_Report.ShowReportFxmlController;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
 
@@ -38,7 +37,6 @@ public class ReportSceneFxmlController implements Initializable {
     
     VolunteerCoordinator user ;
     Alert alert ;
-    ReportList sir ;
 
     /**
      * Initializes the controller class.
@@ -58,19 +56,6 @@ public class ReportSceneFxmlController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
-    private void backOnMouseClick(MouseEvent event) throws IOException {
-        Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User7/DashBoard7SceneFxml.fxml")) ;
-        root = (Parent) myLoader.load() ;
-        Scene myScene = new Scene(root) ;
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
-        stage.setScene(myScene) ;
-        stage.setTitle("Volunteer Coordinator DashBoard") ;
-        stage.show() ;
-    }
 
     @FXML
     private void submitOnMouseClick(MouseEvent event) throws IOException {
@@ -131,9 +116,8 @@ public class ReportSceneFxmlController implements Initializable {
         }
         
         if (rtn == true) {
-            Report re = user.report(subject , des , doa) ;
+            Report re = user.report(user.getId() , receiverId , subject , des , doa) ;
             System.out.println(user.getId() + receiverId + re.getId());
-            sir = new ReportList(user.getId() , receiverId , re.getId()) ;    
         
             Parent root = null ;
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal2_SIReport/ShowReportFxml.fxml")) ;
@@ -141,7 +125,7 @@ public class ReportSceneFxmlController implements Initializable {
             Scene myScene = new Scene(root) ;
         
             ShowReportFxmlController src = myLoader.getController() ;
-            src.set(re, sir) ;
+            src.set(re) ;
 
             Stage stage = new Stage() ;
             stage.setScene(myScene) ;

@@ -17,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rayhan.User5.DashBoard5SceneFxmlController;
 import mainpkg.Rayhan.User5.Goal8_Report.ShowReportFxmlController;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
 
@@ -62,6 +63,9 @@ public class ReportSceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/DashBoard5SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard5SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -128,7 +132,7 @@ public class ReportSceneFxmlController implements Initializable {
         }
         
         if (rtn == true) {
-            Report re = user.report(subject , des , doa) ;
+            Report re = user.report(user.getId() , receiverId , subject , des , doa) ;
             System.out.println(user.getId() + receiverId + re.getId());
         
             Parent root = null ;

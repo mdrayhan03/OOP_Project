@@ -17,9 +17,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
+import mainpkg.Rayhan.User6.DashBoard6SceneFxmlController;
 import mainpkg.Rayhan.User6.EducationCoordinator;
 /**
  * FXML Controller class
@@ -60,21 +62,29 @@ public class TeacherSceneFxmlController implements Initializable {
     
     public void tableShow() {
         teacherTableView.setItems(list) ;
-        teacherLabel.setText(Integer.toString(user.getTeacherAmount()));
+        teacherLabel.setText(Integer.toString(user.getTeacherAmount())) ;
+        user.setTeacherAmount(list.size()) ;
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        user.setTeacherAmount(list.size());
+        
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id")) ;
+        nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("name")) ;
+        pNTableColumn.setCellValueFactory(new PropertyValueFactory<>("pN")) ;
+        dojTableColumn.setCellValueFactory(new PropertyValueFactory<>("doj")) ;
     }    
     
     @FXML
     private void backOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoard5SceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoard6SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard6SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

@@ -66,6 +66,15 @@ public class CampaignSceneFxmlController implements Initializable {
      * @param url
      * @param rb
      */
+    
+     public VolunteerCoordinator get() {
+        return user ;
+    }
+    
+    public void set(VolunteerCoordinator u) {
+        user = u ;
+    }
+    
     public void setTable() {
         ObservableList<Campaign> reqList = FXCollections.observableArrayList() ;
         if (acceptedCheckBox.isSelected()) {

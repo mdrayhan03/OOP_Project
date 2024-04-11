@@ -22,7 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.Rayhan.User7.SecurityIncharge;
-import mainpkg.ReplySceneFxmlController;
+import mainpkg.Rayhan.User7.Goal3_Notice.ReplySceneFxmlController;
 
 /**
  * FXML Controller class

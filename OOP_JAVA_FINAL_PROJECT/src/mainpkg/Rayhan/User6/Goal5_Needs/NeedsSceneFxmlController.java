@@ -12,15 +12,18 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.Time_Place;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.RequestedItems;
+import mainpkg.Rayhan.User6.DashBoard6SceneFxmlController;
 import mainpkg.Rayhan.User6.EducationCoordinator;
 
 /**
@@ -45,11 +48,17 @@ public class NeedsSceneFxmlController implements Initializable {
     @FXML    private TableColumn<RequestedItems , Date> dateTableColumn;
     @FXML    private TableColumn<RequestedItems , Date> deadLineTableColumn;
     @FXML    private TableColumn<RequestedItems , String> statusTableColumn;
+    @FXML    private CheckBox acceptedCheckBox;
+    @FXML    private CheckBox rejectedCheckBox;
+    @FXML    private CheckBox pendingCheckBox;
+    @FXML    private ComboBox<String> iComboBox;
     
-    ObservableList<RequestedItems> reqList =  FXCollections.observableArrayList() ;
+    ObservableList<RequestedItems> list =  FXCollections.observableArrayList() ;
     Time_Place tp = new Time_Place() ;
     EducationCoordinator user ;
     Alert alert ;
+    
+
     
     public EducationCoordinator get() {
         return user ;
@@ -60,9 +69,48 @@ public class NeedsSceneFxmlController implements Initializable {
     }
     
     public void tableShow() {
+        ObservableList<RequestedItems> reqList = FXCollections.observableArrayList() ;
+        if (iComboBox.getValue() == "ALL User") {
+            reqList = list ;
+        }
+        else {
+            for (RequestedItems rv : list) {
+                if (iComboBox.getValue() == rv.getUserType()) {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        if (acceptedCheckBox.isSelected()) {
+            for (RequestedItems rv : list) {
+                if (rv.getStatus() == "Accepted") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        else if (rejectedCheckBox.isSelected()) {
+            for (RequestedItems rv : list) {
+                if (rv.getStatus() == "Rejected") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        else if (pendingCheckBox.isSelected()) {
+            for (RequestedItems rv : list) {
+                if (rv.getStatus() == "Pending") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        else {
+            for (RequestedItems rv : list) {
+                if (rv.getStatus() == "Accepted") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
         requestTableView.setItems(reqList) ;
     }
-
+        
     /**
      * Initializes the controller class.
      * @param url
@@ -71,8 +119,16 @@ public class NeedsSceneFxmlController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        amountTableColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("apply"));
+        deadLineTableColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+        statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        
         itemComboBox.setItems(tp.getEducationCoordinatorItem()) ;
         itemComboBox.setValue(tp.getEducationCoordinatorItem().get(0)) ;
+        iComboBox.setItems(tp.getVolunteerRequester()) ;
     }    
 
     @FXML
@@ -81,6 +137,9 @@ public class NeedsSceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoard6SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard6SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -137,7 +196,7 @@ public class NeedsSceneFxmlController implements Initializable {
         
         if (rtn == true && this.checkDate(apply, deadline)) {
             RequestedItems req = user.request(user.getId() , user.getUserType() , name, amount, apply, deadline) ;
-            reqList.add(req) ;
+            list.add(req) ;
         }
         else {
             alert = new Alert(Alert.AlertType.ERROR) ;

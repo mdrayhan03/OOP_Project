@@ -21,6 +21,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.Time_Place;
+import mainpkg.Rayhan.User7.DashBoard7SceneFxmlController;
 import mainpkg.Rayhan.User7.SecurityIncharge;
 
 /**
@@ -77,9 +78,12 @@ public class DutySceneFxmlController implements Initializable {
     @FXML
     private void backOnMouseCLick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User7/DashBoardSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User7/DashBoard7SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard7SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

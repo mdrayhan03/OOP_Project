@@ -43,6 +43,14 @@ public class Holiday {
         return holidayid;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public String getId() {
+        return id;
+    }
+
     public void setUserId(int userId) {
         this.userId = userId;
     }
@@ -65,6 +73,14 @@ public class Holiday {
 
     public void setHolidayid(String holidayid) {
         this.holidayid = this.generateId();
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
     
     protected String generateId() {

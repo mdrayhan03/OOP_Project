@@ -155,6 +155,7 @@ public class VolunteerRequestSceneFxmlController implements Initializable {
             if (rv.getId().equals(requestIdComboBox.getValue())) {
                 if(user.getRequestForVolunteer(rv.getAmount())) {
                     rv.setStatus("Accepted") ;
+                    rv.setAccepterId(user.getId()) ;
                     break ;
                 }
                 else {

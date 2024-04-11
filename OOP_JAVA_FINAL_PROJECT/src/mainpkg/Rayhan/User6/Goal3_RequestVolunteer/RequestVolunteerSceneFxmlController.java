@@ -17,11 +17,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.Time_Place;
 import mainpkg.Rayhan.User5.Goal4_VRequest.RequestedVolunteer;
+import mainpkg.Rayhan.User6.DashBoard6SceneFxmlController;
 import mainpkg.Rayhan.User6.EducationCoordinator;
 
 /**
@@ -78,14 +80,25 @@ public class RequestVolunteerSceneFxmlController implements Initializable {
         timeComboBox.setValue(tp.getCampaignTime().get(0)) ;
         placeComboBox.setItems(tp.getCampaignPlace()) ;
         timeComboBox.setValue(tp.getCampaignPlace().get(0)) ;
+        
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id")) ;
+        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<>("reason")) ;
+        desTableColumn.setCellValueFactory(new PropertyValueFactory<>("description")) ;
+        placeTableColumn.setCellValueFactory(new PropertyValueFactory<>("place")) ;
+        timeTableColumn.setCellValueFactory(new PropertyValueFactory<>("name")) ;
+        amountTableColumn.setCellValueFactory(new PropertyValueFactory<>("name")) ;
+        statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status")) ;
     }    
 
     @FXML
     private void backOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoardSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoard6SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard6SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

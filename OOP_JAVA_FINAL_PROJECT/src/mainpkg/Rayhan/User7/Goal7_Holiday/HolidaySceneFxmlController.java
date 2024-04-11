@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -18,6 +19,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.Holiday;
+import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
+import mainpkg.Rayhan.User7.DashBoard7SceneFxmlController;
 import mainpkg.Rayhan.User7.SecurityIncharge;
 
 /**
@@ -44,9 +47,13 @@ public class HolidaySceneFxmlController implements Initializable {
     @FXML    private TableColumn<Holiday , Date> dateTableColumn;
     @FXML    private TableColumn<Holiday , String> statusTableColumn;
     @FXML    private TextField reasonTextField;
+    @FXML    private CheckBox acceptedCheckBox;
+    @FXML    private CheckBox rejectedCheckBox;
+    @FXML    private CheckBox pendingCheckBox;
     
     ObservableList<Holiday> list = FXCollections.observableArrayList() ;
     SecurityIncharge user ;
+
     
 
     /**
@@ -54,8 +61,40 @@ public class HolidaySceneFxmlController implements Initializable {
      * @param url
      * @param rb
      */
+    public SecurityIncharge get() {
+        return user ;
+    }
     
-    public void tableShow() {
+    public void set(SecurityIncharge u) {
+        user = u ;
+    }
+    
+    public void listShow() {
+        ObservableList<Holiday> reqList = FXCollections.observableArrayList() ;
+        if (acceptedCheckBox.isSelected()) {
+            for (Holiday rv : list) {
+                if (rv.getStatus() == "Accepted") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        else if (rejectedCheckBox.isSelected()) {
+            for (Holiday rv : list) {
+                if (rv.getStatus() == "Rejected") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        else if (pendingCheckBox.isSelected()) {
+            for (Holiday rv : list) {
+                if (rv.getStatus() == "Pending") {
+                    reqList.add(rv) ;
+                }
+            }
+        }
+        else {
+                reqList = list ;
+             }
         holidayTableView.setItems(user.getHolidayList()) ;
     }
     
@@ -67,9 +106,12 @@ public class HolidaySceneFxmlController implements Initializable {
     @FXML
     private void backOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User7/DashBoardSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User7/DashBoard7SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard7SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

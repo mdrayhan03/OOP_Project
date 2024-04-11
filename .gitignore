@@ -1,6 +1,7 @@
 # ignore DS files
-
 .DS_Store
 
-# Inside .gitignore
+# Ignore Folders
 build/
+dist/
+nbproject/

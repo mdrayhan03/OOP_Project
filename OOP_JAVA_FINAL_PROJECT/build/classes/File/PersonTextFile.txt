@@ -1,1 +1,0 @@
-User{id=5577819, name=MD Rayhan, password=asdfjkl;, phoneNo=01312961737, email=rayhan@gmail.com, userType=Volunteer Coordinator, gender=Male, status=Deactive, dob=4/4/2003, holidayList=null}volunteerAmount=0, volunteerOnWork=0, volunteerFree=0}

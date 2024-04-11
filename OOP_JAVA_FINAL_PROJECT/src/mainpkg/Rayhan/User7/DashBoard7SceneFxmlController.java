@@ -34,6 +34,9 @@ public class DashBoard7SceneFxmlController implements Initializable {
      */
     public void set(SecurityIncharge u) {
         user = u ;
+        nameLabel.setText(user.getName()) ;
+        userTypeLabel.setText(user.getUserType()) ;
+        idLabel.setText(Integer.toString(user.getId())) ;
     }
 
     @Override
@@ -148,6 +151,7 @@ public class DashBoard7SceneFxmlController implements Initializable {
 
     @FXML
     private void signoutOnMouseClick(MouseEvent event) throws IOException {
+        user.setStatus("Deactive");
         Parent root = null ;
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Login/LoginSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;

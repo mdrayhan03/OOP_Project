@@ -65,8 +65,8 @@ public class NGOs extends User implements Serializable{
     }
     
     
-    public Report report(String subject , String des , Date doa) {
-        Report rep = new Report(subject , des , doa) ;
+    public Report report(Integer senderId, Integer receiverId, String subject, String description, Date applyDate) {
+        Report rep = new Report(senderId,  receiverId,  subject,  description,  applyDate) ;
         return rep ;
     }
     

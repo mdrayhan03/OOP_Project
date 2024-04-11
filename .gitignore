@@ -1,4 +1,6 @@
-# ignore DS files
-
 .DS_Store
-/OOP_JAVA_FINAL_PROJECT/dist/
+
+# Ignore Folders
+build/
+dist/
+nbproject/

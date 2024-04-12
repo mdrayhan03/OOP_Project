@@ -28,6 +28,9 @@ import mainpkg.Rayhan.User5.DashBoard5SceneFxmlController;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
 import mainpkg.Rayhan.User6.DashBoard6SceneFxmlController;
 import mainpkg.Rayhan.User6.EducationCoordinator;
+import mainpkg.Saima.User3_AidExcutive.AidExcutive;
+import mainpkg.Saima.User3_AidExcutive.DashBoardSceneFxmlController;
+import mainpkg.Saima.User4_Doctor.Doctor;
 
 /**
  * FXML Controller class
@@ -63,6 +66,11 @@ public class LoginSceneFxmlController implements Initializable {
         list.add(r);
         
         userTypeComboBox.getItems().addAll("Refugee Camp Manager", "Refugee", "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGO") ;
+        AidExcutive ae = new AidExcutive(2233456 , "Saima" , "asd123" , "01792760030" , "saima@gmail.com" , "Aid Excuive" , "Male" , "08/04/2003") ;
+        list.add(ae) ;
+        Doctor d = new Doctor(5555777 , "Sintiya" , "abc555" , "01951820192" , "sinthiya@gmail.com" , "Doctor" , "Female" , "06/04/2003") ;
+        list.add(d);
+        
         userTypeComboBox.setValue("Refugee Camp Manager") ;
     }    
 
@@ -135,6 +143,12 @@ public class LoginSceneFxmlController implements Initializable {
                     System.out.println("Refugee") ;
                     DashBoard6SceneFxmlController ds = fx.getController() ;
                     ds.set(u);
+
+                else if ("Aid Excutive".equals(u.getUserType())) {
+                    FXMLLoader fx = fxmlload("/mainpkg/Saima/User3_AidExcutive/DashBoardSceneFxml.fxml" , "Aid Excutive" , event) ;
+                    System.out.println("Aid Excutive") ;
+                    DashBoardSceneFxmlController ds = fx.getController() ;
+                    ds.set((AidExcutive) u) ;
                 }
                 
             }

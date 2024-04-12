@@ -13,13 +13,16 @@ import mainpkg.AbstractClass.Date;
  * @author HP
  */
 public class Shelter implements Serializable {
-    String id,Amount;
+    String id;
+    Integer amount;
     Date date;
+    String status;
 
-    public Shelter(String id, String Amount, Date date) {
+    public Shelter(String id, Integer amount, Date date, String status) {
         this.id = id;
-        this.Amount = Amount;
+        this.amount = amount;
         this.date = date;
+        this.status = status;
     }
 
     public String getId() {
@@ -30,12 +33,12 @@ public class Shelter implements Serializable {
         this.id = id;
     }
 
-    public String getAmount() {
-        return Amount;
+    public Integer getAmount() {
+        return amount;
     }
 
-    public void setAmount(String Amount) {
-        this.Amount = Amount;
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
     public Date getDate() {
@@ -46,14 +49,21 @@ public class Shelter implements Serializable {
         this.date = date;
     }
 
-    @Override
-    public String toString() {
-        return "Shelter{" + "id=" + id + ", Amount=" + Amount + ", date=" + date + '}';
+    public String getStatus() {
+        return status;
     }
 
-  
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
+    @Override
+    public String toString() {
+        return "Shelter{" + "id=" + id + ", amount=" + amount + ", date=" + date + ", status=" + status + '}';
+    }
 
+ 
+   
     private String generateId() {
         Random r=new Random();
         String id = "" ;

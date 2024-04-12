@@ -1,8 +1,15 @@
 package mainpkg.Rayhan.User5.Goal8_Report;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.AppendableObjectOutputStream;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rayhan.User5.DashBoard5SceneFxmlController;
@@ -44,7 +52,7 @@ public class ReportSceneFxmlController implements Initializable {
      * @param rb
      */
     
-    public User get() {
+    public VolunteerCoordinator get() {
         return user ;
     }
     
@@ -133,10 +141,13 @@ public class ReportSceneFxmlController implements Initializable {
         
         if (rtn == true) {
             Report re = user.report(user.getId() , receiverId , subject , des , doa) ;
-            System.out.println(user.getId() + receiverId + re.getId());
+            System.out.println(re.getApplyDate()) ;
+            
+            fileWrite(re) ;
+            System.out.println(user.getId() + "," + receiverId + "," + re.getId()) ;
         
             Parent root = null ;
-            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal2_SIReport/ShowReportFxml.fxml")) ;
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal8_Report/ShowReportFxml.fxml")) ;
             root = (Parent) myLoader.load() ;
             Scene myScene = new Scene(root) ;
         
@@ -148,7 +159,42 @@ public class ReportSceneFxmlController implements Initializable {
             stage.getIcons().add(new Image("/image/campIcon.jpg")) ;
             stage.setTitle("Volunteer Coordinator Show Report") ;
             stage.show() ;
+            
+            ddTextField.clear() ;
+            subjectTextField.clear() ;
+            mmTextField.clear() ;
+            yyyyTextField.clear() ;
+            reportBodyTextArea.clear() ;
+            siIdTextField.clear() ;
         }
+    }
+    
+     private void fileWrite(Report stu) {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
+        
+        try {
+            f = new File("src/File/Report.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(stu);
+
+        } catch (IOException ex) {
+            Logger.getLogger(ReportSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if(oos != null) oos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(ReportSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }                
     }
     
 }

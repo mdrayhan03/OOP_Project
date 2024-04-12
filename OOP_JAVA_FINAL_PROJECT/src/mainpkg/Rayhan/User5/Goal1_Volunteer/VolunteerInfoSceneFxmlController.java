@@ -29,6 +29,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.Rayhan.User5.DashBoard5SceneFxmlController;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
+import mainpkg.AbstractClass.AppendableObjectOutputStream;
 
 /**
  * FXML Controller class
@@ -48,12 +49,9 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
     @FXML    private Label totalLabel;
     @FXML    private Label freeLabel;
     @FXML    private Label workLabel;
-    @FXML    private CheckBox workingCheckBox;
-    @FXML    private CheckBox freeCheckBox;
     
     Alert alert ;
     VolunteerCoordinator user ;
-    ObservableList<Volunteer> list = FXCollections.observableArrayList() ;
 
     
 
@@ -68,31 +66,21 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
     public VolunteerCoordinator get() {
         return user ;
     }
+    
     public void set(VolunteerCoordinator u) {
         user = u ;
-        totalLabel.setText(Integer.toString(user.getVolunteerAmount())) ;
-        freeLabel.setText(Integer.toString(user.getVolunteerFree())) ;
-        workLabel.setText(Integer.toString(user.getVolunteerOnWork())) ;
+        tableShow() ;
     }
     
     public void tableShow() {
-        if(workingCheckBox.isSelected()) {
-            for(Volunteer vc: list) {
-                if (vc.getStatus() == "Work") {
-                    volunteerInfoTableView.getItems().add(vc) ;
-                }
-            }
-        }
-        else if(freeCheckBox.isSelected()) {
-            for(Volunteer vc: list) {
-                if (vc.getStatus() == "Free") {
-                    volunteerInfoTableView.getItems().add(vc) ;
-                }
-            }
-        }
-       else {
-            volunteerInfoTableView.setItems(list) ;
-        }    
+        volunteerInfoTableView.getItems().clear() ; 
+        totalLabel.setText(Integer.toString(user.getVolunteerAmount())) ;
+        freeLabel.setText(Integer.toString(user.getVolunteerFree())) ;
+        workLabel.setText(Integer.toString(user.getVolunteerOnWork())) ;
+        ObservableList<Volunteer> list = fileRead() ;
+        
+       System.out.println(list) ;
+       volunteerInfoTableView.setItems(list) ;
     }
     
     @Override
@@ -102,25 +90,6 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("name")) ;
         pNTableColumn.setCellValueFactory(new PropertyValueFactory<>("phoneN")) ;
         addedByTableColumn.setCellValueFactory(new PropertyValueFactory<>("addedBy")) ;
-        statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status")) ;
-        try {
-            //        ObservableList<Volunteer> listobj = FXCollections.observableArrayList() ;
-//        FileInputStream fis = null ;
-//        ObjectInputStream ois = null ;
-//        try {
-//            fis = new FileInputStream("src/File/VolunteerInfo.bin") ;
-//            ois = new ObjectInputStream(fis) ;
-//            while (true) {
-//               listobj.add((Volunteer) ois.readObject()) ;
-//            } 
-//        }
-//        catch (Exception e) {
-//        }
-        list = fileRead() ;
-        } catch (IOException ex) {
-            Logger.getLogger(VolunteerInfoSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        volunteerInfoTableView.setItems(list) ;
     }    
 
     @FXML
@@ -165,62 +134,75 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         
         if (rtn == true) {
             Volunteer vc = user.addVolunteer(name, pN, user.getName(), user.getId()) ;
-            list.add(vc) ;
-            
-                
-            try {
-                File f = new File("src/File/VolunteerInfo.bin") ;
-                if (f.exists()) {f.delete() ;}
-                FileOutputStream fos = new FileOutputStream("src/File/VolunteerInfo.bin" , true) ;
-//                ObjectOutputStream oos = new AppendableObjectOutputStream(fos) ;
-                ObjectOutputStream oos = new ObjectOutputStream(fos) ;
-                for (Volunteer v: list){
-                    oos.writeObject(v) ;
-                }
-                oos.close() ;
-            }
-            catch (Exception e) {
-                alert = new Alert(Alert.AlertType.ERROR) ;
-                alert.setHeaderText("Exception Error");
-                alert.setContentText("Exception : " + e.getClass().getName()) ;
-                alert.showAndWait() ;
-            } 
-        }
-        
-        nameTextField.clear() ;
+            fileWrite(vc) ;
+            tableShow() ;
+            nameTextField.clear() ;
         pNTextField.clear() ;
+        }       
     }
+            
+    private ObservableList<Volunteer> fileRead() {
+        ObservableList<Volunteer> studList = FXCollections.observableArrayList() ;
         
-    private ObservableList<Volunteer> fileRead() throws IOException {
-        ObservableList<Volunteer> listobj = FXCollections.observableArrayList() ;
-        File f = new File("src/File/VolunteerInfo.bin") ;
-        if(f.exists()){
-            FileInputStream fis = null ;
-            ObjectInputStream ois = null ;
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        
+        try {
+            f = new File("src/File/VCVolunteer.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            Volunteer st ;
             try {
-                fis = new FileInputStream("src/File/VolunteerInfo.bin") ;
-                ois = new ObjectInputStream(fis) ;
-                while (true) {
-                listobj.add((Volunteer) ois.readObject()) ;
-                } 
-            }
-            catch (Exception e) {
-                ois.close() ;
-//            alert = new Alert(Alert.AlertType.WARNING) ;
-//            alert.setHeaderText("File Warning.");
-//            alert.setContentText("File not found.") ;
-//            alert.showAndWait() ;
-            }
-        }
+                while(true){
+                    st = (Volunteer)ois.readObject();
+//                    System.out.println(st);
+                    studList.add(st) ;
+                }
+            }//end of nested try
+            catch(Exception e){
+                // handling code
+            }//nested catch     
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
+        } 
+        finally {
+            try {
+                
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }           
         
-        for (Volunteer p: list){
-            listobj.add(p) ;
-        }
-        return listobj ;
+        return studList ;
     }
     
-    private void fileWrite() {
+    private void fileWrite(Volunteer stu) {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
         
+        try {
+            f = new File("src/File/VCVolunteer.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(stu);
+
+        } catch (IOException ex) {
+            Logger.getLogger(VolunteerInfoSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if(oos != null) oos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(VolunteerInfoSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }                
     }
+
     
 }

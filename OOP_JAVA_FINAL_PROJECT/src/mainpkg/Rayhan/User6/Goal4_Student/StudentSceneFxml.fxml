@@ -67,7 +67,7 @@
           <TableColumn fx:id="nameTableColumn" prefWidth="200.0" text="Name" />
             <TableColumn fx:id="pNTableColumn" prefWidth="200.0" text="Phone No" />
             <TableColumn fx:id="emailTableColumn" prefWidth="200.0" text="Email" />
-            <TableColumn fx:id="courseIdTableColumn" prefWidth="400.0" text="Course ID List" />
+            <TableColumn fx:id="courseIdTableColumn" prefWidth="380.0" text="Course ID List" />
         </columns>
       </TableView>
       <Label layoutX="664.0" layoutY="218.0" text="Course ID">

@@ -1,12 +1,13 @@
 package mainpkg.Rayhan.User5.Goal8_Report;
 
+import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 
 /**
  *
  * @author RayhaN
  */
-public class Report {
+public class Report implements Serializable{
     Integer senderId , receiverId ;
     String subject , description , id ;
     Date applyDate ;
@@ -15,6 +16,7 @@ public class Report {
         this.subject = subject;
         this.description = description;
         this.applyDate = applyDate;
+        this.id = this.generateId() ;
     }
 
     public Integer getSenderId() {
@@ -65,12 +67,12 @@ public class Report {
         this.applyDate = applyDate;
     }
     
-    public void generateId() {
+    public String generateId() {
         String id = "SI" ;
         id += this.subject.substring(this.subject.length()-3) ;
         id += this.description.substring(5, 9) ;
         
-        this.id = id;
+        return id;
     }
 
     @Override

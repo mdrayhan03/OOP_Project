@@ -91,17 +91,17 @@
             <Font name="Comic Sans MS Bold Italic" size="24.0" />
          </font>
       </Button>
-      <CheckBox fx:id="acceptedCheckBox" layoutX="420.0" layoutY="473.0" mnemonicParsing="false" text="Accepted">
+      <CheckBox fx:id="acceptedCheckBox" layoutX="420.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Accepted">
          <font>
             <Font name="Comic Sans MS Italic" size="15.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="rejectedCheckBox" layoutX="552.0" layoutY="473.0" mnemonicParsing="false" text="Rejected">
+      <CheckBox fx:id="rejectedCheckBox" layoutX="552.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Rejected">
          <font>
             <Font name="Comic Sans MS Italic" size="15.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="pendingCheckBox" layoutX="673.0" layoutY="473.0" mnemonicParsing="false" text="Pending">
+      <CheckBox fx:id="pendingCheckBox" layoutX="673.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Pending">
          <font>
             <Font name="Comic Sans MS Italic" size="15.0" />
          </font>

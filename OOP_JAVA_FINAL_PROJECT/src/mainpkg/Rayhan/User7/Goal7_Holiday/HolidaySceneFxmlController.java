@@ -15,6 +15,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
@@ -67,10 +68,11 @@ public class HolidaySceneFxmlController implements Initializable {
     
     public void set(SecurityIncharge u) {
         user = u ;
+        listShow() ;
     }
     
     public void listShow() {
-        ObservableList<Holiday> reqList = FXCollections.observableArrayList() ;
+        ObservableList<Holiday> reqList = user.getHolidayList() ;
         if (acceptedCheckBox.isSelected()) {
             for (Holiday rv : list) {
                 if (rv.getStatus() == "Accepted") {
@@ -101,6 +103,13 @@ public class HolidaySceneFxmlController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id")) ;
+        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<>("reason")) ;
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("startDate")) ;
+        sDTableColumn.setCellValueFactory(new PropertyValueFactory<>("startDate")) ;
+        eDTableColumn.setCellValueFactory(new PropertyValueFactory<>("endDate")) ;
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("date")) ;
+        statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status")) ;
     }    
 
     @FXML
@@ -150,10 +159,73 @@ public class HolidaySceneFxmlController implements Initializable {
         amm = Integer.parseInt(samm) ;
         ayyyy = Integer.parseInt(sayyyy) ;
         Date apply = new Date(add , amm , ayyyy) ;
-        
+        System.out.println(start.isValid() + "," + end.isValid() + "," + apply.isValid()) ;
         if(start.isValid() && end.isValid() && apply.isValid()) {
             rtn = user.requestToLeave(reason, start , end) ;
+            listShow() ;
         }
     }
     
+//    private ObservableList<Volunteer> fileRead() {
+//        ObservableList<Volunteer> studList = FXCollections.observableArrayList() ;
+//        
+//        File f = null;
+//        FileInputStream fis = null;      
+//        ObjectInputStream ois = null;
+//        
+//        try {
+//            f = new File("src/File/VCVolunteer.bin");
+//            fis = new FileInputStream(f);
+//            ois = new ObjectInputStream(fis);
+//            Volunteer st ;
+//            try {
+//                while(true){
+//                    st = (Volunteer)ois.readObject();
+////                    System.out.println(st);
+//                    studList.add(st) ;
+//                }
+//            }//end of nested try
+//            catch(Exception e){
+//                // handling code
+//            }//nested catch     
+//        } catch (IOException ex) {
+//            System.out.println(ex.toString());
+//        } 
+//        finally {
+//            try {
+//                
+//                if(ois != null) ois.close();
+//            } catch (IOException ex) { }
+//        }           
+//        
+//        return studList ;
+//    }
+//    
+//    private void fileWrite(Volunteer stu) {
+//        File f = null;
+//        FileOutputStream fos = null;      
+//        ObjectOutputStream oos = null;
+//        
+//        try {
+//            f = new File("src/File/VCVolunteer.bin");
+//            if(f.exists()){
+//                fos = new FileOutputStream(f,true);
+//                oos = new AppendableObjectOutputStream(fos);                
+//            }
+//            else{
+//                fos = new FileOutputStream(f);
+//                oos = new ObjectOutputStream(fos);               
+//            }
+//            oos.writeObject(stu);
+//
+//        } catch (IOException ex) {
+//            Logger.getLogger(VolunteerInfoSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            try {
+//                if(oos != null) oos.close();
+//            } catch (IOException ex) {
+//                Logger.getLogger(VolunteerInfoSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }                
+//    }
 }

@@ -30,7 +30,7 @@
           <TableColumn fx:id="campNameTableColumn" prefWidth="240.0" text="Name" />
             <TableColumn fx:id="campPNTableColumn" prefWidth="240.0" text="Phone No" />
             <TableColumn fx:id="campEmailTableColumn" prefWidth="240.0" text="Email" />
-            <TableColumn fx:id="campDoBTableColumn" prefWidth="240.0" text="Date of birth" />
+            <TableColumn fx:id="campDoBTableColumn" prefWidth="230.0" text="Date of birth" />
         </columns>
       </TableView>
       <Label layoutX="98.0" layoutY="302.0" text="Aid Executive">
@@ -64,7 +64,7 @@
             <TableColumn fx:id="aidNameTableColumn" prefWidth="240.0" text="Name" />
             <TableColumn fx:id="aidPNTableColumn" prefWidth="240.0" text="Phone No" />
             <TableColumn fx:id="aidEmailTableColumn" prefWidth="240.0" text="Email" />
-            <TableColumn fx:id="aidDoBTableColumn" prefWidth="240.0" text="Date of birth" />
+            <TableColumn fx:id="aidDoBTableColumn" prefWidth="230.0" text="Date of birth" />
          </columns>
       </TableView>
       <TableView fx:id="doctorTableView" fixedCellSize="0.0" layoutY="430.0" prefHeight="70.0" prefWidth="1200.0">
@@ -73,7 +73,7 @@
             <TableColumn fx:id="doctorNameTableColumn" prefWidth="239.0" text="Name" />
             <TableColumn fx:id="doctorPNTableColumn" prefWidth="241.0" text="Phone No" />
             <TableColumn fx:id="doctorEmailTableColumn" prefWidth="240.0" text="Email" />
-            <TableColumn fx:id="doctorDoBTableColumn" prefWidth="240.0" text="Date of birth" />
+            <TableColumn fx:id="doctorDoBTableColumn" prefWidth="230.0" text="Date of birth" />
          </columns>
       </TableView>
       <TableView fx:id="volunteerTableView" fixedCellSize="0.0" layoutY="528.0" prefHeight="70.0" prefWidth="1200.0">
@@ -82,7 +82,7 @@
             <TableColumn fx:id="volunteerNameTableColumn" prefWidth="240.0" text="Name" />
             <TableColumn fx:id="volunteerPNTableColumn" prefWidth="240.0" text="Phone No" />
             <TableColumn fx:id="volunteerEmailTableColumn" prefWidth="240.0" text="Email" />
-            <TableColumn fx:id="volunteerDoBTableColumn" prefWidth="240.0" text="Date of birth" />
+            <TableColumn fx:id="volunteerDoBTableColumn" prefWidth="230.0" text="Date of birth" />
          </columns>
       </TableView>
       <TableView fx:id="educationTableView" fixedCellSize="0.0" layoutY="626.0" prefHeight="70.0" prefWidth="1200.0">
@@ -91,7 +91,7 @@
             <TableColumn fx:id="educationNameTableColumn" prefWidth="240.0" text="Name" />
             <TableColumn fx:id="educationPNTableColumn" prefWidth="240.0" text="Phone No" />
             <TableColumn fx:id="educationEmailTableColumn" prefWidth="240.0" text="Email" />
-            <TableColumn fx:id="educationDoBTableColumn" prefWidth="240.0" text="Date of birth" />
+            <TableColumn fx:id="educationDoBTableColumn" prefWidth="230.0" text="Date of birth" />
          </columns>
       </TableView>
       <TableView fx:id="securityTableView" fixedCellSize="0.0" layoutY="724.0" prefHeight="70.0" prefWidth="1200.0">
@@ -100,7 +100,7 @@
             <TableColumn fx:id="securityNameTableColumn" prefWidth="240.0" text="Name" />
             <TableColumn fx:id="securityPNTableColumn" prefWidth="240.0" text="Phone No" />
             <TableColumn fx:id="securityEmailTableColumn" prefWidth="240.0" text="Email" />
-            <TableColumn fx:id="securityDoBTableColumn" prefWidth="240.0" text="Date of birth" />
+            <TableColumn fx:id="securityDoBTableColumn" prefWidth="230.0" text="Date of birth" />
          </columns>
       </TableView>
    </children>

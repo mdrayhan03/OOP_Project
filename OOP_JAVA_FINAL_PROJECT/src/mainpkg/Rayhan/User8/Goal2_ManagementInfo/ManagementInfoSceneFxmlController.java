@@ -29,24 +29,24 @@ import mainpkg.Rayhan.User8.NGOs;
  */
 public class ManagementInfoSceneFxmlController implements Initializable {
 
-    @FXML    private TableView<RefugeeCampManager> campManagerTableView;
-    @FXML    private TableColumn<RefugeeCampManager , Integer> campIdTableColumn;
-    @FXML    private TableColumn<RefugeeCampManager , String> campNameTableColumn;
-    @FXML    private TableColumn<RefugeeCampManager , String> campPNTableColumn;
-    @FXML    private TableColumn<RefugeeCampManager , String> campEmailTableColumn;
-    @FXML    private TableColumn<RefugeeCampManager , String> campDoBTableColumn;
-    @FXML    private TableView<AidExecutive> aidTableView;
-    @FXML    private TableColumn<AidExecutive , Integer> aidIdTableColumn;
-    @FXML    private TableColumn<AidExecutive , String> aidNameTableColumn;
-    @FXML    private TableColumn<AidExecutive , String> aidPNTableColumn;
-    @FXML    private TableColumn<AidExecutive , String> aidEmailTableColumn;
-    @FXML    private TableColumn<AidExecutive , String> aidDoBTableColumn;
-    @FXML    private TableView<Doctor> doctorTableView;
-    @FXML    private TableColumn<Doctor , Integer> doctorIdTableColumn;
-    @FXML    private TableColumn<Doctor , String> doctorNameTableColumn;
-    @FXML    private TableColumn<Doctor , String> doctorPNTableColumn;
-    @FXML    private TableColumn<Doctor , String> doctorEmailTableColumn;
-    @FXML    private TableColumn<Doctor , String> doctorDoBTableColumn;
+//    @FXML    private TableView<RefugeeCampManager> campManagerTableView;
+//    @FXML    private TableColumn<RefugeeCampManager , Integer> campIdTableColumn;
+//    @FXML    private TableColumn<RefugeeCampManager , String> campNameTableColumn;
+//    @FXML    private TableColumn<RefugeeCampManager , String> campPNTableColumn;
+//    @FXML    private TableColumn<RefugeeCampManager , String> campEmailTableColumn;
+//    @FXML    private TableColumn<RefugeeCampManager , String> campDoBTableColumn;
+//    @FXML    private TableView<AidExecutive> aidTableView;
+//    @FXML    private TableColumn<AidExecutive , Integer> aidIdTableColumn;
+//    @FXML    private TableColumn<AidExecutive , String> aidNameTableColumn;
+//    @FXML    private TableColumn<AidExecutive , String> aidPNTableColumn;
+//    @FXML    private TableColumn<AidExecutive , String> aidEmailTableColumn;
+//    @FXML    private TableColumn<AidExecutive , String> aidDoBTableColumn;
+//    @FXML    private TableView<Doctor> doctorTableView;
+//    @FXML    private TableColumn<Doctor , Integer> doctorIdTableColumn;
+//    @FXML    private TableColumn<Doctor , String> doctorNameTableColumn;
+//    @FXML    private TableColumn<Doctor , String> doctorPNTableColumn;
+//    @FXML    private TableColumn<Doctor , String> doctorEmailTableColumn;
+//    @FXML    private TableColumn<Doctor , String> doctorDoBTableColumn;
     @FXML    private TableView<VolunteerCoordinator> volunteerTableView;
     @FXML    private TableColumn<VolunteerCoordinator, Integer> volunteerIdTableColumn;
     @FXML    private TableColumn<VolunteerCoordinator, String> volunteerNameTableColumn;
@@ -84,9 +84,9 @@ public class ManagementInfoSceneFxmlController implements Initializable {
     }
     
     public void tableShow() {
-        campManagerTableView.setItems(vcList) ;
-        aidTableView.setItems(vcList) ;
-        doctorTableView.setItems(vcList) ;
+//        campManagerTableView.setItems(vcList) ;
+//        aidTableView.setItems(vcList) ;
+//        doctorTableView.setItems(vcList) ;
         volunteerTableView.setItems(vcList) ;
         educationTableView.setItems(ecList) ;
         securityTableView.setItems(siList) ;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -87,10 +88,19 @@
             <TableColumn fx:id="statusTableColumn" prefWidth="200.0" text="Status" />
          </columns>
       </TableView>
-      <Button layoutX="100.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#requestOnMouseClick" prefWidth="1000.0" text="Request">
+      <Button layoutX="100.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#requestOnMouseClick" prefWidth="1000.0" text="Request">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="24.0" />
          </font>
       </Button>
+      <ComboBox fx:id="iComboBox" layoutX="282.0" layoutY="425.0" onMouseClicked="#checkOnMouseClick" prefHeight="31.0" prefWidth="271.0" />
+      <Label layoutX="198.0" layoutY="426.0" text="Item">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="acceptedCheckBox" layoutX="666.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#checkOnMouseClick" text="Accepted" />
+      <CheckBox fx:id="rejectedCheckBox" layoutX="800.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#checkOnMouseClick" text="Rejected" />
+      <CheckBox fx:id="pendingCheckBox" layoutX="924.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#checkOnMouseClick" text="Pending" />
    </children>
 </AnchorPane>

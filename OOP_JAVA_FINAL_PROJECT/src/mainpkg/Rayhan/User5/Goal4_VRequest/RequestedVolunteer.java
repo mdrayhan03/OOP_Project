@@ -1,12 +1,13 @@
 package mainpkg.Rayhan.User5.Goal4_VRequest;
 
+import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 
 /**
  *
  * @author RayhaN
  */
-public class RequestedVolunteer {
+public class RequestedVolunteer implements Serializable{
     int requesterId , accepterId , amount ;
     String id , reason , description , userType , time , place , status , requesterName ;
     Date date ;

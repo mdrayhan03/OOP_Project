@@ -9,6 +9,7 @@ import mainpkg.AbstractClass.User;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
 import mainpkg.Rasel.Refugee.Refugee;
 import mainpkg.Rayhan.User5.Goal8_Report.Report;
+import mainpkg.Rayhan.User5.VolunteerCoordinator;
 import mainpkg.Rayhan.User8.Goal4_Donation.Donation;
 import mainpkg.Rayhan.User8.Goal5_Education.EducationFacilities;
 import mainpkg.Rayhan.User8.Goal6_Medical.MedicalFacilities;
@@ -41,6 +42,24 @@ public class NGOs extends User implements Serializable{
 //    
 //}
 //#capacityInfo():void
+    
+        /**
+     *
+     * @param id
+     * @param pw
+     * @return
+     */
+    @Override
+    public NGOs verifyLogin(int id , String pw) {
+        int userId = this.getId() ;
+        String userPw = this.getPassword() ;
+        if (userId == id && userPw.equals(pw)) {
+            this.setStatus("Active") ;
+            return this ;
+        }
+        return null ;
+    }
+    
     public Donation donationToCamp(Integer donerid, Integer amount, String name, Date date) {
         Donation don = new Donation(donerid, amount, name, date) ;
         

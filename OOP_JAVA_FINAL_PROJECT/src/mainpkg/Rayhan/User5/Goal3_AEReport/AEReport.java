@@ -1,12 +1,13 @@
 package mainpkg.Rayhan.User5.Goal3_AEReport;
 
+import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 
 /**
  *
  * @author RayhaN
  */
-public class AEReport {
+public class AEReport implements Serializable{
     String subject , description , id ;
     Integer senderId , receiverId ;
     Date applyDate ;

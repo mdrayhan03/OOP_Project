@@ -33,7 +33,7 @@ public class ShowReportFxmlController implements Initializable {
         toLabel.setText(Integer.toString(mr.getReceiverId())) ;
         subjectLabel.setText(mr.getSubject()) ;
         dateLabel.setText(mr.getApplyDate().toString()) ;
-        reportBodyTextArea.setText(mr.description) ;
+        reportBodyTextArea.setText(mr.getDescription()) ;
         
     }
     

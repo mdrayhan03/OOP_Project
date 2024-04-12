@@ -1,8 +1,15 @@
 package mainpkg.Rayhan.User5.Goal3_AEReport;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,8 +25,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.AppendableObjectOutputStream;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rayhan.User5.Goal1_Volunteer.Volunteer;
 import mainpkg.Rayhan.User5.Goal3_AEReport.AEReport;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
 import mainpkg.Rayhan.User7.SecurityIncharge;
@@ -38,7 +47,7 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
     @FXML    private TextArea reportBodyTextArea;
     @FXML    private ComboBox<Integer> idComboBox;
     
-    ObservableList<SecurityIncharge> scList = FXCollections.observableArrayList() ;
+    
     VolunteerCoordinator user ;
     Alert alert ;
     
@@ -55,9 +64,11 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
     
     public void set(VolunteerCoordinator u) {
         user = u ;
+        setComboBox() ;
     }
     
     public void setComboBox() {
+        ObservableList<SecurityIncharge> scList = fileRead() ;
         for (SecurityIncharge sc: scList) {
             idComboBox.getItems().add(sc.getId()) ;
         }
@@ -84,7 +95,7 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
     @FXML
     private void submitOnMouseClick(MouseEvent event) throws IOException {
         Boolean rtn = true ;
-        Integer receiverId , dd = null , mm = null , yyyy = null ;
+        Integer receiverId , dd = 0 , mm = 0 , yyyy = 0 ;
         String subject = "" , des = "" , sdd = "" , smm = "" , syyyy = "" ;
         
         receiverId = idComboBox.getValue() ;
@@ -141,12 +152,15 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
         
         if (rtn == true) {
             if (receiverId == null) {
+                ObservableList<SecurityIncharge> scList = fileRead() ;
                 for (SecurityIncharge sc: scList) {
                     AEReport ae = user.reportToAidExecutive(subject , user.getId() , sc.getId() , des , doa) ;
+                    fileWrite(ae) ;
                 }
             }
             else {
                 AEReport ae = user.reportToAidExecutive(subject , user.getId() , receiverId , des , doa) ;
+                fileWrite(ae) ;
         
                 Parent root = null ;
                 FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal3_AEReport/ShowReportFxml.fxml")) ;
@@ -167,6 +181,69 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
             alert.setContentText("Report submitted sucessfully.") ;
             alert.showAndWait() ;
         }
+    }
+    
+    private ObservableList<SecurityIncharge> fileRead() {
+        ObservableList<SecurityIncharge> studList = FXCollections.observableArrayList() ;
+        
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        
+        try {
+            f = new File("src/File/SecurityIncharge.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            SecurityIncharge st ;
+            try {
+                while(true){
+                    st = (SecurityIncharge)ois.readObject();
+//                    System.out.println(st);
+                    studList.add(st) ;
+                }
+            }//end of nested try
+            catch(Exception e){
+                // handling code
+            }//nested catch     
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
+        } 
+        finally {
+            try {
+                
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }           
+        
+        return studList ;
+    }
+    
+    private void fileWrite(AEReport stu) {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
+        
+        try {
+            f = new File("src/File/AEReport.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(stu);
+
+        } catch (IOException ex) {
+            Logger.getLogger(AidExecutiveReportSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if(oos != null) oos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(AidExecutiveReportSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }                
     }
     
 }

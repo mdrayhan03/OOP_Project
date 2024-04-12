@@ -43,12 +43,12 @@
             <TableColumn fx:id="statusTableColumn" prefWidth="200.0" text="Status" />
         </columns>
       </TableView>
-      <CheckBox fx:id="pendingCheckBox" layoutX="691.0" layoutY="293.0" mnemonicParsing="false" text="Pending">
+      <CheckBox fx:id="pendingCheckBox" layoutX="691.0" layoutY="293.0" mnemonicParsing="false" onMouseClicked="#checkboxOnMouseClick" text="Pending">
          <font>
             <Font name="Comic Sans MS Italic" size="15.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="acceptedCheckBox" layoutX="545.0" layoutY="293.0" mnemonicParsing="false" text="Accepted">
+      <CheckBox fx:id="acceptedCheckBox" layoutX="545.0" layoutY="293.0" mnemonicParsing="false" onMouseClicked="#checkboxOnMouseClick" text="Accepted">
          <font>
             <Font name="Comic Sans MS Italic" size="15.0" />
          </font>

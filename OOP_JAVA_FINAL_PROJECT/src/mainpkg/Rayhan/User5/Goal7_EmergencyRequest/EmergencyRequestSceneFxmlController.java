@@ -1,6 +1,9 @@
 package mainpkg.Rayhan.User5.Goal7_EmergencyRequest;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -50,10 +53,11 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
      */
     
     public void set() {
-        
+        tableShow() ;
     }
     
     public void tableShow() {
+        ObservableList<RequestedVolunteer> list = fileRead() ;
         ObservableList<RequestedVolunteer> reqList = FXCollections.observableArrayList() ;
         if (acceptedCheckBox.isSelected()) {
             for (RequestedVolunteer rv : list) {
@@ -62,7 +66,7 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
                 }
             }
         }
-        else if (pendingCheckBox.isSelected()) {
+        if (pendingCheckBox.isSelected()) {
             for (RequestedVolunteer rv : list) {
                 if (rv.getStatus() == "Pending") {
                     reqList.add(rv) ;
@@ -70,11 +74,7 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
             }
         }
         else {
-            for (RequestedVolunteer rv : list) {
-                if (rv.getStatus() == "Accepted") {
-                    reqList.add(rv) ;
-                }
-            }
+            reqList = list ;
         }
         requestTableView.setItems(reqList) ;
         requestTableView.setItems(list) ;
@@ -82,11 +82,7 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
             idComboBox.getItems().add(rv.getId()) ;
         }
     }
-    
-    public void fileRead() {
         
-    }
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -122,5 +118,47 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
             }
         }
     }
+    
+    private ObservableList<RequestedVolunteer> fileRead() {
+        ObservableList<RequestedVolunteer> studList = FXCollections.observableArrayList() ;
+        
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        
+        try {
+            f = new File("src/File/Campaign.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            RequestedVolunteer st ;
+            try {
+                while(true){
+                    st = (RequestedVolunteer)ois.readObject();
+                    if (st.getUserType() == user.getUserType()) {
+                        studList.add(st) ;
+                    }
+                }
+            }//end of nested try
+            catch(Exception e){
+                // handling code
+            }//nested catch     
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
+        } 
+        finally {
+            try {
+                
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }           
+        
+        return studList ;
+    }
+
+    @FXML
+    private void checkboxOnMouseClick(MouseEvent event) {
+        tableShow() ;
+    }
+    
     
 }

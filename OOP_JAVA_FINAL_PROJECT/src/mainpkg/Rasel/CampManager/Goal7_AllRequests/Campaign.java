@@ -1,12 +1,13 @@
 package mainpkg.Rasel.CampManager.Goal7_AllRequests;
 
+import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 
 /**
  *
  * @author RayhaN
  */
-public class Campaign {
+public class Campaign implements Serializable{
     String time , place , subject , id , userType  , des , senderName , status ;
     Date date ;
     int senderId ;
@@ -17,9 +18,9 @@ public class Campaign {
         this.subject = subject;
         this.userType = userType;
         this.des = des;
-        this.senderName = senderName;
-        this.date = date;
-        this.senderId = senderId;
+        this.senderName = senderName ;
+        this.date = date ;
+        this.senderId = senderId ;
         this.status = "Pending" ;
         this.id = this.generateId() ;
     }

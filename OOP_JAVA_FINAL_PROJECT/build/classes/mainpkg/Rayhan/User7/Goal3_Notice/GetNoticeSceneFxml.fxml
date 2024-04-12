@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User7.Goal3_Notice.GetNoticeSceneFxmlController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User7.Goal3_Notice.GetNoticeSceneFxmlController">
    <children>
       <Button layoutX="36.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClick" text="Back">
          <font>
@@ -41,12 +41,12 @@
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="reasonLabel" layoutX="343.0" layoutY="281.0" text="Label">
+      <Label fx:id="reasonLabel" layoutX="343.0" layoutY="281.0" text="Reason...">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="dateLabel" layoutX="343.0" layoutY="436.0" text="Label">
+      <Label fx:id="dateLabel" layoutX="343.0" layoutY="436.0" text="dd-mm-yyyy">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
@@ -56,15 +56,16 @@
             <Font name="Comic Sans MS Italic" size="24.0" />
          </font>
       </TextArea>
-      <TableView fx:id="noticeTableView" layoutY="484.0" prefHeight="315.0" prefWidth="1200.0">
+      <TableView fx:id="noticeTableView" layoutY="501.0" prefHeight="298.0" prefWidth="1200.0">
         <columns>
           <TableColumn fx:id="idTableColumn" prefWidth="150.0" text="ID" />
           <TableColumn fx:id="reasonTableColumn" prefWidth="350.0" text="Reason" />
-            <TableColumn fx:id="descriptionTableColumn" prefWidth="550.0" text="Description" />
-            <TableColumn fx:id="dateTableColumn" prefWidth="150.0" text="Date" />
+            <TableColumn fx:id="descriptionTableColumn" prefWidth="320.0" text="Description" />
+            <TableColumn fx:id="replyTableColumn" prefWidth="233.0" text="Reply" />
+            <TableColumn fx:id="dateTableColumn" prefWidth="137.0" text="Date" />
         </columns>
       </TableView>
-      <ComboBox fx:id="idComboBox" layoutX="343.0" layoutY="236.0" prefWidth="300.0" />
+      <ComboBox fx:id="idComboBox" layoutX="343.0" layoutY="236.0" onMouseClicked="#idComboBoxOnMouseClick" prefWidth="300.0" />
       <Button layoutX="868.0" layoutY="425.0" mnemonicParsing="false" onMouseClicked="#replyOnMouseClick" prefWidth="200.0" text="Reply">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="24.0" />

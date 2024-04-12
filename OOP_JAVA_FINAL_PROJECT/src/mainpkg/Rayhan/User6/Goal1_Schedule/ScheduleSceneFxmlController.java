@@ -106,9 +106,7 @@ public class ScheduleSceneFxmlController implements Initializable {
         int dd = 0 , mm = 0 , yyyy = 0 ;
         
         teacherId = teacherIdComboBox.getValue() ;
-        teacherName = this.getTeacherName() ;
         courseId = courseidComboBox.getValue() ;
-        courseName = this.getCourseName() ;
         time = timeComboBox.getValue() ;
         place = placeComboBox.getValue() ;
         
@@ -145,14 +143,5 @@ public class ScheduleSceneFxmlController implements Initializable {
         
     }
     
-    public String getTeacherName() {
-        String name = null ;
-        return name ;
-    }
-    
-    public String getCourseName() {
-        String name = null ;
-        return name ;
-    }
     
 }

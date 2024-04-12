@@ -93,14 +93,14 @@
             <Font name="Comic Sans MS Bold Italic" size="24.0" />
          </font>
       </Button>
-      <ComboBox fx:id="iComboBox" layoutX="282.0" layoutY="425.0" prefHeight="31.0" prefWidth="271.0" />
+      <ComboBox fx:id="iComboBox" layoutX="282.0" layoutY="425.0" onMouseClicked="#checkOnMouseClick" prefHeight="31.0" prefWidth="271.0" />
       <Label layoutX="198.0" layoutY="426.0" text="Item">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <CheckBox fx:id="acceptedCheckBox" layoutX="666.0" layoutY="430.0" mnemonicParsing="false" text="Accepted" />
-      <CheckBox fx:id="rejectedCheckBox" layoutX="800.0" layoutY="430.0" mnemonicParsing="false" text="Rejected" />
-      <CheckBox fx:id="pendingCheckBox" layoutX="924.0" layoutY="430.0" mnemonicParsing="false" text="Pending" />
+      <CheckBox fx:id="acceptedCheckBox" layoutX="666.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#checkOnMouseClick" text="Accepted" />
+      <CheckBox fx:id="rejectedCheckBox" layoutX="800.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#checkOnMouseClick" text="Rejected" />
+      <CheckBox fx:id="pendingCheckBox" layoutX="924.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#checkOnMouseClick" text="Pending" />
    </children>
 </AnchorPane>

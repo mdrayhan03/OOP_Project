@@ -45,7 +45,7 @@
             <Font name="Comic Sans MS Bold Italic" size="24.0" />
          </font>
       </Button>
-      <ComboBox fx:id="refugeeIdComboBox" layoutX="290.0" layoutY="217.0" prefHeight="31.0" prefWidth="310.0" />
+      <ComboBox fx:id="refugeeIdComboBox" layoutX="290.0" layoutY="217.0" onMouseClicked="#IdButtonOnMouseClick" prefHeight="31.0" prefWidth="310.0" />
       <Label fx:id="nameLabel" layoutX="290.0" layoutY="263.0" text="Abdul Kalam">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
@@ -67,7 +67,7 @@
           <TableColumn fx:id="nameTableColumn" prefWidth="200.0" text="Name" />
             <TableColumn fx:id="pNTableColumn" prefWidth="200.0" text="Phone No" />
             <TableColumn fx:id="emailTableColumn" prefWidth="200.0" text="Email" />
-            <TableColumn fx:id="courseIdTableColumn" prefWidth="400.0" text="Course ID List" />
+            <TableColumn fx:id="courseIdTableColumn" prefWidth="380.0" text="Course ID List" />
         </columns>
       </TableView>
       <Label layoutX="664.0" layoutY="218.0" text="Course ID">
@@ -76,7 +76,7 @@
          </font>
       </Label>
       <ComboBox fx:id="courseIdComboBox" layoutX="800.0" layoutY="216.0" prefHeight="31.0" prefWidth="310.0" />
-      <Button layoutX="800.0" layoutY="258.0" mnemonicParsing="false" onMouseClicked="#addOnMouseClick" text="Add Course">
+      <Button layoutX="800.0" layoutY="258.0" mnemonicParsing="false" onMouseClicked="#addCourseOnMouseClick" text="Add Course">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="18.0" />
          </font>

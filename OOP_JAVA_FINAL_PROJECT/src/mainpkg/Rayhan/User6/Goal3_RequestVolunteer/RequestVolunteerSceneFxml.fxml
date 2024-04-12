@@ -57,7 +57,7 @@
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </TextField>
-      <TextArea fx:id="descriptionTextArea" layoutX="249.0" layoutY="242.0" prefHeight="86.0" prefWidth="849.0" promptText="Description..." />
+      <TextArea fx:id="descriptionTextArea" layoutX="249.0" layoutY="242.0" prefHeight="86.0" prefWidth="849.0" promptText="Description..." wrapText="true" />
       <TextField fx:id="ddTextField" alignment="CENTER_RIGHT" layoutX="249.0" layoutY="341.0" prefHeight="44.0" prefWidth="58.0" promptText="dd">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />

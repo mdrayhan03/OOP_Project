@@ -1,8 +1,17 @@
 package mainpkg.Rayhan.User7.Goal8_Report;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,11 +24,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.AppendableObjectOutputStream;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rayhan.User5.Goal8_Report.Report;
 import mainpkg.Rayhan.User5.Goal8_Report.ShowReportFxmlController;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
+import mainpkg.Rayhan.User7.DashBoard7SceneFxmlController;
+import mainpkg.Rayhan.User7.SecurityIncharge;
 
 /**
  * FXML Controller class
@@ -35,7 +47,7 @@ public class ReportSceneFxmlController implements Initializable {
     @FXML    private TextArea reportBodyTextArea;
     @FXML    private TextField siIdTextField;
     
-    VolunteerCoordinator user ;
+    SecurityIncharge user ;
     Alert alert ;
 
     /**
@@ -44,11 +56,11 @@ public class ReportSceneFxmlController implements Initializable {
      * @param rb
      */
     
-    public User get() {
+    public SecurityIncharge get() {
         return user ;
     }
     
-    public void set(VolunteerCoordinator u) {
+    public void set(SecurityIncharge u) {
         user = u ;
     }
     
@@ -118,9 +130,10 @@ public class ReportSceneFxmlController implements Initializable {
         if (rtn == true) {
             Report re = user.report(user.getId() , receiverId , subject , des , doa) ;
             System.out.println(user.getId() + receiverId + re.getId());
+            fileWrite(re) ;
         
             Parent root = null ;
-            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal2_SIReport/ShowReportFxml.fxml")) ;
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal8_Report/ShowReportFxml.fxml")) ;
             root = (Parent) myLoader.load() ;
             Scene myScene = new Scene(root) ;
         
@@ -135,4 +148,47 @@ public class ReportSceneFxmlController implements Initializable {
         }
     }
     
+    private void fileWrite(Report stu) {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
+        
+        try {
+            f = new File("src/File/Report.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(stu);
+
+        } catch (IOException ex) {
+            Logger.getLogger(ReportSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if(oos != null) oos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(ReportSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }                
+    }
+
+    @FXML
+    private void backOnMouseClick(MouseEvent event) throws IOException {
+        Parent root = null ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User7/DashBoard7SceneFxml.fxml")) ;
+        root = (Parent) myLoader.load() ;
+        Scene myScene = new Scene(root) ;
+        
+        DashBoard7SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
+        stage.setScene(myScene) ;
+        stage.setTitle("Security Incharge") ;
+        stage.show() ;
+    }
 }

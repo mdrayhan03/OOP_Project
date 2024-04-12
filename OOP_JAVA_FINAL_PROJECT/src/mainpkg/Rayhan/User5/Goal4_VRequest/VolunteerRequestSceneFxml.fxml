@@ -49,23 +49,23 @@
             <TableColumn fx:id="amountTableColumn" prefWidth="129.0" text="Amount" />
             <TableColumn fx:id="statusTableColumn" minWidth="0.0" prefWidth="137.0" text="Status" />
          </columns></TableView>
-      <ComboBox fx:id="typeComboBox" layoutX="279.0" layoutY="369.0" prefHeight="31.0" prefWidth="300.0" />
+      <ComboBox fx:id="typeComboBox" layoutX="279.0" layoutY="369.0" onMouseClicked="#checkBoxOnMouseClick" prefHeight="31.0" prefWidth="300.0" />
       <Label layoutX="100.0" layoutY="371.0" text="User Type">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <CheckBox fx:id="acceptedCheckBox" layoutX="661.0" layoutY="375.0" mnemonicParsing="false" text="Accepted">
+      <CheckBox fx:id="acceptedCheckBox" layoutX="661.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Accepted">
          <font>
             <Font name="Comic Sans MS Italic" size="15.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="rejectedCheckBox" layoutX="784.0" layoutY="375.0" mnemonicParsing="false" text="Rejected">
+      <CheckBox fx:id="rejectedCheckBox" layoutX="784.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Rejected">
          <font>
             <Font name="Comic Sans MS Italic" size="15.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="pendingCheckBox" layoutX="921.0" layoutY="375.0" mnemonicParsing="false" text="Pending">
+      <CheckBox fx:id="pendingCheckBox" layoutX="921.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Pending">
          <font>
             <Font name="Comic Sans MS Italic" size="15.0" />
          </font>
@@ -90,5 +90,10 @@
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </TextArea>
+      <Label fx:id="onWorkLabel" layoutX="279.0" layoutY="174.0" text="Label">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

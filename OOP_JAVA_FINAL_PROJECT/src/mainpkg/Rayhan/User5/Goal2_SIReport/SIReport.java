@@ -1,12 +1,13 @@
 package mainpkg.Rayhan.User5.Goal2_SIReport;
 
+import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 
 /**
  *
  * @author RayhaN
  */
-public class SIReport {
+public class SIReport implements Serializable {
     String subject , description , id ;
     Integer senderId , receiverId ;
     Date applyDate ;

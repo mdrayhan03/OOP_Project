@@ -19,6 +19,15 @@ public class Time_Place {
     ObservableList<String> volunteerRequester =  FXCollections.observableArrayList() ;
     
     public Time_Place() {
+        this.setCampaignPlace();
+        this.setCampaignTime();
+        this.setEducationCoordinatorItem();
+        this.setSecurityInchargeItem();
+        this.setSecurityPlace();
+        this.setSecurityTime();
+        this.setTuitionPlace();
+        this.setTuitionTime();
+        this.setVolunteerRequester();
     }
 
 
@@ -88,12 +97,12 @@ public class Time_Place {
         securityTime.addAll("00:00-06:00" , "06:00-12:00" , "12:00-18:00" , "18:00-00:00") ;
     }
 
-    public void setSecurityPlace(ObservableList<String> securityPlace) {
+    public void setSecurityPlace() {
         securityPlace.addAll("Border 1", "Border 2", "Border 3", "Gate 1", "Gate 2", "Gate 3") ;;
     }
 
-    public void setVolunteerRequester(ObservableList<String> volunteerRequester) {
-        volunteerRequester.addAll("ALL User" , "Aid Executive" , "Doctor" , "EducationCoordinator") ;
+    public void setVolunteerRequester() {
+        volunteerRequester.addAll("ALL User" , "Aid Executive" , "Doctor" , "EducationCoordinator");
     }
     
     

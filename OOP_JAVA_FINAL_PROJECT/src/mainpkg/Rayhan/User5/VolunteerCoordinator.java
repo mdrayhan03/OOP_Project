@@ -53,6 +53,23 @@ public class VolunteerCoordinator extends User implements Serializable{
         return super.toString() + "volunteerAmount=" + volunteerAmount + ", volunteerOnWork=" + volunteerOnWork + ", volunteerFree=" + volunteerFree + '}';
     }
     
+    /**
+     *
+     * @param id
+     * @param pw
+     * @return
+     */
+    @Override
+    public VolunteerCoordinator verifyLogin(int id , String pw) {
+        int userId = this.getId() ;
+        String userPw = this.getPassword() ;
+        if (userId == id && userPw.equals(pw)) {
+            this.setStatus("Active") ;
+            return this ;
+        }
+        return null ;
+    }
+    
     public Volunteer addVolunteer(String name, String pN, String addedBy , int addedById){
         Volunteer vc = new Volunteer(name , pN , addedBy , addedById) ;
         

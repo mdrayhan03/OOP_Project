@@ -1,10 +1,12 @@
 package mainpkg.AbstractClass;
 
+import java.io.Serializable;
+
 /**
  *
  * @author RayhaN
  */
-public class Date {
+public class Date implements Serializable{
     int dd , mm , yyyy ;
 
     public Date(int dd, int mm, int yyyy) {

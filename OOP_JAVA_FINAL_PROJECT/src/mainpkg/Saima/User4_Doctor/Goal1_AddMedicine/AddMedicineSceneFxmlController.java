@@ -4,18 +4,27 @@
  */
 package mainpkg.Saima.User4_Doctor.Goal1_AddMedicine;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import mainpkg.AbstractClass.Date;
+import mainpkg.Rasel.CampManager.Goal5_Supply.Medicine;
 import mainpkg.Saima.User4_Doctor.Doctor;
 
 /**
@@ -25,32 +34,18 @@ import mainpkg.Saima.User4_Doctor.Doctor;
  */
 public class AddMedicineSceneFxmlController implements Initializable {
 
-    @FXML
-    private ComboBox<?> medicineIdComboBox;
-    @FXML
-    private TableView<?> addMedicineTableView;
-    @FXML
-    private TableColumn<?, ?> medicineIdTableColumn;
-    @FXML
-    private TableColumn<?, ?> medicineNameTableColumn;
-    @FXML
-    private TableColumn<?, ?> medicineAmountTableColumn;
-    @FXML
-    private TableColumn<?, ?> addeMedicineDateTableColumn;
-    @FXML
-    private TableColumn<?, ?> foodNameTableColumn1;
-    @FXML
-    private TableColumn<?, ?> foodNameTableColumn2;
-    @FXML
-    private Label medicineNameLabel;
-    @FXML
-    private Label medicineAmountLabel;
-    @FXML
-    private Label ddLabel;
-    @FXML
-    private Label mmLabel;
-    @FXML
-    private Label yyyyLabel;
+    @FXML    private ComboBox<String> medicineIdComboBox;
+    @FXML    private TableView<Medicine> addMedicineTableView;
+    @FXML    private TableColumn<Medicine, String> medicineIdTableColumn;
+    @FXML    private TableColumn<Medicine, String> medicineNameTableColumn;
+    @FXML    private TableColumn<Medicine, Integer> medicineAmountTableColumn;
+    @FXML    private TableColumn<Medicine, Date> addeMedicineDateTableColumn;
+  
+    @FXML    private Label medicineNameLabel;
+    @FXML    private Label medicineAmountLabel;
+    @FXML    private Label ddLabel;
+    @FXML    private Label mmLabel;
+    @FXML    private Label yyyyLabel;
 
     /**
      * Initializes the controller class.
@@ -58,7 +53,7 @@ public class AddMedicineSceneFxmlController implements Initializable {
     
     Alert alert ;
     Doctor user ;
-    ObservableList<AddMedicine> list = FXCollections.observableArrayList() ;
+    ObservableList<Medicine> list = FXCollections.observableArrayList() ;
     
     
     public Doctor get() {
@@ -67,13 +62,33 @@ public class AddMedicineSceneFxmlController implements Initializable {
     public void set(Doctor u) {
         user = u ;
     }
+    
+    public void setComboBox() {
+        for(Medicine medi: list) {
+            medicineIdComboBox.getItems().add(medi.getId()) ;
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        medicineIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("medicineId")) ;
+        medicineNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("medicineName")) ;
+        medicineAmountTableColumn.setCellValueFactory(new PropertyValueFactory<>("medicineAmount")) ;
+        addeMedicineDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("addMedicineDate")) ;
+    }
         // TODO
-    }    
+        
 
     @FXML
-    private void backButtonOnMouseClicked(MouseEvent event) {
+    private void backButtonOnMouseClicked(MouseEvent event) throws IOException {
+        Parent root = null ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User4_Doctor/DashBoardSceneFxml.fxml")) ;
+        root = (Parent) myLoader.load() ;
+        Scene myScene = new Scene(root) ;
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
+        stage.setScene(myScene) ;
+        stage.setTitle("Aid Excutive") ;
+        stage.show() ;
     }
     
 }

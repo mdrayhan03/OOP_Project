@@ -25,7 +25,6 @@ import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.Rasel.CampManager.Goal5_Supply.Shelter;
 import mainpkg.Saima.User3_AidExcutive.AidExcutive;
-import mainpkg.Saima.User3_AidExcutive.Goal5_AddShelter.AddShelter;
 import mainpkg.Saima.User3_AidExcutive.ShelterRequest;
 
 /**
@@ -35,32 +34,19 @@ import mainpkg.Saima.User3_AidExcutive.ShelterRequest;
  */
 public class RequestExtraShelterSceneFxmlController implements Initializable {
 
-    @FXML
-    private TextField shelterAmountTextField;
-    @FXML
-    private TextField ddTextField;
-    @FXML
-    private TextField mmTextField;
-    @FXML
-    private TextField yyyyTextField;
-    @FXML
-    private TextField ddDeadlineTextField;
-    @FXML
-    private TextField mmDeadlineTextField;
-    @FXML
-    private TextField yyyyDeadlineTextField;
-    @FXML
-    private TableView<ShelterRequest> requestExtraShelterTableView;
-    @FXML
-    private TableColumn<ShelterRequest, String> requestIdTableColumn;
-    @FXML
-    private TableColumn<ShelterRequest, Integer> shelterAmountTableColumn;
-    @FXML
-    private TableColumn<ShelterRequest, Date> requestDateTableColumn;
-    @FXML
-    private TableColumn<ShelterRequest, Date> deadlineTableColumn;
-    @FXML
-    private TableColumn<ShelterRequest, String> statusTableColumn;
+    @FXML    private TextField shelterAmountTextField;
+    @FXML    private TextField ddTextField;
+    @FXML    private TextField mmTextField;
+    @FXML    private TextField yyyyTextField;
+    @FXML    private TextField ddDeadlineTextField;
+    @FXML    private TextField mmDeadlineTextField;
+    @FXML    private TextField yyyyDeadlineTextField;
+    @FXML    private TableView<ShelterRequest> requestExtraShelterTableView;
+    @FXML    private TableColumn<ShelterRequest, String> requestIdTableColumn;
+    @FXML    private TableColumn<ShelterRequest, Integer> shelterAmountTableColumn;
+    @FXML    private TableColumn<ShelterRequest, Date> requestDateTableColumn;
+    @FXML    private TableColumn<ShelterRequest, Date> deadlineTableColumn;
+    @FXML    private TableColumn<ShelterRequest, String> statusTableColumn;
 
     /**
      * Initializes the controller class.
@@ -114,6 +100,19 @@ public class RequestExtraShelterSceneFxmlController implements Initializable {
         Date deadline = new Date(ddDeadline, mmDeadline, yyyyDeadline);
 
         ShelterRequest newShelterRequest = new ShelterRequest(shelterAmount, requestDate, deadline, "Pending");
+        
+        list.add(newShelterRequest);
+        requestExtraShelterTableView.setItems(list);
+        
+        clearFields();
     }
-    
+      private void clearFields() {
+        shelterAmountTextField.clear();
+        ddTextField.clear();
+        mmTextField.clear();
+        yyyyTextField.clear();
+        ddDeadlineTextField.clear();
+        mmDeadlineTextField.clear();
+        yyyyDeadlineTextField.clear();
+    }
 }

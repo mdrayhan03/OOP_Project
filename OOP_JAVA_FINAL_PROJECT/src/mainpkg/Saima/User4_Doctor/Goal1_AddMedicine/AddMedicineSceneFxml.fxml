@@ -25,7 +25,7 @@
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <ComboBox fx:id="medicineIdComboBox" layoutX="219.0" layoutY="178.0" prefHeight="50.0" prefWidth="150.0" />
+      <ComboBox fx:id="medicineIdComboBox" layoutX="219.0" layoutY="178.0" onMouseClicked="#medicineIdOnMouseClick" prefHeight="50.0" prefWidth="150.0" />
       <Label layoutX="24.0" layoutY="300.0" prefHeight="28.0" prefWidth="232.0" text="Medicine Amount:">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />

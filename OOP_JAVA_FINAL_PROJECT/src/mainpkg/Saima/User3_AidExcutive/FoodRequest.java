@@ -4,61 +4,51 @@
  */
 package mainpkg.Saima.User3_AidExcutive;
 
+import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 
 /**
  *
  * @author HP
  */
-public class FoodRequest {
-    private static int nextId = 1;
+public class FoodRequest implements Serializable {
+    String id,name;
+    Integer quantity;
+    Date requestDate;
+    Date deadLine;
+    String status;
 
-    private int requestId;
-    private String foodName;
-    private int foodQuantity;
-    private Date requestDate;
-    private Date deadline;
-    private String status;
-
-    public FoodRequest(String foodName, int requestId, Date requestDate, Date deadline, String status) {
-        this.requestId = requestId;
-        this.foodName = foodName;
-        this.foodQuantity = foodQuantity;
+    public FoodRequest(String id, int quantity, Date requestDate, Date deadLine, String name) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
         this.requestDate = requestDate;
-        this.deadline = deadline;
+        this.deadLine = deadLine;
         this.status = status;
     }
 
-    public static int getNextId() {
-        return nextId;
+    public String getId() {
+        return id;
     }
 
-    public static void setNextId(int nextId) {
-        FoodRequest.nextId = nextId;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public int getRequestId() {
-        return requestId;
+    public String getName() {
+        return name;
     }
 
-    public void setRequestId(int requestId) {
-        this.requestId = requestId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getFoodName() {
-        return foodName;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setFoodName(String foodName) {
-        this.foodName = foodName;
-    }
-
-    public int getFoodQuantity() {
-        return foodQuantity;
-    }
-
-    public void setFoodQuantity(int foodQuantity) {
-        this.foodQuantity = foodQuantity;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public Date getRequestDate() {
@@ -69,12 +59,12 @@ public class FoodRequest {
         this.requestDate = requestDate;
     }
 
-    public Date getDeadline() {
-        return deadline;
+    public Date getDeadLine() {
+        return deadLine;
     }
 
-    public void setDeadline(Date deadline) {
-        this.deadline = deadline;
+    public void setDeadLine(Date deadLine) {
+        this.deadLine = deadLine;
     }
 
     public String getStatus() {
@@ -87,7 +77,20 @@ public class FoodRequest {
 
     @Override
     public String toString() {
-        return "FoodRequest{" + "requestId=" + requestId + ", foodName=" + foodName + ", foodQuantity=" + foodQuantity + ", requestDate=" + requestDate + ", deadline=" + deadline + ", status=" + status + '}';
+        return "FoodRequest{" + "id=" + id + ", name=" + name + ", quantity=" + quantity + ", requestDate=" + requestDate + ", deadLine=" + deadLine + ", status=" + status + '}';
     }
+
+   
+   
+    
+
+
+    public String generateId() {
+        String id = "ReqI" ;
+        id += this.getRequestDate().toString().substring(0 , 1) ;
+        id += this.getDeadLine().toString().substring(0 , 1) ;
+        return id ;
+    }
+
     
 }

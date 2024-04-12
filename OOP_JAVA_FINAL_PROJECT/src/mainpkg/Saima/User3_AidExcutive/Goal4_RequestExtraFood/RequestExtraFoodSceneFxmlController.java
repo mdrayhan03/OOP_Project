@@ -127,6 +127,8 @@ public class RequestExtraFoodSceneFxmlController implements Initializable {
         
         list.add(newFoodRequest);
         requestExtraFoodTableView.setItems(list);
+        
+        clearFields();
     }
     
     private void clearFields() {

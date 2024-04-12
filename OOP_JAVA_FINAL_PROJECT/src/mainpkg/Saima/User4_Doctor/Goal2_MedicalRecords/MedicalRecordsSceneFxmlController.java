@@ -22,7 +22,7 @@ import mainpkg.Saima.User4_Doctor.Doctor;
 public class MedicalRecordsSceneFxmlController implements Initializable {
 
     @FXML
-    private ComboBox<?> refugeeIdComboBox;
+    private ComboBox<Integer> refugeeIdComboBox;
     @FXML
     private Label medicineNameLabel;
     @FXML

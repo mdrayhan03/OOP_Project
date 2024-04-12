@@ -18,7 +18,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
-import mainpkg.Rayhan.User5.Goal6_Campaign.CampaignTableView;
 import mainpkg.Saima.User4_Doctor.Doctor;
 
 /**

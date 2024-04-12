@@ -18,6 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import mainpkg.AbstractClass.Time_Place;
+import mainpkg.Rayhan.User5.Goal4_VRequest.RequestedVolunteer;
 import mainpkg.Saima.User4_Doctor.Doctor;
 
 /**
@@ -76,6 +77,9 @@ public class RequestVolunteerSceneFxmlController implements Initializable {
     }
     public void set(Doctor u) {
         user = u ;
+    }
+    public void tableShow() {
+        requesVolunteertTableView.setItems(list) ;
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

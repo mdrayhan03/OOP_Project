@@ -54,13 +54,15 @@ public class RequestExtraHolidaySceneFxmlController implements Initializable {
     
     ObservableList<Holiday> list = FXCollections.observableArrayList() ;
     Doctor user ;
+    Alert alert ;
     
 
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
+    public Doctor get() {
+        return user ;
+    }
+    public void set(Doctor u) {
+        user = u ;
+    }
     
     public void tableShow() {
         holidayTableView.setItems(user.getHolidayList()) ;

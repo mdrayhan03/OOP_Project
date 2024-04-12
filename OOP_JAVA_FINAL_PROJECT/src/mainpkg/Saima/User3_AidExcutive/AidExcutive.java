@@ -61,15 +61,30 @@ public class AidExcutive extends User implements Serializable{
         return null ;
     }
     
-    public Food addFood(String id,String name, String quantity, Date date) {
-        Food f = new Food(id,name, quantity, date) ;
-        this.setFoodAmount(this.getFoodAmount() + 1) ;
-        return f ;
+    public Shelter shelterInfo(String id, ObservableList<Shelter> list) {
+    for (Shelter s : list) {
+        if (s.getId()==(id)) {
+            return s;
+        }
     }
-    public Food distributeFood(String id,String name, String quantity, Date date) {
-        Food f = new Food(id,name, quantity, date) ;
-        this.setFoodAmount(this.getFoodAmount() - 1) ;
-        return f ;
+    return null;
+}
+    
+    public Food addFood(String id,String name, Integer quantity, Date date) {
+        Food fd = new Food(id,name, quantity, date) ;
+        this.setFoodAmount(this.getFoodAmount() + 1) ;
+        return fd ;
+    }
+    public Food distributeFood(String id,String name, Integer quantity, Date date) {
+        Food fd = new Food(id,name, quantity, date) ;
+        int currentFoodAmount=this.getFoodAmount();
+        if (currentFoodAmount>0){
+            
+            this.setFoodAmount(currentFoodAmount - 1) ;
+        
+        }
+        
+        return fd ;
     }
     
     public RequestedItems requestExtraFood(int id , String userType , String name, int amount, Date apply, Date deadline) {
@@ -77,19 +92,26 @@ public class AidExcutive extends User implements Serializable{
         return req ;
     }
 
-    public Shelter addshelter(String id, Integer amount, Date date) {
-        Shelter sh = new Shelter(id, amount, date) ;
+    public Shelter addshelter(String id, Integer amount, Date date,String status) {
+        Shelter sh = new Shelter(id, amount, date,status) ;
         this.setShelterAmount(this.getShelterAmount() + 1) ;
         return sh;
     }
-    public Shelter allocateshelter(String id, Integer amount, Date date) {
-        Shelter sh = new Shelter(id, amount, date) ;
-        this.setShelterAmount(this.getShelterAmount() - 1) ;
+    public Shelter allocateShelter(String id, Integer amount, Date date,String status) {
+        Shelter sh = new Shelter(id, amount, date,status);
+        int currentShelterAmount = this.getShelterAmount();
+        if (currentShelterAmount > 0) {
+            this.setShelterAmount(currentShelterAmount - 1);
+        }
         return sh;
     }
-    public RequestedItems requestExtraShelter(int id , String userType , int amount, Date apply, Date deadline) {
-        RequestedItems req = new RequestedItems(id , userType ,  amount, apply, deadline) ;
+    public ShelterRequest requestExtraShelter(String status,String id , String userType , int amount,int senderId, Date apply, Date deadline) {
+        ShelterRequest req = new ShelterRequest(amount, apply, deadline, status);
         return req ;
+    }
+
+    public Shelter allocateShelter(String selectedShelterId, int dd, int mm, int yyyy) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 

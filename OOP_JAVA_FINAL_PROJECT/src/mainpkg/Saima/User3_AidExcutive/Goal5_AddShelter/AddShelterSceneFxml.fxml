@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.Saima.User3_AidExcutive.Goal5_AddShelter.AddShelterSceneFxmlController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Saima.User3_AidExcutive.Goal5_AddShelter.AddShelterSceneFxmlController">
    <children>
       <Label layoutX="520.0" layoutY="64.0" prefHeight="55.0" prefWidth="420.0" text="Add Shelter Info">
          <font>
@@ -26,7 +25,7 @@
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <ComboBox fx:id="shelterIdComboBox" layoutX="198.0" layoutY="226.0" prefHeight="50.0" prefWidth="150.0" />
+      <ComboBox fx:id="shelterIdComboBox" layoutX="198.0" layoutY="226.0" onMouseClicked="#shelterIdOnMouseClicked" prefHeight="50.0" prefWidth="150.0" />
       <Label layoutX="401.0" layoutY="299.0" prefHeight="28.0" prefWidth="237.0" text="Family Members Id:">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />

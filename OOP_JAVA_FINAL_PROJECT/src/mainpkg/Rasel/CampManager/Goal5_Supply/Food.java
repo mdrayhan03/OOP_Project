@@ -17,10 +17,11 @@ import mainpkg.AbstractClass.Date;
  * @author HP
  */
 public class Food implements Serializable {
-    String id,name,quantity;
+    String id,name;
+    Integer quantity;
     Date date;
 
-    public Food(String id, String name, String quantity, Date date) {
+    public Food(String id, String name, Integer quantity, Date date) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
@@ -43,11 +44,11 @@ public class Food implements Serializable {
         this.name = name;
     }
 
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
@@ -64,6 +65,7 @@ public class Food implements Serializable {
         return "Food{" + "id=" + id + ", name=" + name + ", quantity=" + quantity + ", date=" + date + '}';
     }
 
+   
     
 
 

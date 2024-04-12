@@ -16,11 +16,13 @@ public class Shelter implements Serializable {
     String id;
     Integer amount;
     Date date;
+    String status;
 
-    public Shelter(String id, Integer Amount, Date date) {
+    public Shelter(String id, Integer amount, Date date, String status) {
         this.id = id;
-        this.amount = Amount;
+        this.amount = amount;
         this.date = date;
+        this.status = status;
     }
 
     public String getId() {
@@ -35,8 +37,8 @@ public class Shelter implements Serializable {
         return amount;
     }
 
-    public void setAmount(Integer Amount) {
-        this.amount = Amount;
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
     public Date getDate() {
@@ -47,14 +49,21 @@ public class Shelter implements Serializable {
         this.date = date;
     }
 
-    @Override
-    public String toString() {
-        return "Shelter{" + "id=" + id + ", Amount=" + amount + ", date=" + date + '}';
+    public String getStatus() {
+        return status;
     }
 
-    
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
+    @Override
+    public String toString() {
+        return "Shelter{" + "id=" + id + ", amount=" + amount + ", date=" + date + ", status=" + status + '}';
+    }
 
+ 
+   
     private String generateId() {
         Random r=new Random();
         String id = "" ;

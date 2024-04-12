@@ -77,16 +77,16 @@ public class DistributeFoodSceneFxmlController implements Initializable {
 
     @FXML
     private void backButtonOnMouseClicked(MouseEvent event) throws IOException {
-        Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/DashBoard6SceneFxml.fxml")) ;
-        root = (Parent) myLoader.load() ;
-        Scene myScene = new Scene(root) ;
+            Parent root = null ;
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/DashBoard6SceneFxml.fxml")) ;
+            root = (Parent) myLoader.load() ;
+            Scene myScene = new Scene(root) ;
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
-        stage.setScene(myScene) ;
-        stage.setTitle("Aid Excutive DashBoard") ;
-        stage.show() ;
-    }
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
+            stage.setScene(myScene) ;
+            stage.setTitle("Aid Excutive DashBoard") ;
+            stage.show() ;
+        }
 
     @FXML
     private void distributeOnMouseClicked(MouseEvent event) {

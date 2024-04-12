@@ -101,7 +101,7 @@ public class AddFoodSceneFxmlController implements Initializable {
         Food f = user.foodInfo(foodIdComboBox.getValue(), list) ;
         if (f != null) {
             foodNameLabel.setText(f.getName()) ;
-            foodQuantityLabel.setText(f.getQuantity()) ;
+            foodQuantityLabel.setText(f.getQuantity().toString()) ;
             ddLabel.setText(f.getDate().toString()) ;
             mmLabel.setText(f.getDate().toString()) ;
             yyyyLabel.setText(f.getDate().toString()) ;

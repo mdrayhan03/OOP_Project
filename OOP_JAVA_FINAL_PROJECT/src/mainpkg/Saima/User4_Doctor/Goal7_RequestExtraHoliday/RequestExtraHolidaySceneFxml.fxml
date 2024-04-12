@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.Saima.User4_Doctor.Goal7_RequestExtraHoliday.RequestExtraHolidaySceneFxmlController">
+   <children>
+      <Button layoutX="68.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClick" prefHeight="50.0" prefWidth="100.0" text="Back">
+         <font>
+            <Font name="Cooper Black" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="523.0" layoutY="110.0" text="Holiday">
+         <font>
+            <Font name="Cooper Black" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="168.0" layoutY="257.0" text="Reason">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="168.0" layoutY="329.0" text="Start Date">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="706.0" layoutY="329.0" text="End Date">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="159.0" layoutY="406.0" text="Applying Date">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+<<<<<<< HEAD:OOP_JAVA_FINAL_PROJECT/build/classes/mainpkg/Rayhan/User7/Goal7_Holiday/HolidaySceneFxml.fxml
+      <TextField fx:id="reasonTextField" layoutX="336.0" layoutY="244.0" promptText="Reason...">
+=======
+      <TextField layoutX="354.0" layoutY="254.0" promptText="Reason...">
+>>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb:OOP_JAVA_FINAL_PROJECT/src/mainpkg/Saima/User4_Doctor/Goal7_RequestExtraHoliday/RequestExtraHolidaySceneFxml.fxml
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="startddTextField" alignment="CENTER_RIGHT" layoutX="346.0" layoutY="319.0" prefHeight="44.0" prefWidth="59.0" promptText="dd">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="startmmTextField" alignment="CENTER_RIGHT" layoutX="421.0" layoutY="319.0" prefHeight="44.0" prefWidth="73.0" promptText="mm">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="startyyyyTextField" alignment="CENTER_RIGHT" layoutX="509.0" layoutY="319.0" prefHeight="44.0" prefWidth="169.0" promptText="yyyy">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ddTextField" alignment="CENTER_RIGHT" layoutX="351.0" layoutY="396.0" prefHeight="44.0" prefWidth="59.0" promptText="dd">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="mmTextField" alignment="CENTER_RIGHT" layoutX="426.0" layoutY="396.0" prefHeight="44.0" prefWidth="73.0" promptText="mm">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="yyyyTextField" alignment="CENTER_RIGHT" layoutX="514.0" layoutY="396.0" prefHeight="44.0" prefWidth="169.0" promptText="yyyy">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="endddTextField" alignment="CENTER_RIGHT" layoutX="828.0" layoutY="321.0" prefHeight="44.0" prefWidth="59.0" promptText="dd">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="endmmTextField" alignment="CENTER_RIGHT" layoutX="903.0" layoutY="321.0" prefHeight="44.0" prefWidth="73.0" promptText="mm">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="endyyyyTextField" alignment="CENTER_RIGHT" layoutX="991.0" layoutY="321.0" prefHeight="44.0" prefWidth="169.0" promptText="yyyy">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+<<<<<<< HEAD:OOP_JAVA_FINAL_PROJECT/build/classes/mainpkg/Rayhan/User7/Goal7_Holiday/HolidaySceneFxml.fxml
+      <TableView fx:id="holidayTableView" layoutY="469.0" prefHeight="330.0" prefWidth="1200.0">
+        <columns>
+          <TableColumn fx:id="idTableColumn" prefWidth="200.0" text="ID" />
+          <TableColumn fx:id="reasonTableColumn" prefWidth="400.0" text="Reason" />
+=======
+      <TableView fx:id="holidayTableView" layoutX="10.0" layoutY="464.0" prefHeight="345.0" prefWidth="1200.0">
+         <columns>
+            <TableColumn fx:id="idTableColumn" prefWidth="200.0" text="ID" />
+            <TableColumn fx:id="reasonTableColumn" prefWidth="400.0" text="Reason" />
+>>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb:OOP_JAVA_FINAL_PROJECT/src/mainpkg/Saima/User4_Doctor/Goal7_RequestExtraHoliday/RequestExtraHolidaySceneFxml.fxml
+            <TableColumn fx:id="sDTableColumn" prefWidth="150.0" text="Start Date" />
+            <TableColumn fx:id="eDTableColumn" prefWidth="150.0" text="End Date" />
+            <TableColumn fx:id="dateTableColumn" prefWidth="150.0" text="Date" />
+            <TableColumn fx:id="statusTableColumn" prefWidth="150.0" text="Status" />
+         </columns>
+      </TableView>
+      <Button layoutX="818.0" layoutY="383.0" mnemonicParsing="false" onMouseClicked="#applyOnMouseClick" prefHeight="50.0" prefWidth="332.0" text="Apply">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="24.0" />
+         </font>
+      </Button>
+      <CheckBox fx:id="acceptedCheckBox" layoutX="415.0" layoutY="441.0" mnemonicParsing="false" text="Accepted">
+         <font>
+            <Font name="Comic Sans MS Italic" size="15.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="rejectedCheckBox" layoutX="563.0" layoutY="441.0" mnemonicParsing="false" text="Rejected">
+         <font>
+            <Font name="Comic Sans MS Italic" size="15.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="pendingCheckBox" layoutX="702.0" layoutY="441.0" mnemonicParsing="false" text="Pending">
+         <font>
+            <Font name="Comic Sans MS Italic" size="15.0" />
+         </font>
+      </CheckBox>
+   </children>
+</AnchorPane>

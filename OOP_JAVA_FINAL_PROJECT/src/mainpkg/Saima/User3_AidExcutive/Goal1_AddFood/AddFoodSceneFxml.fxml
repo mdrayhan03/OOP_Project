@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Saima.User3_AidExcutive.Goal1_AddFood.AddFoodSceneFxmlController">
+   <children>
+      <Label layoutX="508.0" layoutY="69.0" prefHeight="55.0" prefWidth="368.0" text="Add Food Info">
+         <font>
+            <Font name="Cooper Black" size="48.0" />
+         </font>
+      </Label>
+      <Button layoutX="14.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#backButtonOnMouseClicked" prefHeight="50.0" prefWidth="100.0" text="Back">
+         <font>
+            <Font name="Cooper Black" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="14.0" layoutY="178.0" prefHeight="28.0" prefWidth="153.0" text="Food ID:">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="foodIdComboBox" layoutX="209.0" layoutY="168.0" onMouseClicked="#foodIdOnMouseClicked" prefHeight="50.0" prefWidth="178.0" />
+      <Label layoutX="14.0" layoutY="290.0" prefHeight="28.0" prefWidth="195.0" text="Food Quantity:">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="351.0" prefHeight="29.0" prefWidth="72.0" text="Date:">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="addFoodTableView" layoutY="433.0" prefHeight="456.0" prefWidth="1200.0">
+        <columns>
+          <TableColumn fx:id="foodIdTableColumn" prefWidth="302.0" text=" Food ID" />
+          <TableColumn fx:id="foodNameTableColumn" prefWidth="290.0" text=" Food Name" />
+            <TableColumn fx:id="foodQuantityTableColumn" prefWidth="302.0" text=" Food Quantity" />
+            <TableColumn fx:id="addedFoodDateTableColumn" prefWidth="308.0" text="Added Food Date" />
+            <TableColumn fx:id="foodNameTableColumn1" prefWidth="331.9999694824219" text=" Food Name" />
+            <TableColumn fx:id="foodNameTableColumn2" prefWidth="331.9999694824219" text=" Food Name" />
+        </columns>
+      </TableView>
+      <Label layoutX="14.0" layoutY="239.0" prefHeight="28.0" prefWidth="153.0" text="Food Name:">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="foodNameLabel" alignment="CENTER" layoutX="209.0" layoutY="239.0" prefHeight="44.0" prefWidth="150.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="foodQuantityLabel" alignment="CENTER" layoutX="209.0" layoutY="282.0" prefHeight="44.0" prefWidth="150.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="ddLabel" alignment="CENTER_RIGHT" layoutX="112.0" layoutY="344.0" prefHeight="44.0" prefWidth="100.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="mmLabel" alignment="CENTER_RIGHT" layoutX="234.0" layoutY="344.0" prefHeight="44.0" prefWidth="100.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="yyyyLabel" alignment="CENTER_RIGHT" layoutX="359.0" layoutY="344.0" prefHeight="44.0" prefWidth="100.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

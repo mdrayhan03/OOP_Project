@@ -6,8 +6,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Refugee.TrainingAndSkillSceneController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rasel.Refugee.Goal6_TrainingCenter.TrainingAndSkillSceneController">
    <children>
       <Label layoutX="167.0" layoutY="22.0" text="Training And Skill Developmemt Center" textAlignment="CENTER" textFill="RED" wrapText="true">
          <font>
@@ -17,7 +16,7 @@
       <Line endX="172.0" layoutX="300.0" layoutY="16.0" startX="-143.0" />
       <Line endX="162.0" layoutX="310.0" layoutY="54.0" startX="-151.0" />
       <Label fx:id="trainingSkillDetailsLabel" layoutX="99.0" layoutY="82.0" prefHeight="188.0" prefWidth="434.0" text="Details of Training or Workshop" />
-      <Button fx:id="trainingSkillSceneBackButton" layoutX="22.0" layoutY="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="71.0" text="Back" />
+      <Button layoutX="22.0" layoutY="20.0" mnemonicParsing="false" onAction="#trainingSkillSceneBackButton" prefHeight="38.0" prefWidth="71.0" text="Back" />
       <Button layoutX="242.0" layoutY="293.0" mnemonicParsing="false" onAction="#trainingSkillRegistrationButton" prefHeight="66.0" prefWidth="117.0" text="Registration" textFill="RED">
          <font>
             <Font size="14.0" />

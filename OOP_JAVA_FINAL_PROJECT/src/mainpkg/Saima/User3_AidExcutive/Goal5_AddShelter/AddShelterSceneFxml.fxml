@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Saima.User3_AidExcutive.Goal5_AddShelter.AddShelterSceneFxmlController">
+   <children>
+      <Label layoutX="520.0" layoutY="64.0" prefHeight="55.0" prefWidth="420.0" text="Add Shelter Info">
+         <font>
+            <Font name="Cooper Black" size="48.0" />
+         </font>
+      </Label>
+      <Button layoutX="24.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#backButtonOnMouseClicked" prefHeight="50.0" prefWidth="100.0" text="Back">
+         <font>
+            <Font name="Cooper Black" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="26.0" layoutY="237.0" prefHeight="28.0" prefWidth="153.0" text="Shelter ID:">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="shelterIdComboBox" layoutX="198.0" layoutY="226.0" onMouseClicked="#shelterIdOnMouseClicked" prefHeight="50.0" prefWidth="150.0" />
+      <Label layoutX="401.0" layoutY="299.0" prefHeight="28.0" prefWidth="237.0" text="Family Members Id:">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="298.0" prefHeight="29.0" prefWidth="72.0" text="Date:">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="addShelterInfoTableView" layoutX="5.0" layoutY="364.0" prefHeight="456.0" prefWidth="1200.0">
+         <columns>
+            <TableColumn fx:id="shelterIdTableColumn" prefWidth="302.0" text=" Shelter ID" />
+            <TableColumn fx:id="shelterAmountTableColumn" prefWidth="290.0" text=" Shelter Amount" />
+            <TableColumn fx:id="shelterStatusTableColumn" prefWidth="302.0" text=" Shelter Status" />
+            <TableColumn fx:id="addedShelterDateTableColumn" prefWidth="308.0" text="Added Shelter Date" />
+            <TableColumn fx:id="foodNameTableColumn1" prefWidth="331.9999694824219" text=" Food Name" />
+            <TableColumn fx:id="foodNameTableColumn2" prefWidth="331.9999694824219" text=" Food Name" />
+         </columns>
+      </TableView>
+      <Label fx:id="familyMembersIdLabel" alignment="CENTER" layoutX="639.0" layoutY="291.0" prefHeight="44.0" prefWidth="377.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="ddLabel" alignment="CENTER_RIGHT" layoutX="123.0" layoutY="291.0" prefHeight="44.0" prefWidth="63.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="mmLabel" alignment="CENTER_RIGHT" layoutX="199.0" layoutY="291.0" prefHeight="44.0" prefWidth="63.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="yyyyLabel" alignment="CENTER_RIGHT" layoutX="273.0" layoutY="291.0" prefHeight="44.0" prefWidth="72.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="174.0" prefHeight="28.0" prefWidth="175.0" text="Total Shelter:">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalShelterLabel" alignment="CENTER" layoutX="198.0" layoutY="166.0" prefHeight="44.0" prefWidth="150.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="174.0" prefHeight="28.0" prefWidth="188.0" text="Empty Shelter:">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="emptyShelterLabel" alignment="CENTER" layoutX="605.0" layoutY="166.0" prefHeight="44.0" prefWidth="150.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="237.0" prefHeight="28.0" prefWidth="188.0" text="Shelter Status:">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="shelterStatusLabel" alignment="CENTER" layoutX="605.0" layoutY="229.0" prefHeight="44.0" prefWidth="150.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

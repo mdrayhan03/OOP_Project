@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CampManager.ViewCampInfoSceneController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rasel.CampManager.Goal1_CampInfo.ViewCampInfoController">
    <children>
       <Label layoutX="209.0" layoutY="11.0" prefHeight="37.0" prefWidth="230.0" text="         Camp Information" textAlignment="CENTER" textFill="#e40a0a" wrapText="true">
          <font>
@@ -22,7 +22,7 @@
       <Label layoutX="25.0" layoutY="192.0" text="Current Food Stock:" />
       <Label fx:id="campCapacityLabel" layoutX="171.0" layoutY="121.0" text="Label" />
       <Label fx:id="totalRefugeeLabel" layoutX="171.0" layoutY="154.0" text="Label" />
-      <Label fx:id="foodStockLabel" layoutX="171.0" layoutY="192.0" text="Label" />
+      <Label fx:id="currentfoodStockLabel" layoutX="171.0" layoutY="192.0" text="Label" />
       <Button layoutX="25.0" layoutY="22.0" mnemonicParsing="false" onAction="#campInfoBackButton" prefHeight="37.0" prefWidth="61.0" text="Back" />
    </children>
 </AnchorPane>

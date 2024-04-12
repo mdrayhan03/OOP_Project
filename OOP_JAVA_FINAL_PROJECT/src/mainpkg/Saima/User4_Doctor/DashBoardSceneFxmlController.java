@@ -224,7 +224,7 @@ public class DashBoardSceneFxmlController implements Initializable {
         
         RequestVolunteerSceneFxmlController psc = myLoader.getController() ;
 
-        psc.set(user) ;
+        //psc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

@@ -18,8 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.User;
-import mainpkg.Rayhan.User6.Goal3_RequestVolunteer.RequestVolunteerSceneFxmlController;
-import mainpkg.Saima.User4_Doctor.Goal1_AddMedicine.AddMedicineSceneFxmlController;
+import mainpkg.Saima.User4_Doctor.Goal5_RequestVolunteer.RequestVolunteerSceneFxmlController;
 import mainpkg.Saima.User4_Doctor.Goal2_MedicalRecords.MedicalRecordsSceneFxmlController;
 import mainpkg.Saima.User4_Doctor.Goal3_CheckupSchedule.CheckupScheduleSceneFxmlController;
 import mainpkg.Saima.User4_Doctor.Goal4_RequestExtraMedicine.RequestExtraMedicineSceneFxmlController;
@@ -224,7 +223,7 @@ public class DashBoardSceneFxmlController implements Initializable {
         
         RequestVolunteerSceneFxmlController psc = myLoader.getController() ;
 
-        //psc.set(user) ;
+        psc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

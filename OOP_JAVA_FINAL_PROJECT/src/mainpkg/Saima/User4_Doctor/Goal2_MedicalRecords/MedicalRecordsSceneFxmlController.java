@@ -21,28 +21,17 @@ import mainpkg.Saima.User4_Doctor.Doctor;
  */
 public class MedicalRecordsSceneFxmlController implements Initializable {
 
-    @FXML
-    private ComboBox<Integer> refugeeIdComboBox;
-    @FXML
-    private Label medicineNameLabel;
-    @FXML
-    private Label genderLabel;
-    @FXML
-    private Label ddLabel;
-    @FXML
-    private Label mmLabel;
-    @FXML
-    private Label yyyyLabel;
-    @FXML
-    private Label nameLabel;
-    @FXML
-    private Label ageLabel;
-    @FXML
-    private Label diseaseLabel;
-    @FXML
-    private Label treatmentLabel;
-    @FXML
-    private Label checkupNoLabel;
+    @FXML    private ComboBox<Integer> refugeeIdComboBox;
+    @FXML    private Label medicineNameLabel;
+    @FXML    private Label genderLabel;
+    @FXML    private Label ddLabel;
+    @FXML    private Label mmLabel;
+    @FXML    private Label yyyyLabel;
+    @FXML    private Label nameLabel;
+    @FXML    private Label ageLabel;
+    @FXML    private Label diseaseLabel;
+    @FXML    private Label treatmentLabel;
+    @FXML    private Label checkupNoLabel;
 
     /**
      * Initializes the controller class.

@@ -16,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import mainpkg.Rasel.CampManager.Goal5_Supply.Medicine;
 import mainpkg.Saima.User4_Doctor.Doctor;
 import mainpkg.Saima.User4_Doctor.Goal1_AddMedicine.AddMedicine;
 
@@ -63,7 +64,7 @@ public class RequestExtraMedicineSceneFxmlController implements Initializable {
     
     Alert alert ;
     Doctor user ;
-    ObservableList<AddMedicine> list = FXCollections.observableArrayList() ;
+    ObservableList<Medicine> list = FXCollections.observableArrayList() ;
     
     
     public Doctor get() {

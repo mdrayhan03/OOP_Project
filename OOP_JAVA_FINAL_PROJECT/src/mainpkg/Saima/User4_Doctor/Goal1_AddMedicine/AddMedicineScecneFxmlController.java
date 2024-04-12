@@ -32,7 +32,7 @@ import mainpkg.Saima.User4_Doctor.Doctor;
  *
  * @author HP
  */
-public class AddMedicineSceneFxmlController implements Initializable {
+public class AddMedicineScecneFxmlController implements Initializable {
 
     @FXML    private ComboBox<String> medicineIdComboBox;
     @FXML    private TableView<Medicine> addMedicineTableView;
@@ -40,7 +40,7 @@ public class AddMedicineSceneFxmlController implements Initializable {
     @FXML    private TableColumn<Medicine, String> medicineNameTableColumn;
     @FXML    private TableColumn<Medicine, Integer> medicineAmountTableColumn;
     @FXML    private TableColumn<Medicine, Date> addeMedicineDateTableColumn;
-  
+    
     @FXML    private Label medicineNameLabel;
     @FXML    private Label medicineAmountLabel;
     @FXML    private Label ddLabel;
@@ -53,7 +53,12 @@ public class AddMedicineSceneFxmlController implements Initializable {
     
     Alert alert ;
     Doctor user ;
+    
     ObservableList<Medicine> list = FXCollections.observableArrayList() ;
+    @FXML
+    private TableColumn<?, ?> foodNameTableColumn1;
+    @FXML
+    private TableColumn<?, ?> foodNameTableColumn2;
     
     
     public Doctor get() {
@@ -75,8 +80,8 @@ public class AddMedicineSceneFxmlController implements Initializable {
         medicineAmountTableColumn.setCellValueFactory(new PropertyValueFactory<>("medicineAmount")) ;
         addeMedicineDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("addMedicineDate")) ;
     }
-        // TODO
         
+       
 
     @FXML
     private void backButtonOnMouseClicked(MouseEvent event) throws IOException {
@@ -89,6 +94,19 @@ public class AddMedicineSceneFxmlController implements Initializable {
         stage.setScene(myScene) ;
         stage.setTitle("Aid Excutive") ;
         stage.show() ;
+    }
+
+    @FXML
+    private void medicineIdOnMouseClick(MouseEvent event) {
+        Medicine medi = user.medicineInfo(medicineIdComboBox.getValue(), list) ;
+        if (medi != null) {
+            medicineNameLabel.setText(medi.getName()) ;
+            medicineAmountLabel.setText(medi.getAmount().toString()) ;
+            ddLabel.setText(medi.getDate().toString()) ;
+            mmLabel.setText(medi.getDate().toString()) ;
+            yyyyLabel.setText(medi.getDate().toString()) ;
+            
+        }
     }
     
 }

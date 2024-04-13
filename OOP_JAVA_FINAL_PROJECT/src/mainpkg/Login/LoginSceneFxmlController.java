@@ -62,7 +62,7 @@ public class LoginSceneFxmlController implements Initializable {
         list.add(e);
         CampManager c = new CampManager(7700000 , "Brigadier Gen Niaz" , "admin1234" , "01476589098" , "refugee.camp.niaz@gmail.com" , "Camp Manager" , "Male" , "07/02/1980", new Date(20,01,2020));
         list.add(c);
-        Refugee r = new Refugee(8800000 , "Niloy Sarder" , "admin1234" , "01676543198" , "niloy@gmail.com" , "Refugee" , "Male" , "02/07/1998") ;
+        Refugee r = new Refugee(8800000 , "Niloy Sarder" , "admin1234" , "01676543198" , "niloy@gmail.com" , "Refugee" , "Male" , "02/07/1998");
         list.add(r);
         
         userTypeComboBox.getItems().addAll("Refugee Camp Manager", "Refugee", "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGO") ;

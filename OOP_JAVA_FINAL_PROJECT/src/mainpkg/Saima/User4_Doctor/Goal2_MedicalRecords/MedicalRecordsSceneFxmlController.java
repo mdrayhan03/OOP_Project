@@ -7,6 +7,8 @@ package mainpkg.Saima.User4_Doctor.Goal2_MedicalRecords;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,7 +20,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.Rasel.Refugee.Refugee;
 import mainpkg.Saima.User4_Doctor.Doctor;
+import mainpkg.Saima.User4_Doctor.Patient;
 
 /**
  * FXML Controller class
@@ -27,8 +31,8 @@ import mainpkg.Saima.User4_Doctor.Doctor;
  */
 public class MedicalRecordsSceneFxmlController implements Initializable {
 
-    @FXML    private ComboBox<Integer> refugeeIdComboBox;
-    @FXML    private Label medicineNameLabel;
+    private ComboBox<Integer> refugeeIdComboBox;
+   
     @FXML    private Label genderLabel;
     @FXML    private Label ddLabel;
     @FXML    private Label mmLabel;
@@ -44,7 +48,11 @@ public class MedicalRecordsSceneFxmlController implements Initializable {
      */
     Alert alert ;
     Doctor user ;
-    
+    ObservableList<Patient> list = FXCollections.observableArrayList() ;
+    @FXML
+    private ComboBox<?> patientIdComboBox;
+    @FXML
+    private Label medicineNameLabel;
     
     
     public Doctor get() {
@@ -52,6 +60,12 @@ public class MedicalRecordsSceneFxmlController implements Initializable {
     }
     public void set(Doctor u) {
         user = u ;
+    }
+    
+    public void setComboBox() {
+        for(Patient Id: list) {
+            refugeeIdComboBox.getItems().add(Id.getId()) ;
+        }
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -72,6 +86,23 @@ public class MedicalRecordsSceneFxmlController implements Initializable {
         stage.setTitle("Doctor") ;
         stage.show() ;
     
+    }
+
+    @FXML
+    private void redugeeIdMouseOnClicked(MouseEvent event) {
+         Refugee Id = user.refugeeInfo(refugeeIdComboBox.getValue().toString(), list) ;
+        if (Id != null) {
+            ageLabel.setText(Id.) ;
+            diseaseLabel.setText(Id.) ;
+            treatmentLabel.setText(sh.getCheckupTime()) ;
+            checkupNoLabel.setText(sh.getCheckupTime()) ;
+            nameLabel.setText(sh.getName()) ;
+            genderLabel.setText(sh.getGender()) ;
+            ddLabel.setText(sh.getCheckupDate().toString()) ;
+            mmLabel.setText(sh.getCheckupDate().toString()) ;
+            yyyyLabel.setText(sh.getCheckupDate().toString()) ;
+            
+        }
     }
     
 }

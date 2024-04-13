@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.User;
@@ -71,7 +72,18 @@ public class ProfileSceneFxmlController implements Initializable {
     }
 
     @FXML
-    private void changePWOnMouseClick(MouseEvent event) {
+    private void changePWOnMouseClick(MouseEvent event) throws IOException {
+        
+        Parent root = null ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User4_Doctor/Profile/ChangePWSceneFxml.fxml")) ;
+        root = (Parent) myLoader.load() ;
+        Scene myScene = new Scene(root) ;
+
+        Stage stage = new Stage() ;
+        stage.setScene(myScene) ;
+        stage.getIcons().add(new Image("/image/Aid_Excutive.jpg")) ;
+        stage.setTitle("Doctor Change Password") ;
+        stage.show() ;
     }
     
 }

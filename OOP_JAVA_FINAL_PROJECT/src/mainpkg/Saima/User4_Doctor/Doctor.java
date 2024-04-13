@@ -129,6 +129,10 @@ public class Doctor extends User implements Serializable{
         return req ;
    
    };
+
+    public Campaign requestForCampaign(String time, String place, String reason, String userType, String des, String name, Date date, int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
    

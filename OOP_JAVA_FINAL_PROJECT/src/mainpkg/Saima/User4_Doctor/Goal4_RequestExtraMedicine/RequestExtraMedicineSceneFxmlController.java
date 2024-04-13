@@ -43,13 +43,13 @@ public class RequestExtraMedicineSceneFxmlController implements Initializable {
     @FXML    private TextField ddDeadlineTextField;
     @FXML    private TextField mmDeadlineTextField;
     @FXML    private TextField yyyyDeadlineTextField;
-    @FXML    private TableView<Medicine> requestExtraMedicineTableView;
-    @FXML    private TableColumn<Medicine, String> requestIdTableColumn;
-    @FXML    private TableColumn<Medicine, String> medicineNameTableColumn;
-    @FXML    private TableColumn<Medicine, Integer> medicineQuantityTableColumn;
-    @FXML    private TableColumn<Medicine, Date> requestDateTableColumn;
-    @FXML    private TableColumn<Medicine, Date> deadlineTableColumn;
-    @FXML    private TableColumn<Medicine, String> statusTableColumn;
+    @FXML    private TableView<MedicineRequest> requestExtraMedicineTableView;
+    @FXML    private TableColumn<MedicineRequest, String> requestIdTableColumn;
+    @FXML    private TableColumn<MedicineRequest, String> medicineNameTableColumn;
+    @FXML    private TableColumn<MedicineRequest, Integer> medicineQuantityTableColumn;
+    @FXML    private TableColumn<MedicineRequest, Date> requestDateTableColumn;
+    @FXML    private TableColumn<MedicineRequest, Date> deadlineTableColumn;
+    @FXML    private TableColumn<MedicineRequest, String> statusTableColumn;
 
     /**
      * Initializes the controller class.
@@ -116,7 +116,7 @@ public class RequestExtraMedicineSceneFxmlController implements Initializable {
     
     private void clearFields() {
         requestMedicineNameComboBox.getSelectionModel().clearSelection();
-        medicineQuantityTableColumn.clear();
+        requestMedicineQuantityTextField.clear();
         ddTextField.clear();
         mmTextField.clear();
         yyyyTextField.clear();

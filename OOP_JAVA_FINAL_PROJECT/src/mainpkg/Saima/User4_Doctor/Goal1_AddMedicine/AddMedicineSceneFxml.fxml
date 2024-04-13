@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.Saima.User4_Doctor.Goal1_AddMedicine.AddMedicineSceneFxmlController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Saima.User4_Doctor.Goal1_AddMedicine.AddMedicineSceneFxmlController">
    <children>
       <Label layoutX="518.0" layoutY="84.0" prefHeight="55.0" prefWidth="461.0" text="Add Medicine Info">
          <font>
@@ -37,12 +36,12 @@
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="addFoodTableView" layoutX="10.0" layoutY="443.0" prefHeight="456.0" prefWidth="1200.0">
+      <TableView fx:id="addMedicineTableView" layoutX="10.0" layoutY="443.0" prefHeight="456.0" prefWidth="1200.0">
          <columns>
-            <TableColumn fx:id="foodIdTableColumn" prefWidth="302.0" text=" Medicine ID" />
-            <TableColumn fx:id="foodNameTableColumn" prefWidth="290.0" text="  Medicine Name" />
-            <TableColumn fx:id="foodQuantityTableColumn" prefWidth="302.0" text="Medicine Amount" />
-            <TableColumn fx:id="addedFoodDateTableColumn" prefWidth="308.0" text="Added Medicine Date" />
+            <TableColumn fx:id="medicineIdTableColumn" prefWidth="302.0" text=" Medicine ID" />
+            <TableColumn fx:id="medicineNameTableColumn" prefWidth="290.0" text="  Medicine Name" />
+            <TableColumn fx:id="medicienAmountTableColumn" prefWidth="302.0" text="Medicine Amount" />
+            <TableColumn fx:id="addedMedicineDateTableColumn" prefWidth="308.0" text="Added Medicine Date" />
             <TableColumn fx:id="foodNameTableColumn1" prefWidth="331.9999694824219" text=" Food Name" />
             <TableColumn fx:id="foodNameTableColumn2" prefWidth="331.9999694824219" text=" Food Name" />
          </columns>
@@ -52,12 +51,12 @@
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="foodNameLabel" alignment="CENTER" layoutX="244.0" layoutY="241.0" prefHeight="44.0" prefWidth="150.0">
+      <Label fx:id="medicineNameLabel" alignment="CENTER" layoutX="244.0" layoutY="241.0" prefHeight="44.0" prefWidth="150.0">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="foodQuantityLabel" alignment="CENTER" layoutX="257.0" layoutY="292.0" prefHeight="44.0" prefWidth="150.0">
+      <Label fx:id="medicineAmountLabel" alignment="CENTER" layoutX="257.0" layoutY="292.0" prefHeight="44.0" prefWidth="150.0">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>

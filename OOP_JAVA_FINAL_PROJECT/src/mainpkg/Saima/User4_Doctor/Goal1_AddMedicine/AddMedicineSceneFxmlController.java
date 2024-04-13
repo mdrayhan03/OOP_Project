@@ -32,15 +32,16 @@ import mainpkg.Saima.User4_Doctor.Doctor;
  *
  * @author HP
  */
-public class AddMedicineScecneFxmlController implements Initializable {
+public class AddMedicineSceneFxmlController implements Initializable {
 
     @FXML    private ComboBox<String> medicineIdComboBox;
     @FXML    private TableView<Medicine> addMedicineTableView;
     @FXML    private TableColumn<Medicine, String> medicineIdTableColumn;
     @FXML    private TableColumn<Medicine, String> medicineNameTableColumn;
-    @FXML    private TableColumn<Medicine, Integer> medicineAmountTableColumn;
-    @FXML    private TableColumn<Medicine, Date> addeMedicineDateTableColumn;
-    
+    @FXML    private TableColumn<Medicine, Integer> medicienAmountTableColumn;
+    @FXML    private TableColumn<Medicine, Date> addedMedicineDateTableColumn;
+    @FXML    private TableColumn<Medicine, Date> foodNameTableColumn1;
+    @FXML    private TableColumn<Medicine, String> foodNameTableColumn2;
     @FXML    private Label medicineNameLabel;
     @FXML    private Label medicineAmountLabel;
     @FXML    private Label ddLabel;
@@ -55,10 +56,7 @@ public class AddMedicineScecneFxmlController implements Initializable {
     Doctor user ;
     
     ObservableList<Medicine> list = FXCollections.observableArrayList() ;
-    @FXML
-    private TableColumn<?, ?> foodNameTableColumn1;
-    @FXML
-    private TableColumn<?, ?> foodNameTableColumn2;
+    
     
     
     public Doctor get() {
@@ -75,13 +73,14 @@ public class AddMedicineScecneFxmlController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         medicineIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("medicineId")) ;
         medicineNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("medicineName")) ;
-        medicineAmountTableColumn.setCellValueFactory(new PropertyValueFactory<>("medicineAmount")) ;
-        addeMedicineDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("addMedicineDate")) ;
-    }
-        
-       
+        medicienAmountTableColumn.setCellValueFactory(new PropertyValueFactory<>("medicineAmount")) ;
+        addedMedicineDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("addMedicineDate")) ;
+    
+        // TODO
+    }    
 
     @FXML
     private void backButtonOnMouseClicked(MouseEvent event) throws IOException {
@@ -92,12 +91,13 @@ public class AddMedicineScecneFxmlController implements Initializable {
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
-        stage.setTitle("Aid Excutive") ;
+        stage.setTitle("Doctor") ;
         stage.show() ;
+    
     }
 
     @FXML
-    private void medicineIdOnMouseClick(MouseEvent event) {
+    private void medicineIdOnMouseClicked(MouseEvent event) {
         Medicine medi = user.medicineInfo(medicineIdComboBox.getValue(), list) ;
         if (medi != null) {
             medicineNameLabel.setText(medi.getName()) ;
@@ -107,6 +107,7 @@ public class AddMedicineScecneFxmlController implements Initializable {
             yyyyLabel.setText(medi.getDate().toString()) ;
             
         }
+    
     }
     
 }

@@ -20,6 +20,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
@@ -71,6 +72,13 @@ public class CheckupScheduleSceneFxmlController implements Initializable {
     }   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        appoinmetIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("appoinmentId")) ;
+        refugeeIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("refugeeId")) ;
+        nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("refugeeName")) ;
+        genderTableColumn.setCellValueFactory(new PropertyValueFactory<>("gender")) ;
+        checkupDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("checkupDate")) ;
+        checkupTimeTableColumn.setCellValueFactory(new PropertyValueFactory<>("checkupTime")) ;
+    
         
         
         // TODO
@@ -92,6 +100,20 @@ public class CheckupScheduleSceneFxmlController implements Initializable {
 
     @FXML
     private void appoinmentIdOnMouseClicked(MouseEvent event) {
+        CheckupSchedule sh = user.scheduleInfo(appoinmentIdComboBox.getValue(), list) ;
+        if (sh!= null) {
+            refugeeIdLabel.setText(sh.getRefugeeId()) ;
+            totalAppoinmentLabel.setText(sh.getAppointmentId()) ;
+            
+            checkupTimeLabel.setText(sh.getCheckupTime()) ;
+            nameLabel.setText(sh.getName()) ;
+            genderLabel.setText(sh.getGender()) ;
+            
+            ddLabel.setText(sh.getCheckupDate().toString()) ;
+            mmLabel.setText(sh.getCheckupDate().toString()) ;
+            yyyyLabel.setText(sh.getCheckupDate().toString()) ;
+            
+        }
     }
     
 }

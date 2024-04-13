@@ -31,8 +31,8 @@ import mainpkg.Saima.User4_Doctor.Patient;
  */
 public class MedicalRecordsSceneFxmlController implements Initializable {
 
-    private ComboBox<Integer> refugeeIdComboBox;
-   
+    
+    @FXML    private ComboBox<Integer> patientIdComboBox;
     @FXML    private Label genderLabel;
     @FXML    private Label ddLabel;
     @FXML    private Label mmLabel;
@@ -49,10 +49,7 @@ public class MedicalRecordsSceneFxmlController implements Initializable {
     Alert alert ;
     Doctor user ;
     ObservableList<Patient> list = FXCollections.observableArrayList() ;
-    @FXML
-    private ComboBox<?> patientIdComboBox;
-    @FXML
-    private Label medicineNameLabel;
+  
     
     
     public Doctor get() {
@@ -64,7 +61,7 @@ public class MedicalRecordsSceneFxmlController implements Initializable {
     
     public void setComboBox() {
         for(Patient Id: list) {
-            refugeeIdComboBox.getItems().add(Id.getId()) ;
+            patientIdComboBox.getItems().add(Id.getId()) ;
         }
     }
     @Override
@@ -90,17 +87,17 @@ public class MedicalRecordsSceneFxmlController implements Initializable {
 
     @FXML
     private void redugeeIdMouseOnClicked(MouseEvent event) {
-         Refugee Id = user.refugeeInfo(refugeeIdComboBox.getValue().toString(), list) ;
+         Patient Id = user.patientInfo(patientIdComboBox.getValue().toString(), list) ;
         if (Id != null) {
-            ageLabel.setText(Id.) ;
-            diseaseLabel.setText(Id.) ;
-            treatmentLabel.setText(sh.getCheckupTime()) ;
-            checkupNoLabel.setText(sh.getCheckupTime()) ;
-            nameLabel.setText(sh.getName()) ;
-            genderLabel.setText(sh.getGender()) ;
-            ddLabel.setText(sh.getCheckupDate().toString()) ;
-            mmLabel.setText(sh.getCheckupDate().toString()) ;
-            yyyyLabel.setText(sh.getCheckupDate().toString()) ;
+            ageLabel.setText(Id.getAge()) ;
+            diseaseLabel.setText(Id.getDisease()) ;
+            treatmentLabel.setText(Id.getTreatment()) ;
+            checkupNoLabel.setText(Id.getCheckupNo().toString()) ;
+            nameLabel.setText(Id.getName()) ;
+            genderLabel.setText(Id.getGender()) ;
+            ddLabel.setText(Id.getCheckupDate()) ;
+            mmLabel.setText(Id.getCheckupDate().toString()) ;
+            yyyyLabel.setText(Id.getCheckupDate().toString()) ;
             
         }
     }

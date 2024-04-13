@@ -32,16 +32,16 @@ import mainpkg.Rayhan.User5.Profile.ProfileSceneFxmlController;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
 import mainpkg.Rayhan.User6.DashBoard6SceneFxmlController;
 import mainpkg.Rayhan.User6.EducationCoordinator;
-<<<<<<< HEAD
+
 import mainpkg.Rayhan.User7.DashBoard7SceneFxmlController;
 import mainpkg.Rayhan.User7.SecurityIncharge;
 import mainpkg.Rayhan.User8.DashBoard8SceneFxmlController;
 import mainpkg.Rayhan.User8.NGOs;
-=======
+
 import mainpkg.Saima.User3_AidExcutive.AidExcutive;
 import mainpkg.Saima.User3_AidExcutive.DashBoardSceneFxmlController;
 import mainpkg.Saima.User4_Doctor.Doctor;
->>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb
+
 
 /**
  * FXML Controller class
@@ -74,7 +74,7 @@ public class LoginSceneFxmlController implements Initializable {
         VolunteerCoordinator v = new VolunteerCoordinator(5500000 , "MD.Rayhan Hossain" , "asdfghjk" , "01312961737" , "rayhan@gmail.com" , "Volunteer Coordinator" , "Male" , "04/04/2003") ;
         vcList.add(v) ;
         EducationCoordinator e = new EducationCoordinator(6600000 , "Abul Kalam" , "asdfghjk" , "01312961737" , "rayhan@gmail.com" , "Education Coordinator" , "Male" , "04/04/2003") ;
-<<<<<<< HEAD
+
         ecList.add(e);
         SecurityIncharge s = new SecurityIncharge(7700000 , "Abul Kalam" , "asdfghjk" , "01312961737" , "rayhan@gmail.com" , "Security Incharge" , "Male" , "04/04/2003") ;
         siList.add(s);
@@ -82,7 +82,7 @@ public class LoginSceneFxmlController implements Initializable {
         ngList.add(n);
         
         userTypeComboBox.getItems().addAll("Refugee Camp Manager" , "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGOs") ;
-=======
+
         list.add(e);
         CampManager c = new CampManager(7700000 , "Brigadier Gen Niaz" , "admin1234" , "01476589098" , "refugee.camp.niaz@gmail.com" , "Camp Manager" , "Male" , "07/02/1980", new Date(20,01,2020));
         list.add(c);
@@ -95,7 +95,7 @@ public class LoginSceneFxmlController implements Initializable {
         Doctor d = new Doctor(5555777 , "Sintiya" , "abcd5555" , "01951820192" , "sinthiya@gmail.com" , "Doctor" , "Female" , "06/04/2003") ;
         list.add(d);
         
->>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb
+
         userTypeComboBox.setValue("Refugee Camp Manager") ;
     }    
 
@@ -139,7 +139,7 @@ public class LoginSceneFxmlController implements Initializable {
         String userType = userTypeComboBox.getValue() ;
         Boolean done = false ;
         
-<<<<<<< HEAD
+
                 
         if (userType == "Volunteer Coordinator") {
             for(VolunteerCoordinator vc: vcList) {
@@ -161,7 +161,7 @@ public class LoginSceneFxmlController implements Initializable {
                     stage.setScene(myScene) ;
                     stage.setTitle("Volunteer Coordinator DashBoard") ;
                     stage.show() ;
-=======
+
         for (User user: list) {
             User u = user.verifyLogin(id, pw) ;
             if (u != null) {
@@ -177,7 +177,7 @@ public class LoginSceneFxmlController implements Initializable {
                     System.out.println("Volunteer Coordinator") ;
                     DashBoard6SceneFxmlController ds = fx.getController() ;
                     ds.set(u);
->>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb
+
                 }
                 
                 else if ("Camp Manager".equals(u.getUserType())) {

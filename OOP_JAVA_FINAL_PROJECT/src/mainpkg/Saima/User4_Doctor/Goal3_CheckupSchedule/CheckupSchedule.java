@@ -4,6 +4,7 @@
  */
 package mainpkg.Saima.User4_Doctor.Goal3_CheckupSchedule;
 
+import java.util.Random;
 import mainpkg.AbstractClass.Date;
 
 /**
@@ -82,6 +83,16 @@ public class CheckupSchedule {
     public String toString() {
         return "CheckupSchedule{" + "appointmentId=" + appointmentId + ", refugeeId=" + refugeeId + ", name=" + name + ", gender=" + gender + ", checkupDate=" + checkupDate + ", checkupTime=" + checkupTime + '}';
     }
+
+    private String appoinmentId() {
+        Random r=new Random();
+        String id = "" ;
+        for(int i=0;i<8;i++){
+        id+=r.nextInt(10);
+        }
+        
+        return id;
+        }
 
     
 }

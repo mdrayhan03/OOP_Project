@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rayhan.User5.Goal8_Report.Report; 
-import mainpkg.Saima.User3_AidExcutive.Goal8_Report.ReportList;
+import mainpkg.Rayhan.User5.Goal8_Report.ReportList;
 import mainpkg.Saima.User3_AidExcutive.Goal8_Report.ShowReportFxmlController;
 import mainpkg.Saima.User4_Doctor.Doctor;
 
@@ -144,19 +144,18 @@ public class MedicalReportSceneFxmlController implements Initializable {
             sir = new ReportList(user.getId() , receiverId , re.getId()) ;    
         
             Parent root = null ;
-            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User4_Doctor/Goal8_MedicalReport/ShowReportFxml.fxml")) ;
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal2_SIReport/ShowReportFxml.fxml")) ;
             root = (Parent) myLoader.load() ;
             Scene myScene = new Scene(root) ;
         
-            ShowReportFxmlController src = myLoader.getController() ;
+            mainpkg.Rayhan.User5.Goal8_Report.ShowReportFxmlController src = myLoader.getController() ;
             src.set(re, sir) ;
 
             Stage stage = new Stage() ;
             stage.setScene(myScene) ;
             stage.getIcons().add(new Image("/image/campIcon.jpg")) ;
-            stage.setTitle("Doctor Show Report") ;
+            stage.setTitle("Volunteer Coordinator Show Report") ;
             stage.show() ;
         }
     }
-    
 }

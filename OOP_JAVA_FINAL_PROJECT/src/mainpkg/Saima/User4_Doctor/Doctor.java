@@ -13,6 +13,7 @@ import mainpkg.Rasel.CampManager.Goal5_Supply.Food;
 import mainpkg.Rasel.CampManager.Goal5_Supply.Medicine;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.RequestedItems;
+import mainpkg.Rasel.Refugee.Refugee;
 import mainpkg.Rayhan.User5.Goal4_VRequest.RequestedVolunteer;
 import mainpkg.Rayhan.User5.Goal8_Report.Report;
 import mainpkg.Rayhan.User6.Goal1_Schedule.Schedule;
@@ -131,6 +132,15 @@ public class Doctor extends User implements Serializable{
    };
 
     public Campaign requestForCampaign(String time, String place, String reason, String userType, String des, String name, Date date, int id) {
+       Campaign req=new Campaign(time,place,reason,userType,des,name,date,id);
+
+    public CheckupSchedule scheduleInfo(String value, ObservableList<CheckupSchedule> list) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    
+
+    public Patient patientInfo(String toString, ObservableList<Patient> list) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

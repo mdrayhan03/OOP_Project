@@ -8,14 +8,15 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rasel.CampManager.Goal3_CampRules.CampRulesSceneController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rasel.CampManager.Goal3_CampRules.CampRulesSceneController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="campRulesTextArea" layoutX="93.0" layoutY="39.0" prefHeight="200.0" prefWidth="414.0" promptText="Update The Camp Rules" />
-            <Button layoutX="200.0" layoutY="250.0" mnemonicParsing="false" onAction="#updateRulesButtonOnClick" prefHeight="58.0" prefWidth="161.0" style="-fx-border-color: red;" text="Update Rules" />
+            <Button layoutX="359.0" layoutY="327.0" mnemonicParsing="false" onAction="#updateRulesButtonOnClick" prefHeight="55.0" prefWidth="110.0" style="-fx-border-color: red;" text="Update Rules" textFill="RED" />
             <Line endX="100.0" layoutX="300.0" layoutY="-1.0" startX="-100.0" />
             <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#campRulesBackButton" prefHeight="33.0" prefWidth="56.0" text="Back" />
+            <TextArea fx:id="rulesTextArea" layoutX="98.0" layoutY="43.0" prefHeight="270.0" prefWidth="490.0" />
+            <Button layoutX="220.0" layoutY="326.0" mnemonicParsing="false" onAction="#deleteRulesOnButtonClick" prefHeight="53.0" prefWidth="109.0" style="-fx-border-color: red;" text="Delete Rules" textFill="#e40000" />
          </children>
       </AnchorPane>
    </center>

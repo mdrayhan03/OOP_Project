@@ -1,8 +1,15 @@
 package mainpkg.Rayhan.User7.Goal4_Needs;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,16 +19,21 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.AppendableObjectOutputStream;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.Time_Place;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.RequestedItems;
+import mainpkg.Rayhan.User6.DashBoard6SceneFxmlController;
 import mainpkg.Rayhan.User6.EducationCoordinator;
+import mainpkg.Rayhan.User7.DashBoard7SceneFxmlController;
 import mainpkg.Rayhan.User7.SecurityIncharge;
 
 /**
@@ -46,11 +58,17 @@ public class NeedsSceneFxmlController implements Initializable {
     @FXML    private TableColumn<RequestedItems , Date> dateTableColumn;
     @FXML    private TableColumn<RequestedItems , Date> deadLineTableColumn;
     @FXML    private TableColumn<RequestedItems , String> statusTableColumn;
+    @FXML    private CheckBox acceptedCheckBox;
+    @FXML    private CheckBox rejectedCheckBox;
+    @FXML    private CheckBox pendingCheckBox;
+    @FXML    private ComboBox<String> iComboBox;
     
-    ObservableList<RequestedItems> reqList =  FXCollections.observableArrayList() ;
+    ObservableList<RequestedItems> list =  FXCollections.observableArrayList() ;
     Time_Place tp = new Time_Place() ;
     SecurityIncharge user ;
     Alert alert ;
+    
+
     
     public SecurityIncharge get() {
         return user ;
@@ -58,12 +76,52 @@ public class NeedsSceneFxmlController implements Initializable {
     
     public void set(SecurityIncharge u) {
         user = u ;
+        tableShow() ;
     }
     
     public void tableShow() {
-        requestTableView.setItems(reqList) ;
+        ObservableList<RequestedItems> list =  fileRead() ;
+        ObservableList<RequestedItems> rList = FXCollections.observableArrayList() ;
+        ObservableList<RequestedItems> reqList = FXCollections.observableArrayList() ;
+//        if (iComboBox.getValue() == null) {
+//            rList = list ;
+//        }
+//        else {
+//            for (RequestedItems rv : list) {
+//                if (iComboBox.getValue() == rv.getName()) {
+//                    rList.add(rv) ;
+//                }
+//            }
+//        }
+//        if (acceptedCheckBox.isSelected() && rejectedCheckBox.isSelected() && pendingCheckBox.isSelected() || !acceptedCheckBox.isSelected() && !rejectedCheckBox.isSelected() && !pendingCheckBox.isSelected()) {
+//            reqList = rList ;
+//        }
+//        else {
+//        if (acceptedCheckBox.isSelected()) {
+//            for (RequestedItems rv : rList) {
+//                if (rv.getStatus() == "Accepted") {
+//                    reqList.add(rv) ;
+//                }
+//            }
+//        }
+//        if (rejectedCheckBox.isSelected()) {
+//            for (RequestedItems rv : rList) {
+//                if (rv.getStatus() == "Rejected") {
+//                    reqList.add(rv) ;
+//                }
+//            }
+//        }
+//        if (pendingCheckBox.isSelected()) {
+//            for (RequestedItems rv : rList) {
+//                if (rv.getStatus() == "Pending") {
+//                    reqList.add(rv) ;
+//                }
+//            }
+//        }
+//        }
+        requestTableView.setItems(list) ;
     }
-
+        
     /**
      * Initializes the controller class.
      * @param url
@@ -72,8 +130,16 @@ public class NeedsSceneFxmlController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        amountTableColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("apply"));
+        deadLineTableColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+        statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        
         itemComboBox.setItems(tp.getSecurityInchargeItem()) ;
         itemComboBox.setValue(tp.getSecurityInchargeItem().get(0)) ;
+        iComboBox.setItems(tp.getSecurityInchargeItem()) ;
     }    
 
     @FXML
@@ -82,6 +148,9 @@ public class NeedsSceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User7/DashBoard7SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard7SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -138,7 +207,8 @@ public class NeedsSceneFxmlController implements Initializable {
         
         if (rtn == true && this.checkDate(apply, deadline)) {
             RequestedItems req = user.request(user.getId() , user.getUserType() , name, amount, apply, deadline) ;
-            reqList.add(req) ;
+            fileWrite(req) ;
+            tableShow() ;
         }
         else {
             alert = new Alert(Alert.AlertType.ERROR) ;
@@ -148,7 +218,7 @@ public class NeedsSceneFxmlController implements Initializable {
         }
     }
     
-        public boolean checkDate (Date a , Date d) {
+        public boolean checkDate (Date d , Date a) {
         Boolean rtn = false ;
         if(a.getYyyy() > d.getYyyy()) {
             rtn = true ;
@@ -166,6 +236,71 @@ public class NeedsSceneFxmlController implements Initializable {
         }
         
         return rtn ;
+    }
+        
+        private ObservableList<RequestedItems> fileRead() {
+        ObservableList<RequestedItems> studList = FXCollections.observableArrayList() ;
+        
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        
+        try {
+            f = new File("src/File/VCVolunteer.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            RequestedItems st ;
+            try {
+                while(true){
+                    st = (RequestedItems)ois.readObject();
+                    if (st.getSenderId() == user.getId()) {
+                        System.out.println(st);
+                        studList.add(st) ;
+                    }
+                }
+            }//end of nested try
+            catch(Exception e){
+                // handling code
+            }//nested catch     
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
+        } 
+        finally {
+            try {
+                
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }           
+        
+        return studList ;
+    }
+    
+    private void fileWrite(RequestedItems stu) {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
+        
+        try {
+            f = new File("src/File/RequestedItems.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(stu);
+
+        } catch (IOException ex) {
+            Logger.getLogger(NeedsSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if(oos != null) oos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(NeedsSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }                
     }
     
 }

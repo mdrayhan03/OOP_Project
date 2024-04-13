@@ -95,5 +95,18 @@
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </Label>
+      <Label fx:id="genderLabel" layoutX="252.0" layoutY="476.0" text="Gender">
+         <font>
+            <Font name="Eras Bold ITC" size="36.0" />
+         </font>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </Label>
+      <Label fx:id="emailLabel1" layoutX="461.0" layoutY="507.0">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

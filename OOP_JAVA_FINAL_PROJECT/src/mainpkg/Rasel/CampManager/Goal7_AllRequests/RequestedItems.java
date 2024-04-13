@@ -1,12 +1,13 @@
 package mainpkg.Rasel.CampManager.Goal7_AllRequests;
 
+import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 
 /**
  *
  * @author RayhaN
  */
-public class RequestedItems {
+public class RequestedItems implements Serializable{
     String name , status , id , userType ;
     int amount , senderId ;
     Date apply , deadline ;
@@ -19,6 +20,7 @@ public class RequestedItems {
         this.apply = apply;
         this.deadline = deadline;
         this.id = this.generateId() ;
+        this.status = "Pending" ;
     }
 
     public int getSenderId() {

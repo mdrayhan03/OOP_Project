@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.Rasel.Refugee.Refugee;
+import mainpkg.Rayhan.User8.DashBoard8SceneFxmlController;
 import mainpkg.Rayhan.User8.NGOs;
 
 /**
@@ -64,16 +65,18 @@ public class CampInfoSceneFxmlController implements Initializable {
 
     @FXML
     private void backOnMouseClick(MouseEvent event) throws IOException {
-        Parent root = null ;
-//                    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoardSceneFxml.fxml")) ;
-                    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User8/DashBoard8SceneFxml.fxml")) ;
-                    root = (Parent) myLoader.load() ;
-                    Scene myScene = new Scene(root) ;
+        Parent root = null ;                  
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User8/DashBoard8SceneFxml.fxml")) ;
+        root = (Parent) myLoader.load() ;
+        Scene myScene = new Scene(root) ;
+                    
+        DashBoard8SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ; 
 
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
-                    stage.setScene(myScene) ;
-                    stage.setTitle("NGO DashBoard") ;
-                    stage.show() ;
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
+        stage.setScene(myScene) ;
+        stage.setTitle("NGO DashBoard") ;
+        stage.show() ;
     }
     
 }

@@ -112,13 +112,7 @@ public abstract class User {
 
     
     public User verifyLogin(int id , String pw) {
-        int userId = this.getId() ;
-        String userPw = this.getPassword() ;
-        if (userId == id && userPw.equals(pw)) {
-            this.setStatus("Active") ;
-            return this ;
-        }
-        return null ;
+        return this ;
     }
     
     public boolean changePassword(String oldPw , String newPw) {
@@ -145,6 +139,7 @@ public abstract class User {
         Integer userId = this.getId() ;
         String userType = this.getUserType() ;
         Holiday holi = new Holiday(userId , userType , reason , start , end) ;
+        System.out.println(holi) ;
         this.holidayList.add(holi) ;
         return true ;
     }

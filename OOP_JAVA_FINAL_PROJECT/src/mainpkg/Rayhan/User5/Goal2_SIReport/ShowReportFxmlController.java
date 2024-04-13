@@ -26,12 +26,11 @@ public class ShowReportFxmlController implements Initializable {
      * @param sir
      * @param rb
      */
-    public void set (SIReport si , SIReportList sir) {
+    public void set (SIReport si) {
         SIReport msi = si ;
-        SIReportList msir = sir ;
         
-        fromLabel.setText(Integer.toString(msir.getSenderId())) ;
-        toLabel.setText(Integer.toString(msir.getReceiverId())) ;
+        fromLabel.setText(Integer.toString(msi.getSenderId())) ;
+        toLabel.setText(Integer.toString(msi.getReceiverId())) ;
         subjectLabel.setText(msi.getSubject()) ;
         dateLabel.setText(msi.getApplyDate().toString()) ;
         reportBodyTextArea.setText(msi.description) ;

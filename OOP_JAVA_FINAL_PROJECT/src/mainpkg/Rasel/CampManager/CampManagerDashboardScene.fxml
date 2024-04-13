@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CampManager.CampManagerDashboardSceneController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rasel.CampManager.CampManagerDashboardSceneController">
    <children>
       <Button layoutX="14.0" layoutY="199.0" mnemonicParsing="false" onAction="#goSecurityPageOnButtonClick" prefHeight="49.0" prefWidth="102.0" text="Security" textFill="#e00000" />
       <Label layoutX="175.0" layoutY="29.0" prefHeight="49.0" prefWidth="263.0" style="-fx-border-color: black;" text="  Welcome To Camp Manager Dashboard" textAlignment="CENTER" textFill="#d71111">

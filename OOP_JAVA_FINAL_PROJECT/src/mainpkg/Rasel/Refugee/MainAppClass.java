@@ -1,4 +1,4 @@
-package Refugee;
+package mainpkg.Rasel.Refugee;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

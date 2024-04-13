@@ -1,4 +1,4 @@
-package CampManager;
+package mainpkg.Rasel.CampManager;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -20,7 +20,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rasel.CampManager.CampManager;
+import mainpkg.Rasel.Refugee.Refugee;
 import mainpkg.Rayhan.User5.DashBoard5SceneFxmlController;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
 import mainpkg.Rayhan.User6.DashBoard6SceneFxmlController;
@@ -57,13 +60,17 @@ public class LoginSceneFxmlController implements Initializable {
         list.add(v) ;
         EducationCoordinator e = new EducationCoordinator(6600000 , "Abul Kalam" , "asdfghjk" , "01312961737" , "rayhan@gmail.com" , "Education Coordinator" , "Male" , "04/04/2003") ;
         list.add(e);
+        CampManager c = new CampManager(7700000 , "Brigadier Gen Niaz" , "admin1234" , "01476589098" , "refugee.camp.niaz@gmail.com" , "Camp Manager" , "Male" , "07/02/1980", new Date(20,01,2020));
+        list.add(c);
+        Refugee r = new Refugee(8800000 , "Niloy Sarder" , "admin1234" , "01676543198" , "niloy@gmail.com" , "Refugee" , "Male" , "02/07/1998") ;
+        list.add(r);
         
+        userTypeComboBox.getItems().addAll("Refugee Camp Manager", "Refugee", "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGO") ;
         AidExcutive ae = new AidExcutive(2233456 , "Saima" , "asd123" , "01792760030" , "saima@gmail.com" , "Aid Excuive" , "Male" , "08/04/2003") ;
         list.add(ae) ;
         Doctor d = new Doctor(5555777 , "Sintiya" , "abc555" , "01951820192" , "sinthiya@gmail.com" , "Doctor" , "Female" , "06/04/2003") ;
         list.add(d);
         
-        userTypeComboBox.getItems().addAll("Refugee Camp Manager" , "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGO") ;
         userTypeComboBox.setValue("Refugee Camp Manager") ;
     }    
 
@@ -121,9 +128,22 @@ public class LoginSceneFxmlController implements Initializable {
                     FXMLLoader fx = fxmlload("/mainpkg/Rayhan/User6/DashBoard6SceneFxml.fxml" , "Education Coordinator" , event) ;
                     System.out.println("Volunteer Coordinator") ;
                     DashBoard6SceneFxmlController ds = fx.getController() ;
-                    ds.set(u) ;
+                    ds.set(u);
                 }
                 
+                else if ("Camp Manager".equals(u.getUserType())) {
+                    FXMLLoader fx = fxmlload("/mainpkg/Rasel/CampManager/CampManagerDashboardScene.fxml" , "Camp Manager" , event) ;
+                    System.out.println("Camp Manager") ;
+                    DashBoard6SceneFxmlController ds = fx.getController() ;
+                    ds.set(u);
+                }
+                
+                else if ("Refugee".equals(u.getUserType())) {
+                    FXMLLoader fx = fxmlload("/mainpkg/Rasel/Refugee/RefugeeDashboardScene.fxml" , "Refugee" , event) ;
+                    System.out.println("Refugee") ;
+                    DashBoard6SceneFxmlController ds = fx.getController() ;
+                    ds.set(u);
+
                 else if ("Aid Excutive".equals(u.getUserType())) {
                     FXMLLoader fx = fxmlload("/mainpkg/Saima/User3_AidExcutive/DashBoardSceneFxml.fxml" , "Aid Excutive" , event) ;
                     System.out.println("Aid Excutive") ;

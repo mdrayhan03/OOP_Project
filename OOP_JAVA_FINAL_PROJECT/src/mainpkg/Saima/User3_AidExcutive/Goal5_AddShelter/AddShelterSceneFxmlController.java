@@ -54,6 +54,7 @@ public class AddShelterSceneFxmlController implements Initializable {
      */
     Alert alert ;
     AidExcutive user ;
+
     ObservableList<Shelter> list = FXCollections.observableArrayList() ;
     
     

@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CampManager.ManageJobsSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rasel.CampManager.Goal4_Job.ManageJobsSceneController">
    <children>
       <Button layoutX="105.0" layoutY="78.0" mnemonicParsing="false" onAction="#addJobsOnButtonClick" prefHeight="91.0" prefWidth="164.0" style="-fx-border-color: black;" text="Add Jobs" textFill="#e40000" />
       <Button layoutX="105.0" layoutY="224.0" mnemonicParsing="false" onAction="#assignJobsOnButtonClick" prefHeight="91.0" prefWidth="164.0" style="-fx-border-color: black;" text="Assign Jobs" textFill="RED" />

@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CampManager.JobRequestsSceneController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rasel.CampManager.Goal4_Job.JobRequestsSceneController">
    <children>
       <TableView fx:id="jobRequestsTableView" layoutX="13.0" layoutY="71.0" prefHeight="303.0" prefWidth="568.0">
         <columns>

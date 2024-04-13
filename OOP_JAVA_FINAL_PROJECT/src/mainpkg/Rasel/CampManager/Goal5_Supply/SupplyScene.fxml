@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="CampManager.SupplySceneController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.Rasel.CampManager.Goal5_Supply.SupplySceneController">
    <children>
       <Button layoutX="230.0" layoutY="215.0" mnemonicParsing="false" onAction="#supplyInstrumentsOnButtonClick" prefHeight="84.0" prefWidth="139.0" style="-fx-border-color: black;" text="Supply Educational Instruments" textAlignment="CENTER" textFill="#f80000" wrapText="true">
          <font>

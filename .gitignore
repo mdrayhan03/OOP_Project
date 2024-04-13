@@ -1,6 +1,6 @@
 .DS_Store
 
 # Ignore Folders
-/OOP_JAVA_FINAL_PROJECT/build/
-#/OOP_JAVA_FINAL_PROJECT/dist/
+OOP_JAVA_FINAL_PROJECT/build/
+OOP_JAVA_FINAL_PROJECT/dist/
 #/OOP_JAVA_FINAL_PROJECT/nbproject/

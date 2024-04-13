@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.Saima.User4_Doctor.Goal6_RequestMedicalCampaign.RequestMedicalCampaignSceneFxmlController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Saima.User4_Doctor.Goal6_RequestMedicalCampaign.RequestMedicalCampaignSceneFxmlController">
    <children>
       <Button layoutX="55.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClicked" prefHeight="50.0" prefWidth="100.0" text="Back">
          <font>
@@ -80,14 +79,15 @@
             <Font name="Comic Sans MS Bold Italic" size="24.0" />
          </font>
       </Button>
-      <TableView fx:id="medicalCampaignTableView" layoutX="-2.0" layoutY="497.0" prefHeight="313.0" prefWidth="1207.0">
+      <TableView fx:id="campaignTableView" layoutY="495.0" prefHeight="315.0" prefWidth="1211.0">
          <columns>
-            <TableColumn fx:id="reasonIdTableColumn" prefWidth="187.00003051757812" text="Request ID" />
+            <TableColumn fx:id="idTableColumn" prefWidth="187.00003051757812" text="ID" />
             <TableColumn fx:id="reasonTableColumn" prefWidth="265.0" text="Reason" />
             <TableColumn fx:id="dateTableColumn" prefWidth="149.0" text="Date" />
             <TableColumn fx:id="timeTableColumn" prefWidth="132.0" text="Time" />
-            <TableColumn fx:id="descriptionTableColumn" prefWidth="367.0" text="Description" />
-            <TableColumn fx:id="statusTableColumn" prefWidth="105.0" text="Status" />
+            <TableColumn fx:id="placeTableColumn" prefWidth="124.0" text="Place" />
+            <TableColumn fx:id="descriptionTableColumn" prefWidth="224.0" text="Description" />
+            <TableColumn fx:id="statusTableColumn" prefWidth="103.0" text="Status" />
          </columns>
       </TableView>
    </children>

@@ -34,27 +34,23 @@ public class RequestMedicalCampaignSceneFxmlController implements Initializable 
     @FXML
     private TextField yyyyTextField;
     @FXML
-    private ComboBox<?> timeComboBox;
+    private ComboBox<String> timeComboBox;
     @FXML
-    private ComboBox<?> placeComboBox;
+    private ComboBox<String> placeComboBox;
     @FXML
     private TextField reasonTextField;
     @FXML
     private TextArea descriptionTextArea;
     @FXML
-    private TableView<?> medicalCampaignTableView;
+    private TableColumn<Campaign, ?> reasonTableColumn;
     @FXML
-    private TableColumn<?, ?> reasonIdTableColumn;
+    private TableColumn<Campaign, ?> dateTableColumn;
     @FXML
-    private TableColumn<?, ?> reasonTableColumn;
+    private TableColumn<Campaign, ?> timeTableColumn;
     @FXML
-    private TableColumn<?, ?> dateTableColumn;
+    private TableColumn<Campaign, ?> descriptionTableColumn;
     @FXML
-    private TableColumn<?, ?> timeTableColumn;
-    @FXML
-    private TableColumn<?, ?> descriptionTableColumn;
-    @FXML
-    private TableColumn<?, ?> statusTableColumn;
+    private TableColumn<Campaign, ?> statusTableColumn;
 
     /**
      * Initializes the controller class.
@@ -62,6 +58,13 @@ public class RequestMedicalCampaignSceneFxmlController implements Initializable 
     Alert alert ;
     Doctor user ;
     ObservableList<Campaign> list = FXCollections.observableArrayList() ;
+    @FXML
+    private TableView<?> campaignTableView;
+    @FXML
+    private TableColumn<?, ?> idTableColumn;
+    @FXML
+    private TableColumn<?, ?> placeTableColumn;
+    
     
     
     public Doctor get() {

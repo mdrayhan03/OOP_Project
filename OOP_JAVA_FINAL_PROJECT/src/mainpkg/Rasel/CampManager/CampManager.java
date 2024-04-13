@@ -11,7 +11,7 @@ public class CampManager extends User implements Serializable {
 //    private ArrayList<ReportList> allReports;
 //    private ArrayList<RequestManager> allRequest;
     private ArrayList<Refugee> refugeeInfo;
-    private int campCapacity, rice, potato, onion, oil, fish, pulse, milk, egg, chicken;
+    private int rice, potato, onion, oil, fish, pulse, milk, egg, chicken;
     private Date doj;
 
     public CampManager(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob, Date doj) {
@@ -26,14 +26,6 @@ public class CampManager extends User implements Serializable {
 
     public void setRefugeeInfo(ArrayList<Refugee> refugeeInfo) {
         this.refugeeInfo = refugeeInfo;
-    }
-
-    public int getCampCapacity() {
-        return campCapacity;
-    }
-
-    public void setCampCapacity(int campCapacity) {
-        this.campCapacity = campCapacity;
     }
 
     public int getRice() {
@@ -115,13 +107,52 @@ public class CampManager extends User implements Serializable {
     public void setDoj(Date doj) {
         this.doj = doj;
     }
-
+    
     @Override
     public String toString() {
-        return "CampManager{" + "refugeeInfo=" + refugeeInfo + ", campCapacity=" + campCapacity + ", rice=" + rice + ", potato=" + potato + ", onion=" + onion + ", oil=" + oil + ", fish=" + fish + ", pulse=" + pulse + ", milk=" + milk + ", egg=" + egg + ", chicken=" + chicken + ", doj=" + doj + '}';
+        return "CampManager{" + "refugeeInfo=" + refugeeInfo + ", rice=" + rice + ", potato=" + potato + ", onion=" + onion + ", oil=" + oil + ", fish=" + fish + ", pulse=" + pulse + ", milk=" + milk + ", egg=" + egg + ", chicken=" + chicken + ", doj=" + doj + '}';
     }
+
+
     
-//    public String 
-    
+//    public String campCapacity(){
+//        campCapacity = 
+//        return a;
+//    }
+//
+//    public void supplyFood(){
+//        int a = 10;
+//    }
+//    
+//    public void supplyMedicine(){
+//    }
+//            
+//    public String addOrUpdateCampRules(){
+//    }
+//    
+//    public String giveJobsToRefugee(){
+//    }
+//    
+//    public void supplyEducationalInstruments(){
+//    }
+//    
+//    public String registerNewRefugee(refugeeInfo){
+//    }
+//    
+//    public String showAllComplaints(Complaint)
+//            
+//    public String showAllReports(allReports){
+//    }
+//    
+//    public String showAllRequest(allRequest){
+//    }
+//    
+//    protected Boolean acceptRejectRequest(){
+//    }
+//    
+//    public String giveShelter(){
+//    }
+//    
+//
 
 }

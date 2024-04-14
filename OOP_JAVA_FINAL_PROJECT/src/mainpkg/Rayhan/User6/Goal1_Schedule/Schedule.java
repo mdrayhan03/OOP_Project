@@ -1,12 +1,13 @@
 package mainpkg.Rayhan.User6.Goal1_Schedule;
 
+import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 
 /**
  *
  * @author RayhaN
  */
-public class Schedule {
+public class Schedule implements Serializable{
     String id , teacherId , teacherName , courseId , courseName , time , place ;
     Date date ;
 

@@ -1,13 +1,14 @@
 
 package mainpkg.Rayhan.User6.Goal2_Teacher;
 
+import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 
 /**
  *
  * @author RayhaN
  */
-public class Teacher {
+public class Teacher implements Serializable{
     String id , name , pN ;
     Date doj ;
 

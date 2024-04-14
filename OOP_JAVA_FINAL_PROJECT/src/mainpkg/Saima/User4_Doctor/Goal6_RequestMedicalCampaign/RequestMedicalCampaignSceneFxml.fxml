@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -75,11 +76,43 @@
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </TextArea>
+<<<<<<< HEAD:OOP_JAVA_FINAL_PROJECT/build/classes/mainpkg/Rayhan/User5/Goal6_Campaign/CampaignSceneFxml.fxml
+      <TableView fx:id="campaignTableView" layoutX="1.0" layoutY="499.0" prefHeight="301.0" prefWidth="1200.0">
+        <columns>
+          <TableColumn fx:id="idTableColumn" prefWidth="187.00003051757812" text="ID" />
+          <TableColumn fx:id="reasonTableColumn" prefWidth="265.0" text="Subject" />
+            <TableColumn fx:id="dateTableColumn" prefWidth="149.0" text="Date" />
+            <TableColumn fx:id="timeTableColumn" prefWidth="115.0" text="Time" />
+            <TableColumn fx:id="placeTableColumn" prefWidth="113.0" text="Place" />
+            <TableColumn fx:id="descriptionTableColumn" prefWidth="230.0" text="Description" />
+            <TableColumn fx:id="statusTableColumn" prefWidth="125.0" text="Status" />
+        </columns>
+      </TableView>
+      <Button layoutX="781.0" layoutY="422.0" mnemonicParsing="false" onMouseClicked="#applyOnMouseClick" prefHeight="44.0" prefWidth="374.0" text="Apply">
+=======
       <Button layoutX="791.0" layoutY="432.0" mnemonicParsing="false" onMouseClicked="#applyOnMouseClicked" prefHeight="44.0" prefWidth="374.0" text="Apply">
+>>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb:OOP_JAVA_FINAL_PROJECT/src/mainpkg/Saima/User4_Doctor/Goal6_RequestMedicalCampaign/RequestMedicalCampaignSceneFxml.fxml
          <font>
             <Font name="Comic Sans MS Bold Italic" size="24.0" />
          </font>
       </Button>
+<<<<<<< HEAD:OOP_JAVA_FINAL_PROJECT/build/classes/mainpkg/Rayhan/User5/Goal6_Campaign/CampaignSceneFxml.fxml
+      <CheckBox fx:id="acceptedCheckBox" layoutX="420.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Accepted">
+         <font>
+            <Font name="Comic Sans MS Italic" size="15.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="rejectedCheckBox" layoutX="552.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Rejected">
+         <font>
+            <Font name="Comic Sans MS Italic" size="15.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="pendingCheckBox" layoutX="673.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Pending">
+         <font>
+            <Font name="Comic Sans MS Italic" size="15.0" />
+         </font>
+      </CheckBox>
+=======
       <TableView fx:id="medicalCampaignTableView" layoutX="-2.0" layoutY="497.0" prefHeight="313.0" prefWidth="1207.0">
          <columns>
             <TableColumn fx:id="reasonIdTableColumn" prefWidth="187.00003051757812" text="Request ID" />
@@ -90,5 +123,6 @@
             <TableColumn fx:id="statusTableColumn" prefWidth="105.0" text="Status" />
          </columns>
       </TableView>
+>>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb:OOP_JAVA_FINAL_PROJECT/src/mainpkg/Saima/User4_Doctor/Goal6_RequestMedicalCampaign/RequestMedicalCampaignSceneFxml.fxml
    </children>
 </AnchorPane>

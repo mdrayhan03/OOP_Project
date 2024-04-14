@@ -1,12 +1,13 @@
 package mainpkg.Rayhan.User5.Goal4_VRequest;
 
+import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 
 /**
  *
  * @author RayhaN
  */
-public class RequestedVolunteer {
+public class RequestedVolunteer implements Serializable{
     int requesterId , accepterId , amount ;
     String id , reason , description , userType , time , place , status , requesterName ;
     Date date ;
@@ -89,14 +90,6 @@ public class RequestedVolunteer {
         this.amount = amount;
     }
 
-    public String generateId() {
-        String id = "RFV" ;
-        id += this.getReason().substring(this.getReason().length() - 3) ;
-        id += this.getDate().toString().substring(0,2) ;
-        
-        return id ;
-    }
-
     public void setReason(String reason) {
         this.reason = reason;
     }
@@ -127,7 +120,15 @@ public class RequestedVolunteer {
 
     @Override
     public String toString() {
-        return "RequestedVolunteer{" + "requesterId=" + requesterId + ", accepterId=" + accepterId + ", amount=" + amount + ", id=" + id + ", reason=" + reason + ", description=" + description + ", userType=" + userType + ", time=" + time + ", place=" + place + ", status=" + status + ", date=" + date + '}';
+        return "Requester Name = " + requesterName + ", Amount = " + amount + ", ID = " + id + ", Reason = " + reason + ", Description = " + description + ", UserType = " + userType + ", Time = " + time + ", Place = " + place + ", Status = " + status + ", Date = " + date + '}' ;
+    }
+    
+    public String generateId() {
+        String id = "RFV" ;
+        id += this.getReason().substring(this.getReason().length() - 3) ;
+        id += this.getDate().toString().substring(0,2) ;
+        
+        return id ;
     }
     
     

@@ -15,7 +15,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rayhan.User5.Goal1_Volunteer.VolunteerInfoSceneFxmlController;
+import mainpkg.Rayhan.User5.Goal2_SIReport.SecurityInchargeReportSceneFxmlController;
+import mainpkg.Rayhan.User5.Goal3_AEReport.AidExecutiveReportSceneFxmlController;
+import mainpkg.Rayhan.User5.Goal4_VRequest.VolunteerRequestSceneFxmlController;
 import mainpkg.Rayhan.User5.Profile.ProfileSceneFxmlController;
+import mainpkg.Rayhan.User5.Goal5_Schedule.ScheduleSceneFxmlController;
+import mainpkg.Rayhan.User5.Goal6_Campaign.CampaignSceneFxmlController;
+import mainpkg.Rayhan.User5.Goal8_Report.ReportSceneFxmlController;
 
 /**
  * FXML Controller class
@@ -92,6 +98,9 @@ public class DashBoard5SceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal4_VRequest/VolunteerRequestSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        VolunteerRequestSceneFxmlController vrc = myLoader.getController() ;
+        vrc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -105,6 +114,9 @@ public class DashBoard5SceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal3_AEReport/AidExecutiveReportSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        AidExecutiveReportSceneFxmlController asc = myLoader.getController() ;
+        asc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -118,6 +130,9 @@ public class DashBoard5SceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal2_SIReport/SecurityInchargeReportSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        SecurityInchargeReportSceneFxmlController ssc = myLoader.getController() ;
+        ssc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -131,6 +146,9 @@ public class DashBoard5SceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal5_Schedule/ScheduleSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        ScheduleSceneFxmlController ssc= myLoader.getController() ;
+        ssc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -141,9 +159,12 @@ public class DashBoard5SceneFxmlController implements Initializable {
     @FXML
     private void requestCampaignOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Campaign/CampaignSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal6_Campaign/CampaignSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        CampaignSceneFxmlController ssc= myLoader.getController() ;
+        ssc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -161,6 +182,9 @@ public class DashBoard5SceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal8_Report/ReportSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        ReportSceneFxmlController ssc= myLoader.getController() ;
+        ssc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -170,6 +194,7 @@ public class DashBoard5SceneFxmlController implements Initializable {
 
     @FXML
     private void signoutOnMouseClick(MouseEvent event) throws IOException {
+        user.setStatus("Deactive") ; 
         Parent root = null ;
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Login/LoginSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;

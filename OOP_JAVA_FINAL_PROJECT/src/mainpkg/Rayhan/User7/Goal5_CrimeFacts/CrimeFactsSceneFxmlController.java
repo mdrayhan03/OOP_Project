@@ -43,6 +43,7 @@ public class CrimeFactsSceneFxmlController implements Initializable {
      * @param rb
      */
     
+    
     public void tableShow() {
         crimeTableView.setItems(list) ;
     }

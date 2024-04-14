@@ -6,6 +6,7 @@ import mainpkg.AbstractClass.User;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.RequestedItems;
 import mainpkg.Rayhan.User5.Goal4_VRequest.RequestedVolunteer;
+import mainpkg.Rayhan.User5.VolunteerCoordinator;
 import mainpkg.Rayhan.User6.Goal1_Schedule.Schedule;
 import mainpkg.Rayhan.User6.Goal2_Teacher.Teacher;
 import mainpkg.Rayhan.User6.Goal4_Student.Course;
@@ -42,6 +43,23 @@ public class EducationCoordinator extends User implements Serializable {
     @Override
     public String toString() {
         return "EducationCoordinator{" + "teacherAmount=" + teacherAmount + ", studentAmount=" + studentAmount + '}';
+    }
+    
+        /**
+     *
+     * @param id
+     * @param pw
+     * @return
+     */
+    @Override
+    public EducationCoordinator verifyLogin(int id , String pw) {
+        int userId = this.getId() ;
+        String userPw = this.getPassword() ;
+        if (userId == id && userPw.equals(pw)) {
+            this.setStatus("Active") ;
+            return this ;
+        }
+        return null ;
     }
     
     public Schedule maintainSchedule(String teacherId, String teacherName, String courseId, String courseName, String time, String place, Date date) {

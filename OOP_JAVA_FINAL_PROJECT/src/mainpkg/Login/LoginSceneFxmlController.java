@@ -23,7 +23,9 @@ import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rasel.CampManager.CampManager;
+import mainpkg.Rasel.CampManager.CampManagerDashboardSceneController;
 import mainpkg.Rasel.Refugee.Refugee;
+import mainpkg.Rasel.Refugee.RefugeeDashboardSceneController;
 import mainpkg.Rayhan.User5.DashBoard5SceneFxmlController;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
 import mainpkg.Rayhan.User6.DashBoard6SceneFxmlController;
@@ -134,21 +136,22 @@ public class LoginSceneFxmlController implements Initializable {
                 else if ("Camp Manager".equals(u.getUserType())) {
                     FXMLLoader fx = fxmlload("/mainpkg/Rasel/CampManager/CampManagerDashboardScene.fxml" , "Camp Manager" , event) ;
                     System.out.println("Camp Manager") ;
-                    DashBoard6SceneFxmlController ds = fx.getController() ;
-                    ds.set(u);
+                    CampManagerDashboardSceneController ds = fx.getController() ;
+                    ds.set((CampManager) u);
                 }
                 
                 else if ("Refugee".equals(u.getUserType())) {
                     FXMLLoader fx = fxmlload("/mainpkg/Rasel/Refugee/RefugeeDashboardScene.fxml" , "Refugee" , event) ;
                     System.out.println("Refugee") ;
-                    DashBoard6SceneFxmlController ds = fx.getController() ;
-                    ds.set(u);
+                    RefugeeDashboardSceneController ds = fx.getController() ;
+                    ds.set((Refugee) u);
+                }
 
-//                else if ("Aid Excutive".equals(u.getUserType())) {
-//                    FXMLLoader fx = fxmlload("/mainpkg/Saima/User3_AidExcutive/DashBoardSceneFxml.fxml" , "Aid Excutive" , event) ;
-//                    System.out.println("Aid Excutive") ;
-//                    DashBoardSceneFxmlController ds = fx.getController() ;
-//                    ds.set((AidExcutive) u) ;
+                else if ("Aid Excutive".equals(u.getUserType())) {
+                    FXMLLoader fx = fxmlload("/mainpkg/Saima/User3_AidExcutive/DashBoardSceneFxml.fxml" , "Aid Excutive" , event) ;
+                    System.out.println("Aid Excutive") ;
+                    DashBoardSceneFxmlController ds = fx.getController() ;
+                    ds.set((AidExcutive) u) ;
                 }
                 
             }

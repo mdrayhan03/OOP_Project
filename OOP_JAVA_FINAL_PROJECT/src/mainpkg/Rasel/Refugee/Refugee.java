@@ -1,5 +1,6 @@
 package mainpkg.Rasel.Refugee;
 
+import java.io.Serializable;
 import javafx.collections.ObservableList;
 import mainpkg.AbstractClass.User;
 
@@ -7,12 +8,16 @@ import mainpkg.AbstractClass.User;
  *
  * @author Rasel
  */
-public class Refugee extends User {
+public class Refugee extends User implements Serializable {
     
     private String food, medicine, doctor;
     private String fatherName, motherName, symbole, description;
     private int quantity, campNo;
     ObservableList<Refugee> family_members;
+    
+    public Refugee() {
+        super(0, "", "", "", "", "", "", "");
+    }
     
     public Refugee(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob) {
         super(id, name, password, phoneNo, email, userType, gender, dob);
@@ -116,7 +121,8 @@ public class Refugee extends User {
         this.campNo = campNo;
     }
     
-
+    
+    
     
     @Override
     public String toString() {
@@ -136,5 +142,7 @@ public class Refugee extends User {
                 "campNo = " + campNo + "\n" +
                 "}";
     }
+    
+    
 
 }

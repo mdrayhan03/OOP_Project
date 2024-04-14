@@ -22,11 +22,10 @@ public class CampRulesSceneController implements Initializable {
     @FXML
     private TextArea rulesTextArea;
 
-    private List<String> rulesList;
+    CampRules cr;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        rulesList = new ArrayList<>();
         printRulesFromFile();
     }
 
@@ -44,33 +43,26 @@ public class CampRulesSceneController implements Initializable {
     @FXML
     private void updateRulesButtonOnClick(ActionEvent event) {
         String newRule = rulesTextArea.getText();
-        rulesList.add(newRule);
-        saveRuleToFile(newRule);
+        cr = new CampRules(newRule);
+        cr.addRule();
     }
-
-    private void saveRuleToFile(String newRule) {
+    
+    @FXML
+    private void deleteRulesOnButtonClick(ActionEvent event) {
         File file = new File("src/File/rules.txt");
 
-        try {
-            FileWriter fw = new FileWriter(file, true);
+        if (file.exists()) {
+            boolean deleted = file.delete();
 
-            if (!file.exists()) {
-                for (String rule : rulesList) {
-                    fw.write(rule + "\n");
-                }
+            if (deleted) {
+                showAlert("Rules file deleted successfully.", AlertType.INFORMATION);
+            } else {
+                showAlert("Failed to delete rules file.", AlertType.ERROR);
             }
-
-            fw.write(newRule + "\n");
-
-            fw.close();
-
-            System.out.println("Rule saved successfully to file.");
-        } catch (IOException e) {
-            System.out.println("Error saving rule to file: " + e.getMessage());
-        }
+        }   
     }
-
-    private void printRulesFromFile() {
+    
+    public void printRulesFromFile() {
         File file = new File("src/File/rules.txt");
 
         try {
@@ -84,7 +76,7 @@ public class CampRulesSceneController implements Initializable {
                 }
 
             } else {
-                rulesTextArea.setText("Rules is not defined");
+                rulesTextArea.setText("Rules are not defined");
                 System.out.println("Rules file is not found");
                 
             }
@@ -93,27 +85,10 @@ public class CampRulesSceneController implements Initializable {
             System.out.println("Error reading rules from file: " + e.getMessage());
         }
     }
-    
-    @FXML
-    private void deleteRulesOnButtonClick(ActionEvent event) {
-        File file = new File("src/File/rules.txt");
 
-        if (file.exists()) {
-            boolean deleted = file.delete();
-
-            if (deleted) {
-                showAlert(AlertType.INFORMATION, "File Deleted", "Rules file deleted successfully.");
-            } else {
-                showAlert(AlertType.ERROR, "Error", "Failed to delete rules file.");
-            }
-        }   
-    }
-
-    private void showAlert(AlertType alertType, String title, String content) {
+    private void showAlert(String message, AlertType alertType) {
         Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }   

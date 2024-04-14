@@ -51,15 +51,6 @@ public class Volunteer implements Serializable {
         return status;
     }
 
-    private String generateId() {
-        String id = "Vol" ;
-        id += name.substring(0) ;
-        id += phoneN.substring(9) ;
-        id += name.length() ;
-        
-        return id ;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -92,8 +83,13 @@ public class Volunteer implements Serializable {
     public String toString() {
         return "Volunteer{" + "id=" + id + ", name=" + name + ", phoneN=" + phoneN + ", addedBy=" + addedBy + ", addedById=" + addedById + '}';
     }
-
-
+    private String generateId() {
+        String id = "Vol" ;
+        id += this.getName().substring(0 , 2) ;
+        id += this.getPhoneN().substring(4 , 7) ;
+        
+        return id ;
+    }
     
     
 }

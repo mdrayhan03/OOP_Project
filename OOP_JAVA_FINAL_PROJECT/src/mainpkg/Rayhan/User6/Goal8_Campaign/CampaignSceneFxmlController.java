@@ -1,8 +1,15 @@
 package mainpkg.Rayhan.User6.Goal8_Campaign;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,11 +27,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.AppendableObjectOutputStream;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.Time_Place;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
 import mainpkg.Rayhan.User5.Goal1_Volunteer.Volunteer;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
+import mainpkg.Rayhan.User6.DashBoard6SceneFxmlController;
 import mainpkg.Rayhan.User6.EducationCoordinator;
 
 /**
@@ -53,15 +62,25 @@ public class CampaignSceneFxmlController implements Initializable {
     EducationCoordinator user ;
     Alert alert ;
     Time_Place tp = new Time_Place() ;
-    ObservableList<Campaign> table = FXCollections.observableArrayList() ;
     
-
+    
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
+    
+    public EducationCoordinator get() {
+        return user ;
+    }
+    
+    public void set(EducationCoordinator u) {
+        user = u ;
+        setTable() ;
+    }
+    
     public void setTable() {
+        ObservableList<Campaign> table = fileRead() ;
         campaignTableView.setItems(table) ;
     }
     @Override
@@ -69,13 +88,13 @@ public class CampaignSceneFxmlController implements Initializable {
         // TODO
         timeComboBox.setItems(tp.getCampaignTime()) ;
         placeComboBox.setItems(tp.getCampaignPlace()) ;
-        idTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("id")) ;
-        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("reason")) ;
-        dateTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,Date>("date")) ;
-        timeTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("time")) ;
-        placeTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("place")) ;
-        descriptionTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("des")) ;
-        statusTableColumn.setCellValueFactory(new PropertyValueFactory<Campaign,String>("status")) ;
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id")) ;
+        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<>("reason")) ;
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("date")) ;
+        timeTableColumn.setCellValueFactory(new PropertyValueFactory<>("time")) ;
+        placeTableColumn.setCellValueFactory(new PropertyValueFactory<>("place")) ;
+        descriptionTableColumn.setCellValueFactory(new PropertyValueFactory<>("des")) ;
+        statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status")) ;
     }    
 
     @FXML
@@ -84,6 +103,9 @@ public class CampaignSceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoard6SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard6SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -157,6 +179,8 @@ public class CampaignSceneFxmlController implements Initializable {
         
         if (rtn == true) {
             Campaign cam = user.requestForCampaign(time,  place,  reason,  user.getUserType(), des, user.getName(), date, user.getId()) ;
+            fileWrite(cam) ;
+            setTable() ;
         
             System.out.println("Pressed");
             alert = new Alert(Alert.AlertType.INFORMATION) ;
@@ -164,6 +188,71 @@ public class CampaignSceneFxmlController implements Initializable {
             alert.setContentText("Apply for Campaign is sucessfull.") ;
             alert.showAndWait() ;
         }
+    }
+    
+    private ObservableList<Campaign> fileRead() {
+        ObservableList<Campaign> studList = FXCollections.observableArrayList() ;
+        
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        
+        try {
+            f = new File("src/File/Campaign.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            Campaign st ;
+            try {
+                while(true){
+                    st = (Campaign)ois.readObject();
+                    if (st.getSenderId()== user.getId()) {
+//                    System.out.println(st);
+                        studList.add(st) ;
+                    }
+                }
+            }//end of nested try
+            catch(Exception e){
+                // handling code
+            }//nested catch     
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
+        } 
+        finally {
+            try {
+                
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }           
+        
+        return studList ;
+    }
+    
+    private void fileWrite(Campaign stu) {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
+        
+        try {
+            f = new File("src/File/Campaign.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(stu);
+
+        } catch (IOException ex) {
+            Logger.getLogger(CampaignSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if(oos != null) oos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(CampaignSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }                
     }
     
 }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.Campaign;
+import mainpkg.Rayhan.User5.Goal1_Volunteer.Volunteer;
 import mainpkg.Rayhan.User5.Goal2_SIReport.SIReport;
 import mainpkg.Rayhan.User5.Goal3_AEReport.AEReport;
 import mainpkg.Rayhan.User5.Goal8_Report.Report;
@@ -52,27 +53,51 @@ public class VolunteerCoordinator extends User implements Serializable{
         return super.toString() + "volunteerAmount=" + volunteerAmount + ", volunteerOnWork=" + volunteerOnWork + ", volunteerFree=" + volunteerFree + '}';
     }
     
-    public SIReport reportToSecurityIncharge(String subject , String des , Date doa){
-        SIReport sir = new SIReport(subject , des , doa) ;
+    /**
+     *
+     * @param id
+     * @param pw
+     * @return
+     */
+    @Override
+    public VolunteerCoordinator verifyLogin(int id , String pw) {
+        int userId = this.getId() ;
+        String userPw = this.getPassword() ;
+        if (userId == id && userPw.equals(pw)) {
+            this.setStatus("Active") ;
+            return this ;
+        }
+        return null ;
+    }
+    
+    public Volunteer addVolunteer(String name, String pN, String addedBy , int addedById){
+        Volunteer vc = new Volunteer(name , pN , addedBy , addedById) ;
+        
+        this.setVolunteerAmount(this.getVolunteerAmount() + 1) ;
+        this.setVolunteerFree(this.getVolunteerFree() + 1) ;                
+        
+        return vc ;
+    }
+    
+    public SIReport reportToSecurityIncharge(String subject , Integer senderId , Integer receiverId , String des , Date doa){
+        SIReport sir = new SIReport(subject , senderId , receiverId , des , doa) ;
         return sir ;
     }
     
-    public AEReport reportToAidExecutive(String subject , String des , Date doa){
-        AEReport aer = new AEReport(subject , des , doa) ;
-        return aer ;
+    public AEReport reportToAidExecutive(String subject , Integer senderId , Integer receiverId , String des , Date doa){
+        AEReport sir = new AEReport(subject , senderId , receiverId , des , doa) ;
+        return sir ;
     }
     
     public boolean getRequestForVolunteer(int amount) {
-        this.setVolunteerOnWork(this.getVolunteerOnWork() + amount) ;
-        this.setVolunteerFree(this.getVolunteerFree() - amount) ;
-        return true ;
+        if (this.getVolunteerFree() >= amount) {
+            this.setVolunteerOnWork(this.getVolunteerOnWork() + amount) ;
+            this.setVolunteerFree(this.getVolunteerFree() - amount) ;
+            return true ;
+        }
+        return false ;
     }
-    
-    public void addVolunteer(int volunteer){
-        this.setVolunteerAmount(this.getVolunteerAmount() + volunteer) ;
-        this.setVolunteerFree(this.getVolunteerFree() + volunteer) ;                
-    }
-    
+        
     public Campaign requestForCampaign(String time, String place, String subject, String userType, String des, String senderName, Date date, int senderId) {
         Campaign cam = new Campaign(time,  place,  subject,  userType, des, senderName, date, senderId) ;
         return cam ;
@@ -84,8 +109,8 @@ public class VolunteerCoordinator extends User implements Serializable{
         return true ;
     }
     
-    public Report report(String subject , String des , Date doa) {
-        Report rep = new Report(subject , des , doa) ;
+    public Report report(Integer senderId, Integer receiverId, String subject, String description, Date applyDate) {
+        Report rep = new Report(senderId, receiverId, subject, description, applyDate) ;
         return rep ;
     }
        

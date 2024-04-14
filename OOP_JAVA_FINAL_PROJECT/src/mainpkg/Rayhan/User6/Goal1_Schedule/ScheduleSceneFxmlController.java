@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.Time_Place;
 import mainpkg.Rayhan.User5.Goal4_VRequest.RequestedVolunteer;
+import mainpkg.Rayhan.User6.DashBoard6SceneFxmlController;
 import mainpkg.Rayhan.User6.EducationCoordinator;
 
 /**
@@ -64,13 +65,6 @@ public class ScheduleSceneFxmlController implements Initializable {
         user = u ;
     }
     
-    public void setTeacher() {
-        
-    }
-    
-    public void setCourse() {
-        
-    }
     public void tableShow() {
         scheduleTableView.setItems(list) ;
     }
@@ -95,6 +89,9 @@ public class ScheduleSceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User6/DashBoard6SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard6SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -109,9 +106,7 @@ public class ScheduleSceneFxmlController implements Initializable {
         int dd = 0 , mm = 0 , yyyy = 0 ;
         
         teacherId = teacherIdComboBox.getValue() ;
-        teacherName = this.getTeacherName() ;
         courseId = courseidComboBox.getValue() ;
-        courseName = this.getCourseName() ;
         time = timeComboBox.getValue() ;
         place = placeComboBox.getValue() ;
         
@@ -148,14 +143,5 @@ public class ScheduleSceneFxmlController implements Initializable {
         
     }
     
-    public String getTeacherName() {
-        String name = null ;
-        return name ;
-    }
-    
-    public String getCourseName() {
-        String name = null ;
-        return name ;
-    }
     
 }

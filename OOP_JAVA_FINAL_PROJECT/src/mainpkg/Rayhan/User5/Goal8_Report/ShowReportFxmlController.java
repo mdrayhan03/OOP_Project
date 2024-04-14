@@ -6,8 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import mainpkg.Rayhan.User5.Goal2_SIReport.SIReport;
-import mainpkg.Rayhan.User5.Goal2_SIReport.SIReportList;
 
 /**
  * FXML Controller class
@@ -28,15 +26,14 @@ public class ShowReportFxmlController implements Initializable {
      * @param sir
      * @param rb
      */
-    public void set (Report si , ReportList sir) {
-        Report msi = si ;
-        ReportList msir = sir ;
+    public void set (Report r) {
+        Report mr = r ;
         
-        fromLabel.setText(Integer.toString(msir.getSenderId())) ;
-        toLabel.setText(Integer.toString(msir.getReceiverId())) ;
-        subjectLabel.setText(msi.getSubject()) ;
-        dateLabel.setText(msi.getApplyDate().toString()) ;
-        reportBodyTextArea.setText(msi.description) ;
+        fromLabel.setText(Integer.toString(mr.getSenderId())) ;
+        toLabel.setText(Integer.toString(mr.getReceiverId())) ;
+        subjectLabel.setText(mr.getSubject()) ;
+        dateLabel.setText(mr.getApplyDate().toString()) ;
+        reportBodyTextArea.setText(mr.getDescription()) ;
         
     }
     

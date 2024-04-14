@@ -90,9 +90,9 @@ public class LoginSceneFxmlController implements Initializable {
         list.add(r);
         
         userTypeComboBox.getItems().addAll("Refugee Camp Manager", "Refugee", "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGO") ;
-        AidExcutive ae = new AidExcutive(2233456 , "Saima" , "asd123" , "01792760030" , "saima@gmail.com" , "Aid Excuive" , "Male" , "08/04/2003") ;
+        AidExcutive ae = new AidExcutive(2233456 , "Saima" , "abcd1234" , "01792760030" , "saima@gmail.com" , "Aid Excuive" , "Female" , "08/04/2003") ;
         list.add(ae) ;
-        Doctor d = new Doctor(5555777 , "Sintiya" , "abc555" , "01951820192" , "sinthiya@gmail.com" , "Doctor" , "Female" , "06/04/2003") ;
+        Doctor d = new Doctor(5555777 , "Sintiya" , "abcd5555" , "01951820192" , "sinthiya@gmail.com" , "Doctor" , "Female" , "06/04/2003") ;
         list.add(d);
         
 >>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb
@@ -193,11 +193,11 @@ public class LoginSceneFxmlController implements Initializable {
                     DashBoard6SceneFxmlController ds = fx.getController() ;
                     ds.set(u);
 
-                else if ("Aid Excutive".equals(u.getUserType())) {
-                    FXMLLoader fx = fxmlload("/mainpkg/Saima/User3_AidExcutive/DashBoardSceneFxml.fxml" , "Aid Excutive" , event) ;
-                    System.out.println("Aid Excutive") ;
-                    DashBoardSceneFxmlController ds = fx.getController() ;
-                    ds.set((AidExcutive) u) ;
+//                else if ("Aid Excutive".equals(u.getUserType())) {
+//                    FXMLLoader fx = fxmlload("/mainpkg/Saima/User3_AidExcutive/DashBoardSceneFxml.fxml" , "Aid Excutive" , event) ;
+//                    System.out.println("Aid Excutive") ;
+//                    DashBoardSceneFxmlController ds = fx.getController() ;
+//                    ds.set((AidExcutive) u) ;
                 }
                 
             }

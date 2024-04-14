@@ -60,7 +60,13 @@ public class LoginSceneFxmlController implements Initializable {
     ObservableList<EducationCoordinator> ecList = FXCollections.observableArrayList() ;
     ObservableList<SecurityIncharge> siList = FXCollections.observableArrayList() ;
     ObservableList<NGOs> ngList = FXCollections.observableArrayList() ;
-
+    
+    ObservableList<AidExcutive> aEList = FXCollections.observableArrayList() ;
+    ObservableList<Doctor> docList = FXCollections.observableArrayList() ;
+    
+    ObservableList<CampManager> cMList = FXCollections.observableArrayList() ;
+    ObservableList<Refugee> refList = FXCollections.observableArrayList() ;
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -81,19 +87,18 @@ public class LoginSceneFxmlController implements Initializable {
         NGOs n = new NGOs(8800000 , "Abul Kalam" , "asdfghjk" , "01312961737" , "rayhan@gmail.com" , "NGOs" , "Male" , "04/04/2003") ;
         ngList.add(n);
         
-        userTypeComboBox.getItems().addAll("Refugee Camp Manager" , "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGOs") ;
-
-        list.add(e);
+     
+        
         CampManager c = new CampManager(7700000 , "Brigadier Gen Niaz" , "admin1234" , "01476589098" , "refugee.camp.niaz@gmail.com" , "Camp Manager" , "Male" , "07/02/1980", new Date(20,01,2020));
-        list.add(c);
+        cMList.add(c);
         Refugee r = new Refugee(8800000 , "Niloy Sarder" , "admin1234" , "01676543198" , "niloy@gmail.com" , "Refugee" , "Male" , "02/07/1998") ;
-        list.add(r);
+        refList.add(r);
         
         userTypeComboBox.getItems().addAll("Refugee Camp Manager", "Refugee", "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGO") ;
         AidExcutive ae = new AidExcutive(2233456 , "Saima" , "abcd1234" , "01792760030" , "saima@gmail.com" , "Aid Excuive" , "Female" , "08/04/2003") ;
-        list.add(ae) ;
+        aEList.add(ae) ;
         Doctor d = new Doctor(5555777 , "Sintiya" , "abcd5555" , "01951820192" , "sinthiya@gmail.com" , "Doctor" , "Female" , "06/04/2003") ;
-        list.add(d);
+        docList.add(d);
         
 
         userTypeComboBox.setValue("Refugee Camp Manager") ;
@@ -161,9 +166,11 @@ public class LoginSceneFxmlController implements Initializable {
                     stage.setScene(myScene) ;
                     stage.setTitle("Volunteer Coordinator DashBoard") ;
                     stage.show() ;
+                }
+            }
 
-        for (User user: list) {
-            User u = user.verifyLogin(id, pw) ;
+        for (User user: vcList) {
+           User u = user.verifyLogin(id, pw) ;
             if (u != null) {
                 done = true ;
                 if (userType == "Volunteer Coordinator"){
@@ -426,7 +433,7 @@ public class LoginSceneFxmlController implements Initializable {
 //        alert.showAndWait() ;
         
     }
-
+    }
     @FXML
     private void forgetPasswordOnMouseClick(MouseEvent event) throws IOException {
         Parent root = null ;

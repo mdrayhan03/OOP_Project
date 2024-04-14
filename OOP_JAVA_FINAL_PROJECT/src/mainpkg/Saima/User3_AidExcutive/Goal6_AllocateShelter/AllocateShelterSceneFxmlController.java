@@ -21,9 +21,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.Date;
 import mainpkg.Rasel.CampManager.Goal5_Supply.Shelter;
 import mainpkg.Saima.User3_AidExcutive.AidExcutive;
 import mainpkg.Rasel.CampManager.Goal5_Supply.Shelter;
+import mainpkg.Rasel.Refugee.Refugee;
 
 
 /**
@@ -71,7 +73,7 @@ public class AllocateShelterSceneFxmlController implements Initializable {
     private void backButtonOnMouseClicked(MouseEvent event) throws IOException {
         
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/DashBoard6SceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/DashBoardSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
 
@@ -86,9 +88,9 @@ public class AllocateShelterSceneFxmlController implements Initializable {
     private void allocateButtonOnMouseClicked(MouseEvent event) {
         String selectedShelterId = emptyShelterIdComboBox.getValue();
         
-        int dd = Integer.parseInt(ddTextField.getText());
-        int mm = Integer.parseInt(mmTextField.getText());
-        int yyyy = Integer.parseInt(yyyyTextField.getText());
+         int dd = Integer.parseInt(ddTextField.getText());
+         int mm = Integer.parseInt(mmTextField.getText());
+         int yyyy = Integer.parseInt(yyyyTextField.getText());
         
         Shelter allocatedShelter = user.allocateShelter(selectedShelterId, dd, mm, yyyy);
         
@@ -99,6 +101,16 @@ public class AllocateShelterSceneFxmlController implements Initializable {
              System.out.println("Failed to allocate shelter.");
         }
 
+      ObservableList<Refugee> familyMembers = user.getFamilyMembersOfShelter(selectedShelterId);
+    
+    if (familyMembers != null && familyMembers.size() == 5) {
+        // Display family members' IDs
+        familyMemberId1Label.setText(String.valueOf(familyMembers.get(0).getRefugeeID()));
+        familyMemberId2Label.setText(String.valueOf(familyMembers.get(1).getRefugeeID()));
+        familyMemberId3Label.setText(String.valueOf(familyMembers.get(2).getRefugeeID()));
+        familyMemberId4Label.setText(String.valueOf(familyMembers.get(3).getRefugeeID()));
+        familyMemberId5Label.setText(String.valueOf(familyMembers.get(4).getRefugeeID()));
+    }
     }
     
 }

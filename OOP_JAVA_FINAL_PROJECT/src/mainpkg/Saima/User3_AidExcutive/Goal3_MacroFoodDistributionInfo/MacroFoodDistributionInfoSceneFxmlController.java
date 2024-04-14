@@ -11,7 +11,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -29,9 +32,14 @@ public class MacroFoodDistributionInfoSceneFxmlController implements Initializab
     @FXML
     private AnchorPane parentAnchorPane;
     @FXML
-    private BarChart<?, ?> barChart;
+    private BarChart<String, Number> barChart;
     @FXML
     private PieChart PieChart;
+    @FXML
+    private NumberAxis yAxis;
+    @FXML
+    private CategoryAxis xAxis;
+    
 
     /**
      * Initializes the controller class.
@@ -47,10 +55,17 @@ public class MacroFoodDistributionInfoSceneFxmlController implements Initializab
     public void set(AidExcutive u) {
         user = u ;
     }
+    
+    /**
+     *
+     */
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        
+        
+
+    }
 
     @FXML
     private void backButtonOnMouseClicked(MouseEvent event) {

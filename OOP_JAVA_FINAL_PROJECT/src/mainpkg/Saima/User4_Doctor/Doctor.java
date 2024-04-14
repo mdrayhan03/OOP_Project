@@ -83,7 +83,7 @@ public class Doctor extends User implements Serializable{
     
 
   
-    public Report report(String subject , String des , Date doa) {
+    public Report report(int id, Integer receiverId, String subject, String des, Date doa) {
     Report rep = new Report(subject , des , doa) ;
     return rep ;
     }
@@ -118,32 +118,38 @@ public class Doctor extends User implements Serializable{
         return cam ;
     }
     
-   public CheckupSchedule maintainCheckupSchedule(String appointmentId, String refugeeId, String name, String gender, Date checkupDate, String checkupTime) {
-        CheckupSchedule schedule = new CheckupSchedule(appointmentId, refugeeId, name, gender, checkupDate, checkupTime);
-   
-        return schedule;
-  
-    }
+    public CheckupSchedule scheduleInfo(String id, ObservableList<CheckupSchedule> list) {
+      for (CheckupSchedule schedule : list) {
+          if (schedule.getAppointmentId().equals(id)) {
+              return schedule;
+          }
+      }
+      return null;
+  }
    
     public Holiday requestExtraHoliday(int userId, String userType , String reason, Date startDate, Date endDate) {
         Holiday req = new Holiday(userId,  userType,  reason,  startDate, endDate) ;
         return req ;
    
-   };
+   }
 
     public Campaign requestForCampaign(String time, String place, String reason, String userType, String des, String name, Date date, int id) {
        Campaign req=new Campaign(time,place,reason,userType,des,name,date,id);
-
-    public CheckupSchedule scheduleInfo(String value, ObservableList<CheckupSchedule> list) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return req;
     }
 
-    
+   
+  
 
-    public Patient patientInfo(String toString, ObservableList<Patient> list) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   public Patient patientInfo(String id, ObservableList<Patient> list) {
+    for (Patient patient : list) {
+        if (patient.getPatientId().equals(id)) {
+            return patient;
+        }
     }
-    
+    return null; 
+   }
+
     
    
    

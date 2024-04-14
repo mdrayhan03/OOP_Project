@@ -21,6 +21,7 @@ public class CheckupSchedule {
     private String checkupTime;
 
     // Constructor
+
     public CheckupSchedule(String appointmentId, String refugeeId, String name, String gender, Date checkupDate, String checkupTime) {
         this.appointmentId = appointmentId;
         this.refugeeId = refugeeId;
@@ -29,6 +30,7 @@ public class CheckupSchedule {
         this.checkupDate = checkupDate;
         this.checkupTime = checkupTime;
     }
+    
 
     // Getters and setters
     public String getAppointmentId() {

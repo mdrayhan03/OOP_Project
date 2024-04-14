@@ -5,12 +5,14 @@
 package mainpkg.Saima.User3_AidExcutive;
 
 import java.io.Serializable;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rasel.CampManager.Goal5_Supply.Food;
 import mainpkg.Rasel.CampManager.Goal5_Supply.Shelter;
 import mainpkg.Rasel.CampManager.Goal7_AllRequests.RequestedItems;
+import mainpkg.Rasel.Refugee.Refugee;
 import mainpkg.Saima.User3_AidExcutive.Goal8_Report.Report;
 
 /**
@@ -97,7 +99,7 @@ public class AidExcutive extends User implements Serializable{
         this.setShelterAmount(this.getShelterAmount() + 1) ;
         return sh;
     }
-    public Shelter allocateShelter(String id, Integer amount, Date date,String status) {
+    public Shelter allocateShelter(String id, int amount, int date, int status) {
         Shelter sh = new Shelter(id, amount, date,status);
         int currentShelterAmount = this.getShelterAmount();
         if (currentShelterAmount > 0) {
@@ -110,9 +112,14 @@ public class AidExcutive extends User implements Serializable{
         return req ;
     }
 
-    public Shelter allocateShelter(String selectedShelterId, int dd, int mm, int yyyy) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
-
+   public ObservableList<Refugee> getFamilyMembersOfShelter(String selectedShelterId) {
+   
+    ObservableList<Refugee> familyMembers = FXCollections.observableArrayList();
+    
+    return familyMembers;
+   }
 }
+
+

@@ -110,7 +110,7 @@ public class VolunteerCoordinator extends User implements Serializable{
     }
     
     public Report report(Integer senderId, Integer receiverId, String subject, String description, Date applyDate) {
-        Report rep = new Report(senderId, receiverId, subject, description, applyDate) ;
+        Report rep = new Report(subject, description, applyDate) ;
         return rep ;
     }
        

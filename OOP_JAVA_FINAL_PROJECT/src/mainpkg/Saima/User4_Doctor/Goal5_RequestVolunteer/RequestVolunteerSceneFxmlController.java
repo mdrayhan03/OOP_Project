@@ -43,7 +43,7 @@ public class RequestVolunteerSceneFxmlController implements Initializable {
     @FXML    private TextField amountTextField;
     @FXML    private ComboBox<String> timeComboBox;
     @FXML    private ComboBox<String> placeComboBox;
-    private TableView<RequestedVolunteer> requesVolunteertTableView;
+    @FXML private TableView<RequestedVolunteer> requestVolunteertTableView;
     @FXML    private TableColumn<RequestedVolunteer, String> requestIdTableColumn;
     @FXML    private TableColumn<RequestedVolunteer, String> reasonTableColumn;
     @FXML    private TableColumn<RequestedVolunteer, String> descriptionTableColumn;
@@ -61,8 +61,7 @@ public class RequestVolunteerSceneFxmlController implements Initializable {
     Time_Place tp = new Time_Place() ;
     Alert alert ;
     @FXML
-    private TableView<?> requestVolunteertTableView;
-    
+ 
     
     public Doctor get() {
         return user ;
@@ -71,7 +70,7 @@ public class RequestVolunteerSceneFxmlController implements Initializable {
         user = u ;
     }
     public void tableShow() {
-        requesVolunteertTableView.setItems(list) ;
+        requestVolunteertTableView.setItems(list) ;
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -87,7 +86,7 @@ public class RequestVolunteerSceneFxmlController implements Initializable {
     private void backOnMouseClicked(MouseEvent event) throws IOException {
         
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User4_Doctor/DashBoardSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User4_Doctor/DoctorDashBoardSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
 

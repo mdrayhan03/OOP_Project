@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Saima.User3_AidExcutive.DashBoardSceneFxmlController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Saima.User3_AidExcutive.DashBoardSceneFxmlController">
    <children>
       <Button mnemonicParsing="false" onMouseClicked="#profileOnMouseClicked" prefHeight="84.0" prefWidth="400.0" text="Profile">
          <font>
@@ -49,12 +49,12 @@
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="645.0" mnemonicParsing="false" onMouseClicked="#reportOnMouseClicked" prefHeight="76.0" prefWidth="400.0" text="Report">
+      <Button layoutY="645.0" mnemonicParsing="false" onMouseClicked="#reportOnMouseClicked" prefHeight="75.0" prefWidth="400.0" text="Report">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="721.0" mnemonicParsing="false" onMouseClicked="#signOutOnMouseClicked" prefHeight="76.0" prefWidth="400.0" text="Sign Out">
+      <Button layoutY="721.0" mnemonicParsing="false" onMouseClicked="#signOutOnMouseClicked" prefHeight="55.0" prefWidth="400.0" text="Sign Out">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
@@ -79,7 +79,7 @@
             <Font name="Eras Bold ITC" size="36.0" />
          </font>
       </Label>
-      <Label alignment="TOP_LEFT" layoutX="410.0" layoutY="390.0" prefHeight="424.0" prefWidth="807.0" textAlignment="JUSTIFY" wrapText="true">
+      <Label alignment="TOP_LEFT" layoutX="410.0" layoutY="390.0" prefHeight="224.0" prefWidth="600.0" textAlignment="JUSTIFY" wrapText="true">
          <font>
             <Font name="Comic Sans MS Italic" size="24.0" />
          </font>
@@ -99,7 +99,7 @@
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="400.0" fitWidth="504.0" layoutX="609.0" layoutY="402.0">
+      <ImageView fitHeight="400.0" fitWidth="504.0" layoutX="410.0" layoutY="361.0">
          <image>
             <Image url="@../../../../../../../../Downloads/unhcr-logo-black-and-white-1.png" />
          </image>

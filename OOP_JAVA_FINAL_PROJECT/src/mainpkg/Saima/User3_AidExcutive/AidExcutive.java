@@ -99,7 +99,7 @@ public class AidExcutive extends User implements Serializable{
         this.setShelterAmount(this.getShelterAmount() + 1) ;
         return sh;
     }
-    public Shelter allocateShelter(String id, int amount, int date, int status) {
+    public Shelter allocateShelter(String id, int amount, Date date, String status) {
         Shelter sh = new Shelter(id, amount, date,status);
         int currentShelterAmount = this.getShelterAmount();
         if (currentShelterAmount > 0) {
@@ -111,6 +111,7 @@ public class AidExcutive extends User implements Serializable{
         ShelterRequest req = new ShelterRequest(amount, apply, deadline, status);
         return req ;
     }
+
 
     
 

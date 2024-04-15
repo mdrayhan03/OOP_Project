@@ -25,6 +25,7 @@ import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
 import mainpkg.Saima.User3_AidExcutive.AidExcutive;
 
+
 /**
  * FXML Controller class
  *
@@ -32,12 +33,12 @@ import mainpkg.Saima.User3_AidExcutive.AidExcutive;
  */
 public class ReportSceneFxmlController implements Initializable {
 
-    @FXML    private TextField ddTextField;
-    @FXML    private TextField mmTextField;
-    @FXML    private TextField yyyyTextField;
-    @FXML    private TextField campManagerIdTextField;
-    @FXML    private TextField subjectTextField;
-    @FXML    private TextArea reportBodyTextArea;
+    private TextField ddTextField;
+    private TextField mmTextField;
+    private TextField yyyyTextField;
+    private TextField campManagerIdTextField;
+    private TextField subjectTextField;
+    private TextArea reportBodyTextArea;
 
     /**
      * Initializes the controller class.
@@ -58,96 +59,42 @@ public class ReportSceneFxmlController implements Initializable {
         // TODO
     }    
 
+   
     @FXML
-    private void backOnMouseClicked(MouseEvent event) throws IOException {
+    private void foodReportOnMouseClicked(MouseEvent event) throws IOException {
         Parent root = null ;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/DashBoardSceneFxml.fxml")) ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/Goal8_Report/FoodReportSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+       FoodReportSceneFxmlController psc = myLoader.getController() ;
+
+        psc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
-        stage.setTitle("Aid Excutive DashBoard") ;
+        stage.setTitle("Food Report") ;
         stage.show() ;
+    
     }
+    
 
     @FXML
-    private void submitOnMouseClick(MouseEvent event) throws IOException {
-         Boolean rtn = true ;
-        Integer receiverId = null , dd = null , mm = null , yyyy = null ;
-        String subject = "" , des = "" , sdd = "" , smm = "" , syyyy = "" ;
+    private void shelterReportOnMouseClicked(MouseEvent event) throws IOException {
+        Parent root = null ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/Goal8_Report/FoodReportSceneFxml.fxml")) ;
+        root = (Parent) myLoader.load() ;
+        Scene myScene = new Scene(root) ;
         
-        receiverId = Integer.parseInt(campManagerIdTextField.getText()) ;
-        if (receiverId == null) {
-            alert = new Alert(Alert.AlertType.ERROR) ;
-            alert.setHeaderText("ID Error") ;
-            alert.setContentText("ID must.") ;
-        }
-        
-        sdd = ddTextField.getText() ;
-        smm = mmTextField.getText() ;
-        syyyy = yyyyTextField.getText() ;
-        
-        if (sdd.length() != 0 || smm.length() != 0 || syyyy.length() != 0){
-        
-            dd = Integer.parseInt(sdd) ;
-            mm = Integer.parseInt(smm) ;
-            yyyy = Integer.parseInt(syyyy) ;
-        }
-        
-        if (dd == null || mm == null || yyyy == null) {
-            alert = new Alert(Alert.AlertType.WARNING) ;
-            alert.setHeaderText("Date Error.") ;           
-            alert.setContentText("DD/MM/YYYY Required.") ;
-            rtn = false ;
-            alert.showAndWait() ;
-        }
-        Date doa = new Date(dd , mm , yyyy) ;
-        if (doa.isValid() == false) {
-            alert = new Alert(Alert.AlertType.WARNING) ;
-            alert.setHeaderText("Date Error.") ;
-            alert.setContentText("Date is not Valid.") ;
-            rtn = false ;
-            alert.showAndWait() ;
-        }
-        
-        subject = subjectTextField.getText() ;
-        if (subject.length() == 0) {
-            alert = new Alert(Alert.AlertType.ERROR) ;
-            alert.setHeaderText("Error.") ;
-            alert.setContentText("Subject must.") ;
-            rtn = false ;
-            alert.showAndWait() ;
-        }
-        
-        des = reportBodyTextArea.getText() ;
-        if (subject.length() == 0) {
-            alert = new Alert(Alert.AlertType.ERROR) ;
-            alert.setHeaderText("Error.") ;
-            alert.setContentText("Subject must.") ;
-            rtn = false ;
-            alert.showAndWait() ;
-        }
-        
-        if (rtn == true) {
-            Report re = user.report(subject , des , doa) ;
-            System.out.println(user.getId() + receiverId + re.getId());
-            sir = new ReportList(user.getId() , receiverId , re.getId()) ;    
-        
-            Parent root = null ;
-            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/Goal8_Report/ShowReportFxml.fxml")) ;
-            root = (Parent) myLoader.load() ;
-            Scene myScene = new Scene(root) ;
-        
-            ShowReportFxmlController src = myLoader.getController() ;
-            src.set(re, sir) ;
+       FoodReportSceneFxmlController psc = myLoader.getController() ;
 
-            Stage stage = new Stage() ;
-            stage.setScene(myScene) ;
-            stage.getIcons().add(new Image("/image/campIcon.jpg")) ;
-            stage.setTitle("Aid Excutive Show Report") ;
-            stage.show() ;
-        }
+        psc.set(user) ;
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
+        stage.setScene(myScene) ;
+        stage.setTitle("Shelter Report") ;
+        stage.show() ;
+    
     }
     
     }

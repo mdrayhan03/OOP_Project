@@ -33,7 +33,7 @@ import mainpkg.Saima.User4_Doctor.Profile.ProfileSceneFxmlController;
  *
  * @author HP
  */
-public class DashBoardSceneFxmlController implements Initializable {
+public class DoctorDashBoardSceneFxmlController implements Initializable {
 
     @FXML    private Label nameLabel;
     @FXML    private Label userTypeLabel;

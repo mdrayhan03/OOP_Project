@@ -15,7 +15,7 @@ public class MainApplicationClass extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Opening/OpeningSceneFxml.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/DashBoardSceneFxml.fxml"));
 //        Parent root = FXMLLoader.load(getClass().getResource("Login/LoginSceneFxml.fxml"));
 //        Parent root = FXMLLoader.load(getClass().getResource("ForgetPW/ForgetPWFxml.fxml"));
 //        Parent root = FXMLLoader.load(getClass().getResource("Rayhan/User5/DashBoardSceneFxml.fxml")) ;

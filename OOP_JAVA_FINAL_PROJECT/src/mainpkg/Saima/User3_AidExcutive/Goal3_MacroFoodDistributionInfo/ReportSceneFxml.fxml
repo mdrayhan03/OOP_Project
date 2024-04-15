@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -70,14 +69,7 @@
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-<<<<<<< HEAD:OOP_JAVA_FINAL_PROJECT/build/classes/mainpkg/Rayhan/User5/Goal2_SIReport/SecurityInchargeReportSceneFxml.fxml
-      <Label layoutX="84.0" layoutY="192.0" text="To">
-         <font>
-            <Font name="Eras Demi ITC" size="24.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="idComboBox" layoutX="217.0" layoutY="191.0" prefHeight="31.0" prefWidth="325.0" />
-=======
->>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb:OOP_JAVA_FINAL_PROJECT/src/mainpkg/Saima/User3_AidExcutive/Goal8_Report/ReportSceneFxml.fxml
+
+
    </children>
 </AnchorPane>

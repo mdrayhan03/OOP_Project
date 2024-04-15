@@ -7,7 +7,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Saima.User3_AidExcutive.Goal8_Report.ReportSceneFxmlController">
    <children>
-      <Button layoutX="60.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClicked" prefHeight="50.0" prefWidth="100.0" text="Back">
+      <Button layoutX="60.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#backButtonOnMouseClicked" prefHeight="50.0" prefWidth="100.0" text="Back">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
@@ -17,11 +17,6 @@
             <Font name="Cooper Black" size="48.0" />
          </font>
       </Label>
-      <Button layoutX="979.0" layoutY="746.0" mnemonicParsing="false" onMouseClicked="#submitOnMouseClick" prefHeight="50.0" prefWidth="150.0" text="Submit">
-         <font>
-            <Font name="Cooper Black" size="24.0" />
-         </font>
-      </Button>
       <Button layoutX="60.0" layoutY="216.0" mnemonicParsing="false" onMouseClicked="#foodReportOnMouseClicked" prefHeight="50.0" prefWidth="282.0" text="Food Report">
          <font>
             <Font name="Cooper Black" size="24.0" />

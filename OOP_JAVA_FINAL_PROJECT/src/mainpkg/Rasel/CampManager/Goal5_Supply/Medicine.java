@@ -9,23 +9,34 @@ import java.util.Random;
 import mainpkg.AbstractClass.Date;
 
 public class Medicine implements Serializable {
-    String id,name;
-    Integer Amount;
+     int id ;
+    String userType ;
+    String name;
+    int amount;
     Date date;
 
-    public Medicine(String id, String name, Integer Amount, Date date) {
+    public Medicine(int id, String userType, String name, int amount, Date date) {
         this.id = id;
+        this.userType = userType;
         this.name = name;
-        this.Amount = Amount;
+        this.amount = amount;
         this.date = date;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     public String getName() {
@@ -36,12 +47,12 @@ public class Medicine implements Serializable {
         this.name = name;
     }
 
-    public Integer getAmount() {
-        return Amount;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setAmount(Integer Amount) {
-        this.Amount = Amount;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public Date getDate() {
@@ -54,8 +65,10 @@ public class Medicine implements Serializable {
 
     @Override
     public String toString() {
-        return "Medicine{" + "id=" + id + ", name=" + name + ", Amount=" + Amount + ", date=" + date + '}';
+        return "Medicine{" + "id=" + id + ", userType=" + userType + ", name=" + name + ", amount=" + amount + ", date=" + date + '}';
     }
+
+ 
 
    
 

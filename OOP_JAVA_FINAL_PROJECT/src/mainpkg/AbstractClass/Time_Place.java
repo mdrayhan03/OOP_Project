@@ -17,6 +17,9 @@ public class Time_Place {
     ObservableList<String> securityTime =  FXCollections.observableArrayList() ;
     ObservableList<String> securityPlace =  FXCollections.observableArrayList() ;
     ObservableList<String> volunteerRequester =  FXCollections.observableArrayList() ;
+    ObservableList<String> aidexcutivefoodName =  FXCollections.observableArrayList() ;
+    ObservableList<String> doctorMedicineName =  FXCollections.observableArrayList() ;
+    
     
     public Time_Place() {
         this.setCampaignPlace();
@@ -28,6 +31,8 @@ public class Time_Place {
         this.setTuitionPlace();
         this.setTuitionTime();
         this.setVolunteerRequester();
+        this.setAidexcutivefoodName();
+        this.setDoctorMedicineName();
     }
 
 
@@ -67,6 +72,13 @@ public class Time_Place {
     public ObservableList<String> getVolunteerRequester() {
         return volunteerRequester;
     }
+    
+     public ObservableList<String> getAidexcutivefoodName() {
+        return aidexcutivefoodName;
+    }
+      public ObservableList<String> getDoctorMedicineName() {
+        return doctorMedicineName;
+    }
 
     public void setCampaignTime() {
         campaignTime.addAll("09:00-12:00" , "15:00-18:00" , "18:00-21:00") ;
@@ -105,6 +117,12 @@ public class Time_Place {
         volunteerRequester.addAll("ALL User" , "Aid Executive" , "Doctor" , "EducationCoordinator");
     }
     
+    public void setAidexcutivefoodName() {
+        aidexcutivefoodName.addAll("Rice" , "Potato" , "Fish" , "Chicken", "Egg", "Milk", "Oil", "Pulse", "Onion");
+    }
     
+    public void setDoctorMedicineName() {
+        doctorMedicineName.addAll("Napa" , "Napa Extra" , "Doxin" , "Lumona 10", "Finix", "Adovas", "tufnil", "Imodium", "Alaxan");
+    }
     
 }

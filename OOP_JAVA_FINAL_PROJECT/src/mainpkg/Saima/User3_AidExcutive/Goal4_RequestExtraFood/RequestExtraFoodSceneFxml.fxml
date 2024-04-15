@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -11,86 +12,95 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Saima.User3_AidExcutive.Goal4_RequestExtraFood.RequestExtraFoodSceneFxmlController">
    <children>
-      <Label layoutX="334.0" layoutY="95.0" prefHeight="55.0" prefWidth="493.0" text="Extra Food Request">
+      <Button layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClick" prefHeight="50.0" prefWidth="100.0" text="Back">
+         <font>
+            <Font name="Cooper Black" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="502.0" layoutY="100.0" text="Request Extra Food">
          <font>
             <Font name="Cooper Black" size="48.0" />
          </font>
       </Label>
-      <Button layoutX="10.0" layoutY="58.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClicked" prefHeight="50.0" prefWidth="100.0" text="Back">
-         <font>
-            <Font name="Cooper Black" size="24.0" />
-         </font>
-      </Button>
-      <Label layoutX="32.0" layoutY="202.0" prefHeight="28.0" prefWidth="260.0" text="Request Food Name:">
+      <Label layoutX="105.0" layoutY="218.0" prefHeight="28.0" prefWidth="211.0" text="Food Item  Name">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <ComboBox fx:id="requestfoodNameComboBox" layoutX="328.0" layoutY="191.0" prefHeight="50.0" prefWidth="169.0" />
-      <Label layoutX="32.0" layoutY="279.0" prefHeight="28.0" prefWidth="296.0" text="Request Food Quantity:">
+      <Label layoutX="173.0" layoutY="264.0" text="Amount">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="requestFoodQuantityTextField" alignment="CENTER" layoutX="338.0" layoutY="271.0" prefHeight="44.0" prefWidth="150.0" promptText="00...">
-         <font>
-            <Font name="Eras Demi ITC" size="24.0" />
-         </font>
-      </TextField>
-      <Label layoutX="32.0" layoutY="346.0" prefHeight="29.0" prefWidth="184.0" text="Request Date:">
+      <Label layoutX="641.0" layoutY="272.0" text="Date">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="ddTextField" alignment="CENTER_RIGHT" layoutX="242.0" layoutY="339.0" prefHeight="44.0" prefWidth="100.0" promptText="dd">
-         <font>
-            <Font name="Eras Demi ITC" size="24.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="mmTextField" alignment="CENTER_RIGHT" layoutX="368.0" layoutY="339.0" prefHeight="44.0" prefWidth="100.0" promptText="mm">
-         <font>
-            <Font name="Eras Demi ITC" size="24.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="yyyyTextField" alignment="CENTER_RIGHT" layoutX="488.0" layoutY="339.0" prefHeight="44.0" prefWidth="100.0" promptText="yyyy">
-         <font>
-            <Font name="Eras Demi ITC" size="24.0" />
-         </font>
-      </TextField>
-      <Button layoutX="900.0" layoutY="390.0" mnemonicParsing="false" onMouseClicked="#submitRequestOnMouseClicked" prefHeight="50.0" prefWidth="235.0" text="Submit Request">
-         <font>
-            <Font name="Cooper Black" size="24.0" />
-         </font>
-      </Button>
-      <Label layoutX="32.0" layoutY="400.0" prefHeight="29.0" prefWidth="135.0" text="Deadline:">
+      <Label layoutX="173.0" layoutY="321.0" text="Deadline">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="ddDeadlineTextField" alignment="CENTER_RIGHT" layoutX="197.0" layoutY="393.0" prefHeight="44.0" prefWidth="100.0" promptText="dd">
+      <ComboBox fx:id="itemComboBox" layoutX="352.0" layoutY="219.0" prefWidth="500.0" />
+      <TextField fx:id="amountTextField" alignment="CENTER_RIGHT" layoutX="352.0" layoutY="264.0" prefHeight="44.0" prefWidth="200.0" promptText="00">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="mmDeadlineTextField" alignment="CENTER_RIGHT" layoutX="318.0" layoutY="393.0" prefHeight="44.0" prefWidth="100.0" promptText="mm">
+      <TextField fx:id="ddTextField" alignment="CENTER_RIGHT" layoutX="730.0" layoutY="264.0" prefHeight="44.0" prefWidth="58.0" promptText="dd">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="yyyyDeadlineTextField" alignment="CENTER_RIGHT" layoutX="443.0" layoutY="393.0" prefHeight="44.0" prefWidth="100.0" promptText="yyyy">
+      <TextField fx:id="mmTextField" alignment="CENTER_RIGHT" layoutX="807.0" layoutY="264.0" prefHeight="44.0" prefWidth="71.0" promptText="mm">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </TextField>
-      <TableView fx:id="requestExtraFoodTableView" layoutY="472.0" prefHeight="338.0" prefWidth="1200.0">
+      <TextField fx:id="yyyyTextField" alignment="CENTER_RIGHT" layoutX="895.0" layoutY="264.0" prefHeight="44.0" prefWidth="109.0" promptText="yyyy">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ddDeadlineTextField" alignment="CENTER_RIGHT" layoutX="352.0" layoutY="313.0" prefHeight="44.0" prefWidth="58.0" promptText="dd">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="mmDeadlineTextField" alignment="CENTER_RIGHT" layoutX="429.0" layoutY="313.0" prefHeight="44.0" prefWidth="71.0" promptText="mm">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="yyyyDeadlineTextField" alignment="CENTER_RIGHT" layoutX="517.0" layoutY="313.0" prefHeight="44.0" prefWidth="109.0" promptText="yyyy">
+         <font>
+            <Font name="Eras Demi ITC" size="24.0" />
+         </font>
+      </TextField>
+      <TableView fx:id="requestTableView" layoutY="462.0" prefHeight="338.0" prefWidth="1200.0">
          <columns>
-            <TableColumn fx:id="requestIdTableColumn" prefWidth="200.0" text="Request ID" />
-            <TableColumn fx:id="foodNameTableColumn" prefWidth="200.0" text=" Food Name" />
-            <TableColumn fx:id="foodQuantityTableColumn" prefWidth="200.0" text=" Food Quantity" />
-            <TableColumn fx:id="requestDateTableColumn" prefWidth="200.0" text=" Request Date" />
-            <TableColumn fx:id="deadlineTableColumn" prefWidth="200.0" text="Deadline" />
-            <TableColumn fx:id="statusTableColumn" prefWidth="199.0" text="Status" />
+            <TableColumn fx:id="idTableColumn" prefWidth="200.0" text="ID" />
+            <TableColumn fx:id="nameTableColumn" prefWidth="200.0" text="Name" />
+            <TableColumn fx:id="amountTableColumn" prefWidth="200.0" text="Amount" />
+            <TableColumn fx:id="dateTableColumn" prefWidth="200.0" text="Date" />
+            <TableColumn fx:id="deadLineTableColumn" prefWidth="200.0" text="Deadline" />
+            <TableColumn fx:id="statusTableColumn" prefWidth="200.0" text="Status" />
          </columns>
       </TableView>
+      <Button layoutX="100.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#requestOnMouseClick" prefWidth="1000.0" text="Request">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="24.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="iComboBox" layoutX="282.0" layoutY="425.0" prefHeight="31.0" prefWidth="271.0" />
+      <Label layoutX="198.0" layoutY="426.0" text="Item">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="acceptedCheckBox" layoutX="666.0" layoutY="430.0" mnemonicParsing="false" text="Accepted" />
+      <CheckBox fx:id="rejectedCheckBox" layoutX="800.0" layoutY="430.0" mnemonicParsing="false" text="Rejected" />
+      <CheckBox fx:id="pendingCheckBox" layoutX="924.0" layoutY="430.0" mnemonicParsing="false" text="Pending" />
    </children>
 </AnchorPane>

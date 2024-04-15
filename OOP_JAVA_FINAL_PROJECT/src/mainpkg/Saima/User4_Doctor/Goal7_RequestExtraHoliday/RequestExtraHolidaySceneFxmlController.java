@@ -182,68 +182,89 @@ public class RequestExtraHolidaySceneFxmlController implements Initializable {
         }
     }
     
-//        private ObservableList<Holiday> fileRead() {
-//        ObservableList<Holiday> holiList = FXCollections.observableArrayList() ;
-//        
-//        File f = null;
-//        FileInputStream fis = null;      
-//        ObjectInputStream ois = null;
-//        
-//        try {
-//            f = new File("src/File/DocHoliday.bin");
-//            fis = new FileInputStream(f);
-//            ois = new ObjectInputStream(fis);
-//            Holiday hd ;
-//            try {
-//                while(true){
-//                    hd = (Holiday)ois.readObject();
-////                    System.out.println(st);
-//                    holiList.add(hd) ;
-//                }
-//            }//end of nested try
-//            catch(Exception e){
-//                // handling code
-//            }//nested catch     
-//        } catch (IOException ex) {
-//            System.out.println(ex.toString());
-//        } 
-//        finally {
-//            try {
-//                
-//                if(ois != null) ois.close();
-//            } catch (IOException ex) { }
-//        }           
-//        
-//        return holiList ;
-//    }
-//    
-//    private void fileWrite(Holiday holiday) {
-//        File f = null;
-//        FileOutputStream fos = null;      
-//        ObjectOutputStream oos = null;
-//        
-//        try {
-//            f = new File("src/File/VDocHoliday.bin");
-//            if(f.exists()){
-//                fos = new FileOutputStream(f,true);
-//                oos = new AppendableObjectOutputStream(fos);                
-//            }
-//            else{
-//                fos = new FileOutputStream(f);
-//                oos = new ObjectOutputStream(fos);               
-//            }
-//            oos.writeObject(holiday);
-//
-//        } catch (IOException ex) {
-//            Logger.getLogger(RequestExtraHolidaySceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
-//        } finally {
-//            try {
-//                if(oos != null) oos.close();
-//            } catch (IOException ex) {
-//                Logger.getLogger(RequestExtraHolidaySceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }                
-//    }
+        private ObservableList<Holiday> fileRead() {
+        ObservableList<Holiday> holiList = FXCollections.observableArrayList() ;
+        
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        
+        try {
+            f = new File("src/File/DocHoliday.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            Holiday hd ;
+            try {
+                while(true){
+                    hd = (Holiday)ois.readObject();
+//                    System.out.println(st);
+                    holiList.add(hd) ;
+                }
+            }//end of nested try
+            catch(Exception e){
+                // handling code
+            }//nested catch     
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
+        } 
+        finally {
+            try {
+                
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }           
+        
+        return holiList ;
+    }
+    
+    private void fileWrite(Holiday holiday) {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
+        
+        try {
+            f = new File("src/File/DocHoliday.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(holiday);
+
+        } catch (IOException ex) {
+            Logger.getLogger(RequestExtraHolidaySceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if(oos != null) oos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(RequestExtraHolidaySceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }                
+    }
+    private void fileUpdate(Holiday s) {
+        ObservableList<Holiday> sList = fileRead() ;
+        File f = new File("DocHoliday.bin") ;
+       
+        if(f.exists()) {
+            f.delete() ;
+        }
+       
+        for(Holiday st: sList) {
+            if(st.getId() != s.getId()) {
+                fileWrite(st) ;
+            }
+           
+            else if (st.getId() == s.getId()) {
+                System.out.println("Found");
+                fileWrite(s) ;
+            }
+        }
+    }
+    
 }
+
     
 

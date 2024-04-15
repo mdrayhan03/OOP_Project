@@ -30,6 +30,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import mainpkg.Rasel.Refugee.Refugee;
+import mainpkg.AbstractClass.AppendableObjectOutputStream;
 
 
 public class RefugeeRegistrationSceneController implements Initializable {

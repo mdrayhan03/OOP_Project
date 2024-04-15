@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.AppendableObjectOutputStream;
 
 public class CampRulesSceneController implements Initializable {
 
@@ -26,7 +29,7 @@ public class CampRulesSceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        printRulesFromFile();
+        printFromBin();
     }
 
     @FXML
@@ -41,15 +44,25 @@ public class CampRulesSceneController implements Initializable {
     }
 
     @FXML
-    private void updateRulesButtonOnClick(ActionEvent event) {
+    private void updateRulesButtonOnClick(ActionEvent event) throws IOException {
         String newRule = rulesTextArea.getText();
-        cr = new CampRules(newRule);
-        cr.addRule();
+        
+        String[] ruleLines = newRule.split("\n");
+
+        CampRules cr;
+
+        for (String line : ruleLines) {
+            cr = new CampRules(line);
+            saveToBinFile(cr);
+        }
+        
+        showAlert("The data has been saved.", Alert.AlertType.INFORMATION);
+
     }
     
     @FXML
     private void deleteRulesOnButtonClick(ActionEvent event) {
-        File file = new File("src/File/rules.txt");
+        File file = new File("src/File/CampRules.bin");
 
         if (file.exists()) {
             boolean deleted = file.delete();
@@ -62,33 +75,74 @@ public class CampRulesSceneController implements Initializable {
         }   
     }
     
-    public void printRulesFromFile() {
-        File file = new File("src/File/rules.txt");
 
-        try {
-            if (file.exists()){
-                FileReader fr = new FileReader(file);
-                BufferedReader br = new BufferedReader(fr);
-                rulesTextArea.clear();
-                String line;
-                while ((line = br.readLine()) != null) {
-                    rulesTextArea.appendText(line + "\n");
-                }
+    private void saveToBinFile(CampRules newRule) throws IOException{
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
 
-            } else {
-                rulesTextArea.setText("Rules are not defined");
-                System.out.println("Rules file is not found");
-                
+            f = new File("src/File/CampRules.bin");
+            if (f.exists()) {
+            try {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(CampRulesSceneController.class.getName()).log(Level.SEVERE, null, ex);
             }
+                
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+            oos.writeObject(newRule);
             
-        } catch (IOException e) {
-            System.out.println("Error reading rules from file: " + e.getMessage());
-        }
     }
-
-    private void showAlert(String message, AlertType alertType) {
+    
+    private void showAlert(String message, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setContentText(message);
         alert.showAndWait();
     }
+    
+    public void printFromBin(){
+        
+        File f = null;
+        f = new File("src/File/CampRules.bin");
+        if (f.exists()) {
+            try {
+                FileInputStream fileIn = new FileInputStream(f);
+                ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+            
+                ArrayList<CampRules> rulesList = new ArrayList<>();
+                CampRules r;
+
+                while (true) {
+                    try {
+                        r = (CampRules) objectIn.readObject();
+                        rulesList.add(r);
+                    } catch (EOFException e) {
+                        break;
+                    }
+                }
+
+                for (CampRules rule : rulesList) {
+                    rulesTextArea.appendText(rule.getNewRule()+"\n");
+                
+                }
+            
+                objectIn.close();
+            
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class not found: " + e.getMessage());
+            e.printStackTrace();
+        }
+      } else {
+            rulesTextArea.appendText("Rule is not define");
+            System.out.println("Rule file is not found");
+        }
+    }
+    
 }   

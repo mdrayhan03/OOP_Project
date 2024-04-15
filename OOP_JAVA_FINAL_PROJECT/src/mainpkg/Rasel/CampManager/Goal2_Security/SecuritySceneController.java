@@ -22,6 +22,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.AppendableObjectOutputStream;
 
 /**
  * FXML Controller class
@@ -49,7 +50,7 @@ public class SecuritySceneController implements Initializable {
     private void sendAlertSecurityOnButtonClick(ActionEvent event) throws IOException {
     String subject = subjectTextField.getText();
     String notice = emergencyAlertTextArea.getText();
-    String filename = "SecurityInchargeNotice.bin";
+    String filename = "EmergencyNoticeSI.bin";
     
     LocalDate time = alertDate.getValue();
     
@@ -76,7 +77,7 @@ public class SecuritySceneController implements Initializable {
     private void sendAlertVolunteerOnButtonClick(ActionEvent event) throws IOException {
     String subject = subjectTextField.getText();
     String notice = emergencyAlertTextArea.getText();
-    String filename = "VolunteerCoordinatorNotice.bin";
+    String filename = "EmergencyNoticeVC.bin";
     
     LocalDate time = alertDate.getValue();
     

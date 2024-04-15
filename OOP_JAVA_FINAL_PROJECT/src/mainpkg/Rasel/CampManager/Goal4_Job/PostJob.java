@@ -13,15 +13,24 @@ import java.util.Random;
  */
 public class PostJob implements Serializable {
     
+    int jobID;
     private String jobName, jobDescription;
     private Integer vacancy;
 
-    public PostJob(String jobName, String jobDescription, Integer vacancy) {
+    public PostJob(int jobID, String jobName, String jobDescription, Integer vacancy) {
+        this.jobID = jobID;
         this.jobName = jobName;
         this.jobDescription = jobDescription;
         this.vacancy = vacancy;
     }
-    
+
+    public int getJobID() {
+        return jobID;
+    }
+
+    public void setJobID(int jobID) {
+        this.jobID = jobID;
+    }
 
     public String getJobName() {
         return jobName;
@@ -49,12 +58,12 @@ public class PostJob implements Serializable {
 
     @Override
     public String toString() {
-        return "PostJob{" + "jobName=" + jobName + ", jobDescription=" + jobDescription + ", vacancy=" + vacancy + '}';
+        return "PostJob{" + "jobID=" + jobID + ", jobName=" + jobName + ", jobDescription=" + jobDescription + ", vacancy=" + vacancy + '}';
     }
     
-    public String generateId() {
+    
+    public int generateId() {
         Random r=new Random();
-        String jobID = "" ;
         for(int i=0;i<8;i++){
         jobID+=r.nextInt(9);
         }

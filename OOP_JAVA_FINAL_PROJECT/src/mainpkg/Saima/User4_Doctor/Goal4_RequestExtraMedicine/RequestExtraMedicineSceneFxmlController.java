@@ -40,6 +40,7 @@ import mainpkg.Saima.User3_AidExcutive.AidExcutiveDashBoardSceneFxmlController;
 import mainpkg.Saima.User3_AidExcutive.Goal4_RequestExtraFood.RequestExtraFoodSceneFxmlController;
 
 import mainpkg.Saima.User4_Doctor.Doctor;
+import mainpkg.Saima.User4_Doctor.DoctorDashBoardSceneFxmlController;
 
 
 /**
@@ -116,7 +117,7 @@ public class RequestExtraMedicineSceneFxmlController implements Initializable {
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
         
-        AidExcutiveDashBoardSceneFxmlController dsc = myLoader.getController() ;
+        DoctorDashBoardSceneFxmlController dsc = myLoader.getController() ;
         dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;

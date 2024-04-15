@@ -49,23 +49,17 @@
             <TableColumn fx:id="amountTableColumn" prefWidth="129.0" text="Amount" />
             <TableColumn fx:id="statusTableColumn" minWidth="0.0" prefWidth="137.0" text="Status" />
          </columns></TableView>
-      <ComboBox fx:id="typeComboBox" layoutX="279.0" layoutY="369.0" onMouseClicked="#checkBoxOnMouseClick" prefHeight="31.0" prefWidth="300.0" />
-      <Label layoutX="100.0" layoutY="371.0" text="User Type">
-         <font>
-            <Font name="Eras Bold ITC" size="24.0" />
-         </font>
-      </Label>
-      <CheckBox fx:id="acceptedCheckBox" layoutX="661.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Accepted">
+      <CheckBox fx:id="acceptedCheckBox" layoutX="430.0" layoutY="372.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Accepted">
          <font>
             <Font name="Comic Sans MS Italic" size="15.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="rejectedCheckBox" layoutX="784.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Rejected">
+      <CheckBox fx:id="rejectedCheckBox" layoutX="553.0" layoutY="372.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Rejected">
          <font>
             <Font name="Comic Sans MS Italic" size="15.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="pendingCheckBox" layoutX="921.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Pending">
+      <CheckBox fx:id="pendingCheckBox" layoutX="690.0" layoutY="372.0" mnemonicParsing="false" onMouseClicked="#checkBoxOnMouseClick" text="Pending">
          <font>
             <Font name="Comic Sans MS Italic" size="15.0" />
          </font>

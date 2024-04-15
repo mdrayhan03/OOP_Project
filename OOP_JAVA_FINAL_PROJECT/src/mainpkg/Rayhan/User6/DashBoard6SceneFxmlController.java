@@ -129,7 +129,7 @@ public class DashBoard6SceneFxmlController implements Initializable {
         Scene myScene = new Scene(root) ;
         
         StudentSceneFxmlController psc = myLoader.getController() ;
-//        psc.set(user) ;
+        psc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

@@ -32,6 +32,7 @@ import mainpkg.Rayhan.User5.Goal1_Volunteer.Volunteer;
 import mainpkg.Rayhan.User5.Goal3_AEReport.AEReport;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
 import mainpkg.Rayhan.User7.SecurityIncharge;
+import mainpkg.Saima.User3_AidExcutive.AidExcutive;
 
 /**
  * FXML Controller class
@@ -58,7 +59,7 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
      * @param rb
      */
     
-    public User get() {
+    public VolunteerCoordinator get() {
         return user ;
     }
     
@@ -68,8 +69,8 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
     }
     
     public void setComboBox() {
-        ObservableList<SecurityIncharge> scList = fileRead() ;
-        for (SecurityIncharge sc: scList) {
+        ObservableList<AidExcutive> scList = fileRead() ;
+        for (AidExcutive sc: scList) {
             idComboBox.getItems().add(sc.getId()) ;
         }
     }
@@ -152,8 +153,8 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
         
         if (rtn == true) {
             if (receiverId == null) {
-                ObservableList<SecurityIncharge> scList = fileRead() ;
-                for (SecurityIncharge sc: scList) {
+                ObservableList<AidExcutive> scList = fileRead() ;
+                for (AidExcutive sc: scList) {
                     AEReport ae = user.reportToAidExecutive(subject , user.getId() , sc.getId() , des , doa) ;
                     fileWrite(ae) ;
                 }
@@ -183,21 +184,21 @@ public class AidExecutiveReportSceneFxmlController implements Initializable {
         }
     }
     
-    private ObservableList<SecurityIncharge> fileRead() {
-        ObservableList<SecurityIncharge> studList = FXCollections.observableArrayList() ;
+    private ObservableList<AidExcutive> fileRead() {
+        ObservableList<AidExcutive> studList = FXCollections.observableArrayList() ;
         
         File f = null;
         FileInputStream fis = null;      
         ObjectInputStream ois = null;
         
         try {
-            f = new File("src/File/SecurityIncharge.bin");
+            f = new File("src/File/AidExcutive.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
-            SecurityIncharge st ;
+            AidExcutive st ;
             try {
                 while(true){
-                    st = (SecurityIncharge)ois.readObject();
+                    st = (AidExcutive)ois.readObject();
 //                    System.out.println(st);
                     studList.add(st) ;
                 }

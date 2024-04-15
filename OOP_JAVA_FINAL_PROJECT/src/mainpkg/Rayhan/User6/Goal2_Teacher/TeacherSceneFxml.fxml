@@ -10,27 +10,27 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User6.Goal2_Teacher.TeacherSceneFxmlController">
    <children>
-      <Button layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClick" prefHeight="50.0" prefWidth="100.0" text="Back">
+      <Button layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClick" prefHeight="50.0" prefWidth="100.0" style="-fx-border-color: cyan;" text="Back" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Label layoutX="502.0" layoutY="100.0" text="Teacher">
+      <Label layoutX="502.0" layoutY="100.0" text="Teacher" textFill="#9059ff">
          <font>
             <Font name="Cooper Black" size="48.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="211.0" text="Name">
+      <Label layoutX="100.0" layoutY="211.0" text="Name" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="261.0" text="Phone No">
+      <Label layoutX="100.0" layoutY="261.0" text="Phone No" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="591.0" layoutY="261.0" text="Date of Joining">
+      <Label layoutX="591.0" layoutY="261.0" text="Date of Joining" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
@@ -65,7 +65,7 @@
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </TextField>
-      <Button layoutX="725.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#addTeacherOnMouseClick" text="Add New Teacher">
+      <Button layoutX="725.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#addTeacherOnMouseClick" style="-fx-border-color: cyan;" text="Add New Teacher" textFill="#530097">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="36.0" />
          </font>
@@ -78,7 +78,7 @@
             <TableColumn fx:id="dojTableColumn" prefWidth="205.0" text="Date of Joining" />
          </columns>
       </TableView>
-      <Label layoutX="725.0" layoutY="425.0" text="Total Teacher">
+      <Label layoutX="725.0" layoutY="425.0" text="Total Teacher" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>

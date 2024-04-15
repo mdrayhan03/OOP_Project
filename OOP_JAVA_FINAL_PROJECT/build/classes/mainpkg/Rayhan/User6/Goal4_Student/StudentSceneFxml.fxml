@@ -10,37 +10,37 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User6.Goal4_Student.StudentSceneFxmlController">
    <children>
-      <Button layoutX="50.0" layoutY="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Back">
+      <Button layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClick" prefHeight="50.0" prefWidth="100.0" style="-fx-border-color: cyan;" text="Back" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Label layoutX="502.0" layoutY="100.0" onMouseClicked="#backOnMouseClick" text="Student">
+      <Label layoutX="502.0" layoutY="100.0" onMouseClicked="#backOnMouseClick" text="Student" textFill="#9059ff">
          <font>
             <Font name="Cooper Black" size="48.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="217.0" text="Refugee ID">
+      <Label layoutX="100.0" layoutY="217.0" text="Refugee ID" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="262.0" text="Name">
+      <Label layoutX="100.0" layoutY="262.0" text="Name" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="307.0" text="Phone No">
+      <Label layoutX="100.0" layoutY="307.0" text="Phone No" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="665.0" layoutY="307.0" text="Email">
+      <Label layoutX="665.0" layoutY="307.0" text="Email" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="100.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#addOnMouseClick" prefWidth="1000.0" text="Add a New Student">
+      <Button layoutX="100.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#addOnMouseClick" prefWidth="1000.0" style="-fx-border-color: cyan;" text="Add a New Student" textFill="#530097">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="24.0" />
          </font>
@@ -70,23 +70,23 @@
             <TableColumn fx:id="courseIdTableColumn" prefWidth="380.0" text="Course ID List" />
         </columns>
       </TableView>
-      <Label layoutX="664.0" layoutY="218.0" text="Course ID">
+      <Label layoutX="664.0" layoutY="218.0" text="Course ID" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
       <ComboBox fx:id="courseIdComboBox" layoutX="800.0" layoutY="216.0" prefHeight="31.0" prefWidth="310.0" />
-      <Button layoutX="800.0" layoutY="258.0" mnemonicParsing="false" onMouseClicked="#addCourseOnMouseClick" text="Add Course">
+      <Button layoutX="800.0" layoutY="258.0" mnemonicParsing="false" onMouseClicked="#addCourseOnMouseClick" style="-fx-border-color: cyan;" text="Add Course" textFill="#530097">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="962.0" layoutY="258.0" mnemonicParsing="false" onMouseClicked="#createOnMouseClick" text="Create Course">
+      <Button layoutX="962.0" layoutY="258.0" mnemonicParsing="false" onMouseClicked="#createOnMouseClick" style="-fx-border-color: cyan;" text="Create Course" textFill="#530097">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="100.0" layoutY="353.0" text="Total Student">
+      <Label layoutX="100.0" layoutY="353.0" text="Total Student" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
@@ -96,7 +96,7 @@
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="972.0" layoutY="349.0" mnemonicParsing="false" onMouseClicked="#coursInfoOnMouseClick" text="Course Info">
+      <Button layoutX="972.0" layoutY="349.0" mnemonicParsing="false" onMouseClicked="#coursInfoOnMouseClick" style="-fx-border-color: cyan;" text="Course Info" textFill="#530097">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="18.0" />
          </font>

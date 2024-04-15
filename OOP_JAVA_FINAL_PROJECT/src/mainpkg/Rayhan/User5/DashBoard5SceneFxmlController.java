@@ -10,9 +10,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import static javax.swing.text.StyleConstants.Background;
 import mainpkg.AbstractClass.User;
 import mainpkg.Rayhan.User5.Goal1_Volunteer.VolunteerInfoSceneFxmlController;
 import mainpkg.Rayhan.User5.Goal2_SIReport.SecurityInchargeReportSceneFxmlController;
@@ -21,6 +23,7 @@ import mainpkg.Rayhan.User5.Goal4_VRequest.VolunteerRequestSceneFxmlController;
 import mainpkg.Rayhan.User5.Profile.ProfileSceneFxmlController;
 import mainpkg.Rayhan.User5.Goal5_Schedule.ScheduleSceneFxmlController;
 import mainpkg.Rayhan.User5.Goal6_Campaign.CampaignSceneFxmlController;
+import mainpkg.Rayhan.User5.Goal7_EmergencyRequest.EmergencyRequestSceneFxmlController;
 import mainpkg.Rayhan.User5.Goal8_Report.ReportSceneFxmlController;
 
 /**
@@ -42,12 +45,13 @@ public class DashBoard5SceneFxmlController implements Initializable {
      * @param url
      * @param rb
      */
-    public User get() {
+    public VolunteerCoordinator get() {
         return user ;
     }
     
     public void set(VolunteerCoordinator u) {
         user = u ;
+        System.out.println(user) ;
         nameLabel.setText(user.getName());
         userTypeLabel.setText(user.getUserType());
         idLabel.setText(Integer.toString(user.getId()));
@@ -100,7 +104,7 @@ public class DashBoard5SceneFxmlController implements Initializable {
         Scene myScene = new Scene(root) ;
         
         VolunteerRequestSceneFxmlController vrc = myLoader.getController() ;
-        vrc.set(user) ;
+        vrc.set(this.get()) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -173,7 +177,19 @@ public class DashBoard5SceneFxmlController implements Initializable {
     }
 
     @FXML
-    private void emergencyRequestOnMouseClick(MouseEvent event) {
+    private void emergencyRequestOnMouseClick(MouseEvent event) throws IOException {
+        Parent root = null ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/Goal7_EmergencyRequest/EmergencyRequestSceneFxml.fxml")) ;
+        root = (Parent) myLoader.load() ;
+        Scene myScene = new Scene(root) ;
+        
+        EmergencyRequestSceneFxmlController ssc= myLoader.getController() ;
+        ssc.set(user) ;
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
+        stage.setScene(myScene) ;
+        stage.setTitle("Volunteer Coordinator Campaign") ;
+        stage.show() ;
     }
 
     @FXML
@@ -205,5 +221,4 @@ public class DashBoard5SceneFxmlController implements Initializable {
         stage.setTitle("Login") ;
         stage.show() ;
     }
-    
 }

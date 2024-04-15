@@ -1,10 +1,12 @@
 package mainpkg.Rayhan.User6.Goal4_Student;
 
+import java.io.Serializable;
+
 /**
  *
  * @author RayhaN
  */
-public class Course {
+public class Course implements Serializable{
     String id , name ; 
     int tC , tHW ;
 
@@ -48,7 +50,7 @@ public class Course {
     }
     
     public String generateId() {
-        String id = null ;
+        String id = "" ;
         id += this.getName().substring(0, 4) ;
         int i = this.gettC() + this.gettHW() * 1000 ;
         id += Integer.toString(i).substring(0 , 2) ;

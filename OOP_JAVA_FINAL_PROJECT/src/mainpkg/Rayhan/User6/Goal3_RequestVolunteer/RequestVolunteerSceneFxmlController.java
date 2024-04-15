@@ -95,8 +95,8 @@ public class RequestVolunteerSceneFxmlController implements Initializable {
         reasonTableColumn.setCellValueFactory(new PropertyValueFactory<>("reason")) ;
         desTableColumn.setCellValueFactory(new PropertyValueFactory<>("description")) ;
         placeTableColumn.setCellValueFactory(new PropertyValueFactory<>("place")) ;
-        timeTableColumn.setCellValueFactory(new PropertyValueFactory<>("name")) ;
-        amountTableColumn.setCellValueFactory(new PropertyValueFactory<>("name")) ;
+        timeTableColumn.setCellValueFactory(new PropertyValueFactory<>("time")) ;
+        amountTableColumn.setCellValueFactory(new PropertyValueFactory<>("amount")) ;
         statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status")) ;
     }    
 

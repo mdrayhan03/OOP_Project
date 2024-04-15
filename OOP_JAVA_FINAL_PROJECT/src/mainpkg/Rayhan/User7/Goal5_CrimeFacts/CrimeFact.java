@@ -1,12 +1,13 @@
 package mainpkg.Rayhan.User7.Goal5_CrimeFacts;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  *
  * @author RayhaN
  */
-public class CrimeFact {
+public class CrimeFact implements Serializable{
     String id , reporterName , des ;
     Integer reporterId ;
 

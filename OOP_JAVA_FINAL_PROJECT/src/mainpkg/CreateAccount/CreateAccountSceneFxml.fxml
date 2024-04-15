@@ -20,42 +20,42 @@
             <Insets bottom="20.0" />
          </padding>
       </Label>
-      <Label layoutX="180.0" layoutY="182.0" text="Name">
+      <Label layoutX="180.0" layoutY="182.0" text="Name" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="180.0" layoutY="213.0" text="Phone No">
+      <Label layoutX="180.0" layoutY="213.0" text="Phone No" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="180.0" layoutY="252.0" text="Email">
+      <Label layoutX="180.0" layoutY="252.0" text="Email" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="179.0" layoutY="321.0" text="Date of Birth">
+      <Label layoutX="179.0" layoutY="321.0" text="Date of Birth" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="180.0" layoutY="362.0" text="User Type">
+      <Label layoutX="180.0" layoutY="362.0" text="User Type" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="180.0" layoutY="400.0" text="Password">
+      <Label layoutX="180.0" layoutY="400.0" text="Password" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="179.0" layoutY="433.0" text="Confirm Password">
+      <Label layoutX="179.0" layoutY="433.0" text="Confirm Password" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="showOutput1Label" alignment="TOP_LEFT" layoutX="100.0" layoutY="575.0" prefHeight="200.0" prefWidth="500.0" wrapText="true">
+      <Label fx:id="showOutput1Label" alignment="TOP_LEFT" layoutX="124.0" layoutY="573.0" prefHeight="200.0" prefWidth="500.0" textFill="#000ea4" wrapText="true">
          <font>
             <Font name="Eras Medium ITC" size="24.0" />
          </font></Label>
@@ -80,7 +80,7 @@
             <Font name="Eras Demi ITC" size="15.0" />
          </font></PasswordField>
       <ComboBox fx:id="userTypeComboBox" layoutX="428.0" layoutY="364.0" prefWidth="500.0" promptText="Refugee Camp Manager" />
-      <Button layoutX="451.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#createOnMouseClick" prefWidth="300.0" text="Create" textAlignment="CENTER">
+      <Button layoutX="451.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#createOnMouseClick" prefWidth="300.0" style="-fx-border-color: cyan;" text="Create" textAlignment="CENTER" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="36.0" />
          </font>
@@ -97,22 +97,22 @@
          <font>
             <Font name="Eras Demi ITC" size="15.0" />
          </font></TextField>
-      <Label fx:id="showOutput2Label" alignment="TOP_LEFT" layoutX="588.0" layoutY="575.0" prefHeight="200.0" prefWidth="500.0" wrapText="true">
+      <Label fx:id="showOutput2Label" alignment="TOP_LEFT" layoutX="612.0" layoutY="573.0" prefHeight="200.0" prefWidth="500.0" textFill="#000ea4" wrapText="true">
          <font>
             <Font name="Eras Medium ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="179.0" layoutY="286.0" text="Gender">
+      <Label layoutX="179.0" layoutY="286.0" text="Gender" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <RadioButton fx:id="maleRadioButton" layoutX="428.0" layoutY="290.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Male">
+      <RadioButton fx:id="maleRadioButton" layoutX="428.0" layoutY="290.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Male" textFill="#000ea4">
          <font>
             <Font name="Eras Demi ITC" size="15.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="femaleRadioButton" layoutX="598.0" layoutY="290.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Female">
+      <RadioButton fx:id="femaleRadioButton" layoutX="598.0" layoutY="290.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Female" textFill="#000ea4">
          <font>
             <Font name="Eras Demi ITC" size="15.0" />
          </font>

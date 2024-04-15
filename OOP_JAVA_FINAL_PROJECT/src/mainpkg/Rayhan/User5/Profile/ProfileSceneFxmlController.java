@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rayhan.User5.VolunteerCoordinator;
 
 /**
  * FXML Controller class
@@ -30,7 +31,7 @@ public class ProfileSceneFxmlController implements Initializable {
     @FXML    private Label emailLabel;
     @FXML    private Label genderLabel;
     
-    User user ;
+    VolunteerCoordinator user ;
    
 
     /**
@@ -39,11 +40,11 @@ public class ProfileSceneFxmlController implements Initializable {
      * @param rb
      */
     
-    public User get() {
+    public VolunteerCoordinator get() {
         return user ;
     }
     
-    public void set(User u) {
+    public void set(VolunteerCoordinator u) {
         user = u ;
         statusLabel.setText(user.getStatus()) ;
         nameLabel.setText(user.getName()) ;

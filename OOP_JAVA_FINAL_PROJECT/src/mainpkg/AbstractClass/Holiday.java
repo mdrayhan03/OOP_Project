@@ -1,10 +1,12 @@
 package mainpkg.AbstractClass;
 
+import java.io.Serializable;
+
 /**
  *
  * @author RayhaN
  */
-public class Holiday {
+public class Holiday implements Serializable{
     int userId ;
     String reason , holidayid , usertType , status , id ;
     Date startDate , endDate ;

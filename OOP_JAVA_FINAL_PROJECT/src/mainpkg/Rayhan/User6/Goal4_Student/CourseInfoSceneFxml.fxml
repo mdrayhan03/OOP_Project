@@ -9,27 +9,27 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User6.Goal4_Student.CourseInfoSceneFxmlController">
    <children>
-      <Label layoutX="194.0" layoutY="29.0" text="Course Info">
+      <Label layoutX="194.0" layoutY="29.0" text="Course Info" textFill="#9059ff">
          <font>
             <Font name="Cooper Black" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="113.0" text="Course ID">
+      <Label layoutX="100.0" layoutY="113.0" text="Course ID" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="149.0" text="Course Name">
+      <Label layoutX="100.0" layoutY="149.0" text="Course Name" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="189.0" text="Total Class">
+      <Label layoutX="100.0" layoutY="189.0" text="Total Class" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="222.0" text="Total Home Work">
+      <Label layoutX="100.0" layoutY="222.0" text="Total Home Work" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="18.0" />
          </font>

@@ -62,35 +62,32 @@ public class FXMLController implements Initializable {
         
         
         
-        ObservableList<EducationCoordinatorStorage> listobj = fileRead() ;
+        ObservableList<VolunteerCoordinator> listobj = fileRead() ;
         String str = "" ;
-        for (EducationCoordinatorStorage vc: listobj) {
+        for (VolunteerCoordinator vc: listobj) {
             
-            str += vc.getdGeometryBox() + "\n" ;
+//            str += vc.getdGeometryBox() + "\n" ;
         }
-        if (str.length() == 0) {
-            show.setText("NULL") ;
-        }
-        else {
-            show.setText(str) ;
-        }
+        
         System.out.println(listobj);
+        show.setText(listobj.toString());
+        
     }
-    private ObservableList<EducationCoordinatorStorage> fileRead() {
-        ObservableList<EducationCoordinatorStorage> studList = FXCollections.observableArrayList() ;
+    private ObservableList<VolunteerCoordinator> fileRead() {
+        ObservableList<VolunteerCoordinator> studList = FXCollections.observableArrayList() ;
         
         File f = null;
         FileInputStream fis = null;      
         ObjectInputStream ois = null;
         
         try {
-            f = new File("src/File/EducationCoordinatorStorage.bin");
+            f = new File("src/File/VolunteerCoordinator.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
-            EducationCoordinatorStorage st ;
+            VolunteerCoordinator st ;
             try {
                 while(true){
-                    st = (EducationCoordinatorStorage)ois.readObject();
+                    st = (VolunteerCoordinator)ois.readObject();
                     System.out.println(st);
                     studList.add(st) ;
                 }

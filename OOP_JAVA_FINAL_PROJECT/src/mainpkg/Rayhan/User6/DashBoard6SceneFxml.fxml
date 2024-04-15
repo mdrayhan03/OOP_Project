@@ -7,77 +7,77 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User6.DashBoard6SceneFxmlController">
    <children>
-      <Button mnemonicParsing="false" onMouseClicked="#profileOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Profile">
+      <Button mnemonicParsing="false" onMouseClicked="#profileOnMouseClick" prefHeight="80.0" prefWidth="400.0" style="-fx-border-color: cyan;" text="Profile" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="80.0" mnemonicParsing="false" onMouseClicked="#scheduleOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Schedule">
+      <Button layoutY="80.0" mnemonicParsing="false" onMouseClicked="#scheduleOnMouseClick" prefHeight="80.0" prefWidth="400.0" style="-fx-border-color: cyan;" text="Schedule" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="160.0" mnemonicParsing="false" onMouseClicked="#teacherOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Teacher">
+      <Button layoutY="160.0" mnemonicParsing="false" onMouseClicked="#teacherOnMouseClick" prefHeight="80.0" prefWidth="400.0" style="-fx-border-color: cyan;" text="Teacher" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="240.0" mnemonicParsing="false" onMouseClicked="#requestForVolunteerOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Request for Volunteer">
+      <Button layoutY="240.0" mnemonicParsing="false" onMouseClicked="#requestForVolunteerOnMouseClick" prefHeight="80.0" prefWidth="400.0" style="-fx-border-color: cyan;" text="Request for Volunteer" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="320.0" mnemonicParsing="false" onMouseClicked="#studentOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Student">
+      <Button layoutY="320.0" mnemonicParsing="false" onMouseClicked="#studentOnMouseClick" prefHeight="80.0" prefWidth="400.0" style="-fx-border-color: cyan;" text="Student" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="400.0" mnemonicParsing="false" onMouseClicked="#needsOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Needs">
+      <Button layoutY="400.0" mnemonicParsing="false" onMouseClicked="#needsOnMouseClick" prefHeight="80.0" prefWidth="400.0" style="-fx-border-color: cyan;" text="Needs" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="480.0" mnemonicParsing="false" onMouseClicked="#progressOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Progress Report">
+      <Button layoutY="480.0" mnemonicParsing="false" onMouseClicked="#progressOnMouseClick" prefHeight="80.0" prefWidth="400.0" style="-fx-border-color: cyan;" text="Progress Report" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="560.0" mnemonicParsing="false" onMouseClicked="#storageOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Storage">
+      <Button layoutY="560.0" mnemonicParsing="false" onMouseClicked="#storageOnMouseClick" prefHeight="80.0" prefWidth="400.0" style="-fx-border-color: cyan;" text="Storage" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="640.0" mnemonicParsing="false" onMouseClicked="#CampaignOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Campaign">
+      <Button layoutY="640.0" mnemonicParsing="false" onMouseClicked="#CampaignOnMouseClick" prefHeight="80.0" prefWidth="400.0" style="-fx-border-color: cyan;" text="Campaign" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Button layoutY="720.0" mnemonicParsing="false" onMouseClicked="#signoutOnMouseClick" prefHeight="80.0" prefWidth="400.0" text="Sign Out">
+      <Button layoutY="720.0" mnemonicParsing="false" onMouseClicked="#signoutOnMouseClick" prefHeight="80.0" prefWidth="400.0" style="-fx-border-color: cyan;" text="Sign Out" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Label layoutX="670.0" layoutY="53.0" text="Dash Board">
+      <Label layoutX="670.0" layoutY="53.0" text="Dash Board" textFill="#9059ff">
          <font>
             <Font name="Comic Sans MS Bold" size="48.0" />
          </font>
       </Label>
-      <Label layoutX="408.0" layoutY="160.0" text="Name         : ">
+      <Label layoutX="408.0" layoutY="160.0" text="Name         : " textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="408.0" layoutY="240.0" text="User ID      :">
+      <Label layoutX="408.0" layoutY="240.0" text="User ID      :" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="408.0" layoutY="320.0" text="User Type : ">
+      <Label layoutX="408.0" layoutY="320.0" text="User Type : " textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="36.0" />
          </font>
       </Label>
-      <Label alignment="TOP_LEFT" layoutX="450.0" layoutY="400.0" prefHeight="350.0" prefWidth="700.0" text="The Cox’s Bazar Education Sector in Bangladesh is jointly managed by the United Nations Children’s Fund (UNICEF) and Save the Children International (SCI). The Sector addresses the educational needs of Rohingya refugees and affected host communities in the Ukhiya and Teknaf sub-districts while preparing for and responding to disasters. It collaborates with the Inter-Sector Coordination Group (ISCG) and is currently partnering with INGOs, NGOs and UN agencies to support the education of Rohingya and affected host community children." textAlignment="JUSTIFY" wrapText="true">
+      <Label alignment="TOP_LEFT" layoutX="450.0" layoutY="400.0" prefHeight="350.0" prefWidth="700.0" text="The Cox’s Bazar Education Sector in Bangladesh is jointly managed by the United Nations Children’s Fund (UNICEF) and Save the Children International (SCI). The Sector addresses the educational needs of Rohingya refugees and affected host communities in the Ukhiya and Teknaf sub-districts while preparing for and responding to disasters. It collaborates with the Inter-Sector Coordination Group (ISCG) and is currently partnering with INGOs, NGOs and UN agencies to support the education of Rohingya and affected host community children." textAlignment="JUSTIFY" textFill="#000ea4" wrapText="true">
          <font>
             <Font name="Comic Sans MS Italic" size="24.0" />
          </font>

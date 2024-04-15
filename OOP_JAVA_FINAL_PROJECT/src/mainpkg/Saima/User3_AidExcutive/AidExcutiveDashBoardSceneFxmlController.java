@@ -31,7 +31,7 @@ import mainpkg.Saima.User3_AidExcutive.Profile.ProfileSceneFxmlController;
  *
  * @author HP
  */
-public class DashBoardSceneFxmlController implements Initializable {
+public class AidExcutiveDashBoardSceneFxmlController implements Initializable {
 
     @FXML    private Label nameLabel;
     @FXML    private Label userTypeLabel;
@@ -60,8 +60,8 @@ public class DashBoardSceneFxmlController implements Initializable {
 
     @FXML
     private void profileOnMouseClicked(MouseEvent event) throws IOException {
-        Parent root=null;
-        FXMLLoader myLoader=new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/Profile/ProfileSceneFxml.fxml"));
+        Parent root = null ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/Profile/ProfileSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
         

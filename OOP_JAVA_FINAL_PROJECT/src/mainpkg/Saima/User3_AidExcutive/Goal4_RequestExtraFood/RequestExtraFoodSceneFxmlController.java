@@ -25,8 +25,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.Rasel.CampManager.Goal5_Supply.Food;
+
+import mainpkg.Saima.User3.FoodRequest;
 import mainpkg.Saima.User3_AidExcutive.AidExcutive;
-import mainpkg.Saima.User3_AidExcutive.FoodRequest;
 
 
 /**
@@ -36,36 +37,21 @@ import mainpkg.Saima.User3_AidExcutive.FoodRequest;
  */
 public class RequestExtraFoodSceneFxmlController implements Initializable {
 
-    @FXML
-    private ComboBox<String> requestfoodNameComboBox;
-    @FXML
-    private TextField requestFoodQuantityTextField;
-    @FXML
-    private TextField ddTextField;
-    @FXML
-    private TextField mmTextField;
-    @FXML
-    private TextField yyyyTextField;
-    @FXML
-    private TextField ddDeadlineTextField;
-    @FXML
-    private TextField mmDeadlineTextField;
-    @FXML
-    private TextField yyyyDeadlineTextField;
-    @FXML
-    private TableView<FoodRequest> requestExtraFoodTableView;
-    @FXML
-    private TableColumn<FoodRequest, String> requestIdTableColumn;
-    @FXML
-    private TableColumn<FoodRequest, String> foodNameTableColumn;
-    @FXML
-    private TableColumn<FoodRequest, Integer> foodQuantityTableColumn;
-    @FXML
-    private TableColumn<FoodRequest, Date> requestDateTableColumn;
-    @FXML
-    private TableColumn<FoodRequest, Date> deadlineTableColumn;
-    @FXML
-    private TableColumn<FoodRequest, String> statusTableColumn;
+    @FXML    private ComboBox<String> requestfoodNameComboBox;
+    @FXML    private TextField requestFoodQuantityTextField;
+    @FXML    private TextField ddTextField;
+    @FXML    private TextField mmTextField;
+    @FXML    private TextField yyyyTextField;
+    @FXML    private TextField ddDeadlineTextField;
+    @FXML    private TextField mmDeadlineTextField;
+    @FXML    private TextField yyyyDeadlineTextField;
+    @FXML    private TableView<FoodRequest> requestExtraFoodTableView;
+    @FXML    private TableColumn<FoodRequest, String> requestIdTableColumn;
+    @FXML    private TableColumn<FoodRequest, String> foodNameTableColumn;
+    @FXML    private TableColumn<FoodRequest, Integer> foodQuantityTableColumn;
+    @FXML    private TableColumn<FoodRequest, Date> requestDateTableColumn;
+    @FXML    private TableColumn<FoodRequest, Date> deadlineTableColumn;
+    @FXML    private TableColumn<FoodRequest, String> statusTableColumn;
 
     /**
      * Initializes the controller class.
@@ -99,7 +85,7 @@ public class RequestExtraFoodSceneFxmlController implements Initializable {
     @FXML
     private void backOnMouseClicked(MouseEvent event) throws IOException {
             Parent root = null ;
-            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/DashBoard6SceneFxml.fxml")) ;
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/AidExcutiveDashBoardSceneFxml.fxml")) ;
             root = (Parent) myLoader.load() ;
             Scene myScene = new Scene(root) ;
 
@@ -127,6 +113,8 @@ public class RequestExtraFoodSceneFxmlController implements Initializable {
         
         list.add(newFoodRequest);
         requestExtraFoodTableView.setItems(list);
+        
+        clearFields();  
     }
     
     private void clearFields() {

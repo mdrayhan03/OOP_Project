@@ -95,11 +95,11 @@
             <Font name="Eras Demi ITC" size="24.0" />
          </font>
       </Label>
-<<<<<<< HEAD:OOP_JAVA_FINAL_PROJECT/build/classes/mainpkg/Rayhan/User8/Profile/ProfileSceneFxml.fxml
+
       <Label fx:id="genderLabel" layoutX="252.0" layoutY="476.0" text="Gender">
-=======
-      <Label layoutX="262.0" layoutY="486.0" text="Gender">
->>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb:OOP_JAVA_FINAL_PROJECT/src/mainpkg/Saima/User3_AidExcutive/Profile/ProfileSceneFxml.fxml
+
+
+
          <font>
             <Font name="Eras Bold ITC" size="36.0" />
          </font>
@@ -107,11 +107,10 @@
             <Insets top="20.0" />
          </padding>
       </Label>
-<<<<<<< HEAD:OOP_JAVA_FINAL_PROJECT/build/classes/mainpkg/Rayhan/User8/Profile/ProfileSceneFxml.fxml
+
       <Label fx:id="emailLabel1" layoutX="461.0" layoutY="507.0">
-=======
-      <Label fx:id="genderLabel" layoutX="471.0" layoutY="517.0" prefHeight="28.0" prefWidth="0.0">
->>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb:OOP_JAVA_FINAL_PROJECT/src/mainpkg/Saima/User3_AidExcutive/Profile/ProfileSceneFxml.fxml
+
+
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
          </font>

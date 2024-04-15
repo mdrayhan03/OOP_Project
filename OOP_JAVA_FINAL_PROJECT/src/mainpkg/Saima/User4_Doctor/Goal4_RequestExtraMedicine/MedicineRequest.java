@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package mainpkg.Saima.User3;
+package mainpkg.Saima.User4_Doctor.Goal4_RequestExtraMedicine;
 
 import java.io.Serializable;
 import mainpkg.AbstractClass.Date;
@@ -11,17 +11,17 @@ import mainpkg.AbstractClass.Date;
  *
  * @author HP
  */
-public class FoodRequest implements Serializable {
+public class MedicineRequest implements Serializable {
     String id,name;
-    Integer quantity;
+    Integer amount;
     Date requestDate;
     Date deadLine;
     String status;
 
-    public FoodRequest(String id, int quantity, Date requestDate, Date deadLine, String name) {
+    public MedicineRequest(String id, int amount1, Date requestDate, Date deadLine, String name) {
         this.id = id;
         this.name = name;
-        this.quantity = quantity;
+        this.amount = amount;
         this.requestDate = requestDate;
         this.deadLine = deadLine;
         this.status = status;
@@ -43,12 +43,12 @@ public class FoodRequest implements Serializable {
         this.name = name;
     }
 
-    public Integer getQuantity() {
-        return quantity;
+    public Integer getAmount() {
+        return amount;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
     public Date getRequestDate() {
@@ -77,20 +77,14 @@ public class FoodRequest implements Serializable {
 
     @Override
     public String toString() {
-        return "FoodRequest{" + "id=" + id + ", name=" + name + ", quantity=" + quantity + ", requestDate=" + requestDate + ", deadLine=" + deadLine + ", status=" + status + '}';
+        return "MedicineRequest{" + "id=" + id + ", name=" + name + ", amount=" + amount + ", requestDate=" + requestDate + ", deadLine=" + deadLine + ", status=" + status + '}';
     }
-
-   
-   
     
-
-
+    
     public String generateId() {
         String id = "ReqI" ;
         id += this.getRequestDate().toString().substring(0 , 1) ;
         id += this.getDeadLine().toString().substring(0 , 1) ;
         return id ;
     }
-
-    
 }

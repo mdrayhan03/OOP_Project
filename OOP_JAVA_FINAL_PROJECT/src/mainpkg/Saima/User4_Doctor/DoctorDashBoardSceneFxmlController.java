@@ -18,8 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.User;
-import mainpkg.Rayhan.User6.Goal3_RequestVolunteer.RequestVolunteerSceneFxmlController;
 import mainpkg.Saima.User4_Doctor.Goal1_AddMedicine.AddMedicineSceneFxmlController;
+import mainpkg.Saima.User4_Doctor.Goal5_RequestVolunteer.RequestVolunteerSceneFxmlController;
 import mainpkg.Saima.User4_Doctor.Goal2_MedicalRecords.MedicalRecordsSceneFxmlController;
 import mainpkg.Saima.User4_Doctor.Goal3_CheckupSchedule.CheckupScheduleSceneFxmlController;
 import mainpkg.Saima.User4_Doctor.Goal4_RequestExtraMedicine.RequestExtraMedicineSceneFxmlController;
@@ -33,7 +33,7 @@ import mainpkg.Saima.User4_Doctor.Profile.ProfileSceneFxmlController;
  *
  * @author HP
  */
-public class DashBoardSceneFxmlController implements Initializable {
+public class DoctorDashBoardSceneFxmlController implements Initializable {
 
     @FXML    private Label nameLabel;
     @FXML    private Label userTypeLabel;
@@ -62,8 +62,8 @@ public class DashBoardSceneFxmlController implements Initializable {
 
     @FXML
     private void profileOnMouseClicked(MouseEvent event) throws IOException {
-        Parent root=null;
-        FXMLLoader myLoader=new FXMLLoader(getClass().getResource("/mainpkg/Saima/User4_Doctor/Profile/ProfileSceneFxml.fxml"));
+         Parent root = null ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User4_Doctor/Profile/ProfileSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
         

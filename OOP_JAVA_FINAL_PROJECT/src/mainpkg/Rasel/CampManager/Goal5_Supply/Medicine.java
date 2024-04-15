@@ -4,32 +4,20 @@
  */
 package mainpkg.Rasel.CampManager.Goal5_Supply;
 
-/**
- *
- * @author HP
- */
 import java.io.Serializable;
 import java.util.Random;
 import mainpkg.AbstractClass.Date;
 
-/**
- *
- * @author HP
- */
-public class Food implements Serializable {
+public class Medicine implements Serializable {
     String id,name;
-    Integer quantity;
+    Integer Amount;
     Date date;
 
-    public Food(String id, Integer quantity, int date1) {
+    public Medicine(String id, String name, Integer Amount, Date date) {
         this.id = id;
         this.name = name;
-        this.quantity = quantity;
+        this.Amount = Amount;
         this.date = date;
-    }
-
-    public Food(String id, String name, Integer quantity, int date) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String getId() {
@@ -48,12 +36,12 @@ public class Food implements Serializable {
         this.name = name;
     }
 
-    public Integer getQuantity() {
-        return quantity;
+    public Integer getAmount() {
+        return Amount;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setAmount(Integer Amount) {
+        this.Amount = Amount;
     }
 
     public Date getDate() {
@@ -66,12 +54,10 @@ public class Food implements Serializable {
 
     @Override
     public String toString() {
-        return "Food{" + "id=" + id + ", name=" + name + ", quantity=" + quantity + ", date=" + date + '}';
+        return "Medicine{" + "id=" + id + ", name=" + name + ", Amount=" + Amount + ", date=" + date + '}';
     }
 
    
-    
-
 
     private String generateId() {
         Random r=new Random();
@@ -83,4 +69,6 @@ public class Food implements Serializable {
         return id;
         }
 }
+
+
 

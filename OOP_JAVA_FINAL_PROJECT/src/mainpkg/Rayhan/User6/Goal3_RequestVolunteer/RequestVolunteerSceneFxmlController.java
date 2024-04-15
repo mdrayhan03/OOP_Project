@@ -76,7 +76,7 @@ public class RequestVolunteerSceneFxmlController implements Initializable {
     
     public void set(EducationCoordinator u) {
         user = u ;
-        tableShow() ;
+            tableShow() ;
     }
     
     public void tableShow() {
@@ -233,22 +233,22 @@ public class RequestVolunteerSceneFxmlController implements Initializable {
             if(f.exists()){
                 fos = new FileOutputStream(f,true);
                 oos = new AppendableObjectOutputStream(fos);                
-            }
-            else{
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);               
-            }
-            oos.writeObject(stu);
+        }
+        else{
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);               
+        }
+        oos.writeObject(stu);
 
+    } catch (IOException ex) {
+        Logger.getLogger(RequestVolunteerSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+    } finally {
+        try {
+            if(oos != null) oos.close();
         } catch (IOException ex) {
             Logger.getLogger(RequestVolunteerSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                if(oos != null) oos.close();
-            } catch (IOException ex) {
-                Logger.getLogger(RequestVolunteerSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }                
-    }
+        }
+    }                
+}
     
 }

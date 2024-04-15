@@ -106,7 +106,6 @@ public class RequestMedicalCampaignSceneFxmlController implements Initializable 
         // TODO
     }    
 
-    @FXML
     private void backOnMouseClicked(MouseEvent event) throws IOException {
         Parent root = null ;
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User4_Doctor/DoctorDashBoardSceneFxml.fxml")) ;
@@ -119,7 +118,6 @@ public class RequestMedicalCampaignSceneFxmlController implements Initializable 
         stage.show() ;
     }
 
-    @FXML
     private void applyOnMouseClicked(MouseEvent event) {
         
         Boolean rtn = true ;
@@ -195,5 +193,7 @@ public class RequestMedicalCampaignSceneFxmlController implements Initializable 
         }
     
     }
+
+  
     
 }

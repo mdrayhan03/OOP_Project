@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Saima.User3_AidExcutive.DashBoardSceneFxmlController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Saima.User3_AidExcutive.AidExcutiveDashBoardSceneFxmlController">
    <children>
       <Button mnemonicParsing="false" onMouseClicked="#profileOnMouseClicked" prefHeight="84.0" prefWidth="400.0" text="Profile">
          <font>

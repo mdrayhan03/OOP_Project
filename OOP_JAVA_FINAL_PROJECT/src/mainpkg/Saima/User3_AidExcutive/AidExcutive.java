@@ -72,22 +72,19 @@ public class AidExcutive extends User implements Serializable{
     return null;
 }
     
-    public Food addFood(String id,String name, Integer quantity, Date date) {
-        Food fd = new Food(id,name, quantity, date) ;
+    public Food addFood(String id,String name, Integer quantity, Integer date) {
+        Food fd = new Food(id, quantity, date) ;
         this.setFoodAmount(this.getFoodAmount() + 1) ;
         return fd ;
     }
-    public Food distributeFood(String id,String name, Integer quantity, Date date) {
-        Food fd = new Food(id,name, quantity, date) ;
-        int currentFoodAmount=this.getFoodAmount();
-        if (currentFoodAmount>0){
-            
-            this.setFoodAmount(currentFoodAmount - 1) ;
-        
-        }
-        
-        return fd ;
-    }
+    public Food distributeFood(Integer quantity, String id, int date, int id1) {
+            Food fd = new Food(id, quantity, date);
+            int currentFoodAmount = this.getFoodAmount();
+            if (currentFoodAmount > 0) {
+                this.setFoodAmount(currentFoodAmount - 1);
+            }
+            return fd;
+}
     
     public RequestedItems requestExtraFood(int id , String userType , String name, int amount, Date apply, Date deadline) {
         RequestedItems req = new RequestedItems(id , userType , name, amount, apply, deadline) ;

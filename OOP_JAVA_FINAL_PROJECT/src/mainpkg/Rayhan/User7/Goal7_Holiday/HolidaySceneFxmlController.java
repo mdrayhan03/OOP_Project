@@ -72,13 +72,13 @@ public class HolidaySceneFxmlController implements Initializable {
     }
     
     public void listShow() {
-        ObservableList<Holiday> reqList = user.getHolidayList() ;
-        if (acceptedCheckBox.isSelected()) {
-            for (Holiday rv : list) {
-                if (rv.getStatus() == "Accepted") {
-                    reqList.add(rv) ;
+            ObservableList<Holiday> reqList = user.getHolidayList() ;
+            if (acceptedCheckBox.isSelected()) {
+                for (Holiday rv : list) {
+                    if (rv.getStatus() == "Accepted") {
+                        reqList.add(rv) ;
+                    }
                 }
-            }
         }
         else if (rejectedCheckBox.isSelected()) {
             for (Holiday rv : list) {

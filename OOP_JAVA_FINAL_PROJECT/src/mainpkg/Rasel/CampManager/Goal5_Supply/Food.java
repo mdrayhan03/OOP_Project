@@ -21,11 +21,15 @@ public class Food implements Serializable {
     Integer quantity;
     Date date;
 
-    public Food(String id, String name, Integer quantity, Date date) {
+    public Food(String id, Integer quantity, int date1) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.date = date;
+    }
+
+    public Food(String id, String name, Integer quantity, int date) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String getId() {

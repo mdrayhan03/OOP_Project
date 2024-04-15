@@ -71,10 +71,13 @@ public class ProfileSceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/Profile/ChangePWSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        ChangePWSceneFxmlController cpc = myLoader.getController() ;
+        cpc.set(user) ;
 
         Stage stage = new Stage() ;
         stage.setScene(myScene) ;
-        stage.getIcons().add(new Image("/image/Aid_Excutive.jpg")) ;
+           stage.getIcons().add(new Image("/image/Aid_Excutive.jpg")) ;
         stage.setTitle("Aid Excutive Change Password") ;
         stage.show() ;
     }

@@ -62,8 +62,8 @@ public class DoctorDashBoardSceneFxmlController implements Initializable {
 
     @FXML
     private void profileOnMouseClicked(MouseEvent event) throws IOException {
-        Parent root=null;
-        FXMLLoader myLoader=new FXMLLoader(getClass().getResource("/mainpkg/Saima/User4_Doctor/Profile/ProfileSceneFxml.fxml"));
+         Parent root = null ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User4_Doctor/Profile/ProfileSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
         

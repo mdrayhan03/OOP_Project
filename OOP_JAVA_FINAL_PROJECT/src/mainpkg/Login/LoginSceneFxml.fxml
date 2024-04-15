@@ -40,7 +40,7 @@
             <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="546.0" layoutY="646.0" mnemonicParsing="false" onMouseClicked="#createAccountOnMouseClick" text="Create Account">
+      <Button layoutX="949.0" layoutY="724.0" mnemonicParsing="false" onMouseClicked="#createAccountOnMouseClick" text="Create Account">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>

@@ -84,7 +84,7 @@ public class AddShelterSceneFxmlController implements Initializable {
     @FXML
     private void backButtonOnMouseClicked(MouseEvent event) throws IOException {
         Parent root = null;
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExecutive/DashBoardSceneFxml.fxml"));
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExecutive/AidExcutiveDashBoardSceneFxml.fxml"));
         root = (Parent) myLoader.load();
         Scene myScene = new Scene(root);
 

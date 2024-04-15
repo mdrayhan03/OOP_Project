@@ -13,7 +13,14 @@ public class CampManager extends User implements Serializable {
     private ArrayList<Refugee> refugeeInfo;
     private int rice, potato, onion, oil, fish, pulse, milk, egg, chicken;
     private Date doj;
+    
+    public CampManager(){
+    }
 
+    public CampManager(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob) {
+        super(id, name, password, phoneNo, email, userType, gender, dob);
+      }
+      
     public CampManager(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob, Date doj) {
         super(id, name, password, phoneNo, email, userType, gender, dob);
         this.doj = doj;

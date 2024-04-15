@@ -81,13 +81,13 @@ public class SecurityIncharge extends User implements Serializable {
          return vc ;
     }
 
-    public Refugee refugeeInfo(int id , ObservableList<Refugee> list) {
+        public Refugee refugeeInfo(int id , ObservableList<Refugee> list) {
         for (Refugee re: list) {
             if (re.getId() == id) {
                 return re ;
             }
         }
-        return null ;
+        return null ;       
     }
 //+crimeFacts():void    
     public Notice notice(String id , ObservableList<Notice> l) {
@@ -121,7 +121,7 @@ public class SecurityIncharge extends User implements Serializable {
     }
     
     public Report report(Integer senderId, Integer receiverId, String subject, String description, Date applyDate) {
-        Report rep = new Report(senderId , receiverId , subject , description , applyDate) ;
+        Report rep = new Report(subject , description , applyDate) ;
         return rep ;
     }
     

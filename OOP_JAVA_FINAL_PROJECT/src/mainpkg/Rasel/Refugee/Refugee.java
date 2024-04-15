@@ -14,6 +14,18 @@ public class Refugee extends User implements Serializable {
     private String fatherName, motherName, symbole, description;
     private int quantity, campNo;
     ObservableList<Refugee> family_members;
+<<<<<<< HEAD
+
+    public Refugee(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob) {
+        super(id, name, password, phoneNo, email, userType, gender, dob);
+    }
+    
+    
+    
+   
+    
+        
+=======
     
     public Refugee() {
         super(0, "", "", "", "", "", "", "");
@@ -33,6 +45,7 @@ public class Refugee extends User implements Serializable {
     }
 
 
+>>>>>>> main
     public String getFood() {
         return food;
     }

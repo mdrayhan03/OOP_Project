@@ -25,13 +25,14 @@ import mainpkg.Saima.User3_AidExcutive.Goal5_AddShelter.AddShelterSceneFxmlContr
 import mainpkg.Saima.User3_AidExcutive.Goal6_AllocateShelter.AllocateShelterSceneFxmlController;
 import mainpkg.Saima.User3_AidExcutive.Goal7_RequestExtraShelter.RequestExtraShelterSceneFxmlController;
 import mainpkg.Saima.User3_AidExcutive.Profile.ProfileSceneFxmlController;
+import mainpkg.Saima.User4_Doctor.Doctor;
 
 /**
  * FXML Controller class
  *
  * @author HP
  */
-public class DashBoardSceneFxmlController implements Initializable {
+public class AidExcutiveDashBoardSceneFxmlController implements Initializable {
 
     @FXML    private Label nameLabel;
     @FXML    private Label userTypeLabel;
@@ -60,8 +61,8 @@ public class DashBoardSceneFxmlController implements Initializable {
 
     @FXML
     private void profileOnMouseClicked(MouseEvent event) throws IOException {
-        Parent root=null;
-        FXMLLoader myLoader=new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/Profile/ProfileSceneFxml.fxml"));
+        Parent root = null ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/Profile/ProfileSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
         
@@ -207,8 +208,8 @@ public class DashBoardSceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/Goal8_Report/ReportSceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
-        
-      
+        ReportSceneFxmlController rc=myLoader.getController();
+        rc.set(user);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

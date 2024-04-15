@@ -12,7 +12,7 @@ public class Report implements Serializable{
     String subject , description , id ;
     Date applyDate ;
 
-    public Report(Integer senderId, Integer receiverId, String subject, String description, Date applyDate) {
+    public Report(String subject, String description, Date applyDate) {
         this.subject = subject;
         this.description = description;
         this.applyDate = applyDate;

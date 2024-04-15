@@ -28,6 +28,7 @@ import mainpkg.AbstractClass.User;
 import mainpkg.Rayhan.User5.DashBoard5SceneFxmlController;
 import mainpkg.Rayhan.User5.Goal8_Report.ShowReportFxmlController;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
+import mainpkg.Saima.User3_AidExcutive.AidExcutive;
 
 /**
  * FXML Controller class
@@ -195,6 +196,10 @@ public class ReportSceneFxmlController implements Initializable {
                 Logger.getLogger(ReportSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }                
+    }
+
+    public void set(AidExcutive user) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

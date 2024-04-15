@@ -26,6 +26,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rasel.CampManager.CampManager;
+import mainpkg.Rasel.CampManager.CampManagerDashboardSceneController;
+
+import mainpkg.Rasel.Refugee.Refugee;
+import mainpkg.Rasel.Refugee.RefugeeDashboardSceneController;
 
 import mainpkg.Rayhan.User5.DashBoard5SceneFxmlController;
 import mainpkg.Rayhan.User5.Profile.ProfileSceneFxmlController;
@@ -58,8 +63,12 @@ public class LoginSceneFxmlController implements Initializable {
     @FXML    private ComboBox<String> userTypeComboBox;
     
     Alert alert ;
+    ObservableList<CampManager> managerList = FXCollections.observableArrayList() ;
+    ObservableList<Refugee> refugeeList = FXCollections.observableArrayList() ;
+    
     ObservableList<VolunteerCoordinator> vcList = FXCollections.observableArrayList() ;
     ObservableList<EducationCoordinator> ecList = FXCollections.observableArrayList() ;
+    
     ObservableList<SecurityIncharge> siList = FXCollections.observableArrayList() ;
     ObservableList<NGOs> ngList = FXCollections.observableArrayList() ;
     
@@ -93,6 +102,12 @@ public class LoginSceneFxmlController implements Initializable {
         aeList.add(aE);
         Doctor doc = new Doctor(1100000, "Ahad" , "11111asd" , "01312961739" , "ahad@gmail.com" , "Doctor" , "Male" , "04/04/2003") ;
         docList.add(doc);
+        
+        CampManager cm = new CampManager(7700000 , "Brigadier Gen Niaz" , "admin1234" , "01476589098" , "refugee.camp.niaz@gmail.com" , "Refugee Camp Manager" , "Male" , "07/02/1980", new Date(20,01,2020));
+        managerList.add(cm);
+        
+        Refugee r = new Refugee(8800000 , "Niloy Sarder" , "admin1234" , "01676543198" , "niloy@gmail.com" , "Refugee" , "Male" , "02/07/1998");
+        refugeeList.add(r);
         
         userTypeComboBox.getItems().addAll("Refugee Camp Manager", "Refugee", "Aid Excutive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGO") ;
         userTypeComboBox.setValue("Refugee Camp Manager") ;
@@ -186,6 +201,55 @@ public class LoginSceneFxmlController implements Initializable {
                     stage.show() ;
                 }
             }}
+        
+        else if (userType == "Refugee Camp Manager") {
+            for(CampManager cm: managerList) {
+                CampManager user = (CampManager) cm.verifyLogin(id, pw) ;
+                if (user != null) {
+                    user.setStatus("Active");
+                    alert = new Alert(Alert.AlertType.CONFIRMATION) ;
+                    alert.setHeaderText("Verification Confirmed.");
+                    alert.showAndWait() ;   
+                    Parent root = null ;
+                    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rasel/CampManager/CampManagerDashboardScene.fxml")) ;
+                    root = (Parent) myLoader.load() ;
+                    Scene myScene = new Scene(root) ;
+        
+                    CampManagerDashboardSceneController psc = myLoader.getController() ;
+                    psc.set(user) ;
+        
+
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
+                    stage.setScene(myScene) ;
+                    stage.setTitle("Refugee Camp Manager DashBoard") ;
+                    stage.show() ;
+                }
+            }}
+        
+        else if (userType == "Refugee") {
+            for(Refugee r: refugeeList) {
+                Refugee user = (Refugee) r.verifyLogin(id, pw) ;
+                if (user != null) {
+                    user.setStatus("Active");
+                    alert = new Alert(Alert.AlertType.CONFIRMATION) ;
+                    alert.setHeaderText("Verification Confirmed.");
+                    alert.showAndWait() ;   
+                    Parent root = null ;
+                    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rasel/Refugee/RefugeeDashboardScene.fxml")) ;
+                    root = (Parent) myLoader.load() ;
+                    Scene myScene = new Scene(root) ;
+        
+                    RefugeeDashboardSceneController psc = myLoader.getController() ;
+                    psc.set(user) ;
+        
+
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
+                    stage.setScene(myScene) ;
+                    stage.setTitle("Refugee DashBoard") ;
+                    stage.show() ;
+                }
+            }}
+        
         else if (userType == "Security Incharge") {
             for(SecurityIncharge si: siList) {
                 SecurityIncharge user = si.verifyLogin(id, pw) ;

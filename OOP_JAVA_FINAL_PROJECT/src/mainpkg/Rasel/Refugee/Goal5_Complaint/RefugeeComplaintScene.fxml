@@ -18,7 +18,7 @@
       <Line endX="100.0" layoutX="323.0" layoutY="20.0" startX="-100.0" />
       <Line endX="100.0" layoutX="323.0" layoutY="54.0" startX="-100.0" />
       <Button layoutX="25.0" layoutY="19.0" mnemonicParsing="false" onAction="#complaintManagerBackButton" prefHeight="36.0" prefWidth="69.0" text="Back" />
-      <TextField layoutX="138.0" layoutY="117.0" onAction="#complaintManagerRefugeeNameTF" prefHeight="36.0" prefWidth="220.0" />
+      <TextField fx:id="complaintManagerRefugeeNameTF" layoutX="138.0" layoutY="117.0" prefHeight="36.0" prefWidth="220.0" />
       <Label layoutX="36.0" layoutY="123.0" text="Name:" textFill="RED">
          <font>
             <Font size="18.0" />
@@ -29,7 +29,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="138.0" layoutY="161.0" onAction="#complaintManagerRefugeeIdTF" prefHeight="36.0" prefWidth="220.0" />
+      <TextField fx:id="complaintManagerRefugeeIdTF" layoutX="138.0" layoutY="161.0" prefHeight="36.0" prefWidth="220.0" />
       <Label layoutX="34.0" layoutY="247.0" text="Description:" textFill="RED">
          <font>
             <Font size="18.0" />

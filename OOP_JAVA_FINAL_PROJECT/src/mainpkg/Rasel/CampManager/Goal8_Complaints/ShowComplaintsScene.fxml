@@ -17,7 +17,7 @@
       </Label>
       <Line endX="100.0" layoutX="317.0" layoutY="17.0" startX="-100.0" />
       <Line endX="100.0" layoutX="317.0" layoutY="54.0" startX="-100.0" />
-      <TableView layoutX="34.0" layoutY="82.0" prefHeight="469.0" prefWidth="585.0">
+      <TableView fx:id="complaintTV" layoutX="34.0" layoutY="82.0" prefHeight="469.0" prefWidth="585.0">
         <columns>
           <TableColumn fx:id="complaintsRefugeeIdTC" prefWidth="98.0" text="RefugeeID" />
           <TableColumn fx:id="complaintsRefugeeNameTC" prefWidth="121.0" text="Refugee Name" />

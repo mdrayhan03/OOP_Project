@@ -17,6 +17,22 @@ public class FoodRequest implements Serializable {
     Date requestDate;
     Date deadLine;
     String status;
+    
+    String foodName;
+    String measurement;
+    
+    
+    public FoodRequest(){
+    }
+
+    public FoodRequest(String id, String name, String foodName, Integer quantity, String measurement) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.foodName = foodName;
+        this.measurement = measurement;
+    }
+    
 
     public FoodRequest(String id, int quantity, Date requestDate, Date deadLine, String name) {
         this.id = id;
@@ -75,13 +91,26 @@ public class FoodRequest implements Serializable {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "FoodRequest{" + "id=" + id + ", name=" + name + ", quantity=" + quantity + ", requestDate=" + requestDate + ", deadLine=" + deadLine + ", status=" + status + '}';
+    public String getFoodName() {
+        return foodName;
     }
 
-   
-   
+    public void setFoodName(String foodName) {
+        this.foodName = foodName;
+    }
+
+    public String getMeasurement() {
+        return measurement;
+    }
+
+    public void setMeasurement(String measurement) {
+        this.measurement = measurement;
+    }
+
+    @Override
+    public String toString() {
+        return "FoodRequest{" + "id=" + id + ", name=" + name + ", quantity=" + quantity + ", requestDate=" + requestDate + ", deadLine=" + deadLine + ", status=" + status + ", foodName=" + foodName + ", measurement=" + measurement + '}';
+    }
     
 
 

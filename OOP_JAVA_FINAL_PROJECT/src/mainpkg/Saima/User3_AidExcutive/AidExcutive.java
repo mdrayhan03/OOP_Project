@@ -20,8 +20,8 @@ import mainpkg.Saima.User3_AidExcutive.Goal8_Report.Report;
  * @author HP
  */
 public class AidExcutive extends User implements Serializable{
-    int foodAmount = 0 ;
-    int shelterAmount = 0 ;
+        int foodAmount = 0 ;
+        int shelterAmount = 0 ;
     
     
       public AidExcutive(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob) {
@@ -56,7 +56,7 @@ public class AidExcutive extends User implements Serializable{
     
     public Food foodInfo(String id , ObservableList<Food> list) {
         for (Food f: list) {
-            if (f.getId() == id) {
+            if (Integer.toString(f.getId()) == id) {
                 return f ;
             }
         }
@@ -72,13 +72,18 @@ public class AidExcutive extends User implements Serializable{
     return null;
 }
     
-    public Food addFood(String id,String name, Integer quantity, Integer date) {
-        Food fd = new Food(id, quantity, date) ;
-        this.setFoodAmount(this.getFoodAmount() + 1) ;
-        return fd ;
+     public Food addFood(int id , String userType , String name, int amount, Date date) {
+        Food f = new Food(id , userType , name, amount, date) ;
+        
+        int currentFoodAmount = this.getFoodAmount();
+            if (currentFoodAmount > 0) {
+                this.setFoodAmount(currentFoodAmount + 1);
+        
     }
-    public Food distributeFood(Integer quantity, String id, int date, int id1) {
-            Food fd = new Food(id, quantity, date);
+            return f;
+     }
+    public Food distributeFood(int id , String userType , String name, int amount, Date date) {
+            Food fd = new Food(id , userType , name, amount, date);
             int currentFoodAmount = this.getFoodAmount();
             if (currentFoodAmount > 0) {
                 this.setFoodAmount(currentFoodAmount - 1);
@@ -109,7 +114,10 @@ public class AidExcutive extends User implements Serializable{
         return req ;
     }
 
-
+  public RequestedItems request(int id , String userType , String name, int amount, Date apply, Date deadline) {
+        RequestedItems req = new RequestedItems(id , userType , name, amount, apply, deadline) ;
+        return req ;
+    }
     
 
    public ObservableList<Refugee> getFamilyMembersOfShelter(String selectedShelterId) {

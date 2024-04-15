@@ -32,8 +32,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.AppendableObjectOutputStream;
 import mainpkg.AbstractClass.Date;
+import mainpkg.AbstractClass.Time_Place;
 import mainpkg.Rasel.CampManager.Goal5_Supply.Food;
 import mainpkg.Saima.User3_AidExcutive.AidExcutive;
+import mainpkg.Saima.User3_AidExcutive.AidExcutiveDashBoardSceneFxmlController;
 
 public class DistributeFoodSceneFxmlController implements Initializable {
 
@@ -51,9 +53,8 @@ public class DistributeFoodSceneFxmlController implements Initializable {
     Alert alert ;
     AidExcutive user ;
     ObservableList<Food> list = FXCollections.observableArrayList() ;
-    @FXML
-    private TableView<Food> distributeFoodTableView;
-    
+    @FXML    private TableView<Food> distributeFoodTableView;
+    Time_Place tp = new Time_Place() ;
     public AidExcutive get() {
         return user ;
     }
@@ -70,39 +71,55 @@ public class DistributeFoodSceneFxmlController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        foodNameComboBox.getItems().addAll("Rice","Potato","Onion","Fish","Oil","Pulse","Milk","Egg","Chicken");
         
         distributeIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("distributeFoodId")) ;
         foodNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("foodName")) ;
         foodQuantityTableColumn.setCellValueFactory(new PropertyValueFactory<>("foodQuantity")) ;
         distributeDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("distributeDate")) ;
         distributeByTableColumn.setCellValueFactory(new PropertyValueFactory<>("distributeBy")) ;
+        
+        foodNameComboBox.setItems(tp.getAidexcutivefoodName()) ;
     }    
 
     @FXML
     private void backButtonOnMouseClicked(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/AidExcutiveDashBoardSceneFxml.fxml")) ;
+        Parent root = null ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/AidExcutiveDashBoardSceneFxml.fxml")) ;
+        root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        AidExcutiveDashBoardSceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
-        stage.setTitle("Aid Executive Dashboard") ;
+        stage.setTitle("AidExcutive DashBoard") ;
         stage.show() ;
     }
 
     @FXML
     private void distributeOnMouseClicked(MouseEvent event) {
-        Integer quantity = 0 ;
-        String date = " " ;
+        String amount= "" ;
+        String name = ""  , dd = "" , mm = "" , yyyy = ""  ;
+        int add = 0 , amm = 0 , ayyyy = 0,amu=0  ;
         Boolean rtn = true ;
         
-        quantity = Integer.parseInt(foodQuantityTextField.getText()) ;
-        date = ddTextField.getText().toString() + "-" + 
-               mmTextField.getText().toString() + "-" + 
-               yyyyTextField.getText().toString();
+        amount = foodQuantityTextField.getText();
+        amu=Integer.parseInt(amount);
+        dd= ddTextField.getText();
+        mm=mmTextField.getText();
+        yyyy=yyyyTextField.getText();
         
-        if (rtn == true) {
-            Food food = user.distributeFood(quantity, date,user.getFoodAmount(),user.getId());
+        add=Integer.parseInt(dd);
+        amm=Integer.parseInt(mm);
+        ayyyy=Integer.parseInt(yyyy);
+        
+        Date date=new Date(add,amm,ayyyy);
+        
+        name=foodNameComboBox.getValue();
+        if (rtn == true && this.checkDate(date)) {
+        
+          Food food = user.distributeFood(user.getId() , user.getUserType() , name, amu, date);
             fileWrite(food) ;
             
             tableShow() ;
@@ -111,7 +128,33 @@ public class DistributeFoodSceneFxmlController implements Initializable {
             mmTextField.clear() ;
             yyyyTextField.clear() ;
         }
+        else {
+            alert = new Alert(Alert.AlertType.ERROR) ;
+            alert.setHeaderText(" Error") ;
+            alert.setContentText("Distribution is not Valid.") ;
+            alert.showAndWait() ;
+        }
     }
+    public boolean checkDate (Date d) {
+        Boolean rtn = false ;
+        if(d.getYyyy() > d.getYyyy()) {
+            rtn = true ;
+        }
+        else if (d.getYyyy() == d.getYyyy()) {
+            if (d.getMm() > d.getMm()) {
+                rtn = true ;
+            }
+            else if (d.getMm() == d.getMm()) {
+                if (d.getDd() >= d.getDd()) {
+                    rtn = true ;
+                }
+            }
+            
+        }
+        
+        return rtn ;
+    }
+    
         
     private ObservableList<Food> fileRead() {
         ObservableList<Food> list = FXCollections.observableArrayList() ;

@@ -26,7 +26,7 @@ public class Notice {
         return des;
     }
 
-    public String getId() {
+    public String getId() { 
         return id;
     }
 

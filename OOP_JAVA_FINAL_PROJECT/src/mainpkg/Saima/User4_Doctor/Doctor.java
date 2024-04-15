@@ -24,9 +24,9 @@ import mainpkg.Saima.User4_Doctor.Goal3_CheckupSchedule.CheckupSchedule;
  * @author HP
  */
 public class Doctor extends User implements Serializable{
-    int patientAmount = 0 ;
+    Integer patientAmount = 0 ;
     String[] checkupSchedule = {"9:00am-12:50pm","2:00pm-5:00pm","6:30pm-9:00pm"} ;
-    int volunteerAmount=0;
+    Integer volunteerAmount=0;
     String[]ChampingPlace={"plot-1","plot-2","plot-3","plot-5","plot-5"};
     Integer medicineAmount;
     
@@ -90,15 +90,15 @@ public class Doctor extends User implements Serializable{
     
     public Medicine medicineInfo(String id , ObservableList<Medicine> list) {
         for (Medicine medi: list) {
-            if (medi.getId() == id) {
+            if (Integer.toString(medi.getId()) == id) {
                 return medi ;
             }
         }
         return null ;
     }
     
-    public Medicine addMedicine(String id,String name, Integer medicineAmount, Date date) {
-        Medicine medi = new Medicine(id,name, medicineAmount, date) ;
+    public Medicine addMedicine(int id , String userType , String name, int amount, Date date) {
+        Medicine medi = new Medicine(id , userType , name, amount, date) ;
         this.setMedicineAmount(this.getMedicineAmount()+1);
         return medi ;
     }
@@ -138,7 +138,10 @@ public class Doctor extends User implements Serializable{
        return req;
     }
 
-   
+   public RequestedItems request(int id , String userType , String name, int amount, Date apply, Date deadline) {
+        RequestedItems req = new RequestedItems(id , userType , name, amount, apply, deadline) ;
+        return req ;
+    }
   
 
    public Patient patientInfo(String id, ObservableList<Patient> list) {

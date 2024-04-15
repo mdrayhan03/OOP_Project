@@ -158,7 +158,7 @@ public class DoctorDashBoardSceneFxmlController implements Initializable {
         
         RequestExtraHolidaySceneFxmlController psc = myLoader.getController() ;
 
-//        psc.set(user) ;
+        psc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -205,9 +205,9 @@ public class DoctorDashBoardSceneFxmlController implements Initializable {
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
         
-        RequestMedicalCampaignSceneFxmlController psc = myLoader.getController() ;
+        RequestMedicalCampaignSceneFxmlController rmcs = myLoader.getController() ;
 
-        psc.set(user) ;
+        rmcs.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

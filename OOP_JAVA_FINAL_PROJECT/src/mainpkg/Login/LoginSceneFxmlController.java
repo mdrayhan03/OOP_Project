@@ -89,7 +89,7 @@ public class LoginSceneFxmlController implements Initializable {
        
         
        
-        AidExcutive aE = new  AidExcutive(3300000, "Saima Sinthiye" , "asd11111" , "01312961700" , "saima@gmail.com" , "AidExcutive" , "Female" , "04/04/2003") ;
+        AidExcutive aE = new  AidExcutive(3300000, "Saima Sinthiya" , "asd11111" , "01312961700" , "saima@gmail.com" , "AidExcutive" , "Female" , "04/04/2003") ;
         aeList.add(aE);
         Doctor doc = new Doctor(1100000, "Ahad" , "11111asd" , "01312961739" , "ahad@gmail.com" , "Doctor" , "Male" , "04/04/2003") ;
         docList.add(doc);

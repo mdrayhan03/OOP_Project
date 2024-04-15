@@ -96,6 +96,25 @@ public class ReportSceneFxmlController implements Initializable {
         stage.show() ;
     
     }
+
+    @FXML
+    private void backButtonOnMouseClicked(MouseEvent event) throws IOException {
+        
+        Parent root = null ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Saima/User3_AidExcutive/Goal8_Report/ReportSceneFxml.fxml")) ;
+        root = (Parent) myLoader.load() ;
+        Scene myScene = new Scene(root) ;
+        
+       ReportSceneFxmlController psc = myLoader.getController() ;
+
+        psc.set(user) ;
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
+        stage.setScene(myScene) ;
+        stage.setTitle("Report") ;
+        stage.show() ;
+    }
+
     
     }
     

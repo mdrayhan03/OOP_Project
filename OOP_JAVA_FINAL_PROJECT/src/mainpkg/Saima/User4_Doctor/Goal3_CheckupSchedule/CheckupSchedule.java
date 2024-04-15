@@ -13,12 +13,12 @@ import mainpkg.AbstractClass.Date;
  */
 public class CheckupSchedule {
     
-    private String appointmentId;
-    private String refugeeId;
-    private String name;
-    private String gender;
-    private Date checkupDate;
-    private String checkupTime;
+     String appointmentId;
+     String refugeeId;
+     String name;
+     String gender;
+     Date checkupDate;
+     String checkupTime;
 
     // Constructor
 

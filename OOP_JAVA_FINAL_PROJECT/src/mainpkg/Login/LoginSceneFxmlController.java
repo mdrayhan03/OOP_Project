@@ -78,6 +78,7 @@ public class LoginSceneFxmlController implements Initializable {
         ngList.add(n);
         
         userTypeComboBox.getItems().addAll("Refugee Camp Manager" , "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGOs") ;
+<<<<<<< HEAD
         userTypeComboBox.setValue("Refugee Camp Manager");
 //        CampManager c = new CampManager(7700000 , "Brigadier Gen Niaz" , "admin1234" , "01476589098" , "refugee.camp.niaz@gmail.com" , "Camp Manager" , "Male" , "07/02/1980", new Date(20,01,2020));
 //        list.add(c);
@@ -92,6 +93,23 @@ public class LoginSceneFxmlController implements Initializable {
 //        
 //>>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb
 //        userTypeComboBox.setValue("Refugee Camp Manager") ;
+=======
+=======
+        list.add(e);
+        CampManager c = new CampManager(7700000 , "Brigadier Gen Niaz" , "admin1234" , "01476589098" , "refugee.camp.niaz@gmail.com" , "Camp Manager" , "Male" , "07/02/1980", new Date(20,01,2020));
+        list.add(c);
+        Refugee r = new Refugee(8800000 , "Niloy Sarder" , "admin1234" , "01676543198" , "niloy@gmail.com" , "Refugee" , "Male" , "02/07/1998") ;
+        list.add(r);
+        
+        userTypeComboBox.getItems().addAll("Refugee Camp Manager", "Refugee", "Aid Executive" , "Doctor" , "Volunteer Coordinator" , "Education Coordinator" , "Security Incharge" , "NGO") ;
+        AidExcutive ae = new AidExcutive(2233456 , "Saima" , "abcd1234" , "01792760030" , "saima@gmail.com" , "Aid Excuive" , "Female" , "08/04/2003") ;
+        list.add(ae) ;
+        Doctor d = new Doctor(5555777 , "Sintiya" , "abcd5555" , "01951820192" , "sinthiya@gmail.com" , "Doctor" , "Female" , "06/04/2003") ;
+        list.add(d);
+        
+>>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb
+        userTypeComboBox.setValue("Refugee Camp Manager") ;
+>>>>>>> d92c26792bd67dc2b76f7a8e781cda2487aa470b
     }    
 
     @FXML
@@ -155,6 +173,7 @@ public class LoginSceneFxmlController implements Initializable {
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
                     stage.setScene(myScene) ;
                     stage.setTitle("Volunteer Coordinator DashBoard") ;
+<<<<<<< HEAD
                     stage.show() ;}}}
 //        for (User user: list) {
 //            User u = user.verifyLogin(id, pw) ;
@@ -187,15 +206,57 @@ public class LoginSceneFxmlController implements Initializable {
 //                    DashBoard6SceneFxmlController ds = fx.getController() ;
 //                    ds.set(u);
 //
+=======
+                    stage.show() ;
+=======
+        for (User user: list) {
+            User u = user.verifyLogin(id, pw) ;
+            if (u != null) {
+                done = true ;
+                if (userType == "Volunteer Coordinator"){
+                FXMLLoader fx = fxmlload("/mainpkg/Rayhan/User5/DashBoard5SceneFxml.fxml" , "Volunteer Coordinator" , event) ;
+                System.out.println("Volunteer Coordinator") ;
+                DashBoard5SceneFxmlController ds = fx.getController() ;
+//                ds.set(u) ;
+                }
+                else if ("Education Coordinator".equals(u.getUserType())) {
+                    FXMLLoader fx = fxmlload("/mainpkg/Rayhan/User6/DashBoard6SceneFxml.fxml" , "Education Coordinator" , event) ;
+                    System.out.println("Volunteer Coordinator") ;
+                    DashBoard6SceneFxmlController ds = fx.getController() ;
+                    ds.set(u);
+>>>>>>> 133968a1d2b793d8fe55c143d5bbd63410944cdb
+                }
+                
+                else if ("Camp Manager".equals(u.getUserType())) {
+                    FXMLLoader fx = fxmlload("/mainpkg/Rasel/CampManager/CampManagerDashboardScene.fxml" , "Camp Manager" , event) ;
+                    System.out.println("Camp Manager") ;
+                    DashBoard6SceneFxmlController ds = fx.getController() ;
+                    ds.set(u);
+                }
+                
+                else if ("Refugee".equals(u.getUserType())) {
+                    FXMLLoader fx = fxmlload("/mainpkg/Rasel/Refugee/RefugeeDashboardScene.fxml" , "Refugee" , event) ;
+                    System.out.println("Refugee") ;
+                    DashBoard6SceneFxmlController ds = fx.getController() ;
+                    ds.set(u);
+
+>>>>>>> d92c26792bd67dc2b76f7a8e781cda2487aa470b
 //                else if ("Aid Excutive".equals(u.getUserType())) {
 //                    FXMLLoader fx = fxmlload("/mainpkg/Saima/User3_AidExcutive/DashBoardSceneFxml.fxml" , "Aid Excutive" , event) ;
 //                    System.out.println("Aid Excutive") ;
 //                    DashBoardSceneFxmlController ds = fx.getController() ;
 //                    ds.set((AidExcutive) u) ;
+<<<<<<< HEAD
 //                }
 //                
 //            }
 //        }
+=======
+                }
+                
+            }
+        }
+>>>>>>> d92c26792bd67dc2b76f7a8e781cda2487aa470b
         else if (userType == "Education Coordinator") {
             for(EducationCoordinator ec: ecList) {
                 EducationCoordinator user = ec.verifyLogin(id, pw) ;

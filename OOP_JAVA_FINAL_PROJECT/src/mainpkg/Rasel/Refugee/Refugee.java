@@ -1,5 +1,6 @@
 package mainpkg.Rasel.Refugee;
 
+import javafx.collections.ObservableList;
 import mainpkg.AbstractClass.User;
 
 /**
@@ -10,6 +11,7 @@ public class Refugee extends User {
     
     private String food, medicine, doctor;
     private int quantity, refugeeID;
+    ObservableList<Refugee> family_members;
     
     public Refugee(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob) {
         super(id, name, password, phoneNo, email, userType, gender, dob);

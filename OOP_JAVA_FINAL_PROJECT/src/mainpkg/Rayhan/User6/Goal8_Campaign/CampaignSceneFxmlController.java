@@ -89,7 +89,7 @@ public class CampaignSceneFxmlController implements Initializable {
         timeComboBox.setItems(tp.getCampaignTime()) ;
         placeComboBox.setItems(tp.getCampaignPlace()) ;
         idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id")) ;
-        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<>("reason")) ;
+        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<>("subject")) ;
         dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("date")) ;
         timeTableColumn.setCellValueFactory(new PropertyValueFactory<>("time")) ;
         placeTableColumn.setCellValueFactory(new PropertyValueFactory<>("place")) ;

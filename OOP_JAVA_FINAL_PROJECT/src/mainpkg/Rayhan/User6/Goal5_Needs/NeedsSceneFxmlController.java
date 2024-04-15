@@ -81,42 +81,33 @@ public class NeedsSceneFxmlController implements Initializable {
         ObservableList<RequestedItems> list =  fileRead() ;
         ObservableList<RequestedItems> rList = FXCollections.observableArrayList() ;
         ObservableList<RequestedItems> reqList = FXCollections.observableArrayList() ;
-        if (iComboBox.getValue() == null) {
-            rList = list ;
-        }
-        else {
-            for (RequestedItems rv : list) {
-                if (iComboBox.getValue() == rv.getName()) {
-                    rList.add(rv) ;
-                }
-            }
-        }
+        
+        rList = list ;
         if (acceptedCheckBox.isSelected() && rejectedCheckBox.isSelected() && pendingCheckBox.isSelected() || !acceptedCheckBox.isSelected() && !rejectedCheckBox.isSelected() && !pendingCheckBox.isSelected()) {
             reqList = rList ;
         }
-        else {
         if (acceptedCheckBox.isSelected()) {
             for (RequestedItems rv : rList) {
-                if (rv.getStatus() == "Accepted") {
+                if ("Accepted".equals(rv.getStatus())) {
                     reqList.add(rv) ;
                 }
             }
         }
         if (rejectedCheckBox.isSelected()) {
             for (RequestedItems rv : rList) {
-                if (rv.getStatus() == "Rejected") {
+                if ("Rejected".equals(rv.getStatus())) {
                     reqList.add(rv) ;
                 }
             }
         }
         if (pendingCheckBox.isSelected()) {
             for (RequestedItems rv : rList) {
-                if (rv.getStatus() == "Pending") {
+                if ("Pending".equals(rv.getStatus())) {
                     reqList.add(rv) ;
                 }
             }
         }
-        }
+        
         requestTableView.setItems(reqList) ;
     }
         
@@ -137,7 +128,6 @@ public class NeedsSceneFxmlController implements Initializable {
         
         itemComboBox.setItems(tp.getEducationCoordinatorItem()) ;
         itemComboBox.setValue(tp.getEducationCoordinatorItem().get(0)) ;
-        iComboBox.setItems(tp.getEducationCoordinatorItem()) ;
     }    
 
     @FXML
@@ -202,6 +192,7 @@ public class NeedsSceneFxmlController implements Initializable {
             dyyyy = Integer.parseInt(sdyyyy) ;
         }
         Date deadline = new Date(ddd , dmm , dyyyy) ;
+        amount = Integer.parseInt(amountTextField.getText()) ;
         System.out.println(rtn + "," + this.checkDate(apply, deadline)) ;
         if (rtn == true && this.checkDate(deadline, apply)) {
             RequestedItems req = user.request(user.getId() , user.getUserType() , name, amount, apply, deadline) ;
@@ -235,6 +226,7 @@ public class NeedsSceneFxmlController implements Initializable {
         
         return rtn ;
     }
+
         
     private ObservableList<RequestedItems> fileRead() {
         ObservableList<RequestedItems> studList = FXCollections.observableArrayList() ;

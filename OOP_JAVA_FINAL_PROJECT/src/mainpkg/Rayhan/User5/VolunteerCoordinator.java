@@ -50,7 +50,7 @@ public class VolunteerCoordinator extends User implements Serializable{
 
     @Override
     public String toString() {
-        return super.toString() + "volunteerAmount=" + volunteerAmount + ", volunteerOnWork=" + volunteerOnWork + ", volunteerFree=" + volunteerFree + '}';
+        return "VC " + super.toString() + "volunteerAmount=" + volunteerAmount + ", volunteerOnWork=" + volunteerOnWork + ", volunteerFree=" + volunteerFree + '}';
     }
     
     /**
@@ -89,10 +89,8 @@ public class VolunteerCoordinator extends User implements Serializable{
         return sir ;
     }
     
-    public boolean getRequestForVolunteer(int amount) {
-        if (this.getVolunteerFree() >= amount) {
-            this.setVolunteerOnWork(this.getVolunteerOnWork() + amount) ;
-            this.setVolunteerFree(this.getVolunteerFree() - amount) ;
+    public boolean getRequestForVolunteer(int vol , int amount) {
+        if (vol >= amount) {
             return true ;
         }
         return false ;

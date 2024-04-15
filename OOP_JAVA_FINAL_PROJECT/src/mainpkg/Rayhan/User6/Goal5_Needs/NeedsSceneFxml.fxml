@@ -12,32 +12,32 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rayhan.User6.Goal5_Needs.NeedsSceneFxmlController">
    <children>
-      <Button layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClick" prefHeight="50.0" prefWidth="100.0" text="Back">
+      <Button layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#backOnMouseClick" prefHeight="50.0" prefWidth="100.0" style="-fx-border-color: cyan;" text="Back" textFill="#530097">
          <font>
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Label layoutX="502.0" layoutY="100.0" text="Request">
+      <Label layoutX="502.0" layoutY="100.0" text="Request" textFill="#9059ff">
          <font>
             <Font name="Cooper Black" size="48.0" />
          </font>
       </Label>
-      <Label layoutX="173.0" layoutY="220.0" text="Item Name">
+      <Label layoutX="173.0" layoutY="220.0" text="Item Name" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="173.0" layoutY="264.0" text="Amount">
+      <Label layoutX="173.0" layoutY="264.0" text="Amount" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="641.0" layoutY="272.0" text="Date">
+      <Label layoutX="641.0" layoutY="272.0" text="Date" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="173.0" layoutY="321.0" text="Deadline">
+      <Label layoutX="173.0" layoutY="321.0" text="Deadline" textFill="#54bfc3">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
@@ -88,19 +88,13 @@
             <TableColumn fx:id="statusTableColumn" prefWidth="200.0" text="Status" />
          </columns>
       </TableView>
-      <Button layoutX="100.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#requestOnMouseClick" prefWidth="1000.0" text="Request">
+      <Button layoutX="100.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#requestOnMouseClick" prefWidth="1000.0" style="-fx-border-color: cyan;" text="Request" textFill="#530097">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="24.0" />
          </font>
       </Button>
-      <ComboBox fx:id="iComboBox" layoutX="282.0" layoutY="425.0" onMouseClicked="#checkOnMouseClick" prefHeight="31.0" prefWidth="271.0" />
-      <Label layoutX="198.0" layoutY="426.0" text="Item">
-         <font>
-            <Font name="Eras Bold ITC" size="24.0" />
-         </font>
-      </Label>
-      <CheckBox fx:id="acceptedCheckBox" layoutX="666.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#checkOnMouseClick" text="Accepted" />
-      <CheckBox fx:id="rejectedCheckBox" layoutX="800.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#checkOnMouseClick" text="Rejected" />
-      <CheckBox fx:id="pendingCheckBox" layoutX="924.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#checkOnMouseClick" text="Pending" />
+      <CheckBox fx:id="acceptedCheckBox" layoutX="432.0" layoutY="432.0" mnemonicParsing="false" onMouseClicked="#checkOnMouseClick" text="Accepted" textFill="#54bfc3" />
+      <CheckBox fx:id="rejectedCheckBox" layoutX="566.0" layoutY="432.0" mnemonicParsing="false" onMouseClicked="#checkOnMouseClick" text="Rejected" textFill="#54bfc3" />
+      <CheckBox fx:id="pendingCheckBox" layoutX="690.0" layoutY="432.0" mnemonicParsing="false" onMouseClicked="#checkOnMouseClick" text="Pending" textFill="#54bfc3" />
    </children>
 </AnchorPane>

@@ -67,14 +67,23 @@ public class DutySceneFxmlController implements Initializable {
      */
     public void set(SecurityIncharge u) {
         user = u ;
-        ObservableList<Volunteer> list = fileReadVC();
-        user.setVolunteerAmount(list.size()) ;
-        fVLabel1.setText(Integer.toString(user.getVolunteerFree())) ;
-        
+
+        tableShow() ;
     }
     
     public void tableShow() {
-        tVLabel.setText(Integer.toString(user.getVolunteerAmount())) ;
+        
+//        tVLabel.setText() ;
+
+        ObservableList<Volunteer> vlist = fileReadVC();
+        user.setVolunteerAmount(vlist.size()) ;
+        int f = 0 ;
+        for (Volunteer vc: vlist) {
+            if(vc.getStatus() == "Free") {
+                f++ ;
+            }
+        }
+        fVLabel1.setText(Integer.toString(f)) ;
         fVLabel1.setText(Integer.toString(user.getVolunteerFree())) ;
         
         ObservableList<Duty> list = fileRead();
@@ -168,7 +177,7 @@ public class DutySceneFxmlController implements Initializable {
         ObjectInputStream ois = null;
         
         try {
-            f = new File("src/File/VCVolunteer.bin");
+            f = new File("src/File/Duty.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             Duty st ;
@@ -201,7 +210,7 @@ public class DutySceneFxmlController implements Initializable {
         ObjectOutputStream oos = null;
         
         try {
-            f = new File("src/File/VCVolunteer.bin");
+            f = new File("src/File/Duty.bin");
             if(f.exists()){
                 fos = new FileOutputStream(f,true);
                 oos = new AppendableObjectOutputStream(fos);                

@@ -22,6 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.Date;
+import mainpkg.Rayhan.User5.DashBoard5SceneFxmlController;
 import mainpkg.Rayhan.User5.Goal4_VRequest.RequestedVolunteer;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
 
@@ -52,7 +53,8 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
      * Initializes the controller class.
      */
     
-    public void set() {
+    public void set(VolunteerCoordinator u) {
+        user = u ;
         tableShow() ;
     }
     
@@ -73,6 +75,7 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
                 }
             }
         }
+        
         else {
             reqList = list ;
         }
@@ -101,6 +104,9 @@ public class EmergencyRequestSceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/DashBoard5SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard5SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

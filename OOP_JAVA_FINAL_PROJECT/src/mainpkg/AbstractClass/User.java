@@ -9,7 +9,9 @@ import javafx.collections.ObservableList;
  *
  * @author RayhaN
  */
-public abstract class User implements Serializable {
+
+
+public abstract class User implements Serializable{
     int id ;
     String name , password , phoneNo , email , userType , gender , status = "Deactive" ;
     String dob ;

@@ -83,6 +83,7 @@ public class NeedsSceneFxmlController implements Initializable {
         ObservableList<RequestedItems> list =  fileRead() ;
         ObservableList<RequestedItems> rList = FXCollections.observableArrayList() ;
         ObservableList<RequestedItems> reqList = FXCollections.observableArrayList() ;
+        list = rList ;
 //        if (iComboBox.getValue() == null) {
 //            rList = list ;
 //        }
@@ -139,7 +140,7 @@ public class NeedsSceneFxmlController implements Initializable {
         
         itemComboBox.setItems(tp.getSecurityInchargeItem()) ;
         itemComboBox.setValue(tp.getSecurityInchargeItem().get(0)) ;
-        iComboBox.setItems(tp.getSecurityInchargeItem()) ;
+//        iComboBox.setItems(tp.getSecurityInchargeItem()) ;
     }    
 
     @FXML
@@ -204,7 +205,7 @@ public class NeedsSceneFxmlController implements Initializable {
             dyyyy = Integer.parseInt(sdyyyy) ;
         }
         Date deadline = new Date(ddd , dmm , dyyyy) ;
-        
+        amount = Integer.parseInt(amountTextField.getText()) ;
         if (rtn == true && this.checkDate(apply, deadline)) {
             RequestedItems req = user.request(user.getId() , user.getUserType() , name, amount, apply, deadline) ;
             fileWrite(req) ;
@@ -246,7 +247,7 @@ public class NeedsSceneFxmlController implements Initializable {
         ObjectInputStream ois = null;
         
         try {
-            f = new File("src/File/VCVolunteer.bin");
+            f = new File("src/File/RequestedItems.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             RequestedItems st ;

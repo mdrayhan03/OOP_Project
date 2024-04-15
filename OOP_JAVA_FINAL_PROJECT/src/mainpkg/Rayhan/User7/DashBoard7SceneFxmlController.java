@@ -17,6 +17,7 @@ import mainpkg.Rayhan.User7.Goal1_Volunteer.VolunteerInfoSceneFxmlController;
 import mainpkg.Rayhan.User7.Goal2_Refugee.RefugeeInfoSceneFxmlController;
 import mainpkg.Rayhan.User7.Goal3_Notice.GetNoticeSceneFxmlController;
 import mainpkg.Rayhan.User7.Goal4_Needs.NeedsSceneFxmlController;
+import mainpkg.Rayhan.User7.Goal5_CrimeFacts.CrimeFactsSceneFxmlController;
 import mainpkg.Rayhan.User7.Goal6_Duty.DutySceneFxmlController;
 import mainpkg.Rayhan.User7.Goal7_Holiday.HolidaySceneFxmlController;
 import mainpkg.Rayhan.User7.Profile.ProfileSceneFxmlController;
@@ -197,7 +198,19 @@ public class DashBoard7SceneFxmlController implements Initializable {
     }
 
     @FXML
-    private void crimeFactsOnMouseClick(MouseEvent event) {
+    private void crimeFactsOnMouseClick(MouseEvent event) throws IOException {
+        Parent root = null ;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User7/Goal5_CrimeFacts/CrimeFactsSceneFxml.fxml")) ;
+        root = (Parent) myLoader.load() ;
+        Scene myScene = new Scene(root) ;
+        
+        CrimeFactsSceneFxmlController psc = myLoader.getController() ;
+        psc.set(user) ;
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
+        stage.setScene(myScene) ;
+        stage.setTitle("Security Incharge Report") ;
+        stage.show() ;
     }
     
 }

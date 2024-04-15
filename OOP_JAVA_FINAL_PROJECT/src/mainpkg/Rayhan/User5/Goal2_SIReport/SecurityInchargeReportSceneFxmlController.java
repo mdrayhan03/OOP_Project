@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 import mainpkg.AbstractClass.AppendableObjectOutputStream;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rayhan.User5.DashBoard5SceneFxmlController;
 import mainpkg.Rayhan.User5.Goal1_Volunteer.Volunteer;
 import mainpkg.Rayhan.User5.Goal1_Volunteer.VolunteerInfoSceneFxmlController;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
@@ -58,7 +59,7 @@ public class SecurityInchargeReportSceneFxmlController implements Initializable 
      * @param rb
      */
     
-    public User get() {
+    public VolunteerCoordinator get() {
         return user ;
     }
     
@@ -85,6 +86,9 @@ public class SecurityInchargeReportSceneFxmlController implements Initializable 
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User5/DashBoard5SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard5SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

@@ -91,26 +91,26 @@ public class CampaignSceneFxmlController implements Initializable {
         ObservableList<Campaign> reqList = FXCollections.observableArrayList() ;
         if (acceptedCheckBox.isSelected()) {
             for (Campaign rv : table) {
-                if (rv.getStatus() == "Accepted") {
+                if ("Accepted".equals(rv.getStatus())) {
                     reqList.add(rv) ;
                 }
             }
         }
         if (rejectedCheckBox.isSelected()) {
             for (Campaign rv : table) {
-                if (rv.getStatus() == "Rejected") {
+                if ("Rejected".equals(rv.getStatus())) {
                     reqList.add(rv) ;
                 }
             }
         }
         if (pendingCheckBox.isSelected()) {
             for (Campaign rv : table) {
-                if (rv.getStatus() == "Pending") {
+                if ("Pending".equals(rv.getStatus())) {
                     reqList.add(rv) ;
                 }
             }
         }
-        else {
+        if (acceptedCheckBox.isSelected() && pendingCheckBox.isSelected() && rejectedCheckBox.isSelected() || !acceptedCheckBox.isSelected() && !pendingCheckBox.isSelected() && !rejectedCheckBox.isSelected()) {
             reqList = table ;
         }
         campaignTableView.setItems(reqList) ;
@@ -121,7 +121,7 @@ public class CampaignSceneFxmlController implements Initializable {
         timeComboBox.setItems(tp.getCampaignTime()) ;
         placeComboBox.setItems(tp.getCampaignPlace()) ;
         idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id")) ;
-        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<>("reason")) ;
+        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<>("subject")) ;
         dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("date")) ;
         timeTableColumn.setCellValueFactory(new PropertyValueFactory<>("time")) ;
         placeTableColumn.setCellValueFactory(new PropertyValueFactory<>("place")) ;

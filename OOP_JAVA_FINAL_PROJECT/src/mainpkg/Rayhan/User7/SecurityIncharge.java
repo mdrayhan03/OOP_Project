@@ -12,6 +12,7 @@ import mainpkg.Rayhan.User5.Goal1_Volunteer.Volunteer;
 import mainpkg.Rayhan.User5.Goal8_Report.Report;
 import mainpkg.Rayhan.User5.VolunteerCoordinator;
 import mainpkg.Rayhan.User7.Goal3_Notice.Notice;
+import mainpkg.Rayhan.User7.Goal5_CrimeFacts.CrimeFact;
 import mainpkg.Rayhan.User7.Goal6_Duty.Duty;
 
 /**
@@ -89,7 +90,10 @@ public class SecurityIncharge extends User implements Serializable {
         }
         return null ;
     }
-//+crimeFacts():void    
+    public CrimeFact addCrimeFact(String reporterName ,String des ,Integer id) {
+        CrimeFact cf = new CrimeFact(reporterName , des , id)   ;
+        return cf ;
+    }
     public Notice notice(String id , ObservableList<Notice> l) {
         for (Notice nc: l) {
             if (nc.getId() == id) {

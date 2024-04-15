@@ -49,9 +49,12 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
     @FXML    private Label totalLabel;
     @FXML    private Label freeLabel;
     @FXML    private Label workLabel;
+    @FXML    private CheckBox workCheckBox;
+    @FXML    private CheckBox freeCheckBox;
     
     Alert alert ;
     VolunteerCoordinator user ;
+
 
     
 
@@ -69,18 +72,49 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
     
     public void set(VolunteerCoordinator u) {
         user = u ;
+        System.out.println(user) ;
         tableShow() ;
     }
     
     public void tableShow() {
-        volunteerInfoTableView.getItems().clear() ; 
-        totalLabel.setText(Integer.toString(user.getVolunteerAmount())) ;
-        freeLabel.setText(Integer.toString(user.getVolunteerFree())) ;
-        workLabel.setText(Integer.toString(user.getVolunteerOnWork())) ;
         ObservableList<Volunteer> list = fileRead() ;
+        volunteerInfoTableView.getItems().clear() ; 
+        totalLabel.setText(Integer.toString(list.size())) ;
+        int work = 0 , free = 0;
+        for (Volunteer vn: list) {
+            if ("Work".equals(vn.getStatus())) {
+                work++ ;
+            }
+            else if ("Free".equals(vn.getStatus())) {
+                free++ ;           
+            }
+        }
+        freeLabel.setText(Integer.toString(free)) ;
+        workLabel.setText(Integer.toString(work)) ;
+        ObservableList<Volunteer> rlist = FXCollections.observableArrayList() ;
         
-       System.out.println(list) ;
-       volunteerInfoTableView.setItems(list) ;
+        if (workCheckBox.isSelected()) {
+            for (Volunteer vc : list) {
+                if("Work".equals(vc.getStatus())) {
+                    rlist.add(vc) ;
+                }
+            }
+        }
+        
+        if (freeCheckBox.isSelected()) {
+            for (Volunteer vc : list) {
+                if("Free".equals(vc.getStatus())) {
+                    rlist.add(vc) ;
+                }
+            }
+        }
+        
+        if (workCheckBox.isSelected() && freeCheckBox.isSelected() || !workCheckBox.isSelected() && !freeCheckBox.isSelected()) {
+            rlist = list ;
+        }
+        
+       System.out.println(rlist) ;
+       volunteerInfoTableView.setItems(rlist) ;
     }
     
     @Override
@@ -90,6 +124,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("name")) ;
         pNTableColumn.setCellValueFactory(new PropertyValueFactory<>("phoneN")) ;
         addedByTableColumn.setCellValueFactory(new PropertyValueFactory<>("addedBy")) ;
+        statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status")) ;
     }    
 
     @FXML
@@ -100,7 +135,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
         Scene myScene = new Scene(root) ;
         
         DashBoard5SceneFxmlController dsc = myLoader.getController() ;
-        dsc.set(user) ;
+        dsc.set(this.get()) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;
@@ -137,7 +172,7 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
             fileWrite(vc) ;
             tableShow() ;
             nameTextField.clear() ;
-        pNTextField.clear() ;
+            pNTextField.clear() ;
         }       
     }
             
@@ -202,6 +237,11 @@ public class VolunteerInfoSceneFxmlController implements Initializable {
                 Logger.getLogger(VolunteerInfoSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }                
+    }
+
+    @FXML
+    private void checkBoxOnMouseClick(MouseEvent event) {
+        tableShow() ;
     }
 
     

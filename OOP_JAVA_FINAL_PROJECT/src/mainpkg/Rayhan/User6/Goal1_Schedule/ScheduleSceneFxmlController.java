@@ -1,8 +1,15 @@
 package mainpkg.Rayhan.User6.Goal1_Schedule;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,11 +26,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.AppendableObjectOutputStream;
 import mainpkg.AbstractClass.Date;
 import mainpkg.AbstractClass.Time_Place;
 import mainpkg.Rayhan.User5.Goal4_VRequest.RequestedVolunteer;
 import mainpkg.Rayhan.User6.DashBoard6SceneFxmlController;
 import mainpkg.Rayhan.User6.EducationCoordinator;
+import mainpkg.Rayhan.User6.Goal2_Teacher.Teacher;
 
 /**
  * FXML Controller class
@@ -47,7 +56,7 @@ public class ScheduleSceneFxmlController implements Initializable {
     @FXML    private TableColumn<Schedule , String> placeTableColumn;
     @FXML    private TableColumn<Schedule , Date> dateTableColumn;
     
-    ObservableList<Schedule> list = FXCollections.observableArrayList() ;
+    
     Time_Place tm = new Time_Place() ;
     Alert alert ;
     EducationCoordinator user ;
@@ -63,9 +72,15 @@ public class ScheduleSceneFxmlController implements Initializable {
     
     public void set(EducationCoordinator u) {
         user = u ;
+        tableShow() ;
     }
     
     public void tableShow() {
+        ObservableList<Teacher> tclist = fileReadTC() ;
+        for (Teacher tc: tclist) {
+            teacherIdComboBox.getItems().add(tc.getId()) ;
+        }
+        ObservableList<Schedule> list = fileRead() ;
         scheduleTableView.setItems(list) ;
     }
     
@@ -138,10 +153,107 @@ public class ScheduleSceneFxmlController implements Initializable {
         
         if (rtn == true) {
             Schedule sc = user.maintainSchedule(teacherId, teacherName, courseId, courseName, time, place, date) ;
-//            fileWrite() ;
+            fileWrite(sc) ;
         }
+        tableShow() ;
         
     }
     
+    private ObservableList<Schedule> fileRead() {
+        ObservableList<Schedule> studList = FXCollections.observableArrayList() ;
+        
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        
+        try {
+            f = new File("src/File/Schedule.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            Schedule st ;
+            try {
+                while(true){
+                    st = (Schedule)ois.readObject();
+//                    System.out.println(st);
+                    studList.add(st) ;
+                }
+            }//end of nested try
+            catch(Exception e){
+                // handling code
+            }//nested catch     
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
+        } 
+        finally {
+            try {
+                
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }           
+        
+        return studList ;
+    }
     
+    private void fileWrite(Schedule stu) {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
+        
+        try {
+            f = new File("src/File/VCVolunteer.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(stu);
+
+        } catch (IOException ex) {
+            Logger.getLogger(ScheduleSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if(oos != null) oos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(ScheduleSceneFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }                
+    }
+    
+      private ObservableList<Teacher> fileReadTC() {
+        ObservableList<Teacher> studList = FXCollections.observableArrayList() ;
+        
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        
+        try {
+            f = new File("src/File/Teacher.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            Teacher st ;
+            try {
+                while(true){
+                    st = (Teacher)ois.readObject();
+//                    System.out.println(st);
+                    studList.add(st) ;
+                }
+            }//end of nested try
+            catch(Exception e){
+                // handling code
+            }//nested catch     
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
+        } 
+        finally {
+            try {
+                
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }           
+        
+        return studList ;
+    }
 }

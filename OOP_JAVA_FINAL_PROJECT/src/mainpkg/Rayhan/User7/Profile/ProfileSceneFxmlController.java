@@ -14,6 +14,8 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.AbstractClass.User;
+import mainpkg.Rayhan.User7.DashBoard7SceneFxmlController;
+import mainpkg.Rayhan.User7.SecurityIncharge;
 
 /**
  * FXML Controller class
@@ -30,7 +32,7 @@ public class ProfileSceneFxmlController implements Initializable {
     @FXML    private Label emailLabel;
     @FXML    private Label genderLabel;
     
-    User user ;
+    SecurityIncharge user ;
    
 
     /**
@@ -39,11 +41,11 @@ public class ProfileSceneFxmlController implements Initializable {
      * @param rb
      */
     
-    public User get() {
+    public SecurityIncharge get() {
         return user ;
     }
     
-    public void set(User u) {
+    public void set(SecurityIncharge u) {
         user = u ;
         statusLabel.setText(user.getStatus()) ;
         nameLabel.setText(user.getName()) ;
@@ -65,6 +67,9 @@ public class ProfileSceneFxmlController implements Initializable {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/mainpkg/Rayhan/User7/DashBoard7SceneFxml.fxml")) ;
         root = (Parent) myLoader.load() ;
         Scene myScene = new Scene(root) ;
+        
+        DashBoard7SceneFxmlController dsc = myLoader.getController() ;
+        dsc.set(user) ;
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow() ;
         stage.setScene(myScene) ;

@@ -13,6 +13,8 @@ import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.Date;
+import mainpkg.Rasel.CampManager.Goal5_Supply.FoodInfo;
 
 /**
  * FXML Controller class
@@ -29,13 +31,19 @@ public class ViewCampInfoController implements Initializable {
     private Label totalRefugeeLabel;
     @FXML
     private Label currentfoodStockLabel;
-
-    /**
-     * Initializes the controller class.
-     */
+    
+    private CampCapacity campCapacity;
+    private FoodInfo foodInfo;
+    FoodInfo foodInfo2; 
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        campCapacity = new CampCapacity(500, 100);
+        
+        foodInfo = new FoodInfo(1000, "Rice", new Date(2024, 4, 13), new Date(2024, 12, 31));
+       
+        foodInfo2 = new FoodInfo(3000, "Potato", new Date(2024, 4, 10), new Date(2024, 6, 31));
+        updateLabels();
     }    
 
     @FXML
@@ -48,5 +56,21 @@ public class ViewCampInfoController implements Initializable {
     stage.setScene(myScene);
     stage.show();
     }
+    
+    private void updateLabels() {
+        campCapacityLabel.setText(Integer.toString(campCapacity.getMaxCapacity()));
+        
+        String totalRefugees = Integer.toString(campCapacity.getCurrentOccupants());
+        totalRefugeeLabel.setText(totalRefugees);
+        
+        String foodStock = Integer.toString(foodInfo.getFoodStock());
+        String foodStock2 = Integer.toString(foodInfo2.getFoodStock());
+        currentfoodStockLabel.setText("Name: "+foodInfo.getFoodName()+" - "+foodStock+"\n"+"Name: "+foodInfo2.getFoodName()+" - "+foodStock2);
+        
+        float[] totalRefugee = campCapacity.refugeePercentage();
+        refugeePieChart.getData().add(new PieChart.Data("Male", totalRefugee[0]));
+        refugeePieChart.getData().add(new PieChart.Data("Female", totalRefugee[1]));
+    }
+    
     
 }

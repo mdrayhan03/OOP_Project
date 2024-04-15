@@ -11,7 +11,7 @@
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rasel.CampManager.CampManagerDashboardSceneController">
    <children>
       <Button layoutX="14.0" layoutY="199.0" mnemonicParsing="false" onAction="#goSecurityPageOnButtonClick" prefHeight="49.0" prefWidth="102.0" text="Security" textFill="#e00000" />
-      <Label layoutX="175.0" layoutY="29.0" prefHeight="49.0" prefWidth="263.0" style="-fx-border-color: black;" text="  Welcome To Camp Manager Dashboard" textAlignment="CENTER" textFill="#d71111">
+      <Label layoutX="175.0" layoutY="12.0" prefHeight="40.0" prefWidth="263.0" style="-fx-border-color: black;" text="  Welcome To Camp Manager Dashboard" textAlignment="CENTER" textFill="#d71111">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -24,7 +24,7 @@
       <Button layoutX="498.0" layoutY="119.0" mnemonicParsing="false" onAction="#ManageRequestsOnButtonClick" prefHeight="49.0" prefWidth="102.0" text="Manage Requests" textAlignment="CENTER" textFill="#e00000" wrapText="true" />
       <Button layoutX="498.0" layoutY="266.0" mnemonicParsing="false" onAction="#showComplaintsOnButtonClick" prefHeight="49.0" prefWidth="102.0" text="Show Complaints" textAlignment="CENTER" textFill="#e00000" wrapText="true" />
       <Button layoutX="498.0" layoutY="196.0" mnemonicParsing="false" onAction="#refugeeRegistrationOnButtonClick" prefHeight="56.0" prefWidth="102.0" text="Refugee Registration" textAlignment="CENTER" textFill="#e00000" wrapText="true" />
-      <ImageView fitHeight="353.0" fitWidth="353.0" layoutX="130.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="356.0" fitWidth="334.0" layoutX="136.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@CampIcon.jpg" />
          </image>
@@ -36,5 +36,23 @@
             <Font name="Arial Black" size="14.0" />
          </font>
       </Label>
+      <Label layoutX="236.0" layoutY="60.0" prefHeight="32.0" prefWidth="39.0" text="ID:" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="59.0" prefHeight="32.0" prefWidth="62.0" text="Name:" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="397.0" layoutY="60.0" prefHeight="32.0" prefWidth="83.0" text="UserType:" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="nameLabel" layoutX="85.0" layoutY="60.0" prefHeight="40.0" prefWidth="129.0" text="Label" />
+      <Label fx:id="idLabel" layoutX="265.0" layoutY="60.0" prefHeight="32.0" prefWidth="110.0" text="Label" />
+      <Label fx:id="userTypeLabel" layoutX="490.0" layoutY="56.0" prefHeight="40.0" prefWidth="141.0" text="Label" />
    </children>
 </AnchorPane>

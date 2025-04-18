@@ -17,23 +17,34 @@ import mainpkg.AbstractClass.Date;
  * @author HP
  */
 public class Food implements Serializable {
-    String id,name;
-    Integer quantity;
+    int id ;
+    String userType ;
+    String name;
+    int amount;
     Date date;
 
-    public Food(String id, String name, Integer quantity, Date date) {
+    public Food(int id, String userType, String name, int amount, Date date) {
         this.id = id;
+        this.userType = userType;
         this.name = name;
-        this.quantity = quantity;
+        this.amount = amount;
         this.date = date;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     public String getName() {
@@ -44,12 +55,12 @@ public class Food implements Serializable {
         this.name = name;
     }
 
-    public Integer getQuantity() {
-        return quantity;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public Date getDate() {
@@ -62,11 +73,10 @@ public class Food implements Serializable {
 
     @Override
     public String toString() {
-        return "Food{" + "id=" + id + ", name=" + name + ", quantity=" + quantity + ", date=" + date + '}';
+        return "Food{" + "id=" + id + ", userType=" + userType + ", name=" + name + ", amount=" + amount + ", date=" + date + '}';
     }
-
-   
     
+
 
 
     private String generateId() {

@@ -7,25 +7,31 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.input.MouseEvent;
+import mainpkg.AbstractClass.User;
 
 /**
  * FXML Controller class
  *
  * @author RayhaN
  */
+
 public class ChangePWSceneFxmlController implements Initializable {
 
     @FXML    private PasswordField oldPasswordField;
     @FXML    private PasswordField newPasswordField;
     @FXML    private PasswordField confirmPasswordField;
     
+    User user ;
     Alert alert ;
 
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
+    
+    public User get() {
+        return user ;
+    }
+    
+    public void set(User u) {
+        user = u ;
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

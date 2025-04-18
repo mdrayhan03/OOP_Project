@@ -9,11 +9,16 @@ import javafx.collections.ObservableList;
  *
  * @author RayhaN
  */
+
+
 public abstract class User implements Serializable{
     int id ;
     String name , password , phoneNo , email , userType , gender , status = "Deactive" ;
     String dob ;
     ObservableList<Holiday> holidayList ;
+    
+    public User(){
+    }
 
     public User(int id, String name, String password, String phoneNo, String email, String userType, String gender, String dob) {
         this.id = id;

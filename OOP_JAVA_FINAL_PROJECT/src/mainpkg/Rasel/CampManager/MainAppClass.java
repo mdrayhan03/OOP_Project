@@ -11,8 +11,8 @@ public class MainAppClass extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        //Parent root = FXMLLoader.load(getClass().getResource("CampManagerDashboardScene.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("Goal3_CampRules/CampRulesScene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("CampManagerDashboardScene.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("Goal3_CampRules/CampRulesScene.fxml"));
         
         Scene scene = new Scene(root);
         

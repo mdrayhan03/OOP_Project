@@ -10,7 +10,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import mainpkg.AbstractClass.User;
 
 /**
  * FXML Controller class
@@ -19,9 +22,26 @@ import javafx.stage.Stage;
  */
 public class RefugeeDashboardSceneController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private Label idLabel;
+    @FXML
+    private Label userTypeLabel;
+    
+    Alert alert ;
+    Refugee user;
+    
+    public User get() {
+        return user ;
+    }
+    
+     public void set(Refugee u) {
+        user = u ;
+        nameLabel.setText(user.getName());
+        userTypeLabel.setText(user.getUserType());
+        idLabel.setText(Integer.toString(user.getId()));
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

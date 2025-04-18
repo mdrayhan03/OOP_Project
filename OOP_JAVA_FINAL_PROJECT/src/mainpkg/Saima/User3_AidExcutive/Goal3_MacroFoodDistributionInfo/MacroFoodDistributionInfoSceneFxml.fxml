@@ -23,36 +23,16 @@
       </Button>
       <BarChart fx:id="barChart" layoutX="51.0" layoutY="236.0" title="Distribution Chart">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis label="Carbohydrate         Protein              Fat" prefHeight="44.0" prefWidth="438.0" side="BOTTOM" fx:id="xAxis" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="yAxis" label="Distribution in Percentage" prefHeight="302.0" prefWidth="42.0" side="LEFT" />
         </yAxis>
       </BarChart>
       <PieChart fx:id="PieChart" layoutX="626.0" layoutY="236.0" title="Ratio of  Macro Food Distribution  " />
       <Label layoutX="216.0" layoutY="684.0" prefHeight="33.0" prefWidth="216.0" style="-fx-border-color: black;" text="Macro Food Name">
          <font>
             <Font name="Eras Demi ITC" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="301.0" layoutY="636.0" prefHeight="33.0" prefWidth="90.0" text="Protein">
-         <font>
-            <Font name="Eras Demi ITC" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="92.0" layoutY="636.0" prefHeight="33.0" prefWidth="163.0" text="Carbohydrate">
-         <font>
-            <Font name="Eras Demi ITC" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="432.0" layoutY="636.0" prefHeight="33.0" prefWidth="42.0" text="Fat">
-         <font>
-            <Font name="Eras Demi ITC" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="-119.0" layoutY="445.0" prefHeight="33.0" prefWidth="319.0" rotate="-90.0" text="Distributiton in Percentage">
-         <font>
-            <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Label>
       <Label layoutX="728.0" layoutY="667.0" prefHeight="33.0" prefWidth="268.0" style="-fx-border-color: black;" text="Distribution Pie Chart">

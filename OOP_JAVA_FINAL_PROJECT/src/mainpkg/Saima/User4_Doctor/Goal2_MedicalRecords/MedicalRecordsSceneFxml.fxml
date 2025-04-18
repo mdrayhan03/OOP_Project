@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.Saima.User4_Doctor.Goal2_MedicalRecords.MedicalRecordsSceneFxmlController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Saima.User4_Doctor.Goal2_MedicalRecords.MedicalRecordsSceneFxmlController">
    <children>
       <Label layoutX="419.0" layoutY="64.0" prefHeight="55.0" prefWidth="527.0" text="Medical Records Info">
          <font>
@@ -19,12 +18,12 @@
             <Font name="Cooper Black" size="24.0" />
          </font>
       </Button>
-      <Label layoutX="34.0" layoutY="198.0" prefHeight="28.0" prefWidth="153.0" text="Refugee ID:">
+      <Label layoutX="34.0" layoutY="198.0" prefHeight="28.0" prefWidth="137.0" text="Patient ID:">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />
          </font>
       </Label>
-      <ComboBox fx:id="refugeeIdComboBox" layoutX="179.0" layoutY="188.0" prefHeight="50.0" prefWidth="200.0" />
+      <ComboBox fx:id="patientIdComboBox" layoutX="179.0" layoutY="188.0" onMouseClicked="#redugeeIdMouseOnClicked" prefHeight="50.0" prefWidth="200.0" />
       <Label layoutX="34.0" layoutY="310.0" prefHeight="28.0" prefWidth="100.0" text="Gender:">
          <font>
             <Font name="Eras Bold ITC" size="24.0" />

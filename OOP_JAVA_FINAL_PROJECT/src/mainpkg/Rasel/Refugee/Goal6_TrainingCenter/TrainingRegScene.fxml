@@ -9,8 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.Rasel.Refugee.Goal6_TrainingCenter.TrainingRegSceneController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rasel.Refugee.Goal6_TrainingCenter.TrainingRegSceneController">
    <children>
       <Label layoutX="245.0" layoutY="24.0" text="Training Registration" textFill="RED">
          <font>
@@ -25,10 +24,10 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox layoutX="264.0" layoutY="100.0" onAction="#selectTrainingCB" prefHeight="36.0" prefWidth="170.0" />
-      <TextField layoutX="263.0" layoutY="146.0" onAction="#trainingRegNameTF" prefHeight="36.0" prefWidth="170.0" />
-      <RadioButton layoutX="264.0" layoutY="251.0" mnemonicParsing="false" onAction="#trainingGenderMaleRadioButton" text="Male" />
-      <RadioButton layoutX="348.0" layoutY="251.0" mnemonicParsing="false" onAction="#trainingGenderFemaleRadioButton" text="Female" />
+      <ComboBox fx:id="selectTrainingCB" layoutX="264.0" layoutY="100.0" prefHeight="36.0" prefWidth="170.0" />
+      <TextField fx:id="trainingRegNameTF" layoutX="263.0" layoutY="146.0" prefHeight="36.0" prefWidth="170.0" />
+      <RadioButton fx:id="trainingGenderMaleRadioButton" layoutX="264.0" layoutY="251.0" mnemonicParsing="false" text="Male" />
+      <RadioButton fx:id="trainingGenderFemaleRadioButton" layoutX="348.0" layoutY="251.0" mnemonicParsing="false" text="Female" />
       <Label layoutX="31.0" layoutY="152.0" text="Name:" textFill="RED">
          <font>
             <Font size="18.0" />
@@ -39,13 +38,13 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="263.0" layoutY="193.0" onAction="#trainingRegRefugeeIdTF" prefHeight="36.0" prefWidth="170.0" />
+      <TextField fx:id="trainingRegRefugeeIdTF" layoutX="263.0" layoutY="193.0" prefHeight="36.0" prefWidth="170.0" />
       <Label layoutX="32.0" layoutY="248.0" text="Gender:" textFill="RED">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <RadioButton layoutX="434.0" layoutY="251.0" mnemonicParsing="false" onAction="#trainingGenderOthersRadioButton" text="Others" />
+      <RadioButton fx:id="trainingGenderOthersRadioButton" layoutX="434.0" layoutY="251.0" mnemonicParsing="false" text="Others" />
       <Button layoutX="266.0" layoutY="299.0" mnemonicParsing="false" onAction="#trainingRegistrationOnButtonClick" prefHeight="57.0" prefWidth="98.0" text="Registration" textFill="#ff0202">
          <font>
             <Font size="14.0" />

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.shape.Line?>
@@ -13,11 +15,28 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Line endX="100.0" layoutX="300.0" startX="-100.0" />
-            <Button layoutX="149.0" layoutY="227.0" mnemonicParsing="false" onAction="#sendAlertSecurityOnButtonClick" prefHeight="50.0" prefWidth="157.0" text="Send Alert To Security Incharge" textAlignment="CENTER" textFill="#e10a0a" wrapText="true" />
-            <TextArea fx:id="emergencyAlertTextArea" layoutX="112.0" layoutY="14.0" prefHeight="200.0" prefWidth="403.0" />
-            <Button layoutX="333.0" layoutY="227.0" mnemonicParsing="false" onAction="#sendAlertVolunteerOnButtonClick" prefHeight="50.0" prefWidth="157.0" text="Send Alert To Volunteer Coordinator" textAlignment="CENTER" textFill="#e80000" wrapText="true" />
-            <Line endX="72.0" endY="-26.0" layoutX="246.0" layoutY="305.0" startX="72.0" startY="-80.0" />
+            <Button layoutX="181.0" layoutY="224.0" mnemonicParsing="false" onAction="#sendAlertSecurityOnButtonClick" prefHeight="54.0" prefWidth="129.0" text="Send Alert To Security Incharge" textAlignment="CENTER" textFill="#e10a0a" wrapText="true" />
+            <TextArea fx:id="emergencyAlertTextArea" layoutX="164.0" layoutY="117.0" prefHeight="98.0" prefWidth="323.0" />
+            <Button layoutX="333.0" layoutY="226.0" mnemonicParsing="false" onAction="#sendAlertVolunteerOnButtonClick" prefHeight="51.0" prefWidth="147.0" text="Send Alert To Volunteer Coordinator" textAlignment="CENTER" textFill="#e80000" wrapText="true" />
+            <Line endX="72.0" endY="-26.0" layoutX="249.0" layoutY="305.0" startX="72.0" startY="-80.0" />
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#AlertSystemBackButton" prefHeight="32.0" prefWidth="55.0" text="Back" />
+            <Label layoutX="85.0" layoutY="35.0" prefHeight="23.0" prefWidth="85.0" text="Subject:" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="85.0" layoutY="81.0" prefHeight="23.0" prefWidth="61.0" text="Date:" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="85.0" layoutY="158.0" prefHeight="23.0" prefWidth="73.0" text="Subject:" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="subjectTextField" layoutX="163.0" layoutY="33.0" />
+            <DatePicker fx:id="alertDate" layoutX="163.0" layoutY="79.0" />
          </children>
       </AnchorPane>
    </center>

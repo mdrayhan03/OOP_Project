@@ -29,8 +29,9 @@ import mainpkg.AbstractClass.User;
 import mainpkg.Rasel.CampManager.CampManager;
 import mainpkg.Rasel.CampManager.CampManagerDashboardSceneController;
 
-import mainpkg.Rasel.Refugee.Refugee;
+
 import mainpkg.Rasel.Refugee.RefugeeDashboardSceneController;
+import mainpkg.Rasel.Refugee.Refugee;
 
 import mainpkg.Rayhan.User5.DashBoard5SceneFxmlController;
 import mainpkg.Rayhan.User5.Profile.ProfileSceneFxmlController;
@@ -98,6 +99,7 @@ public class LoginSceneFxmlController implements Initializable {
        
         
        
+
         AidExcutive aE = new  AidExcutive(3300000, "Saima Sinthiye" , "asd11111" , "01312961700" , "saima@gmail.com" , "AidExcutive" , "Female" , "04/04/2003") ;
         aeList.add(aE);
         Doctor doc = new Doctor(1100000, "Ahad" , "11111asd" , "01312961739" , "ahad@gmail.com" , "Doctor" , "Male" , "04/04/2003") ;
@@ -614,6 +616,4 @@ public class LoginSceneFxmlController implements Initializable {
         
         return studList ;
     }
-    
-    
 }

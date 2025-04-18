@@ -11,7 +11,7 @@
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.Rasel.Refugee.RefugeeDashboardSceneController">
    <children>
       <Button layoutX="14.0" layoutY="199.0" mnemonicParsing="false" onAction="#refugeeComplaintManagerSceneButtonClick" prefHeight="49.0" prefWidth="102.0" text="Complaint to manager" textAlignment="CENTER" textFill="#e00000" wrapText="true" />
-      <Label layoutX="225.0" layoutY="71.0" prefHeight="49.0" prefWidth="204.0" style="-fx-border-color: black;" text="  Welcome to Refugee Dashboard" textAlignment="CENTER" textFill="#d71111">
+      <Label layoutX="225.0" layoutY="21.0" prefHeight="37.0" prefWidth="204.0" style="-fx-border-color: black;" text="  Welcome to Refugee Dashboard" textAlignment="CENTER" textFill="#d71111">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -35,5 +35,23 @@
             <Image url="@refugeeCamp.jpg" />
          </image>
       </ImageView>
+      <Label layoutX="20.0" layoutY="73.0" prefHeight="24.0" prefWidth="54.0" text="Name:" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="415.0" layoutY="73.0" prefHeight="24.0" prefWidth="83.0" text="UserType:" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="242.0" layoutY="73.0" prefHeight="24.0" prefWidth="30.0" text="ID:" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="nameLabel" layoutX="73.0" layoutY="68.0" prefHeight="37.0" prefWidth="160.0" text="Label" />
+      <Label fx:id="idLabel" layoutX="276.0" layoutY="70.0" prefHeight="31.0" prefWidth="131.0" text="Label" />
+      <Label fx:id="userTypeLabel" layoutX="498.0" layoutY="68.0" prefHeight="37.0" prefWidth="147.0" text="Label" />
    </children>
 </AnchorPane>
